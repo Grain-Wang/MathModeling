@@ -1,0 +1,29 @@
+name: math_modeling
+
+# Direct dependencies captured from the working environment on 2026-09-04.
+# Transitive packages are resolved by Conda; no machine-specific prefix is stored.
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11.11
+  - pip=26.0.1
+  - ipykernel=7.2.0
+  - numpy=2.4.4
+  - pandas=3.0.2
+  - scipy=1.17.1
+  - scikit-learn=1.7.1
+  - matplotlib=3.11.0
+  - openpyxl=3.1.5
+  - xlrd=2.0.2
+  - pymupdf=1.28.0
+  - python-docx=1.2.0
+  - bibtexparser=1.4.4
+  - jsonschema=4.26.0
+  - pyyaml=6.0.3
+  - python-dotenv=1.2.3
+  - requests=2.34.2
+  - conda-lock=4.0.2
+  - pip:
+      - opencv-python==4.13.0.92
