@@ -1,0 +1,8 @@
+# Local competition datasets and attachments.
+# Keep these files on disk; commit manifests/checksums instead.
+/projects/**/problem/data/**
+/projects/**/problem/attachments/**
+
+# The 2024 C attachments are currently stored under src/.
+# Ignore only spreadsheets so source code in src/ remains trackable.
+/projects/rehearsal_2024_C/src/*.xlsx
