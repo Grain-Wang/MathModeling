@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "plan_version": "s2-v1",
+  "project": "rehearsal_2024_C",
+  "environment": "math_modeling",
+  "seeds": {
+    "global": 20240920,
+    "bootstrap": 20240921,
+    "optimization_stability": 20240922
+  },
+  "input_hashes": {
+    "problem/数据驱动下磁性元件的磁芯损耗建模.docx": "3268B0B7A1A3CCC5E72CC1490F7389063A7DF35E35D307228E952504054E1EC8",
+    "src/附件一（训练集）.xlsx": "C16AEE712BC0AD480B5285F17FA7FA57A5E22A1901D4A6ADB0A1EB83ECFB7FFC",
+    "src/附件二（测试集）.xlsx": "B46A4BF69331A41D4CF6190C97906914619C76335BEF43EF37BA148CD99FC66C",
+    "src/附件三（测试集）.xlsx": "8C403B8D7717E42567EC7C6DEC204FEFF87023B83D45B87EC0C983C53A2D929A",
+    "src/附件四（Excel表）.xlsx": "D8FDFFDF63839F7B40D5DD87BE6923AF04AD1D52180072A47C5B4DF70832C1C8"
+  },
+  "feature_contract": {
+    "version": "wave-v1",
+    "waveform_points": 1024,
+    "b_peak_primary": "max_abs",
+    "b_peak_sensitivity": "peak_to_peak_over_2",
+    "plateau_relative_slope_threshold": 0.05,
+    "fft_harmonics": 10,
+    "shape_block_count": 64
+  },
+  "validation_contract": {
+    "version": "group-v1",
+    "outer_folds_target": 5,
+    "outer_folds_fallback": [4, 3],
+    "inner_folds": 3,
+    "near_shape_quantization": [0.02, 0.01, 0.005],
+    "log10_frequency_bin_width": 0.1,
+    "log10_b_peak_bin_width": 0.1,
+    "allow_random_row_split_for_selection": false
+  },
+  "metrics": {
+    "q1_primary": "macro_f1",
+    "q1_secondary": ["accuracy", "balanced_accuracy", "per_class_recall", "confusion_matrix"],
+    "q2_primary": "rmsle",
+    "q2_secondary": ["mae", "rmse", "mape", "median_ape"],
+    "q3_primary": "adjusted_effect_stability",
+    "q3_predictive": "log_rmse",
+    "q4_primary": "rmsle",
+    "q4_secondary": ["mae", "rmse", "mape", "median_ape", "r2"],
+    "q5_primary": ["pareto_nondominance", "cross_fold_membership_frequency"]
+  },
+  "models": {
+    "q1": {
+      "baseline": "multinomial_logistic_regression",
+      "main": "hist_gradient_boosting_classifier",
+      "challenger": "random_forest_classifier",
+      "max_main_candidates": 12
+    },
+    "q2": {
+      "baseline": "steinmetz_log_linear",
+      "main": "steinmetz_quadratic_temperature_multiplier",
+      "conditional_upgrade": "temperature_log_frequency_and_log_b_peak_interactions"
+    },
+    "q3": {
+      "baseline": "additive_effect_coded_log_regression",
+      "main": "pairwise_interaction_effect_coded_log_regression",
+      "bootstrap_repetitions": 500
+    },
+    "q4": {
+      "null": ["global_median", "material_waveform_temperature_median"],
+      "baseline": "ridge_log_regression",
+      "main": "hist_gradient_boosting_regressor",
+      "challenger": "random_forest_regressor",
+      "max_main_candidates": 18,
+      "min_relative_rmsle_improvement": 0.02,
+      "max_subgroup_rmsle_degradation": 0.1
+    },
+    "q5": {
+      "baseline": "observed_support_pareto_enumeration",
+      "primary_frequency_hz": [50000, 500000],
+      "sensitivity_frequency_hz": [49990, 501180],
+      "min_cross_fold_pareto_membership": 0.5,
+      "continuous_extension_enabled": false
+    }
+  },
+  "test_policy": {
+    "attachment_2": "single_prediction_after_q1_freeze",
+    "attachment_3": "single_prediction_after_q4_freeze",
+    "use_for_feature_selection": false,
+    "use_for_tuning": false,
+    "use_for_model_selection": false
+  },
+  "compute_budget_minutes": {
+    "feature_build": 20,
+    "q1_total": 95,
+    "q2_total": 45,
+    "q3_total": 120,
+    "q4_total": 260,
+    "q5_total": 45,
+    "single_job_hard_limit": 120
+  }
+}

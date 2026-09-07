@@ -8,7 +8,7 @@
 
 仓库的流程设计已经成形，13 份 Guide、Main Agent、Reviewer Agent 和首批方法速查均有实质内容。与上一版审计相比，两个基础问题已经改善：`environment/` 已依据本机实际可用的 `math_modeling` 环境补齐并通过导入冒烟测试；Git 初始提交、远程仓库和大文件忽略策略也已经建立。
 
-2024 年官方规则、提交手册、论文格式规范和论文模板已归档到 `competition/2024/`。用户已唯一指定 `projects/rehearsal_2024_C`；Reviewer 已对远程固定快照 `c99ca0f7f7a238fac501836cd06dfd0b6aaabebe` 给出 G0 `PASS`。项目已完成 S1 三份强制文档和可重复的只读数据审计；Reviewer 对固定快照 `96313b5...` 给出 G1 PASS，现已获准进入 S2。仓库级自动化仍有下列非阻断缺口。
+2024 年官方规则、提交手册、论文格式规范和论文模板已归档到 `competition/2024/`。用户已唯一指定 `projects/rehearsal_2024_C`；Reviewer 已对远程固定快照 `c99ca0f7f7a238fac501836cd06dfd0b6aaabebe` 给出 G0 `PASS`。项目已完成 S1 并获 G1 PASS；S2 现已形成统一总体方案、共享数据/验证合同、Q1–Q5 模型合同、实验计划和冻结配置，状态为等待 G2。仓库级自动化仍有下列非阻断缺口。
 
 ## 检查结果总览
 
@@ -22,9 +22,9 @@
 | 环境自动验证 | FAIL | `scripts/verify_environment.py` 仍为 0 bytes | README 中有可执行人工冒烟命令，但仓库尚无标准化一键验证报告 |
 | `competition/` | PASS（2024） | `competition/2024/` 已归档官方邀请函、提交手册、论文格式规范和论文模板，并记录来源、大小与 SHA-256 | 2024 往年题模拟所需的规则、格式和提交资料已具备 |
 | `projects/` 顶层结构 | PASS FOR ACTIVE PROJECT | ACTIVE_PROJECT 唯一；G0、G1 均 PASS，当前阶段 S2、下一 Gate G2；另外两个项目未激活 | 启动歧义与 S2 前置 Gate 均已解除 |
-| 项目深层结构 | PASS THROUGH S1 | 活动项目已有 S0 manifest/简报、G0 PASS、三份 S1 强制文档、审计脚本与 raw 证据，且 G1 已 PASS | 当前可执行 S2；模型合同和实验计划应在本阶段建立 |
+| 项目深层结构 | PASS THROUGH S2 | 活动项目已有 G0/G1 PASS、S1 审计证据、S2 总体方案、共享合同、Q1–Q5 合同、实验计划、冻结 JSON 和 G2 submission | S2 已形成闭环并等待 G2；S3 代码在 PASS 后实现 |
 | 可用往年题 | PASS | 2024 C 题 DOCX 与 4 个 XLSX 已全量只读审计；154 项检查 0 FAIL/5 WARN，输入前后 SHA-256 一致 | 数据足以进入方案设计；轻微频率越界、1 条重复和验证泄漏风险已登记 |
-| Git / Reviewer Gate | PASS | G0、G1 均按远程固定 SHA 审核为 PASS；`gate_1_review.md` 已写回 | Gate 机制可执行；G2 PASS 前不得进入 S3 |
+| Git / Reviewer Gate | PASS | G0、G1 均按远程固定 SHA 审核为 PASS；S2 已生成 `gate_2_submission.md` | Gate 机制可执行；本轮推送后等待 G2，PASS 前不得进入 S3 |
 | 大文件管理 | PASS | 本地 4 个 XLSX 均命中 `.gitignore`；Git 跟踪的 XLSX 数为 0 | 大型赛题数据保留在本地，不进入提交历史；后续应以 manifest/哈希描述其来源与完整性 |
 | 复用脚本 | FAIL | `create_project.py`、`verify_environment.py`、`collect_results.py`、`final_check.py` 均为空 | 项目创建、环境核验、结果汇总和最终检查仍不能自动执行 |
 
@@ -45,7 +45,7 @@
 
 `None`。此前的 ACTIVE_PROJECT 与 S0 初始化缺口已补齐。
 
-`None`。G0、G1 已由独立 Reviewer 在远程固定快照上给出 PASS，当前没有阻止 S2 的 Critical 缺失。
+`None`。G0、G1 已 PASS，S2 产物已完成；当前 G2 `PENDING REVIEW` 是正常 Gate 状态，不是仓库缺失。
 
 ## Major Missing
 
@@ -87,14 +87,13 @@ Main Agent 的 G2 标准硬编码“单张 A800”，但当前系统未检测到
 
 ## 推荐在开始往年题模拟前必须补齐的最小修改清单
 
-G1 已 PASS，当前没有进入 S2 前必须补齐的阻断项。S2 必须至少完成：
+S2 强制交付物、五问模型合同和冻结实验配置已完成。进入 S3 前只剩 Gate 动作：
 
-1. 覆盖 Q1–Q5 且说明数据流的统一总体方案；
-2. 每问可执行的模型合同，含 Baseline、评价、约束和失败条件；
-3. 在调参前冻结切分、指标、随机种子、计算预算和回退规则的实验计划；
-4. 形成固定 SHA 的 G2 submission，等待 Reviewer PASS 后再进入 S3。
+1. 提交并推送本轮 S2 产物，取得远程固定完整 SHA；
+2. Reviewer 按该 SHA 审核 `reviews/gate_2_submission.md`；
+3. 只有得到 G2 `PASS` 才更新 `CURRENT.md` 并实现 S3 全题 Baseline。
 
-建议尽早但不阻塞当前项目 G1 的仓库级修复：实现非破坏性的 `scripts/verify_environment.py`；增加 Main 启动 Prompt、Reviewer Gate Prompt 和 Skill 依赖声明。
+建议尽早但不阻塞当前项目 G2 的仓库级修复：实现非破坏性的 `scripts/verify_environment.py`；增加 Main 启动 Prompt、Reviewer Gate Prompt 和 Skill 依赖声明。
 
 模板、项目创建脚本、结果收集脚本和最终检查脚本仍应补齐，才能把仓库整体提升为完整的 `READY`；但它们可在首轮既有项目进入相应阶段前逐步完成。
 
@@ -113,4 +112,4 @@ G1 已 PASS，当前没有进入 S2 前必须补齐的阻断项。S2 必须至�
 
 ## 审计结论
 
-仓库仍为 `READY WITH MINOR FIXES`：2024 年官方资料、基础环境、Git/Gate 基线和 `rehearsal_2024_C` 的 S0–S1 产物均已具备，G0/G1 已 PASS，当前可执行 S2。待仓库级模板/自动脚本补齐且完整 S0–S6 闭环经过演练后，再评为完整 `READY`。
+仓库仍为 `READY WITH MINOR FIXES`：基础设施和 `rehearsal_2024_C` 的 S0–S2 产物已具备，G0/G1 已 PASS，S2 已完成并等待 G2。待仓库级模板/自动脚本补齐且完整 S0–S6 闭环经过演练后，再评为完整 `READY`。
