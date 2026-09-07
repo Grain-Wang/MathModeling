@@ -9,6 +9,7 @@
 | 2026-09-04 21:35 | D0003 | S0 | 使用现有 `math_modeling` Conda 环境，S0 不安装新包 | Python 3.11.11 和核心数据建模包导入测试通过 | S1 可直接数据审计；新增依赖须经模型需求论证 | ACTIVE |
 | 2026-09-04 21:35 | D0004 | S0 | 四个 XLSX 暂留 `src/`，但按原始只读附件管理 | 文件较大且当前 `.gitignore` 精确匹配该位置；初始化时移动会引入不必要风险 | 派生文件写入 `results/raw/`；S1 前评估受控迁移 | ACTIVE |
 | 2026-09-04 21:35 | D0005 | S0 | 在 G0 对冻结 commit 给出 PASS 前不进入 S1 | Main/Reviewer 协议要求 Gate 前置 | 当前仅允许完成初始化、验证和审核准备 | ACTIVE |
+| 2026-09-07 | D0006 | S1 | 接受 Reviewer 对固定快照 `c99ca0f7f7a238fac501836cd06dfd0b6aaabebe` 的 G0 PASS，并进入 S1 | `reviews/gate_0_review.md` 无 Critical/Major，明确授权 S0 → S1 | 当前工作限定为题意拆解、只读数据审计和需求追踪；下一 Gate 为 G1 | ACTIVE |
 
 ## Pending Decisions
 

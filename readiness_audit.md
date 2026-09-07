@@ -1,6 +1,6 @@
 # MathModeling 赛前可用性审计
 
-- 审计日期：2026-09-04
+- 审计日期：2026-09-07（依据远程 G0 审核结果更新）
 - 审计目标：判断仓库能否立即开始一轮往年华为杯赛题模拟，并按 S0–S6 / G0–G6 完成闭环。
 - 审计方式：实际读取角色、Guide、Reference、模板、环境、脚本、Competition、项目与 Git 状态；使用 `math_modeling` Conda 环境执行依赖导入测试，并核验现有 DOCX/XLSX 资料。
 
@@ -8,7 +8,7 @@
 
 仓库的流程设计已经成形，13 份 Guide、Main Agent、Reviewer Agent 和首批方法速查均有实质内容。与上一版审计相比，两个基础问题已经改善：`environment/` 已依据本机实际可用的 `math_modeling` 环境补齐并通过导入冒烟测试；Git 初始提交、远程仓库和大文件忽略策略也已经建立。
 
-2024 年官方规则、提交手册、论文格式规范和论文模板已归档到 `competition/2024/`。用户已唯一指定 `projects/rehearsal_2024_C`，其 `CURRENT.md`、题目 manifest、项目简报、三份日志和 G0 submission 均已初始化。仓库现在具备开始本轮演练并提交 G0 审核的正确起点；进入 S1 前仍须由 Reviewer 对本次提交的远程固定 SHA 给出 G0 `PASS`。
+2024 年官方规则、提交手册、论文格式规范和论文模板已归档到 `competition/2024/`。用户已唯一指定 `projects/rehearsal_2024_C`，其 `CURRENT.md`、题目 manifest、项目简报、三份日志和 Gate 材料均已初始化。Reviewer 已对远程固定快照 `c99ca0f7f7a238fac501836cd06dfd0b6aaabebe` 给出 G0 `PASS`，项目已获准进入 S1；仓库级自动化仍有下列非阻断缺口。
 
 ## 检查结果总览
 
@@ -21,10 +21,10 @@
 | `environment/` | PASS WITH QUALIFICATION | `environment.yml`、`requirements.txt`、`README.md` 已非空；YAML 解析通过；实际环境导入测试为 `smoke=PASS` | 当前机器可立即运行基础数据建模；尚未在全新环境做干净重建测试 |
 | 环境自动验证 | FAIL | `scripts/verify_environment.py` 仍为 0 bytes | README 中有可执行人工冒烟命令，但仓库尚无标准化一键验证报告 |
 | `competition/` | PASS（2024） | `competition/2024/` 已归档官方邀请函、提交手册、论文格式规范和论文模板，并记录来源、大小与 SHA-256 | 2024 往年题模拟所需的规则、格式和提交资料已具备 |
-| `projects/` 顶层结构 | PASS FOR ACTIVE PROJECT | `rehearsal_2024_C/CURRENT.md` 已将 ACTIVE_PROJECT 唯一设为该项目，当前阶段 S0、下一 Gate G0；另外两个项目未激活 | 启动歧义已消除；G0 PASS 前不得进入 S1 |
+| `projects/` 顶层结构 | PASS FOR ACTIVE PROJECT | `rehearsal_2024_C/CURRENT.md` 已将 ACTIVE_PROJECT 唯一设为该项目；远程 G0 审核为 PASS，当前阶段 S1、下一 Gate G1；另外两个项目未激活 | 启动歧义与 S1 前置 Gate 均已解除 |
 | 项目深层结构 | PARTIAL | 活动项目已有 manifest、项目简报、三份日志和 G0 submission；模型合同、实验分类和后续交接目录尚待相应阶段建立 | S0 可执行；后续阶段仍需按协议逐步补齐 |
 | 可用往年题 | PASS | 2024 C 题 DOCX 与 4 个 XLSX 已只读打开，记录文件大小、工作表结构与 SHA-256；manifest 判定无缺失 | 输入已达到 G0 完整性检查要求；原始 XLSX 暂位于 `src/` 的路径偏差已登记 |
-| Git / Reviewer Gate | PASS | 当前分支为 `main`，`origin` 指向指定 GitHub 仓库；Reviewer 可在调用时使用 `git rev-parse HEAD` 得到远程固定完整 SHA | 固定 SHA 审核前提成立；G0 审核结论仍待写回 |
+| Git / Reviewer Gate | PASS | Reviewer 已审核固定快照 `c99ca0f...`，`reviews/gate_0_review.md` 结论为 PASS，且明确授权进入 S1/G1 | 项目可以开始 S1；后续仍须逐 Gate 使用固定 SHA 审核 |
 | 大文件管理 | PASS | 本地 4 个 XLSX 均命中 `.gitignore`；Git 跟踪的 XLSX 数为 0 | 大型赛题数据保留在本地，不进入提交历史；后续应以 manifest/哈希描述其来源与完整性 |
 | 复用脚本 | FAIL | `create_project.py`、`verify_environment.py`、`collect_results.py`、`final_check.py` 均为空 | 项目创建、环境核验、结果汇总和最终检查仍不能自动执行 |
 
@@ -45,7 +45,7 @@
 
 `None`。此前的 ACTIVE_PROJECT 与 S0 初始化缺口已补齐。
 
-当前 `PENDING REVIEW` 是正常 Gate 状态，而不是仓库缺失：只有提交并推送新的固定 SHA、Reviewer 给出 G0 `PASS` 后，`CURRENT.md` 才能推进到 S1。
+`None`。G0 已由独立 Reviewer 在远程固定快照上给出 PASS，当前没有阻止 S1 的 Critical 缺失。
 
 ## Major Missing
 
@@ -87,10 +87,12 @@ Main Agent 的 G2 标准硬编码“单张 A800”，但当前系统未检测到
 
 ## 推荐在开始往年题模拟前必须补齐的最小修改清单
 
-项目初始化已经完成。进入 S1 前只剩以下 Gate 动作：
+项目初始化及 G0 审核已经完成，当前没有进入 S1 前必须补齐的阻断项。S1 必须至少完成：
 
-1. 使用本次提交推送后的远程完整 SHA 调用 Reviewer Agent。
-2. Reviewer 按该 SHA 审核 `reviews/gate_0_submission.md`；只有得到 G0 `PASS` 才更新 `CURRENT.md` 并进入 S1。
+1. 只读数据审计及可复核原始输出；
+2. `work/01_problem_analysis.md`、`work/02_data_audit.md`、`work/03_requirement_matrix.md`；
+3. 冻结官方测试集不得用于调参、特征选择和模型选择的边界；
+4. 形成固定 SHA 的 G1 submission，等待 Reviewer PASS 后再进入 S2。
 
 建议尽早但不阻塞 G0 的修复：实现非破坏性的 `scripts/verify_environment.py`；增加 Main 启动 Prompt、Reviewer Gate Prompt 和 Skill 依赖声明。
 
@@ -111,4 +113,4 @@ Main Agent 的 G2 标准硬编码“单张 A800”，但当前系统未检测到
 
 ## 审计结论
 
-仓库已达到 `READY WITH MINOR FIXES`：2024 年官方资料、基础运行环境、Git 基线和 `rehearsal_2024_C` 的 S0 入口均已具备。当前应以本次提交的远程固定 SHA 完成 G0 审核，而不是直接跳到 S1。待模板、自动脚本和完整 S0–S6 闭环均经过演练后，再评为完整 `READY`。
+仓库已达到 `READY WITH MINOR FIXES`：2024 年官方资料、基础运行环境、Git 基线和 `rehearsal_2024_C` 的 S0 产物均已具备，且 G0 已 PASS，当前可以执行 S1。待模板、自动脚本和完整 S0–S6 闭环均经过演练后，再评为仓库级完整 `READY`。
