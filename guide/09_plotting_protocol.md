@@ -53,4 +53,7 @@ PDF / SVG + PNG
 work/handoff/figure_handoff.md
 ```
 
-> 后续可增加字体、尺寸、配色和论文模板适配规范。
+## 注意事项
+1. 所有的图片绘制都需要具体到使用哪一个skill,不可以不使用skill直接画图，画图前要和我确实一下，具体使用哪种skill，一句话给出原因
+2. 具体的图片类型要求见同目录下面的guide\figures_guide.md
+3. 配色参考guide\figure_color_guide.md
