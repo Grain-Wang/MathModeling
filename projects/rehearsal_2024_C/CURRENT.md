@@ -14,66 +14,67 @@ ACTIVE_PROJECT：`projects/rehearsal_2024_C`
 
 ## Current Stage
 
-S2 — 总体方案与模型合同（Round 2 修订完成，等待 G2 复审）
+S3 — 全题 Baseline 闭环
 
 ## Last Gate
 
-Gate：G2 / Review Round 1
+Gate：G2 / Review Round 2
 
-Verdict：`REVISE`
+Verdict：`PASS`
 
-Review File：[`reviews/gate_2_review.md`](reviews/gate_2_review.md)
+Review File：[`reviews/gate_2_review_r2.md`](reviews/gate_2_review_r2.md)
 
-Reviewed Commit：`2e9517df11b5e0ef861572ca508d8d61d56511f7`
+Reviewed Commit：`7041a8273df63b612590bb7a9b53b02984ff7f26`
 
 ## Approved Artifacts
-
-G1 已批准的 S1 产物保持有效：
 
 - `work/01_problem_analysis.md`
 - `work/02_data_audit.md`
 - `work/03_requirement_matrix.md`
-- `src/s1_data_audit.py`
+- `work/04_solution_plan.md`
+- `work/05_experiment_plan.md`
+- `work/models/`
+- `experiments/s2_frozen_config.json`
+- `work/revisions/gate_2_response.md`
 - `results/raw/s1/`
-- `reviews/gate_1_submission.md`
-
-S2 尚未获 G2 PASS；Round 1 中 Q1–Q4 获正面评价，但不得自行视为阶段通过。
 
 ## Current Goal
 
-冻结、提交并推送已关闭两项 Q5 Major 和五项 Minor 的 Round 2 复审快照。
+在冻结 `s2-r2-v1` 合同下实际完成 8 个 S3 数据/Baseline 实验，使 Q1–Q5 形成可运行、可复算的最小闭环并提交 G3。
 
 ## Current Tasks
 
-1. 复核 `gate_2_response.md` 对 M2-01/M2-02 和 Acceptance Criteria 的逐条闭环。
-2. 仅暂存 ACTIVE_PROJECT 的 Round 2 产物，保留用户 Guide 改动。
-3. 提交并推送远程固定完整 SHA，请求 Reviewer 执行 G2 Review Round 2。
-4. 只有 `reviews/gate_2_review_r2.md` 给出 PASS 才进入 S3。
+1. 实现共享特征、稳定行/波形身份、`condition_group`、固定折和合同哈希复算。
+2. 实现并运行 Q1 Logistic、Q2 Steinmetz、Q3 描述/加性、Q4 中位数/Ridge Baseline。
+3. 以 Q4 严格 OOF 预测实现 Q5 实测工况点 Pareto、full-fit 参考和基础诊断。
+4. 保存实验配置、命令、日志、运行时间、逐样本输出和基本验证。
+5. 完成 `work/06_baseline_report.md` 与 `reviews/gate_3_submission.md`，推送固定 SHA 等待 G3。
+
+## G3 Mandatory Implementation Checks
+
+- 逐候选验证 OOF 模型未使用其 `condition_group` 拟合或调参。
+- Q5 同时输出折级区域、full/OOF 差和观测损耗诊断，不只展示全局 OOF 膝点。
+- 固定 OOF 表的 Bootstrap 只解释为候选表工况组重采样稳定性。
+- 显式处理 Pareto 零范围、OOF/full 空交、Jaccard 空集和重复四分位边界。
+- S3 启动时复算全部 `sha256_utf8_lf` 合同哈希并写入 `run_manifest.json`。
 
 ## Known Blockers
 
-- G2 Round 1 为 REVISE；Round 2 获 PASS 前不得进入 S3。
+- `None`。G2 Round 2 已 PASS，可以执行 S3。
 
 ## Forbidden Now
 
-- 实现或运行 S3 正式 Baseline、训练候选模型或生成附件预测。
-- 修改或覆盖 `reviews/gate_2_review.md`。
-- 用见过候选 `condition_group` 的模型为 Q5 严格 OOF 稳定性投票。
-- 把五因素摘要写成不依赖具体波形的唯一损耗决策向量。
-- 使用附件二、三调整模型、Q5 域、阈值、权重或结论。
-- 把未执行的指标、Pareto、Bootstrap 或复现检查写成结果。
+- 在 8 个 Baseline 闭环前运行 S4 HGB、RandomForest 或无界调参。
+- 使用附件二、附件三参与特征选择、调参、模型选择或 Q5 域/阈值制定。
+- 修改 `s2-r2-v1` 冻结指标、搜索空间或 Q5 稳定门槛来迎合结果。
+- 把 `results/raw/` 写成已核验论文证据，或在 G3 前写入 `results/verified/`。
+- 覆写题目 DOCX、四个原始 XLSX 或 Reviewer 审核文件。
 
 ## Next Gate
 
-G2 — 总体方案与模型合同审核 / Review Round 2
+G3 — 全题 Baseline 闭环审核
 
-Verdict：`PENDING REVIEW`
-
-Response File：[`work/revisions/gate_2_response.md`](work/revisions/gate_2_response.md)
-
-Submission File：[`reviews/gate_2_submission_r2.md`](reviews/gate_2_submission_r2.md)
-
-Expected Review File：`reviews/gate_2_review_r2.md`（由 Reviewer 新增，不得覆盖 Round 1）
+Verdict：`NOT SUBMITTED`
 
 ## Last Updated
 

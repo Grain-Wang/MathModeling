@@ -26,6 +26,7 @@
 | 2026-09-07 | D0020 | S2 | Q5 选择“实测工况点”口径，五因素只作汇总 | Q4 实际依赖完整波形特征；`row_id`、来源定位、波形/特征/模型哈希才能唯一复算损耗 | 单点必须绑定具体波形轮廓；连续五变量代理路线不采用 | ACTIVE |
 | 2026-09-07 | D0021 | S2 | Q5 主 Pareto 只用严格 OOF 分数；全量模型只作参考 | 每个候选只有对应留出模型未见其 `condition_group`，不能让其他训练内折模型投票 | 冻结双 Pareto、两个 P90、`ceil(0.6K)` 折区域、500 次簇 Bootstrap 与 Jaccard 0.50 降级门槛 | ACTIVE |
 | 2026-09-07 | D0022 | S2 | 冻结 Q4 已知未见类别、主要子组和指标公式，并让 JSON 成为机器配置单一事实源 | 关闭 G2 Minor，避免实现时事后选择子组或 Markdown/配置漂移 | `min_n=100`、至少3折；RMSLE=`log1p`、原尺度 R²、MAPE 分母≥1 W/m³；JSON 登记网格和合同哈希 | ACTIVE |
+| 2026-09-07 | D0023 | S3 | 接受 Reviewer 对固定快照 `7041a8273df63b612590bb7a9b53b02984ff7f26` 的 G2 Round 2 PASS，进入 S3 | `reviews/gate_2_review_r2.md` 关闭全部 Critical/Major 并明确授权 S2→S3 | 按冻结顺序实现并运行 8 个数据/Baseline 实验；下一 Gate 为 G3 | ACTIVE |
 
 ## Pending Decisions
 

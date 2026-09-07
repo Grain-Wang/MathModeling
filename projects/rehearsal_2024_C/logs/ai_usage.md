@@ -11,6 +11,7 @@
 | 2026-09-07 | OpenAI Codex | 仓库维护者 | S1 题意拆解与数据审计 | 读取题目原文、Main/Reviewer G1 标准；辅助编写只读审计脚本和三份 S1 文档 | 生成 `src/s1_data_audit.py`、`results/raw/s1/`、问题分析、数据审计、需求矩阵和 G1 submission | Yes | 脚本在 `math_modeling` 中全量运行；原件前后哈希一致；154 项检查 0 FAIL/5 WARN；题意与科学判断仍待团队和 G1 Reviewer 复核 |
 | 2026-09-07 | OpenAI Codex | 仓库维护者 | 处理 G1 PASS 并设计 S2 方案 | 读取 G1 审核、S2/G2 标准及相关 Reference；辅助定义统一数据流、五问合同、实验队列和机器配置 | 生成总体方案、共享合同、Q1–Q5 合同、实验计划、冻结 JSON 和 G2 submission | Yes | 合同章节、JSON/输入哈希、链接和计划 API 已自动核验；未训练模型；科学选择待团队与 G2 Reviewer 复核 |
 | 2026-09-07 | OpenAI Codex | 仓库维护者 | 响应 G2 Round 1 REVISE | 读取固定快照审核意见；用户确认“实测工况点 + 严格 OOF + 折级区域 + 簇 Bootstrap”方向 | 修订 Q4/Q5 合同、总体方案、实验计划、冻结配置并起草 Round 2 响应 | Yes | 5×14 章节、输入/合同哈希、Q5 阈值、链接和 Git 边界均通过静态检查；未实现或运行 S3，科学阈值仍待 G2 Reviewer 复审 |
+| 2026-09-07 | OpenAI Codex | 仓库维护者 | 处理 G2 Round 2 PASS 并启动 S3 | 拉取并核对 `gate_2_review_r2.md` 的 Verdict、Reviewed Commit、S3 边界和 G3 实现检查 | 更新 CURRENT 与决策日志，按冻结合同准备 8 个 Baseline 实验 | Yes | 审核 SHA 与本地提交一致；正式模型输出需由 `math_modeling` 实机运行并在 G3 复核 |
 
 ## Current Disclosure Status
 
