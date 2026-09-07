@@ -391,6 +391,7 @@ class ExperimentRun:
             str(self.descriptor_path.relative_to(PROJECT_ROOT)).replace("\\", "/"): sha256_file(self.descriptor_path),
         }
         self.outputs: set[Path] = set()
+        self.contract_hashes: dict[str, str] = {}
         self.finished = False
         self.log(f"START {experiment_id}")
         self.log(f"COMMAND {relative_command()}")
@@ -409,9 +410,16 @@ class ExperimentRun:
     def record_output(self, path: Path) -> None:
         self.outputs.add(path.resolve())
 
+    def record_contract_hashes(self, hashes: dict[str, str]) -> None:
+        if not hashes:
+            raise ValueError("Contract hash registry is empty")
+        self.contract_hashes = dict(sorted(hashes.items()))
+
     def finish(self, status: str = "PASS", error: str | None = None) -> dict[str, Any]:
         if self.finished:
             raise RuntimeError("Experiment run already finalized")
+        if status == "PASS" and not self.contract_hashes:
+            raise RuntimeError("Passing run must record recomputed contract hashes")
         ended = datetime.now(TZ)
         output_hashes: dict[str, str] = {}
         for path in sorted(self.outputs, key=lambda item: str(item)):
@@ -437,6 +445,7 @@ class ExperimentRun:
             "status": status,
             "error": error,
             "input_hashes": dict(sorted(self.inputs.items())),
+            "contract_hashes": self.contract_hashes,
             "output_hashes": output_hashes,
         }
         manifest_path = self.output_dir / "run_manifest.json"

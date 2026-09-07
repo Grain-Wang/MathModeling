@@ -120,7 +120,8 @@ def main() -> None:
     run = ExperimentRun(EXPERIMENT_ID, config_path)
     try:
         config = load_frozen_config(config_path)
-        verify_contract_registry(config)
+        contract_hashes = verify_contract_registry(config)
+        run.record_contract_hashes(contract_hashes)
         seed = int(config["seeds"]["global"])
         set_global_seed(seed)
         run.record_input(Path(__file__).resolve())

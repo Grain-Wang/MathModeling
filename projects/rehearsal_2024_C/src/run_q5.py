@@ -141,6 +141,7 @@ def main() -> None:
     try:
         config = load_frozen_config(config_path)
         contract_hashes = verify_contract_registry(config)
+        run.record_contract_hashes(contract_hashes)
         seed = int(config["seeds"]["optimization_stability"])
         set_global_seed(seed)
         run.record_input(Path(__file__).resolve())

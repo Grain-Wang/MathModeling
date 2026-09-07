@@ -357,6 +357,7 @@ def main() -> None:
         run.record_input(Path(__file__).resolve())
         run.record_input(Path(__file__).with_name("s3_common.py").resolve())
         contract_hashes = verify_contract_registry(config)
+        run.record_contract_hashes(contract_hashes)
         inputs_before = verify_raw_inputs(config)
         for relative in config["input_hashes"]:
             usage_label = relative if relative == f"src/{TRAIN_FILE}" else f"integrity_hash_only:{relative}"

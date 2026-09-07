@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import math
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -39,6 +40,17 @@ EXPERIMENT_IDS = [
     "EXP-Q4-BASE-001",
     "EXP-Q5-BASE-001",
 ]
+MODEL_IMPLEMENTATION_PATHS = [
+    "projects/rehearsal_2024_C/src/s3_common.py",
+    "projects/rehearsal_2024_C/src/build_features.py",
+    "projects/rehearsal_2024_C/src/run_q1.py",
+    "projects/rehearsal_2024_C/src/run_q2.py",
+    "projects/rehearsal_2024_C/src/run_q3.py",
+    "projects/rehearsal_2024_C/src/run_q4.py",
+    "projects/rehearsal_2024_C/src/run_q5.py",
+    "projects/rehearsal_2024_C/experiments/s2_frozen_config.json",
+    "projects/rehearsal_2024_C/experiments/baseline",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,6 +68,31 @@ def read_json(path: Path) -> dict[str, Any]:
 def assert_close(actual: float, expected: float, label: str, tolerance: float = 1e-10) -> None:
     if not math.isclose(actual, expected, rel_tol=tolerance, abs_tol=tolerance):
         raise AssertionError(f"{label}: actual={actual}, expected={expected}")
+
+
+def assert_implementation_ancestry_and_stability(implementation_commit: str, evidence_commit: str) -> None:
+    ancestry = subprocess.run(
+        ["git", "-C", str(PROJECT_ROOT.parents[1]), "merge-base", "--is-ancestor", implementation_commit, evidence_commit],
+        check=False,
+    )
+    if ancestry.returncode != 0:
+        raise AssertionError("Recorded implementation commit is not an ancestor of the evidence commit")
+    changed = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(PROJECT_ROOT.parents[1]),
+            "diff",
+            "--quiet",
+            implementation_commit,
+            evidence_commit,
+            "--",
+            *MODEL_IMPLEMENTATION_PATHS,
+        ],
+        check=False,
+    )
+    if changed.returncode != 0:
+        raise AssertionError("Model implementation or frozen experiment configuration changed after the recorded run")
 
 
 def verify_manifest(experiment_id: str, expected_commit: str) -> dict[str, Any]:
@@ -139,12 +176,23 @@ def main() -> None:
     args = parse_args()
     config = load_frozen_config(args.config)
     contract_hashes = verify_contract_registry(config)
-    expected_commit = git_commit()
-    manifests = {experiment_id: verify_manifest(experiment_id, expected_commit) for experiment_id in EXPERIMENT_IDS}
+    evidence_commit = git_commit()
+    implementation_commits = {
+        read_json(BASELINE_EVIDENCE_ROOT / experiment_id / "run_manifest.json")["git_commit"]
+        for experiment_id in EXPERIMENT_IDS
+    }
+    if len(implementation_commits) != 1:
+        raise AssertionError(f"Experiments do not share one implementation commit: {implementation_commits}")
+    implementation_commit = implementation_commits.pop()
+    assert_implementation_ancestry_and_stability(implementation_commit, evidence_commit)
+    manifests = {
+        experiment_id: verify_manifest(experiment_id, implementation_commit)
+        for experiment_id in EXPERIMENT_IDS
+    }
     report = {
         "status": "PASS",
         "stage": "S3",
-        "implementation_commit": expected_commit,
+        "implementation_commit": implementation_commit,
         "contract_hashes": contract_hashes,
         "manifest_count": len(manifests),
         "q1": verify_q1(),
