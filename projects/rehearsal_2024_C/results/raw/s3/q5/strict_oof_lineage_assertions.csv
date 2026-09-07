@@ -1,0 +1,6 @@
+outer_fold,validation_n,group_overlap_count,train_groups_sha256_match,validation_groups_sha256_match,model_id_match,fold_id_match,strict_oof_lineage_pass
+0,2553,0,True,True,True,True,True
+1,2481,0,True,True,True,True,True
+2,2419,0,True,True,True,True,True
+3,2463,0,True,True,True,True,True
+4,2484,0,True,True,True,True,True

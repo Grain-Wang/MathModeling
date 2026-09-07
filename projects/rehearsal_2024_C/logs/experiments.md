@@ -13,7 +13,23 @@ S0 只允许环境和输入完整性检查；S1 只允许题意与数据审计�
 | 2026-09-07 | X0007 | S2 | 验证总体方案、模型合同与冻结配置的结构可执行性 | `work/04_solution_plan.md`、5 份 Q 合同、共享合同、`work/05_experiment_plan.md`、冻结 JSON | 检查 14 个合同必需章节、JSON 解析和输入哈希、Markdown 链接；在 `math_modeling` 导入计划 API | 5/5 Q 合同结构 PASS；config/hash/link PASS；scikit-learn 1.7.1 API PASS；检测 16 逻辑 CPU；未拟合模型 | PASS |
 | 2026-09-07 | X0008 | S2 | 验证 G2 Round 2 合同修订闭环 | 修订后的总体方案、共享/Q4/Q5 合同、实验计划、冻结 JSON、response/submission | 检查 5×14 必需章节、5 个输入哈希、8 个 `sha256_utf8_lf` 合同哈希、Q5 门槛、8 份文档链接、旧策略残留、Git 大文件边界和 diff | 全部 PASS；原始 XLSX 跟踪数 0；未新增 `src/`/`results/`，未训练模型或生成预测 | PASS |
 
-## No Modeling Results Yet
+| 2026-09-07 16:37 | X0009 | S3 | 验证 S3 源码和退化边界 | S3 源码、8 份实验描述 | `python -m compileall`；`python src/test_s3_synthetic.py` | 编译 PASS；Pareto 支配/并列、重复四分位边界和零范围代表点合成断言 PASS；Ruff 未安装，未临时增加依赖 | PASS |
+| 2026-09-07 16:55 | EXP-S3-DATA-001 | S3 | 构建共享特征、身份与固定折 | 附件一；冻结配置；8 份合同；其余输入仅核验哈希 | `python src/build_features.py --config experiments/s2_frozen_config.json`，连续运行两次 | 12,400 行、48 数值特征、4,323 工况组、5+5 折；同组跨折 0；精确重复额外行 1；三项重建 SHA 完全一致 | PASS |
+| 2026-09-07 16:59 | EXP-Q1-BASE-001 | S3 | Q1 shape-only 分类基线 | feature table；Q1 folds | `python src/run_q1.py --model logistic --stage baseline --config ...` | 12,400 条 OOF；Macro-F1/Accuracy/Balanced Accuracy=1.000；组泄漏 0 | PASS |
+| 2026-09-07 16:59 | EXP-Q2-BASE-001 | S3 | Q2 传统 Steinmetz 基线 | 材料1正弦波 1,067 行；regression folds | `python src/run_q2.py --model steinmetz --stage baseline --config ...` | OOF RMSLE=0.3607、MAPE=32.53%、R²=0.9412；留一温度结果已保存；组泄漏 0 | PASS |
+| 2026-09-07 16:59 | EXP-Q3-DESC-001 | S3 | Q3 三因素描述基线 | feature table | `python src/run_q3.py --model descriptive --stage baseline --config ...` | 48 格完整；共同矩形支持 1,766 行（14.24%） | PASS |
+| 2026-09-07 16:59 | EXP-Q3-BASE-001 | S3 | Q3 调整后加性关联基线 | feature table；regression folds | `python src/run_q3.py --model additive --stage baseline --config ...` | OOF log-RMSE=0.3434；原尺度 R²=0.6036；最大有限 Gram 条件数 183.45；组泄漏 0 | PASS |
+| 2026-09-07 16:59 | EXP-Q4-NULL-001 | S3 | Q4 中位数参照 | feature table；regression folds | `python src/run_q4.py --model median --stage baseline --config ...` | 全局/分组中位数 OOF RMSLE=1.9002/1.8311；组泄漏 0 | PASS |
+| 2026-09-07 16:59 | EXP-Q4-BASE-001 | S3 | Q4 嵌套分组 Ridge 基线 | wave-v1；regression folds；中位数参照 | `python src/run_q4.py --model ridge --stage baseline --config ...` | OOF RMSLE=0.2001、MAPE=15.85%、R²=0.9507；优于两种中位数；组泄漏 0 | PASS |
+| 2026-09-07 17:00 | EXP-Q5-BASE-001 | S3 | Q5 严格 OOF 实测工况 Pareto 基线 | Q4 OOF/full-fit、谱系、候选身份 | `python src/run_q5.py --mode oof-observed-pareto --stage baseline --config ...` | 12,236 个去重候选；105 OOF Pareto、109 full-fit、130 观测点；候选谱系 12,236/12,236 PASS；Jaccard=0.0962，唯一推荐被拒绝 | PASS WITH S4 STABILITY PENDING |
+| 2026-09-07 17:00 | X0010 | S3 | 独立复算全部 S3 证据 | 8 份 manifest；Q1–Q5 CSV/JSON | `python src/verify_s3_outputs.py --config experiments/s2_frozen_config.json` | manifest=8、固定 SHA/环境/洁净断言 PASS；核心指标、105 点 Pareto 和 12,236 条候选谱系复算 PASS | PASS |
+
+## S3 Modeling Results
+
+- 已训练 Baseline：Q1 Logistic、Q2 Steinmetz、Q3 加性 Ridge、Q4 Ridge；另有 Q4 两种中位数参照。
+- 已生成预测：仅附件一的分组 OOF 与 full-fit 参考；未生成附件二、三测试预测。
+- 已实现最后一问：严格 OOF 实测工况 Pareto 及降级诊断；当前不授权唯一推荐。
+- `results/raw/s3/` 与 `results/raw/baseline/` 均为待 G3/G5 审核的原始证据，`results/verified/` 未写入。
 
 - 已训练模型：`None`
 - 已选择超参数：`None`

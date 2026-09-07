@@ -1,0 +1,6 @@
+outer_fold,train_n,validation_n,train_group_count,validation_group_count,group_overlap_count,global_median_W_per_m3,group_fallback_count
+0,9847,2553,3458,865,0,46050.4832,0
+1,9919,2481,3458,865,0,43155.12273,0
+2,9981,2419,3458,865,0,45459.87546,0
+3,9937,2463,3459,864,0,46303.52633,0
+4,9916,2484,3459,864,0,45222.66555,0

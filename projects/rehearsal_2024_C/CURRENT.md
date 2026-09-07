@@ -14,7 +14,7 @@ ACTIVE_PROJECT：`projects/rehearsal_2024_C`
 
 ## Current Stage
 
-S3 — 全题 Baseline 闭环
+S3 — 全题 Baseline 闭环（已完成，等待 G3 审核）
 
 ## Last Gate
 
@@ -38,43 +38,41 @@ Reviewed Commit：`7041a8273df63b612590bb7a9b53b02984ff7f26`
 - `work/revisions/gate_2_response.md`
 - `results/raw/s1/`
 
+S3 新产物尚待 G3 审核，不列为 approved。
+
 ## Current Goal
 
-在冻结 `s2-r2-v1` 合同下实际完成 8 个 S3 数据/Baseline 实验，使 Q1–Q5 形成可运行、可复算的最小闭环并提交 G3。
+保持 S3 冻结状态，将实现提交 `0d36ef8c16f3214b16d8580333f2925aaff45191` 上产生的 8 个 Baseline 真实结果、复算报告和 G3 提交单推送给 Reviewer；在 G3 明确 PASS 前不进入 S4。
 
-## Current Tasks
+## Completed S3 Tasks
 
-1. 实现共享特征、稳定行/波形身份、`condition_group`、固定折和合同哈希复算。
-2. 实现并运行 Q1 Logistic、Q2 Steinmetz、Q3 描述/加性、Q4 中位数/Ridge Baseline。
-3. 以 Q4 严格 OOF 预测实现 Q5 实测工况点 Pareto、full-fit 参考和基础诊断。
-4. 保存实验配置、命令、日志、运行时间、逐样本输出和基本验证。
-5. 完成 `work/06_baseline_report.md` 与 `reviews/gate_3_submission.md`，推送固定 SHA 等待 G3。
-
-## G3 Mandatory Implementation Checks
-
-- 逐候选验证 OOF 模型未使用其 `condition_group` 拟合或调参。
-- Q5 同时输出折级区域、full/OOF 差和观测损耗诊断，不只展示全局 OOF 膝点。
-- 固定 OOF 表的 Bootstrap 只解释为候选表工况组重采样稳定性。
-- 显式处理 Pareto 零范围、OOF/full 空交、Jaccard 空集和重复四分位边界。
-- S3 启动时复算全部 `sha256_utf8_lf` 合同哈希并写入 `run_manifest.json`。
+1. 生成 12,400 行 wave-v1 特征、稳定身份、近形状/工况组和固定 5 折；第二次重建哈希一致。
+2. 完成 Q1 Logistic、Q2 Steinmetz、Q3 描述/加性、Q4 中位数/Ridge 共 7 个问题实验。
+3. 完成 Q5 严格 OOF 实测工况 Pareto、fold-region、full/OOF 差和观测损耗诊断。
+4. 8 份 run manifest 全部 PASS，均记录 `math_modeling`、固定实现 SHA、命令、种子、时间和输入输出哈希。
+5. 独立复算 `results/raw/s3/verification_report.json` PASS；完成 `work/06_baseline_report.md` 和 `reviews/gate_3_submission.md`。
 
 ## Known Blockers
 
-- `None`。G2 Round 2 已 PASS，可以执行 S3。
+- 进入 S4 的唯一流程阻断：G3 尚未返回 PASS。
+- Q5 模型/观测 Pareto 区域 Jaccard 为 0.0962，冻结门槛为 0.50；这是需要 S4 改进和稳健性核验的实证失败信号，当前禁止唯一推荐。
 
 ## Forbidden Now
 
-- 在 8 个 Baseline 闭环前运行 S4 HGB、RandomForest 或无界调参。
+- 在 G3 PASS 前运行 S4 HGB、RandomForest、交互扩展、500 次 Bootstrap 或大规模候选比较。
 - 使用附件二、附件三参与特征选择、调参、模型选择或 Q5 域/阈值制定。
-- 修改 `s2-r2-v1` 冻结指标、搜索空间或 Q5 稳定门槛来迎合结果。
-- 把 `results/raw/` 写成已核验论文证据，或在 G3 前写入 `results/verified/`。
-- 覆写题目 DOCX、四个原始 XLSX 或 Reviewer 审核文件。
+- 修改 `s2-r2-v1` 冻结指标、搜索空间或 Q5 门槛来迎合 S3 结果。
+- 把 `results/raw/` 当作 verified 论文证据，或在 G3/G5 前写入 `results/verified/`。
+- 在 Q5 Jaccard/Bootstrap 等门槛未通过时给出唯一推荐工况。
+- 覆写题目 DOCX、四个原始 XLSX 或任何 Reviewer 审核文件。
 
 ## Next Gate
 
 G3 — 全题 Baseline 闭环审核
 
-Verdict：`NOT SUBMITTED`
+Verdict：`SUBMITTED / PENDING REVIEW`
+
+Submission：[`reviews/gate_3_submission.md`](reviews/gate_3_submission.md)
 
 ## Last Updated
 

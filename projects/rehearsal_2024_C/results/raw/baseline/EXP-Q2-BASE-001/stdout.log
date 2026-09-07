@@ -1,0 +1,8 @@
+[2026-09-07T16:43:10.380574+08:00] START EXP-Q2-BASE-001
+[2026-09-07T16:43:10.380574+08:00] COMMAND python src/run_q2.py --model steinmetz --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:43:10.649211+08:00] {"mae_W_per_m3": 21144.865333208654, "mape_percent": 32.52621823452429, "median_ape_percent": 25.541444704852967, "n": 1067, "r2_original_scale": 0.9411752353114312, "rmse_W_per_m3": 41776.89948613744, "rmsle": 0.36067816977092043}
+[2026-09-07T16:43:10.923653+08:00] END EXP-Q2-BASE-001 status=PASS runtime_seconds=0.543608
+[2026-09-07T16:59:39.303482+08:00] START EXP-Q2-BASE-001
+[2026-09-07T16:59:39.303482+08:00] COMMAND python src/run_q2.py --model steinmetz --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:59:39.559632+08:00] {"mae_W_per_m3": 21144.865333208654, "mape_percent": 32.52621823452429, "median_ape_percent": 25.541444704852967, "n": 1067, "r2_original_scale": 0.9411752353114312, "rmse_W_per_m3": 41776.89948613744, "rmsle": 0.36067816977092043}
+[2026-09-07T16:59:39.808748+08:00] END EXP-Q2-BASE-001 status=PASS runtime_seconds=0.505986

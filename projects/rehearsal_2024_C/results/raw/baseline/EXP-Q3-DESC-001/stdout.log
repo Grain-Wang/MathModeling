@@ -1,0 +1,8 @@
+[2026-09-07T16:43:12.404800+08:00] START EXP-Q3-DESC-001
+[2026-09-07T16:43:12.405306+08:00] COMMAND python src/run_q3.py --model descriptive --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:43:12.678371+08:00] {"all_cells_nonempty": true, "common_b_m_T": [0.017369725, 0.122990382], "common_frequency_Hz": [63100.0, 99980.0], "common_support_fraction": 0.14241935483870968, "factor_cell_count": 48, "has_global_rectangular_common_support": true, "interpretation": "Descriptive medians are unadjusted associations; unsupported cells require adjusted or limited comparisons.", "rows_in_global_common_support": 1766, "status": "PASS"}
+[2026-09-07T16:43:12.932911+08:00] END EXP-Q3-DESC-001 status=PASS runtime_seconds=0.528378
+[2026-09-07T16:59:41.290155+08:00] START EXP-Q3-DESC-001
+[2026-09-07T16:59:41.290155+08:00] COMMAND python src/run_q3.py --model descriptive --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:59:41.544113+08:00] {"all_cells_nonempty": true, "common_b_m_T": [0.017369725, 0.122990382], "common_frequency_Hz": [63100.0, 99980.0], "common_support_fraction": 0.14241935483870968, "factor_cell_count": 48, "has_global_rectangular_common_support": true, "interpretation": "Descriptive medians are unadjusted associations; unsupported cells require adjusted or limited comparisons.", "rows_in_global_common_support": 1766, "status": "PASS"}
+[2026-09-07T16:59:41.795868+08:00] END EXP-Q3-DESC-001 status=PASS runtime_seconds=0.505841

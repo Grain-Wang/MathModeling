@@ -28,6 +28,9 @@
 | 2026-09-07 | D0022 | S2 | 冻结 Q4 已知未见类别、主要子组和指标公式，并让 JSON 成为机器配置单一事实源 | 关闭 G2 Minor，避免实现时事后选择子组或 Markdown/配置漂移 | `min_n=100`、至少3折；RMSLE=`log1p`、原尺度 R²、MAPE 分母≥1 W/m³；JSON 登记网格和合同哈希 | ACTIVE |
 | 2026-09-07 | D0023 | S3 | 接受 Reviewer 对固定快照 `7041a8273df63b612590bb7a9b53b02984ff7f26` 的 G2 Round 2 PASS，进入 S3 | `reviews/gate_2_review_r2.md` 关闭全部 Critical/Major 并明确授权 S2→S3 | 按冻结顺序实现并运行 8 个数据/Baseline 实验；下一 Gate 为 G3 | ACTIVE |
 
+| 2026-09-07 | D0024 | S3 | 先固定实现提交 `0d36ef8c16f3214b16d8580333f2925aaff45191`，再运行全部 Baseline | 使 8 份 manifest 的代码版本可审计，且避免结果提交改变实验所引用的 Git SHA | 所有实验均记录同一实现 SHA、`math_modeling` 环境和实现配置洁净状态；结果另行提交 G3 | ACTIVE |
+| 2026-09-07 | D0025 | S3 | Q5 在 S3 只完成严格 OOF 基线和前置诊断，不提前执行/伪装 500 次稳定性 Bootstrap | G2 合同把 Bootstrap 列为 S4 稳健性实验；固定 OOF 重采样也不能代表完整模型参数不确定性 | 输出 `PASS_WITH_S4_STABILITY_PENDING`；唯一推荐保持禁用，S4 按冻结解释继续 | ACTIVE |
+| 2026-09-07 | D0026 | S3 | 因模型/观测 Pareto 区域 Jaccard=0.0962<0.50，拒绝 S3 唯一工况推荐 | 冻结门槛要求 Jaccard≥0.50，且 500 次区域稳定性尚未完成；事后放宽阈值会破坏合同 | G3 只提交区域、端点、临时膝点和失败信号；S4 优先改进 Q4 并完成 Q5 稳健性 | ACTIVE |
 ## Pending Decisions
 
 1. 团队成员姓名及数据、建模、代码、绘图、写作责任人。

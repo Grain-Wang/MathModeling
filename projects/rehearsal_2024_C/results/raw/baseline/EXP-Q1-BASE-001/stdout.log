@@ -1,0 +1,18 @@
+[2026-09-07T16:42:50.044081+08:00] START EXP-Q1-BASE-001
+[2026-09-07T16:42:50.045090+08:00] COMMAND python src/run_q1.py --model logistic --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:42:52.986249+08:00] outer_fold=0 selected_C=0.1 class_weight=None validation_n=2501
+[2026-09-07T16:42:56.605393+08:00] outer_fold=1 selected_C=0.1 class_weight=None validation_n=2359
+[2026-09-07T16:43:00.348759+08:00] outer_fold=2 selected_C=0.1 class_weight=None validation_n=2457
+[2026-09-07T16:43:03.956284+08:00] outer_fold=3 selected_C=0.1 class_weight=None validation_n=2533
+[2026-09-07T16:43:07.594651+08:00] outer_fold=4 selected_C=0.1 class_weight=None validation_n=2550
+[2026-09-07T16:43:08.462645+08:00] {"accuracy": 1.0, "balanced_accuracy": 1.0, "macro_f1": 1.0, "n": 12400, "per_class": {"三角波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 4948.0}, "梯形波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 3398.0}, "正弦波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 4054.0}}}
+[2026-09-07T16:43:08.843000+08:00] END EXP-Q1-BASE-001 status=PASS runtime_seconds=18.798216
+[2026-09-07T16:59:19.159850+08:00] START EXP-Q1-BASE-001
+[2026-09-07T16:59:19.159850+08:00] COMMAND python src/run_q1.py --model logistic --stage baseline --config 'D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\experiments\s2_frozen_config.json'
+[2026-09-07T16:59:21.870788+08:00] outer_fold=0 selected_C=0.1 class_weight=None validation_n=2501
+[2026-09-07T16:59:25.533496+08:00] outer_fold=1 selected_C=0.1 class_weight=None validation_n=2359
+[2026-09-07T16:59:29.275596+08:00] outer_fold=2 selected_C=0.1 class_weight=None validation_n=2457
+[2026-09-07T16:59:32.875066+08:00] outer_fold=3 selected_C=0.1 class_weight=None validation_n=2533
+[2026-09-07T16:59:36.665137+08:00] outer_fold=4 selected_C=0.1 class_weight=None validation_n=2550
+[2026-09-07T16:59:37.526039+08:00] {"accuracy": 1.0, "balanced_accuracy": 1.0, "macro_f1": 1.0, "n": 12400, "per_class": {"三角波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 4948.0}, "梯形波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 3398.0}, "正弦波": {"f1-score": 1.0, "precision": 1.0, "recall": 1.0, "support": 4054.0}}}
+[2026-09-07T16:59:37.852617+08:00] END EXP-Q1-BASE-001 status=PASS runtime_seconds=18.693459

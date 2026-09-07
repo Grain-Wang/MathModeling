@@ -18,3 +18,4 @@
 - AI 未生成任何训练结果、测试集预测或最终论文结论。
 - 本次 AI 输出用于仓库维护、题意结构化、审计代码辅助、S2 建模方案与实验合同起草；尚未产生模型分数或预测，S1 数值均来自脚本运行产物。
 - 后续每次使用应追加记录，不得覆盖历史条目。
+| 2026-09-07 | OpenAI Codex | 仓库维护者 | 实现并执行 S3 全题 Baseline | 读取 G2 Round 2 PASS、冻结模型合同与实验计划；辅助编写特征/模型/验证代码、运行 8 个实验并整理 G3 证据 | 生成 `src/` S3 流水线、`experiments/baseline/`、`results/raw/`、Baseline 报告和 G3 submission | Yes | 在 `math_modeling` 中全量运行；8 份 manifest PASS；数据重建哈希一致；独立复算核心指标、Pareto 和逐候选 OOF 谱系 PASS；测试附件未参与建模，科学解释仍待团队与 Reviewer 复核 |
