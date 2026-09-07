@@ -1,0 +1,11 @@
+{
+  "experiment_id": "EXP-Q3-BASE-001",
+  "stage": "S3",
+  "purpose": "建立三因素效应编码、连续变量样条和 Ridge 正则的 Q3 可解释加性基线。",
+  "runner": "src/run_q3.py",
+  "arguments": ["--model", "additive", "--stage", "baseline", "--config", "experiments/s2_frozen_config.json"],
+  "seed": 20240920,
+  "budget_minutes": 40,
+  "inputs": ["results/raw/s3/data/feature_table.csv", "results/raw/s3/folds/fold_assignments.csv"],
+  "outputs": ["results/raw/s3/q3/additive_oof_predictions.csv", "results/raw/s3/q3/additive_metrics.json", "results/raw/s3/q3/additive_fold_coefficients.csv"]
+}

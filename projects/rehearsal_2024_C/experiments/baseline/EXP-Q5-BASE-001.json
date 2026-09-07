@@ -1,0 +1,11 @@
+{
+  "experiment_id": "EXP-Q5-BASE-001",
+  "stage": "S3",
+  "purpose": "基于 Q4 严格 OOF 预测构建观测工况 Pareto 基线并完成折支持、OOF/full 差异和观测损耗诊断。",
+  "runner": "src/run_q5.py",
+  "arguments": ["--mode", "oof-observed-pareto", "--stage", "baseline", "--config", "experiments/s2_frozen_config.json"],
+  "seed": 20240922,
+  "budget_minutes": 30,
+  "inputs": ["results/raw/s3/q4/ridge_oof_predictions.csv", "results/raw/s3/q4/ridge_full_fit_training_predictions.csv", "results/raw/s3/q4/ridge_oof_lineage.csv"],
+  "outputs": ["results/raw/s3/q5/observed_candidate_index.csv", "results/raw/s3/q5/oof_pareto_baseline.csv", "results/raw/s3/q5/baseline_metrics.json", "results/raw/s3/q5/candidate_oof_lineage.csv"]
+}

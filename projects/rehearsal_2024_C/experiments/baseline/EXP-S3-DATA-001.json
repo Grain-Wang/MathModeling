@@ -1,0 +1,11 @@
+{
+  "experiment_id": "EXP-S3-DATA-001",
+  "stage": "S3",
+  "purpose": "构建 wave-v1 特征表、分组键和固定外层折，并验证数据与契约哈希。",
+  "runner": "src/build_features.py",
+  "arguments": ["--config", "experiments/s2_frozen_config.json"],
+  "seed": 20240920,
+  "budget_minutes": 20,
+  "inputs": ["src/附件一（训练集）.xlsx", "experiments/s2_frozen_config.json", "work/models/*.md"],
+  "outputs": ["results/raw/s3/data/feature_table.csv", "results/raw/s3/folds/fold_assignments.csv", "results/raw/s3/data/feature_schema.json"]
+}
