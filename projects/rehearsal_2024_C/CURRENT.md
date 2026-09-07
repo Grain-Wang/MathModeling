@@ -14,57 +14,55 @@ ACTIVE_PROJECT：`projects/rehearsal_2024_C`
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计（交付物完成，等待 G1 审核）
+S2 — 总体方案与模型合同
 
 ## Last Gate
 
-Gate：G0
+Gate：G1
 
 Verdict：`PASS`
 
-Review File：[`reviews/gate_0_review.md`](reviews/gate_0_review.md)
+Review File：[`reviews/gate_1_review.md`](reviews/gate_1_review.md)
 
-Reviewed Commit：`c99ca0f7f7a238fac501836cd06dfd0b6aaabebe`
+Reviewed Commit：`96313b5239ca3a3789de58e57d1cbf029c3ff994`
 
 ## Approved Artifacts
 
-- `problem/manifest.md`
-- `work/00_project_brief.md`
-- `logs/decisions.md`
-- `logs/experiments.md`
-- `logs/ai_usage.md`
-- `reviews/gate_0_submission.md`
+- `work/01_problem_analysis.md`
+- `work/02_data_audit.md`
+- `work/03_requirement_matrix.md`
+- `src/s1_data_audit.py`
+- `results/raw/s1/`
+- `reviews/gate_1_submission.md`
 
 ## Current Goal
 
-冻结并推送 S1 题意拆解、数据审计和需求矩阵快照，请求 Reviewer 执行 G1 审核。
+形成覆盖 Q1–Q5 的统一技术路线、可执行模型合同和冻结于调参前的实验计划，为 G2 提交固定快照。
 
 ## Current Tasks
 
-1. 复核运行命令、审计输出、输入前后哈希和文档内部一致性。
-2. 仅暂存当前项目的 S1 产物，提交并推送远程固定 SHA。
-3. 由 Reviewer 按该 SHA 审核 `reviews/gate_1_submission.md`。
-4. 根据 PASS、REVISE 或 BLOCK 更新状态；只有 PASS 才进入 S2。
+1. 把 G1 Reviewer 的 7 项跟进要求转化为共享数据与验证合同。
+2. 完成 `work/04_solution_plan.md` 和 Q1–Q5 模型合同。
+3. 完成 `work/05_experiment_plan.md`，冻结数据切分、指标、随机种子、资源预算和回退条件。
+4. 更新日志并形成 `reviews/gate_2_submission.md`。
 
 ## Known Blockers
 
-- G1 尚未由独立 Reviewer 给出 PASS；这是进入 S2 的唯一当前 Gate 阻断。
+- `None`。G1 Reviewer 已给出 PASS，当前可执行 S2。
 
 ## Forbidden Now
 
-- 在 G1 PASS 前进入 S2、选择最终高级模型或开始大规模训练。
+- 在 G2 PASS 前进入 S3、大规模实现或把候选模型宣布为最终模型。
 - 覆写题目 DOCX 或四个原始 XLSX。
-- 使用附件二、附件三进行调参、特征选择或模型选择。
-- 把 S1 `results/raw/` 审计统计当作已核验模型结果。
+- 使用附件二、附件三进行特征选择、调参、模型选择或内部精度声明。
+- 使用逐变量 min/max 的无约束笛卡尔积作为 Q5 可行域。
 - 把未执行的模型、指标、结论或人工复核写成已验证事实。
 
 ## Next Gate
 
-G1 — 题意拆解与数据审计审核
+G2 — 总体方案与模型合同审核
 
-Verdict：`PENDING REVIEW`
-
-Submission File：[`reviews/gate_1_submission.md`](reviews/gate_1_submission.md)
+Verdict：`NOT SUBMITTED`
 
 ## Last Updated
 
