@@ -1,8 +1,23 @@
 {
-  "schema_version": "1.0",
-  "plan_version": "s2-v1",
+  "schema_version": "1.1",
+  "plan_version": "s2-r2-v1",
+  "review_round": 2,
   "project": "rehearsal_2024_C",
   "environment": "math_modeling",
+  "contract_registry": {
+    "version": "s2-r2-v1",
+    "hash_algorithm": "sha256_utf8_lf",
+    "files": {
+      "work/04_solution_plan.md": "E4B94323076FE84FDC7674D619D60DFA106BABA8079C8F50B84DF4257473353D",
+      "work/05_experiment_plan.md": "0BE129AD4DA0081421A5421BEC9BDD63592413906B167AC8DB87EFDFD5578253",
+      "work/models/00_shared_data_validation_contract.md": "9CC19EC0695B129BC0B47F14D2A456EE032E19334729CFB4364BBB7A36A99B46",
+      "work/models/q1_model_contract.md": "E0E61EEEA810A9BD40C202444AE770F3512FF07692CE08D8BB853AD10A7E8991",
+      "work/models/q2_model_contract.md": "FCE105629E864E758F06D8E6382708199B5E9627B2C9D699F145276A229A2AA6",
+      "work/models/q3_model_contract.md": "CC74CFE37D60C3A668EE3E30ACCEDA94168C4E83006A63D486B79B9F578EA08A",
+      "work/models/q4_model_contract.md": "86217B7B974E8AF7BBF290835A1F7D2B7E58092C43D0C86EAF7619E54A54881F",
+      "work/models/q5_model_contract.md": "FCF935E2D01582D00F9DA1217F31C6D79EA9B04228001301B73E9F017DDC8850"
+    }
+  },
   "seeds": {
     "global": 20240920,
     "bootstrap": 20240921,
@@ -18,6 +33,7 @@
   "feature_contract": {
     "version": "wave-v1",
     "waveform_points": 1024,
+    "waveform_signature": "sha256_float64_little_endian_normalize_negative_zero",
     "b_peak_primary": "max_abs",
     "b_peak_sensitivity": "peak_to_peak_over_2",
     "plateau_relative_slope_threshold": 0.05,
@@ -32,7 +48,23 @@
     "near_shape_quantization": [0.02, 0.01, 0.005],
     "log10_frequency_bin_width": 0.1,
     "log10_b_peak_bin_width": 0.1,
-    "allow_random_row_split_for_selection": false
+    "allow_random_row_split_for_selection": false,
+    "q4_major_subgroup_min_n": 100,
+    "q4_major_subgroup_min_outer_folds": 3,
+    "q4_known_schema_levels": {
+      "material": ["材料1", "材料2", "材料3", "材料4"],
+      "waveform": ["正弦波", "三角波", "梯形波"],
+      "temperature_C": [25, 50, 70, 90]
+    },
+    "q4_known_heldout_level_encoding": "one_hot_handle_unknown_ignore_after_schema_validation",
+    "reject_true_out_of_schema_levels": true
+  },
+  "metric_definitions": {
+    "log_base": "natural",
+    "rmsle": "sqrt(mean((log1p(max(y_pred,0))-log1p(y_true))^2))",
+    "mape_percent": "100*mean(abs(y_true-y_pred)/max(abs(y_true),1_W_per_m3))",
+    "r2_scale": "original_W_per_m3",
+    "prediction_contract_requires_positive": true
   },
   "metrics": {
     "q1_primary": "macro_f1",
@@ -42,25 +74,62 @@
     "q3_primary": "adjusted_effect_stability",
     "q3_predictive": "log_rmse",
     "q4_primary": "rmsle",
-    "q4_secondary": ["mae", "rmse", "mape", "median_ape", "r2"],
-    "q5_primary": ["pareto_nondominance", "cross_fold_membership_frequency"]
+    "q4_secondary": ["mae", "rmse", "mape", "median_ape", "r2_original_scale"],
+    "q5_primary": ["strict_oof_pareto_nondominance", "heldout_fold_region_support"],
+    "q5_secondary": ["oof_full_consistency", "cluster_bootstrap_region_stability", "observed_loss_pareto_diagnostic"]
   },
   "models": {
     "q1": {
       "baseline": "multinomial_logistic_regression",
       "main": "hist_gradient_boosting_classifier",
       "challenger": "random_forest_classifier",
-      "max_main_candidates": 12
+      "max_main_candidates": 12,
+      "search_space": {
+        "logistic": {
+          "C": [0.1, 1.0, 10.0],
+          "class_weight": [null, "balanced"],
+          "max_iter": 2000
+        },
+        "hist_gradient_boosting": {
+          "learning_rate": [0.05, 0.1],
+          "max_leaf_nodes": [15, 31],
+          "min_samples_leaf": [20, 50],
+          "l2_regularization": [0.0, 1.0],
+          "max_iter": 300,
+          "sampling": "ParameterSampler_without_replacement_when_possible",
+          "n_iter": 12,
+          "random_state": 20240920
+        },
+        "random_forest": {
+          "n_estimators": 400,
+          "max_depth": [null, 12],
+          "min_samples_leaf": [1, 4],
+          "max_features": ["sqrt", 0.7],
+          "max_candidates": 8,
+          "random_state": 20240920
+        }
+      }
     },
     "q2": {
       "baseline": "steinmetz_log_linear",
       "main": "steinmetz_quadratic_temperature_multiplier",
-      "conditional_upgrade": "temperature_log_frequency_and_log_b_peak_interactions"
+      "conditional_upgrade": "temperature_log_frequency_and_log_b_peak_interactions",
+      "fixed_forms": {
+        "temperature_anchor_C": 25,
+        "allowed_upgrade_interactions": ["temperature_x_log_frequency", "temperature_x_log_b_peak"],
+        "stepwise_selection": false
+      }
     },
     "q3": {
       "baseline": "additive_effect_coded_log_regression",
       "main": "pairwise_interaction_effect_coded_log_regression",
-      "bootstrap_repetitions": 500
+      "bootstrap_repetitions": 500,
+      "fixed_search": {
+        "spline_degree": 2,
+        "spline_knots": 4,
+        "ridge_alpha": [0.0, 0.01, 0.1, 1.0],
+        "interactions": ["temperature_x_waveform", "temperature_x_material", "waveform_x_material"]
+      }
     },
     "q4": {
       "null": ["global_median", "material_waveform_temperature_median"],
@@ -68,14 +137,85 @@
       "main": "hist_gradient_boosting_regressor",
       "challenger": "random_forest_regressor",
       "max_main_candidates": 18,
+      "max_challenger_candidates": 8,
       "min_relative_rmsle_improvement": 0.02,
-      "max_subgroup_rmsle_degradation": 0.1
+      "max_subgroup_rmsle_degradation": 0.1,
+      "search_space": {
+        "ridge": {
+          "alpha": [0.01, 0.1, 1.0, 10.0]
+        },
+        "hist_gradient_boosting": {
+          "learning_rate": [0.03, 0.06, 0.1],
+          "max_leaf_nodes": [15, 31],
+          "min_samples_leaf": [20, 50],
+          "l2_regularization": [0.0, 1.0, 5.0],
+          "max_iter": 500,
+          "sampling": "ParameterSampler_without_replacement_when_possible",
+          "n_iter": 18,
+          "random_state": 20240920
+        },
+        "random_forest": {
+          "n_estimators": 500,
+          "max_depth": [null, 16],
+          "min_samples_leaf": [1, 4, 10],
+          "max_features": ["sqrt", 0.7],
+          "sampling": "ParameterSampler_without_replacement_when_possible",
+          "n_iter": 8,
+          "random_state": 20240920
+        }
+      }
     },
     "q5": {
-      "baseline": "observed_support_pareto_enumeration",
+      "baseline": "strict_oof_observed_operating_point_pareto",
+      "candidate_definition": "observed_operating_point_v1",
+      "candidate_identity_fields": [
+        "row_id",
+        "source_file_sha256",
+        "source_sheet",
+        "source_excel_row",
+        "duplicate_row_ids",
+        "waveform_sha256",
+        "all_q4_input_features",
+        "feature_schema_sha256",
+        "q4_model_id",
+        "q4_pipeline_sha256",
+        "config_sha256",
+        "condition_group",
+        "oof_fold"
+      ],
+      "primary_loss_score": "strict_y_pred_oof",
+      "full_model_use": "reference_pareto_and_consistency_diagnostic_only",
       "primary_frequency_hz": [50000, 500000],
       "sensitivity_frequency_hz": [49990, 501180],
-      "min_cross_fold_pareto_membership": 0.5,
+      "region": {
+        "version": "q5-region-v1",
+        "categorical_fields": ["material", "waveform", "temperature_C"],
+        "frequency_bins": "global_empirical_quartiles_without_target",
+        "b_peak_bins": "global_empirical_quartiles_without_target",
+        "quantile_interpolation": "linear",
+        "duplicate_edges": "drop_and_record",
+        "intervals": "left_closed_right_open_except_last_closed"
+      },
+      "heldout_fold_region_support_fraction": 0.6,
+      "heldout_fold_region_support_count": "ceil(0.6*actual_outer_fold_count)",
+      "conflict_diagnostics": {
+        "reference_group": ["material", "waveform"],
+        "reference_group_min_n": 100,
+        "fallback": "global",
+        "quantile": 0.9,
+        "require_oof_and_full_fit_pareto": true,
+        "observed_region_jaccard_min": 0.5
+      },
+      "bootstrap": {
+        "unit": "condition_group",
+        "repetitions": 500,
+        "seed": 20240922,
+        "min_valid_repetitions_per_region": 400,
+        "conditional_region_pareto_rate_min": 0.5,
+        "interval_level": 0.95,
+        "interval_name": "condition_group_cluster_bootstrap_percentile_interval"
+      },
+      "fold_model_range_name": "refit_perturbation_range",
       "continuous_extension_enabled": false
     }
   },
@@ -84,7 +224,8 @@
     "attachment_3": "single_prediction_after_q4_freeze",
     "use_for_feature_selection": false,
     "use_for_tuning": false,
-    "use_for_model_selection": false
+    "use_for_model_selection": false,
+    "use_for_q5_candidate_domain_or_thresholds": false
   },
   "compute_budget_minutes": {
     "feature_build": 20,

@@ -102,6 +102,22 @@ g=(m,T,w,\lfloor\log_{10}(f)/0.1\rfloor,
 - 同一输入和配置重复运行，特征表与折文件 SHA-256 一致；
 - 原始五文件运行前后哈希一致。
 
+回归任务统一使用下列冻结定义，其中 $y_i>0$，预测先按合同检查为正；数值保护仅用于指标函数：
+
+\[
+\operatorname{RMSLE}=\sqrt{\frac1n\sum_i\left[\log(1+\max(\hat y_i,0))-\log(1+y_i)\right]^2},
+\]
+
+\[
+\operatorname{MAPE}=\frac{100\%}{n}\sum_i\frac{|y_i-\hat y_i|}{\max(|y_i|,1\ \mathrm{W/m^3})},
+\]
+
+\[
+R^2=1-\frac{\sum_i(y_i-\hat y_i)^2}{\sum_i(y_i-\bar y)^2}.
+\]
+
+因此 RMSLE 使用自然对数 `log1p`，MAPE 分母下限为 `1 W/m³`，$R^2$ 在原始 W/m³ 尺度计算。模型合同若无明确例外，均引用本节而不得另行改变公式。
+
 ## Failure Conditions
 
 - 输入哈希/schema 改变；

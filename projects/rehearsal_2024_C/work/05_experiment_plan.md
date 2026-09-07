@@ -35,9 +35,9 @@
 | Q2 | RMSLE | MAE、RMSE、MAPE、MdAPE、分温度残差 |
 | Q3 | 调整后效应区间和 OOF log-RMSE | 因素损失增量、交互增益、折/Bootstrap 稳定性 |
 | Q4 | RMSLE | MAE、RMSE、MAPE、MdAPE、$R^2$、子组与外推压力 |
-| Q5 | Pareto 非支配性和跨折入选频率 | 理想点距离、OOF 邻域残差、口径敏感性 |
+| Q5 | 严格 OOF Pareto 非支配性与验证折区域支持 | OOF/full 一致性、500 次工况组 Bootstrap、观测损耗 Pareto 诊断、口径敏感性 |
 
-任何主指标变更都必须先写决策日志并重新提交相应 Gate，不能在看到结果后改变。
+回归指标统一按共享合同计算：RMSLE 使用自然对数 `log1p`，MAPE 分母下限为 `1 W/m³`，$R^2$ 在原始 W/m³ 尺度。任何主指标变更都必须先写决策日志并重新提交相应 Gate，不能在看到结果后改变。
 
 ## 3. S3 Baseline 实验队列
 
@@ -50,7 +50,7 @@
 | EXP-Q3-BASE-001 | 控制 $f/B_m$ 的加性效应模型 | feature table；Q3 folds | `python src/run_q3.py --model additive --stage baseline --config ...` | OOF 预测、主效应初值、残差 | 设计可识别、OOF 有限；否则回退分层描述 | 15 min |
 | EXP-Q4-NULL-001 | 全局/分组中位数损耗参照 | feature table；Q4 folds | `python src/run_q4.py --model median --stage baseline --config ...` | OOF 预测和指标 | 为所有候选提供最低参照 | 5 min |
 | EXP-Q4-BASE-001 | Ridge 对数回归 Baseline | 完整 `wave-v1`；Q4 folds | `python src/run_q4.py --model ridge --stage baseline --config ...` | OOF 预测、总体/子组指标 | 必须优于至少一个中位数参照；否则先修数据/特征 | 30 min |
-| EXP-Q5-BASE-001 | 用当前 Q4 Baseline 枚举实测域 Pareto | Q4 冻结 Baseline；附件一候选 | `python src/run_q5.py --mode observed-pareto --stage baseline --config ...` | 候选集、Pareto、端点、膝点 | 所有候选真实存在；无被支配输出点 | 10 min |
+| EXP-Q5-BASE-001 | 用 Q4 Baseline 的严格 OOF 分数枚举实测点 Pareto | Q4 Baseline 完整 OOF；附件一候选 | `python src/run_q5.py --mode oof-observed-pareto --stage baseline --config ...` | 可复算候选索引、OOF Pareto、端点、膝点、full-fit 参考表 | 每点 OOF 模型未见其 `condition_group`；候选身份闭合；无被支配输出点 | 10 min |
 
 S3 完成条件是上述 8 个实验都有可重现输出，Q1–Q5 全部形成最小闭环；某个 Baseline 失败时优先修复它，不跳到主模型掩盖问题。
 
@@ -70,8 +70,8 @@ S3 完成条件是上述 8 个实验都有可重现输出，Q1–Q5 全部形成
 | EXP-Q4-MAIN-001 | HistGradientBoosting 回归 | Q4 Ridge 优于参照、S3 全题闭环 | 嵌套 OOF 候选比较 | RMSLE 相对改善≥2%，子组恶化≤10% | 90 min |
 | EXP-Q4-CHAL-001 | RandomForest 回归挑战者 | 主候选未稳定胜出或互补诊断有依据 | 同折 OOF 候选比较 | 只保留一个胜者，不集成 | 60 min |
 | EXP-Q4-ABL-001 | 工况-only/幅值/完整波形特征消融 | Q4 候选完成 | OOF 消融表 | 无增益的特征组删除 | 30 min |
-| EXP-Q4-STRESS-001 | 留一材料/温度、边界和尾部压力 | Q4 胜者暂定 | 泛化压力和校准 | 崩溃则限制适用范围或回退 | 45 min |
-| EXP-Q5-ROB-001 | 折模型 Pareto 稳定性 | Q4 胜者满足最低能力 | 入选频率、预测区间 | <50% 不给唯一推荐 | 20 min |
+| EXP-Q4-STRESS-001 | 留一材料/温度、边界和尾部压力 | Q4 胜者暂定 | schema 已知未见水平、泛化压力和校准；主要子组 `n≥100` 且覆盖≥3折 | 崩溃则限制适用范围或回退 | 45 min |
+| EXP-Q5-ROB-001 | 严格 OOF 的折级区域与簇 Bootstrap 稳定性 | Q4 胜者满足最低能力 | 各验证折区域、500 次重采样、双 Pareto/P90 冲突诊断 | 未达折级、Bootstrap 或冲突门槛则不给唯一推荐 | 20 min |
 | EXP-Q5-SENS-001 | 频率域、峰值口径和重复敏感性 | Q5 Baseline 有效 | 三类敏感性表 | 条件反转则只报稳定区域 | 15 min |
 
 `EXP-Q3-INT-001` 预算为 20 分钟。所有时间是硬上限；超时保存状态并标记失败，不自动扩大资源。
@@ -91,7 +91,7 @@ Q5 只能消费一个已冻结的 Q4 接口；Q4 模型改变后，旧 Q5 结果
 
 ## 6. 参数搜索纪律
 
-- 搜索空间只使用各模型合同 `Parameters` 表中的有限集合。
+- 搜索空间只使用各模型合同 `Parameters` 表中的有限集合，并在 `experiments/s2_frozen_config.json` 保存同一网格、抽样上限和规范化合同 SHA-256；实现时配置 JSON 为机器读取的单一事实源。
 - 候选多时用 `ParameterSampler` 固定抽样数量和 seed，不在运行后追加“看起来可能更好”的点。
 - 外层折只用于最终候选比较；内层选择完成后不得针对外层坏折继续调参。
 - Q1/Q4 的胜者由主指标、子组约束、运行时和简洁性共同决定，不按单一最好折选择。
@@ -147,6 +147,16 @@ stdout.log
 - IQR 高值、频率边界和完全重复记录均做保留/替代敏感性，不自动删除；
 - Q5 报告 Pareto 集而非只给膝点，膝点规则和端点同时公开。
 
+### 9.1 Q5 严格 OOF 与拒绝协议
+
+1. `observed_candidate_set.csv` 必须保存 `row_id`、来源文件哈希/工作表/Excel 行、波形 SHA-256、全部 Q4 输入特征、`condition_group`、`oof_fold` 和模型/配置哈希；抽象五元组仅作汇总列。
+2. 主 Pareto 的损耗列只能是该候选唯一留出模型产生的 `y_pred_oof`；全量模型只生成参考 Pareto，不参与折外计票。
+3. 每折只在本折验证候选中构造 Pareto；按 `q5-region-v1` 聚合，稳定区域须出现在至少 `ceil(0.6*K)` 个折的验证 Pareto 中。
+4. 在严格 OOF 候选表上以 `condition_group` 为单位做 500 次 Bootstrap，seed `20240922`。区域至少有 400 次有效出现才评价，条件 Pareto 入选率须 `≥0.50`；报告区间名为“95% condition-group cluster bootstrap percentile interval”。
+5. 单点还须同时属于 OOF/full-fit Pareto，且 OOF 绝对对数残差和 full/OOF 绝对对数差均不超过材料×波形参照组 P90；参照组 `n<100` 时回退全局。
+6. 另做模型预测 Pareto 与观测损耗 Pareto 的诊断比较。观测损耗不替代优化目标，但明显冲突会触发降级。
+7. 任一门槛失败时只报告稳定区域、因素区间和两个端点；5 个折模型的范围只能称“重拟合扰动范围”，不能称 95% 置信区间。
+
 ## 10. 阶段停止条件
 
 立即停止相应路线并记录：
@@ -157,7 +167,7 @@ stdout.log
 - 单实验超过合同预算；
 - 主候选不满足增益/子组阈值；
 - Q3 只能得到不稳定关联却被写成因果；
-- Q5 候选离开联合支持域或 Q4 在该区域失效。
+- Q5 候选身份不能完整复算、OOF 模型见过其 `condition_group`、双 Pareto/P90/折级/Bootstrap 任一门槛失败却仍输出唯一推荐，或 Q4 在该区域失效。
 
 总时间不足时，停止候选扩张，优先保留：五问 Baseline 闭环、合法验证、附件输出一致性、结果核验和论文交接。
 

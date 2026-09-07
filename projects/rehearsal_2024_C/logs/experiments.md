@@ -11,6 +11,7 @@ S0 只允许环境和输入完整性检查；S1 只允许题意与数据审计�
 | 2026-09-07 | X0005 | S1 | 首次全量数据审计并校准检查语义 | 题目 DOCX、附件一至四 | `conda run -n math_modeling python projects/rehearsal_2024_C/src/s1_data_audit.py`；openpyxl 只读流式扫描 | 原件哈希稳定；发现题面频率范围小幅偏差；初版错误地把范围偏差列为 Major，且把附件四表头算作已填值 | INVALID — audit rule fixed, data untouched |
 | 2026-09-07 | X0006 | S1 | 完成可复核的结构、质量、重复和泄漏审计 | 同 X0005 | 修正检查后重新运行同一命令；输出到 `results/raw/s1/` | 154 checks；0 FAIL、5 WARN；12,400+80+400 条记录元字段/波形无缺失或非有限；训练—测试完全波形重合为 0；输入前后 SHA-256 一致 | PASS |
 | 2026-09-07 | X0007 | S2 | 验证总体方案、模型合同与冻结配置的结构可执行性 | `work/04_solution_plan.md`、5 份 Q 合同、共享合同、`work/05_experiment_plan.md`、冻结 JSON | 检查 14 个合同必需章节、JSON 解析和输入哈希、Markdown 链接；在 `math_modeling` 导入计划 API | 5/5 Q 合同结构 PASS；config/hash/link PASS；scikit-learn 1.7.1 API PASS；检测 16 逻辑 CPU；未拟合模型 | PASS |
+| 2026-09-07 | X0008 | S2 | 验证 G2 Round 2 合同修订闭环 | 修订后的总体方案、共享/Q4/Q5 合同、实验计划、冻结 JSON、response/submission | 检查 5×14 必需章节、5 个输入哈希、8 个 `sha256_utf8_lf` 合同哈希、Q5 门槛、8 份文档链接、旧策略残留、Git 大文件边界和 diff | 全部 PASS；原始 XLSX 跟踪数 0；未新增 `src/`/`results/`，未训练模型或生成预测 | PASS |
 
 ## No Modeling Results Yet
 
