@@ -3,6 +3,10 @@
 /projects/**/problem/data/**
 /projects/**/problem/attachments/**
 
+# Keep raw-data recovery instructions tracked while datasets stay local.
+!/projects/**/problem/data/
+!/projects/**/problem/data/README.md
+
 # The 2024 C attachments are currently stored under src/.
 # Ignore only spreadsheets so source code in src/ remains trackable.
 /projects/rehearsal_2024_C/src/*.xlsx

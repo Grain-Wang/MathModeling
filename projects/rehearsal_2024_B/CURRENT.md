@@ -18,60 +18,72 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S0 — 项目初始化与约束确认（交付物已完成，等待 G0 审核）
+S1 — 题意拆解与数据审计（进行中）
 
 ## Last Gate
 
 Gate：G0 / Review Round 1
 
-Verdict：PENDING REVIEW
+Verdict：PASS
 
-Review File：尚未生成；Reviewer 只能新增 reviews/gate_0_review.md
+Review File：[reviews/gate_0_review.md](reviews/gate_0_review.md)
 
-Reviewed Commit：待 S0 提交固定并推送后填写/传入
+Reviewed Commit：2afba29b3cae4d6e500e0b4faa25aa3130953672
+
+Review Commit：0fac4e099cffdafab32af0aa9af9f8969f087dbe
 
 ## Approved Artifacts
 
-- None。当前尚无 Reviewer PASS。
-- 本地题目与数据已经过 S0 只读清点，但尚未获准进入 S1。
+- S0 的 problem/manifest.md、work/00_project_brief.md、三份日志、CURRENT 和 G0 submission。
+- 本地题目与 17 个 CSV 的只读清点、逐文件 SHA-256 和基础结构证据。
+- competition/2024/ 中适用的官方规则、格式规范、提交手册和模板。
+- math_modeling 当前机器环境的导入冒烟结果。
+- G0 Reviewer 授权的 S1 工作边界。
 
 ## Current Goal
 
-冻结题目、17 个 CSV、2024 年官方约束、运行环境、已知数据风险和项目状态，提交 G0 独立审核。
+完成 Q1–Q3 逐问拆解、17 个 CSV 的可复现逐字段审计、异常处理合同、数据泄漏边界和“题目要求 → 模型输出 → 验证证据”矩阵，随后提交 G1 独立审核。
 
 ## Current Tasks
 
-1. 将本轮 S0 文档固定到单一 Git commit。
-2. 推送固定 commit，向 Reviewer 提供完整 SHA。
-3. 等待 Reviewer 对 reviews/gate_0_submission.md 给出 PASS / REVISE / BLOCK。
+1. 增加 problem/data/README.md，固化远程数据恢复和审计前哈希检查。
+2. 实现并固定 src/s1_data_audit.py，先在干净实现 commit 上运行。
+3. 生成 results/raw/s1/ 的 JSON/Markdown 审计证据，审计前后复核原件 SHA-256。
+4. 完成 work/01_problem_analysis.md、work/02_data_audit.md、work/03_requirement_matrix.md。
+5. 关闭可在 S1 处理的 G0 Minor，更新日志并创建 reviews/gate_1_submission.md。
 
-## Known Blockers
+## Current Process Blockers
 
-- None：本机开展 S1 所需题面和 17 个数据文件均存在且可读取。
-- 远程可复现限制：CSV 按仓库策略被 Git 忽略；远程 Reviewer 依赖 manifest 的文件名、大小、SHA-256 和结构证据，其他机器需另行取得原始数据。
-- 数据完整性风险已登记但未在原件中修复：training_set_2ap_loc2_nav82.csv 两行错位、training_set_3ap_loc30_nav86.csv 三个 RSSI 列全空、3 条 nss=0。
-- 团队成员姓名和最终职能分工尚未提供；当前按功能角色记录。
-- environment.yml 尚未在全新环境中做 clean rebuild；当前机器冒烟测试已通过。
+- None。G0 已 PASS，本机输入和环境允许执行 S1。
+
+## Known Limitations / Risks
+
+- CSV 被 Git 忽略，远程 Reviewer 不能重跑原始数据审计；必须依赖脚本、manifest、结果 JSON 和本地哈希证据。
+- 原始数据授权获取位置/稳定 URL 尚未记录；当前只确认团队本机副本和 SHA-256。
+- 已知两行错位、三个全空 RSSI 列、三条 nss=0 和 schema 差异必须在 S1 明确处理，原件不得改写。
+- 团队责任人姓名尚未提供；当前只记录功能角色。
+- environment.yml 尚未 clean rebuild；当前机器 smoke=PASS。
 
 ## Forbidden Now
 
-- 在 G0 PASS 或用户书面批准前进入 S1、设计正式模型或运行调参。
-- 覆写、清洗或向测试集填值；所有派生数据必须写入 results/raw/。
-- 使用四个官方测试集做特征选择、调参、模型选择或伪造泛化指标。
-- 把已知异常静默删除、填补或当作不存在。
-- 修改 competition/2024/ 官方材料或 Reviewer 审核文件。
-- 把当前 S0 可用性结论表述为数据已通过逐字段 S1 审计。
+- 在 G1 PASS 或用户书面批准前进入 S2、冻结主模型方案或运行正式模型比较/调参。
+- 覆写原始 DOCX/CSV，或将清洗结果写回 problem/data/。
+- 让同一 source_file + test_id 的不同 AP 行跨训练/验证折。
+- 使用四个官方测试集的分布或输出进行特征选择、调参、规则调整或模型选择。
+- Q1 使用 nss、mcs、per、num_ampdu、ppdu_dur、other_air_time、seq_time、throughput 等事后统计。
+- Q2 使用真实 nss/mcs 或其派生量作输入；Q3 将题面只授权的真实 MCS/NSS 扩张到 PER 等其他事后字段。
+- 静默删除异常或把统计关联写成因果。
 
 ## Next Gate
 
-G0 — 项目初始化与约束确认审核
+G1 — 题意拆解与数据审计审核
 
-Verdict：PENDING REVIEW
+Verdict：NOT SUBMITTED
 
-Submission：[reviews/gate_0_submission.md](reviews/gate_0_submission.md)
+Submission：待 S1 交付物和证据完成后创建 reviews/gate_1_submission.md
 
 ## Last Updated
 
-时间：2026-09-08 22:10 +08:00
+时间：2026-09-08T22:35:42+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充

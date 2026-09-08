@@ -6,6 +6,8 @@
 |---|---|---|---|---|---|---|---|
 | 2026-09-08 22:10 | X0001 | S0 | 核对题目、数据附件、哈希、结构和当前运行环境 | 1 个 DOCX、13 个训练 CSV、4 个测试 CSV、math_modeling 环境 | DOCX ZIP/XML 只读解析；pandas 只读解析；SHA-256；核心依赖导入；CPU/RAM/GPU 查询 | DOCX 标题与 3 问可读；17/17 CSV 可解析；训练 1,252 行、测试 336 行；无完全重复行；smoke=PASS；已知异常已登记 | PASS_WITH_KNOWN_INPUT_RISKS |
 
+| 2026-09-08T22:48:49+08:00 | X0002 | S1 | 审计器预检与原始输入复核 | 17 个本地 CSV、src/s1_data_audit.py | py_compile；--verify-only；逐文件名/大小/SHA-256；git diff --check | 脚本编译通过；input_verification=PASS；17/17 文件匹配；未写审计结果 | PASS |
+
 ## X0001 Environment Snapshot
 
 - OS: Microsoft Windows 11 专业版，64 位，版本 10.0.26200
