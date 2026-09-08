@@ -4,7 +4,9 @@
 
 项目名称：`rehearsal_2024_C`
 
-ACTIVE_PROJECT：`projects/rehearsal_2024_C`
+项目活动状态：INACTIVE / PAUSED
+
+暂停原因：用户于 2026-09-08 明确将唯一 ACTIVE_PROJECT 切换为 projects/rehearsal_2024_B；本项目保留在 S6 等待交接状态，不继续产生赛题成果。
 
 ## Selected Problem
 
