@@ -409,6 +409,14 @@ work/03_requirement_matrix.md
 
 ## 9.2 必须完成
 
+进入 S2 的 O1 总体方案优化节点时，主 Agent **必须读取并遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+完成 O1 并形成 `work/optimization/o1_solution_optimization.md` 后，才可提交 G2。
+
 1. 提出全题总体技术路线；
 2. 说明各小问如何衔接；
 3. 为每一问建立最简单合理 Baseline；
@@ -460,6 +468,7 @@ work/models/q1_model_contract.md
 work/models/q2_model_contract.md
 ...
 work/05_experiment_plan.md
+work/optimization/o1_solution_optimization.md
 ```
 
 如多个小问天然属于同一模型，可以合并合同，但必须覆盖全部题目要求。
@@ -475,7 +484,8 @@ work/05_experiment_plan.md
 - 有明确验证和失败判断；
 - 计算规模在单张 A800 和比赛时间内可控；
 - 最后一问有真实可执行路线；
-- 已明确什么情况下继续改进，什么情况下回退 Baseline。
+- 已明确什么情况下继续改进，什么情况下回退 Baseline；
+- 已按照优化协议完成 O1，且决策为 `PROCEED_TO_G2`。
 
 ## 9.6 审核重点
 
@@ -508,6 +518,14 @@ Completion = 100\%
 
 ## 10.2 必须完成
 
+全题 Baseline 跑通后，主 Agent 必须进入 O2 失败诊断节点，并 **读取、遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+完成 `work/optimization/o2_baseline_diagnosis.md`、选定有限的 S4 改进方向后，才可提交 G3。
+
 1. 建立可运行的数据处理流程；
 2. 实现所有小问的 Baseline；
 3. 使前序结果能够传递到后续小问；
@@ -525,6 +543,7 @@ src/
 experiments/baseline/
 results/raw/baseline/
 work/06_baseline_report.md
+work/optimization/o2_baseline_diagnosis.md
 logs/experiments.md
 ```
 
@@ -551,7 +570,8 @@ Baseline 报告至少包含：
 - 最后一问已有基础结果；
 - 全题数据流闭环；
 - 运行失败时有清晰错误信息；
-- 已记录 Baseline 的主要不足。
+- 已记录 Baseline 的主要不足；
+- 已按照优化协议完成 O2，且决策为 `PROCEED_TO_G3`。
 
 ## 10.5 审核重点
 
@@ -601,6 +621,14 @@ Baseline
 
 ## 11.2 必须完成
 
+主模型和主要验证完成后，主 Agent 必须进入 O3 优化收益审计与冻结决策节点，并 **读取、遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+只有在 `work/optimization/o3_freeze_decision.md` 的决定为 `FREEZE_CANDIDATE` 时，才可提交 G4；若为 `ONE_BOUNDED_ITERATION` 或 `BACKTRACK`，必须先按协议继续处理。
+
 1. 识别 Baseline 的主要失败模式；
 2. 选择 1—2 个最有价值的改进点；
 3. 实现主模型；
@@ -635,6 +663,7 @@ experiments/sensitivity/
 experiments/robustness/
 results/raw/main/
 work/09_evidence_report.md
+work/optimization/o3_freeze_decision.md
 ```
 
 ## 11.4 G4 验收标准
@@ -649,7 +678,8 @@ work/09_evidence_report.md
 - 负结果和限制被如实记录；
 - 不存在挑选样本、挑选随机种子或只展示最好一次；
 - 主模型复杂度与收益匹配；
-- 仍有足够时间进行结果冻结和论文检查。
+- 仍有足够时间进行结果冻结和论文检查；
+- 已按照优化协议完成 O3，且决策为 `FREEZE_CANDIDATE`。
 
 ## 11.5 审核重点
 

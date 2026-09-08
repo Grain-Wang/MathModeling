@@ -752,6 +752,14 @@ problem/
 
 ## 15.1 应读取的核心交付物
 
+G2 审核时，Reviewer Agent **必须读取并遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+并读取：
+
 ```text
 work/04_solution_plan.md
 work/models/*_model_contract.md
@@ -759,6 +767,7 @@ work/05_experiment_plan.md
 work/01_problem_analysis.md
 work/02_data_audit.md
 work/03_requirement_matrix.md
+work/optimization/o1_solution_optimization.md
 ```
 
 ## 15.2 核心审核问题
@@ -792,6 +801,13 @@ work/03_requirement_matrix.md
 - 是否预留全题 Baseline 时间？
 - 是否过早追求复杂模型？
 
+### O1 优化协议合规性
+
+- O1 报告是否基于当前方案、模型合同和数据证据？
+- 是否比较了收益、时间、风险、验证和回退？
+- 是否设置了明确成功标准与停止条件？
+- O1 决策是否为 `PROCEED_TO_G2`？
+
 ## 15.3 常见 Critical
 
 - 模型没有回答原题；
@@ -805,13 +821,22 @@ work/03_requirement_matrix.md
 
 - 方案可以落地；
 - 模型合同足够明确，可以安全开始实现；
-- Baseline、验证和失败判断均已定义。
+- Baseline、验证和失败判断均已定义；
+- O1 报告完整且符合优化协议，决策为 `PROCEED_TO_G2`。
 
 ---
 
 # 16. G3 — 全题 Baseline 闭环审核
 
 ## 16.1 应读取的核心交付物
+
+G3 审核时，Reviewer Agent **必须读取并遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+并读取：
 
 ```text
 src/
@@ -821,6 +846,7 @@ work/06_baseline_report.md
 logs/experiments.md
 模型合同
 Gate submission 中的运行命令和日志
+work/optimization/o2_baseline_diagnosis.md
 ```
 
 ## 16.2 核心审核问题
@@ -855,6 +881,14 @@ Gate submission 中的运行命令和日志
 - 文件时间、内容和报告是否相互一致？
 - 报告中的数字能否在结果中找到？
 
+### O2 优化协议合规性
+
+- O2 是否先排除实现错误、数据问题和泄漏，再归因于模型能力？
+- 瓶颈是否由真实 Baseline 证据支持？
+- S4 主要改进是否被限制为少量高价值方向？
+- 每个改进是否有时间盒、验证标准和回退版本？
+- O2 决策是否为 `PROCEED_TO_G3`？
+
 ## 16.3 常见 Critical
 
 - 一个或多个核心小问没有输出；
@@ -869,13 +903,22 @@ Gate submission 中的运行命令和日志
 
 - 全题 Baseline 实际闭环；
 - 结果可基本复核；
-- 后续创新失败时仍有完整底座。
+- 后续创新失败时仍有完整底座；
+- O2 报告完整且符合优化协议，决策为 `PROCEED_TO_G3`。
 
 ---
 
 # 17. G4 — 主模型改进与证据构建审核
 
 ## 17.1 应读取的核心交付物
+
+G4 审核时，Reviewer Agent **必须读取并遵守**：
+
+```text
+.agents/protocols/optimization_protocol.md
+```
+
+并读取：
 
 ```text
 work/07_failure_analysis.md
@@ -889,6 +932,7 @@ experiments/robustness/
 results/raw/main/
 logs/experiments.md
 Baseline 相关材料
+work/optimization/o3_freeze_decision.md
 ```
 
 ## 17.2 核心审核问题
@@ -925,6 +969,14 @@ Baseline 相关材料
 - 是否能够与普通模板化方案拉开差距？
 - 结论是否可以被论文安全表述？
 
+### O3 优化协议合规性
+
+- O3 是否审计了真实收益、证据公平性和剩余时间？
+- 是否明确了最终候选模型、配置、结果版本和停止条件？
+- 是否仍存在无边界调参或未完成的竞争路线？
+- O3 决策是否为 `FREEZE_CANDIDATE`？
+- 如果曾决定 `ONE_BOUNDED_ITERATION`，该动作是否已经完成并重新形成 O3 结论？
+
 ## 17.3 常见 Critical
 
 - 改进结果来自数据泄漏；
@@ -939,7 +991,8 @@ Baseline 相关材料
 
 - 改进真实、针对、可验证；
 - 核心结论有充分证据；
-- 已达到停止扩张、进入结果冻结的条件。
+- 已达到停止扩张、进入结果冻结的条件；
+- O3 报告完整且符合优化协议，决策为 `FREEZE_CANDIDATE`。
 
 ---
 
