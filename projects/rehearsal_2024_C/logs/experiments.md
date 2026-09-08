@@ -66,3 +66,4 @@
 | 2026-09-08 | X0014 | S5 | 拉取并核对 G4 审核、进入 S5 | `reviews/gate_4_review.md` | 核对 Verdict、Reviewed Commit、Review Commit 和 S5 授权；读取结果核验/绘图/论文交接协议 | G4=PASS；S4→S5 AUTHORIZED；识别 Q5/Q3/Q4 强制表述限制及绘图 Skill/配色指南缺口 | PASS |
 | 2026-09-08 14:40 | EXP-S5-PRED-001-PRE | S5 | 正式预测前置读取检查 | 冻结模型、附件二至四、G4审核 | 启动冻结预测入口；在产生任何输出前严格校验附件二表头 | 首个波形列名含单位说明，旧检查误要求纯数字0；`output_hashes={}`，未生成预测 | FAIL PRE-OUTPUT — parser fixed before official prediction |
 | 2026-09-08 14:42 | EXP-S5-PRED-001-POST | S5 | 生成冻结预测并填写附件四副本 | G4批准的 Q1/Q4 冻结模型；附件二、三、四 | 已写出附件二/三预测 CSV；填写附件四时核验原模板序号列 | 模板序号 2–400 为公式，旧检查将公式当整数而失败；两份预测 CSV 已冻结，不重写，改由显式恢复模式只读复算后完成后处理 | FAIL POST-PREDICTION — output CSVs preserved |
+| 2026-09-08 14:46 | EXP-S5-PRED-001-GUARD | S5 | 验证恢复授权条件 | 已保存的后处理失败清单 | 在读取预测 CSV 前核对失败类型与预测生成提交 | 手工录入的完整提交 SHA 与 Git 实值不一致，恢复保护拒绝；预测 CSV 哈希保持不变 | FAIL PRE-RESUME — guard corrected |

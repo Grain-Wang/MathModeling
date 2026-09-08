@@ -331,16 +331,21 @@ def main() -> None:
             if not failed_after_predictions.is_file():
                 raise FileNotFoundError("Resume requested without preserved post-prediction failure manifest")
             prior_failure = json.loads(failed_after_predictions.read_text(encoding="utf-8"))
+            prior_commit = str(prior_failure.get("git_commit", ""))
             if (
                 prior_failure.get("status") != "FAIL"
                 or "invalid literal for int()" not in str(prior_failure.get("error"))
-                or prior_failure.get("git_commit") != "c4d7121056fc0d8dd31e170c86857db9c017fc36"
+                or len(prior_commit) != 40
             ):
                 raise ValueError("Preserved post-prediction failure does not match the authorized recovery case")
+            subprocess.run(
+                ["git", "-C", str(PROJECT_ROOT.parents[1]), "cat-file", "-e", f"{prior_commit}^{{commit}}"],
+                check=True,
+            )
             run.record_input(failed_after_predictions)
             run.record_input(q1_path, label="resume_input::q1_prediction_csv")
             run.record_input(q4_path, label="resume_input::q4_prediction_csv")
-            recovery["prediction_generation_commit"] = prior_failure["git_commit"]
+            recovery["prediction_generation_commit"] = prior_commit
             recovery["q1_sha256_before_resume"] = sha256_file(q1_path)
             recovery["q4_sha256_before_resume"] = sha256_file(q4_path)
         elif q1_path.exists() or q4_path.exists():
