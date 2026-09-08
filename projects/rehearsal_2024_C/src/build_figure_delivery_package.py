@@ -75,6 +75,11 @@ def sha256(path: Path) -> str:
     return digest.hexdigest().upper()
 
 
+def write_text_lf(path: Path, text: str) -> None:
+    with path.open("w", encoding="utf-8", newline="\n") as stream:
+        stream.write(text)
+
+
 def git_head() -> str:
     return subprocess.run(
         ["git", "rev-parse", "HEAD"],
@@ -93,7 +98,7 @@ def main() -> int:
         raise RuntimeError("The delivery package must not copy results/raw files.")
 
     PACKAGE_ROOT.mkdir(parents=True, exist_ok=True)
-    managed = set(FILES) | {"README.md", "verify_package.py", "MANIFEST_SHA256.json", ARCHIVE_NAME, "ARCHIVE_SHA256.txt"}
+    managed = set(FILES) | {".gitattributes", "README.md", "verify_package.py", "MANIFEST_SHA256.json", ARCHIVE_NAME, "ARCHIVE_SHA256.txt"}
     unexpected = [
         path.relative_to(PACKAGE_ROOT).as_posix()
         for path in PACKAGE_ROOT.rglob("*")
@@ -116,7 +121,7 @@ def main() -> int:
             }
         )
 
-    for local_name in ("README.md", "verify_package.py"):
+    for local_name in (".gitattributes", "README.md", "verify_package.py"):
         local_path = PACKAGE_ROOT / local_name
         entries.append(
             {
@@ -136,7 +141,7 @@ def main() -> int:
         "files": sorted(entries, key=lambda item: item["package_path"]),
     }
     manifest_path = PACKAGE_ROOT / "MANIFEST_SHA256.json"
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_text_lf(manifest_path, json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 
     archive_path = PACKAGE_ROOT / ARCHIVE_NAME
     archive_members = [PACKAGE_ROOT / item["package_path"] for item in manifest["files"]] + [manifest_path]
@@ -144,7 +149,7 @@ def main() -> int:
         for member in sorted(archive_members):
             archive.write(member, member.relative_to(PACKAGE_ROOT).as_posix())
     archive_hash = sha256(archive_path)
-    (PACKAGE_ROOT / "ARCHIVE_SHA256.txt").write_text(f"{archive_hash}  {ARCHIVE_NAME}\n", encoding="utf-8")
+    write_text_lf(PACKAGE_ROOT / "ARCHIVE_SHA256.txt", f"{archive_hash}  {ARCHIVE_NAME}\n")
 
     print(f"FIGURE_DELIVERY_PACKAGE_PASS: {len(entries)} files")
     print(f"archive={archive_path}")

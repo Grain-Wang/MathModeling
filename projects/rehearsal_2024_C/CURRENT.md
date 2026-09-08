@@ -67,7 +67,7 @@ G5 已授权基于冻结证据完成论文、图表、技术一致性与提交�
 3. 建立只读 `src/check_s6_consistency.py`；在 `math_modeling` 中检查 G5 授权、47个 provenance 哈希、E001–E015、冻结模型和核心论文数字。
 4. 修复 Evidence ID 正则对 SHA-256 片段的误报并保留首次失败报告；当前一致性结果为 9/9 PASS。
 5. 建立 `work/11_technical_consistency_audit.md` 和 `work/revisions/final_fix_log.md`，区分技术底稿通过项与 G6 未完成项。
-6. 建立 `package_for_deliver/` 绘图交接包：43个说明/verified数据文件、独立校验脚本、SHA-256清单与可直接转发的ZIP；未包含raw、原始附件或模型二进制。
+6. 建立 `package_for_deliver/` 绘图交接包：44个说明/verified数据及控制文件、独立校验脚本、SHA-256清单与可直接转发的ZIP；未包含raw、原始附件或模型二进制。
 
 ## Known Blockers
 

@@ -1,10 +1,16 @@
 {
   "package": "rehearsal_2024_C figure handoff",
-  "generated_at": "2026-09-08T16:01:34.535429+08:00",
-  "source_git_commit": "0bcd9a8606b65de3820044a955af7403f917e9e4",
+  "generated_at": "2026-09-08T16:06:18.258140+08:00",
+  "source_git_commit": "a376f4bfeef9ca0f22751cab24d70cca30e03ad1",
   "source_policy": "Only verified numerical evidence and necessary documentation are copied; results/raw and original contest attachments are excluded.",
-  "file_count_excluding_manifest_and_archive": 43,
+  "file_count_excluding_manifest_and_archive": 44,
   "files": [
+    {
+      "package_path": ".gitattributes",
+      "source_path": "projects/rehearsal_2024_C/package_for_deliver/.gitattributes",
+      "size_bytes": 8,
+      "sha256": "705FD4D6451A31D36B3DF7DE96F83F30AC976C9B4A6D1E51671D8E2F33E2D0DA"
+    },
     {
       "package_path": "README.md",
       "source_path": "projects/rehearsal_2024_C/package_for_deliver/README.md",

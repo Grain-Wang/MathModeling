@@ -28,4 +28,4 @@
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 修正 S5 Evidence ID 自检 | 独立验证已完成数值与哈希检查，但字符串计数同时包含表头“Evidence ID” | 改为解析表格首列并严格比较 E001–E015 序列；保留失败清单 | Yes | 不修改预测、指标或登记内容；verified 在产生 PASS 验证报告前仍不授权论文使用 |
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 完成 S5 结果冻结与交接 | G4批准模型、S5冻结预测、84项验证、47个verified文件 | 生成结果冻结说明、E001–E015索引、绘图/写作交接和G5提交材料 | Yes | 数字均来自 `math_modeling` 实机输出与verified文件；正式绘图因Skill/配色指南门槛未执行；全部成果待G5 Reviewer复核 |
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 处理 G5 PASS 并启动 S6 | 拉取并核对固定快照审核；基于写作交接和 E001–E015 构建论文技术底稿与只读一致性检查 | 生成 `paper/technical_draft.md`、S6 审计、修复日志和 raw 检查报告 | Yes | `math_modeling` 中 9/9 检查 PASS；47个 verified 来源哈希一致；首次 Evidence ID 正则误报已保留，正式图/模板/PDF 仍待团队完成 |
-| 2026-09-08 | OpenAI Codex | 仓库维护者 | 组装论文配图队友交接包 | 按八图 handoff 选择必要说明和 verified 数据，明确排除 raw、大附件和模型二进制 | 生成 `package_for_deliver/`、使用说明、manifest、独立校验脚本与ZIP | Yes | 43个文件逐项 SHA-256 PASS；ZIP含44个成员、无禁入类型，压缩包哈希已登记；正式绘图仍需用户确认Skill与配色 |
+| 2026-09-08 | OpenAI Codex | 仓库维护者 | 组装论文配图队友交接包 | 按八图 handoff 选择必要说明和 verified 数据，明确排除 raw、大附件和模型二进制 | 生成 `package_for_deliver/`、使用说明、manifest、独立校验脚本与ZIP | Yes | 44个文件逐项 SHA-256 PASS；ZIP含45个成员、无禁入类型，压缩包哈希已登记；局部 `.gitattributes` 防止换行转换破坏哈希；正式绘图仍需用户确认Skill与配色 |
