@@ -1,0 +1,3 @@
+[2026-09-08T11:22:55.323679+08:00] START EXP-Q3-SENS-001
+[2026-09-08T11:22:55.325874+08:00] COMMAND python src/run_s4_q3.py --mode sensitivity --config experiments/s2_frozen_config.json
+[2026-09-08T11:22:56.245918+08:00] END EXP-Q3-SENS-001 status=PASS runtime_seconds=0.921966

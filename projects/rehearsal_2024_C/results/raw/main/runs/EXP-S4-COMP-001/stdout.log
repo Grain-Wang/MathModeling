@@ -1,0 +1,4 @@
+[2026-09-08T11:27:28.666503+08:00] START EXP-S4-COMP-001
+[2026-09-08T11:27:28.667504+08:00] COMMAND python src/verify_s4_outputs.py --config experiments/s2_frozen_config.json
+[2026-09-08T11:27:29.130744+08:00] {"check_count": 23, "failed_count": 0, "status": "PASS"}
+[2026-09-08T11:27:29.395939+08:00] END EXP-S4-COMP-001 status=PASS runtime_seconds=0.7304

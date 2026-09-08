@@ -1,0 +1,8 @@
+[2026-09-08T11:22:15.352421+08:00] START EXP-Q3-BOOT-001
+[2026-09-08T11:22:15.353771+08:00] COMMAND python src/run_s4_q3.py --mode bootstrap --config experiments/s2_frozen_config.json
+[2026-09-08T11:22:19.518089+08:00] bootstrap_completed=100/500
+[2026-09-08T11:22:23.467495+08:00] bootstrap_completed=200/500
+[2026-09-08T11:22:27.142200+08:00] bootstrap_completed=300/500
+[2026-09-08T11:22:30.974976+08:00] bootstrap_completed=400/500
+[2026-09-08T11:22:34.690497+08:00] bootstrap_completed=500/500
+[2026-09-08T11:22:35.099870+08:00] END EXP-Q3-BOOT-001 status=PASS runtime_seconds=19.747605

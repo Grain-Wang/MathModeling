@@ -1,0 +1,18 @@
+[2026-09-08T11:01:49.949253+08:00] START EXP-Q4-MAIN-001
+[2026-09-08T11:01:49.949253+08:00] COMMAND python src/run_s4_q4.py --mode main --config experiments/s2_frozen_config.json
+[2026-09-08T11:02:49.206340+08:00] outer_fold=0 selected={"l2_regularization":0.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2553
+[2026-09-08T11:03:40.274770+08:00] outer_fold=1 selected={"l2_regularization":1.0,"learning_rate":0.06,"max_iter":500,"max_leaf_nodes":31,"min_samples_leaf":20,"random_state":20240920} validation_n=2481
+[2026-09-08T11:04:32.757866+08:00] outer_fold=2 selected={"l2_regularization":1.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2419
+[2026-09-08T11:05:27.358762+08:00] outer_fold=3 selected={"l2_regularization":1.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2463
+[2026-09-08T11:06:18.578636+08:00] outer_fold=4 selected={"l2_regularization":0.0,"learning_rate":0.06,"max_iter":500,"max_leaf_nodes":31,"min_samples_leaf":50,"random_state":20240920} validation_n=2484
+[2026-09-08T11:06:20.214418+08:00] {"candidate_oof": {"mae_W_per_m3": 9797.365406411147, "mape_percent": 5.8686407723152705, "median_ape_percent": 4.599173984926854, "n": 12400, "r2_original_scale": 0.994816262252534, "rmse_W_per_m3": 27093.981192329964, "rmsle": 0.07639668113886144}, "max_subgroup_degradation": -0.5063616511198927, "winner": "hgb"}
+[2026-09-08T11:06:20.560356+08:00] END EXP-Q4-MAIN-001 status=PASS runtime_seconds=270.611494
+[2026-09-08T11:13:09.412267+08:00] START EXP-Q4-MAIN-001
+[2026-09-08T11:13:09.412267+08:00] COMMAND python src/run_s4_q4.py --mode main --config experiments/s2_frozen_config.json
+[2026-09-08T11:14:05.353765+08:00] outer_fold=0 selected={"l2_regularization":0.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2553
+[2026-09-08T11:14:57.477061+08:00] outer_fold=1 selected={"l2_regularization":1.0,"learning_rate":0.06,"max_iter":500,"max_leaf_nodes":31,"min_samples_leaf":20,"random_state":20240920} validation_n=2481
+[2026-09-08T11:16:10.322994+08:00] outer_fold=2 selected={"l2_regularization":1.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2419
+[2026-09-08T11:17:29.599484+08:00] outer_fold=3 selected={"l2_regularization":1.0,"learning_rate":0.1,"max_iter":500,"max_leaf_nodes":15,"min_samples_leaf":20,"random_state":20240920} validation_n=2463
+[2026-09-08T11:18:49.504355+08:00] outer_fold=4 selected={"l2_regularization":0.0,"learning_rate":0.06,"max_iter":500,"max_leaf_nodes":31,"min_samples_leaf":50,"random_state":20240920} validation_n=2484
+[2026-09-08T11:18:52.070152+08:00] {"candidate_oof": {"mae_W_per_m3": 9797.365406411147, "mape_percent": 5.8686407723152705, "median_ape_percent": 4.599173984926854, "n": 12400, "r2_original_scale": 0.994816262252534, "rmse_W_per_m3": 27093.981192329964, "rmsle": 0.07639668113886144}, "max_subgroup_degradation": -0.5063616511198927, "winner": "hgb"}
+[2026-09-08T11:18:52.414620+08:00] END EXP-Q4-MAIN-001 status=PASS runtime_seconds=343.00295

@@ -1,0 +1,9 @@
+[2026-09-08T11:21:51.695285+08:00] START EXP-Q3-INT-001
+[2026-09-08T11:21:51.696283+08:00] COMMAND python src/run_s4_q3.py --mode interaction --config experiments/s2_frozen_config.json
+[2026-09-08T11:21:52.602787+08:00] outer_fold=0 selected_alpha=0.1
+[2026-09-08T11:21:53.307348+08:00] outer_fold=1 selected_alpha=0.01
+[2026-09-08T11:21:54.008990+08:00] outer_fold=2 selected_alpha=0.01
+[2026-09-08T11:21:54.706181+08:00] outer_fold=3 selected_alpha=1.0
+[2026-09-08T11:21:55.426177+08:00] outer_fold=4 selected_alpha=1.0
+[2026-09-08T11:21:55.603940+08:00] {"additive_oof_log_rmse": 0.34341644624358847, "adopted": true, "candidate_oof_log_rmse": 0.32666736812500924, "candidate_oof_original_scale": {"mae_W_per_m3": 54158.479972114386, "mape_percent": 27.43745067768078, "median_ape_percent": 19.19531850723838, "n": 12400, "r2_original_scale": 0.5940755774664567, "rmse_W_per_m3": 239758.44035643342, "rmsle": 0.3266317336012187}, "failure_flags": {"group_leakage": false, "interaction_oof_worse_than_additive": false}, "full_fit_alpha_from_outer_mode": 0.01, "inner_folds": 3, "interpretation": "Adjusted association model; interaction estimates are not causal effects.", "model": "pairwise interaction effect-coded spline Ridge", "outer_folds": 5, "predefined_interactions": ["temperature_x_waveform", "temperature_x_material", "waveform_x_material"], "relative_log_rmse_improvement": 0.048771916143756706, "status": "PASS", "winner": "interaction"}
+[2026-09-08T11:21:55.895853+08:00] END EXP-Q3-INT-001 status=PASS runtime_seconds=4.201175

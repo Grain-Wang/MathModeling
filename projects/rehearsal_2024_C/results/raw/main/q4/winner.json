@@ -1,0 +1,1 @@
+{"decision_rule_pass":true,"fold_models":"results/raw/main/q4/hgb_fold_models.joblib","full_model":"results/raw/main/q4/hgb_full_model.joblib","full_predictions":"results/raw/main/q4/hgb_full_fit_training_predictions.csv","oof_predictions":"results/raw/main/q4/hgb_oof_predictions.csv","winner":"hgb"}

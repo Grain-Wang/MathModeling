@@ -1,0 +1,12 @@
+[2026-09-08T11:07:14.319761+08:00] START EXP-Q4-ABL-001
+[2026-09-08T11:07:14.320760+08:00] COMMAND python src/run_s4_q4.py --mode ablation --config experiments/s2_frozen_config.json
+[2026-09-08T11:07:21.855659+08:00] variant=condition_only rmsle=0.1438286192931921
+[2026-09-08T11:07:25.636683+08:00] variant=amplitude_and_condition rmsle=0.07094149465163511
+[2026-09-08T11:07:30.727314+08:00] variant=full_wave_v1 rmsle=0.07639668113886144
+[2026-09-08T11:07:31.116763+08:00] END EXP-Q4-ABL-001 status=PASS runtime_seconds=16.796992
+[2026-09-08T11:19:14.527841+08:00] START EXP-Q4-ABL-001
+[2026-09-08T11:19:14.528840+08:00] COMMAND python src/run_s4_q4.py --mode ablation --config experiments/s2_frozen_config.json
+[2026-09-08T11:19:22.264537+08:00] variant=condition_only rmsle=0.1438286192931921
+[2026-09-08T11:19:26.301314+08:00] variant=amplitude_and_condition rmsle=0.07094149465163511
+[2026-09-08T11:19:31.797253+08:00] variant=full_wave_v1 rmsle=0.07639668113886144
+[2026-09-08T11:19:33.444312+08:00] END EXP-Q4-ABL-001 status=PASS runtime_seconds=18.916011

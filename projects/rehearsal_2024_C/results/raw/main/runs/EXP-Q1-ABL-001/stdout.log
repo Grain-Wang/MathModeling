@@ -1,0 +1,7 @@
+[2026-09-08T11:23:14.683873+08:00] START EXP-Q1-ABL-001
+[2026-09-08T11:23:14.683873+08:00] COMMAND python src/run_s4_q1.py --config experiments/s2_frozen_config.json
+[2026-09-08T11:24:25.819880+08:00] perturbation=phase_shift_137 agreement=1.0
+[2026-09-08T11:25:39.754416+08:00] perturbation=amplitude_half agreement=1.0
+[2026-09-08T11:27:01.373023+08:00] perturbation=amplitude_double agreement=1.0
+[2026-09-08T11:27:03.069500+08:00] {"auxiliary_only_macro_f1": 0.4197578393358757, "baseline_macro_f1": 1.0, "minimum_leave_one_material_macro_f1": 1.0, "minimum_phase_amplitude_prediction_agreement": 1.0, "proxy_risk_interpretation": "Auxiliary-only performance is diagnostic and cannot replace the shape-only model.", "shape_only_remains_saturated": true, "status": "PASS", "tree_candidates_run": false, "tree_candidates_skip_reason": "Frozen Logistic remains saturated after mandatory invariance and leave-material stress; added complexity has no measurable selection headroom."}
+[2026-09-08T11:27:03.195653+08:00] END EXP-Q1-ABL-001 status=PASS runtime_seconds=228.512425

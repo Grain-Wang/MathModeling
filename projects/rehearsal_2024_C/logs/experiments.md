@@ -44,3 +44,17 @@
 | Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / command | Result | Status |
 |---|---|---|---|---|---|---|---|
 | 2026-09-08 | X0011 | S4 | 拉取并核对 G3 审核、进入 S4 | `reviews/gate_3_review.md` | 核对 review commit `076a7a3…`、Verdict 和 Reviewed Commit | G3=PASS；S3→S4 AUTHORIZED；识别 3 项 Minor 与 5 项强制优先任务 | PASS |
+| 2026-09-08 | X0012 | S4 | 校准 Q4 消融胜者到 Q5 的交接 | 初版实现 `50f812c…` 的 Q2/Q4 预运行 | 消融发现18特征优于48特征，同时发现初版未把消融胜者物化为严格 OOF/full-fit 工件；保留追加日志，修复后统一重跑 | SUPERSEDED — authoritative rerun on `6accab2…` |
+| 2026-09-08 | X0013 | S4 | 关闭 G3 三项 Minor 并做静态验证 | 日志、Q5 退化分支、manifest 命令 | `test_s3_synthetic.py`、`compileall`、相对命令断言 | 两个新增直接边界测试 PASS；全部 S4 CLI 导入 PASS；相对命令不含本机项目绝对路径 | PASS |
+| 2026-09-08 | EXP-Q2-MAIN-001 | S4 | 二次乘性温度修正同折比较 | 1,067 条材料1正弦波；固定 regression folds | `python src/run_s4_q2.py --mode main --config ...` | RMSLE 0.36068→0.20257，改善43.84%；3/4温度不劣化；采用二次温度修正 | PASS |
+| 2026-09-08 | EXP-Q2-SENS-001 | S4 | Q2 留一温度、峰值和重复敏感性 | Q2 主模型与 S3 Baseline | `python src/run_s4_q2.py --mode sensitivity --config ...` | LOTO 25/90°C 明显改善；`B_pp/2`相对变化+0.36%；去重变化0；50°C小幅劣化 | PASS |
+| 2026-09-08 | EXP-Q4-MAIN-001 | S4 | 18候选 HGB 嵌套分组比较 | 12,400 行；固定外5/内3折；Ridge | `python src/run_s4_q4.py --mode main --config ...` | HGB RMSLE=0.07640，相对 Ridge 改善61.82%；主要子组最大变化-50.64%；RF不触发 | PASS |
+| 2026-09-08 | EXP-Q4-ABL-001 | S4 | 工况-only/幅值/完整特征消融并冻结最终模型 | HGB 各折已选参数 | `python src/run_s4_q4.py --mode ablation --config ...` | 2/18/48特征 RMSLE=0.14383/0.07094/0.07640；最终采用18特征工况+幅值 HGB | PASS |
+| 2026-09-08 | EXP-Q4-STRESS-001 | S4 | Q4 低Bm、边界/尾部和留一水平压力 | 最终18特征 HGB | `python src/run_s4_q4.py --mode stress --config ...` | 低Bm RMSLE=0.08328；LOMO max=0.37982；LOTO max=0.57496 | PASS WITH EXTRAPOLATION LIMITS |
+| 2026-09-08 | EXP-Q5-ROB-001 | S4 | 最终Q4胜者的严格OOF Pareto与500次组Bootstrap | Q4 final OOF/full-fit/lineage | `python src/run_s4_q5.py --mode robustness --config ...` | 118 OOF Pareto；27折支持区域；42 Bootstrap稳定区域；Jaccard=0.39535<0.50；唯一推荐禁用 | PASS WITH NO UNIQUE RECOMMENDATION |
+| 2026-09-08 | EXP-Q5-SENS-001 | S4 | Q5 频率、峰值、重复敏感性 | 最终候选表 | `python src/run_s4_q5.py --mode sensitivity --config ...` | 相对主口径 OOF 区域 Jaccard最低0.881；不覆盖主Gate失败 | PASS |
+| 2026-09-08 | EXP-Q3-INT-001 | S4 | 三组预定义两两交互同折比较 | 12,400 行；加性 Baseline | `python src/run_s4_q3.py --mode interaction --config ...` | log-RMSE 0.34342→0.32667，改善4.88%；采用交互模型 | PASS |
+| 2026-09-08 | EXP-Q3-BOOT-001 | S4 | Q3 工况组簇 Bootstrap | Q3 交互胜者 | `python src/run_s4_q3.py --mode bootstrap --config ...` | 500/500有效；40个两两对比中27个符号稳定度≥0.90 | PASS |
+| 2026-09-08 | EXP-Q3-SENS-001 | S4 | Q3 共同支持、峰值和重复敏感性 | Q3交互胜者 | `python src/run_s4_q3.py --mode sensitivity --config ...` | 共同支持14.24%；峰值相对+2.28%；去重+0.004%；仅保留稳定调整关联 | PASS |
+| 2026-09-08 | EXP-Q1-ABL-001 | S4 | Q1 真实波形不变性、留一材料和特征/辅助消融 | 附件一；Logistic折模型 | `python src/run_s4_q1.py --config ...` | 相位/幅值一致率1.0；LOMO min F1=1.0；辅助-only F1=0.41976；树模型不运行 | PASS |
+| 2026-09-08 | EXP-S4-COMP-001 | S4 | 独立复算与运行谱系总验证 | 11份run manifest；Q1–Q5核心输出 | `python src/verify_s4_outputs.py --config ...` | 23/23 PASS；统一实现SHA=`6accab2…`；环境/洁净/测试附件隔离/主指标/Pareto均通过 | PASS |
