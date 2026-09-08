@@ -51,7 +51,7 @@ def project_path(value: str) -> Path:
 
 
 def winner_inputs() -> tuple[dict[str, Any], Path, Path, Path, Path, Path]:
-    winner_path = S4_RESULTS_ROOT / "q4" / "winner.json"
+    winner_path = S4_RESULTS_ROOT / "q4" / "final_winner.json"
     winner = json.loads(winner_path.read_text(encoding="utf-8"))
     return (
         winner,
@@ -73,11 +73,7 @@ def load_winner_candidates() -> tuple[pd.DataFrame, dict[str, Any], list[dict[st
         raise ValueError("Q5 winner prediction identity mismatch")
     folds = data["regression_outer_fold"].to_numpy(dtype=int)
     groups = data["condition_group"].to_numpy(dtype=object)
-    lineage_path = (
-        S4_RESULTS_ROOT / "q4" / "hgb_oof_lineage.csv"
-        if winner["winner"] == "hgb"
-        else S3_RESULTS_ROOT / "q4" / "ridge_oof_lineage.csv"
-    )
+    lineage_path = project_path(winner["lineage"])
     lineage = pd.read_csv(lineage_path)
     lineage_rows: list[dict[str, Any]] = []
     strict = np.zeros(len(data), dtype=bool)
@@ -288,6 +284,7 @@ def run_robustness(config_path: Path) -> None:
         metrics = {
             "status": "PASS" if eligible_n else "PASS_WITH_NO_UNIQUE_RECOMMENDATION",
             "q4_winner": winner["winner"],
+            "q4_feature_variant": winner["feature_variant"],
             "candidate_rows_before_exact_duplicate_collapse": len(candidates) + duplicate_dropped,
             "candidate_rows_after_exact_duplicate_collapse": len(candidates),
             "exact_duplicate_rows_dropped": duplicate_dropped,

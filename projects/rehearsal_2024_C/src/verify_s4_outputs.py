@@ -74,6 +74,8 @@ def main() -> None:
         q2_oof_path = S4_RESULTS_ROOT / "q2" / "quadratic_temperature_oof_predictions.csv"
         q2_metrics_path = S4_RESULTS_ROOT / "q2" / "quadratic_temperature_metrics.json"
         q4_metrics_path = S4_RESULTS_ROOT / "q4" / "hgb_metrics.json"
+        q4_final_path = S4_RESULTS_ROOT / "q4" / "final_winner.json"
+        q4_final_oof_path = S4_RESULTS_ROOT / "q4" / "final_oof_predictions.csv"
         q4_oof_path = S4_RESULTS_ROOT / "q4" / "hgb_oof_predictions.csv"
         q3_metrics_path = S4_RESULTS_ROOT / "q3" / "interaction_metrics.json"
         q3_oof_path = S4_RESULTS_ROOT / "q3" / "interaction_oof_predictions.csv"
@@ -81,7 +83,7 @@ def main() -> None:
         q5_candidates_path = S4_RESULTS_ROOT / "q5" / "final_candidate_index.csv"
         q5_bootstrap_path = S4_RESULTS_ROOT / "q5" / "bootstrap_region_stability.csv"
         q1_metrics_path = S4_RESULTS_ROOT / "q1" / "stress_metrics.json"
-        for path in (q2_oof_path, q2_metrics_path, q4_metrics_path, q4_oof_path, q3_metrics_path, q3_oof_path, q5_metrics_path, q5_candidates_path, q5_bootstrap_path, q1_metrics_path):
+        for path in (q2_oof_path, q2_metrics_path, q4_metrics_path, q4_oof_path, q4_final_path, q4_final_oof_path, q3_metrics_path, q3_oof_path, q5_metrics_path, q5_candidates_path, q5_bootstrap_path, q1_metrics_path):
             run.record_input(path)
 
         q2_oof = pd.read_csv(q2_oof_path)
@@ -96,6 +98,10 @@ def main() -> None:
         checks.append({"check": "q4_hgb_rmsle_recomputed", "pass": close(float(q4_recomputed["rmsle"]), float(q4_metrics["candidate_oof"]["rmsle"])), "value": q4_recomputed["rmsle"]})
         rule = float(q4_metrics["relative_rmsle_improvement"]) >= 0.02 and float(q4_metrics["maximum_major_subgroup_rmsle_degradation"]) <= 0.10
         checks.append({"check": "q4_adoption_rule_recomputed", "pass": bool(rule) == bool(q4_metrics["adopted"])})
+        q4_final = json.loads(q4_final_path.read_text(encoding="utf-8"))
+        q4_final_oof = pd.read_csv(q4_final_oof_path)
+        q4_final_recomputed = regression_metrics(q4_final_oof["core_loss_W_per_m3"], q4_final_oof["y_pred_oof"])
+        checks.append({"check": "q4_final_ablation_winner_recomputed", "pass": close(float(q4_final_recomputed["rmsle"]), float(q4_final["oof_rmsle"])), "value": q4_final_recomputed["rmsle"]})
 
         q3_oof = pd.read_csv(q3_oof_path)
         q3_metrics = json.loads(q3_metrics_path.read_text(encoding="utf-8"))

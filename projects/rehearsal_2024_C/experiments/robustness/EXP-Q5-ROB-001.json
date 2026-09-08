@@ -5,7 +5,7 @@
   "purpose": "Rebuild strict-OOF Pareto evidence from the frozen Q4 winner and run 500 condition-group cluster resamples.",
   "seed": 20240922,
   "repetitions": 500,
-  "inputs": ["results/raw/main/q4/winner.json", "results/raw/s3/data/feature_table.csv"],
+  "inputs": ["results/raw/main/q4/final_winner.json", "results/raw/s3/data/feature_table.csv"],
   "outputs": ["results/raw/main/q5/robustness_metrics.json"],
   "unique_recommendation_requires": ["dual_pareto", "fold_support", "bootstrap_region_stability", "p90_conflict_checks", "observed_region_jaccard>=0.5"],
   "test_attachments_allowed": false

@@ -16,6 +16,7 @@ from sklearn.model_selection import GroupKFold, ParameterSampler
 from run_q4 import group_hash, q4_subgroup_metrics
 from s3_common import (
     DEFAULT_CONFIG,
+    PROJECT_ROOT,
     Q4_NUMERIC_FEATURES,
     S3_RESULTS_ROOT,
     SHAPE_FEATURES,
@@ -310,7 +311,7 @@ def run_main(config_path: Path) -> None:
         raise
 
 
-def winner_spec() -> tuple[str, dict[int, dict[str, Any]], dict[str, Any]]:
+def preliminary_winner_spec() -> tuple[str, dict[int, dict[str, Any]], dict[str, Any]]:
     metrics = json.loads((S4_RESULTS_ROOT / "q4" / "hgb_metrics.json").read_text(encoding="utf-8"))
     if metrics["winner"] == "hgb":
         lineage = pd.read_csv(S4_RESULTS_ROOT / "q4" / "hgb_oof_lineage.csv")
@@ -327,24 +328,46 @@ def cross_fit_fixed(
     model_kind: str,
     parameters_by_fold: dict[int, dict[str, Any]],
     numeric_features: list[str],
-) -> tuple[np.ndarray, list[dict[str, Any]]]:
+    model_label: str,
+) -> tuple[np.ndarray, np.ndarray, list[dict[str, Any]], dict[str, Any]]:
     folds = data["regression_outer_fold"].to_numpy(dtype=int)
     groups = data["condition_group"].to_numpy(dtype=object)
     prediction = np.full(len(data), np.nan, dtype=np.float64)
+    prediction_log = np.full(len(data), np.nan, dtype=np.float64)
     lineage: list[dict[str, Any]] = []
+    fold_models: dict[str, Any] = {}
     for fold in sorted(np.unique(folds)):
         train_index = np.flatnonzero(folds != fold)
         valid_index = np.flatnonzero(folds == fold)
         overlap = set(groups[train_index]).intersection(groups[valid_index])
         if overlap:
             raise AssertionError("Q4 fixed-fit group leakage")
-        model, smear = fit_log_model(model_kind, parameters_by_fold[int(fold)], data.iloc[train_index], numeric_features)
-        _, fold_prediction = predict_log_model(model, smear, data.iloc[valid_index], numeric_features)
+        parameters = parameters_by_fold[int(fold)]
+        model, smear = fit_log_model(model_kind, parameters, data.iloc[train_index], numeric_features)
+        fold_log, fold_prediction = predict_log_model(model, smear, data.iloc[valid_index], numeric_features)
+        prediction_log[valid_index] = fold_log
         prediction[valid_index] = fold_prediction
-        lineage.append({"outer_fold": int(fold), "group_overlap_count": len(overlap), "parameters_json": parameter_key(parameters_by_fold[int(fold)])})
+        model_id = f"q4-{model_kind}-{model_label}-fold-{int(fold)}"
+        fold_models[model_id] = {
+            "model": model,
+            "smearing_factor": smear,
+            "validation_fold": int(fold),
+            "parameters": parameters,
+            "numeric_features": numeric_features,
+        }
+        lineage.append(
+            {
+                "outer_fold": int(fold),
+                "model_id": model_id,
+                "group_overlap_count": len(overlap),
+                "selected_parameters_json": parameter_key(parameters),
+                "train_groups_sha256": group_hash(groups[train_index]),
+                "validation_groups_sha256": group_hash(groups[valid_index]),
+            }
+        )
     if not np.isfinite(prediction).all():
         raise AssertionError("Q4 fixed-fit OOF coverage incomplete")
-    return prediction, lineage
+    return prediction_log, prediction, lineage, fold_models
 
 
 def run_ablation(config_path: Path) -> None:
@@ -360,7 +383,7 @@ def run_ablation(config_path: Path) -> None:
         ):
             run.record_input(path)
         data = q4_data()
-        model_kind, parameters_by_fold, _ = winner_spec()
+        model_kind, parameters_by_fold, full_parameters = preliminary_winner_spec()
         amplitude_features = [feature for feature in Q4_NUMERIC_FEATURES if feature not in SHAPE_FEATURES]
         variants = {
             "condition_only": ["log_frequency_Hz", "log_b_m_T"],
@@ -369,43 +392,97 @@ def run_ablation(config_path: Path) -> None:
         }
         metric_rows: list[dict[str, Any]] = []
         prediction_table = data[["row_id", "regression_outer_fold", "core_loss_W_per_m3"]].copy()
-        all_lineage: list[dict[str, Any]] = []
+        variant_outputs: dict[str, tuple[np.ndarray, np.ndarray, list[dict[str, Any]], dict[str, Any]]] = {}
         for variant, features in variants.items():
-            prediction, lineage = cross_fit_fixed(data, model_kind, parameters_by_fold, features)
+            output = cross_fit_fixed(data, model_kind, parameters_by_fold, features, variant)
+            variant_outputs[variant] = output
+            _, prediction, lineage, _ = output
             result = regression_metrics(data["core_loss_W_per_m3"], prediction)
             metric_rows.append({"variant": variant, "numeric_feature_count": len(features), **result})
             prediction_table[f"y_pred_{variant}"] = prediction
-            all_lineage.extend({"variant": variant, **row} for row in lineage)
+            if any(row["group_overlap_count"] != 0 for row in lineage):
+                raise AssertionError("Q4 ablation lineage contains leakage")
             run.log(f"variant={variant} rmsle={result['rmsle']}")
         full_rmsle = float(next(row["rmsle"] for row in metric_rows if row["variant"] == "full_wave_v1"))
         for row in metric_rows:
             row["relative_rmsle_change_vs_full"] = (float(row["rmsle"]) - full_rmsle) / full_rmsle
+        selected = sorted(metric_rows, key=lambda row: (float(row["rmsle"]), int(row["numeric_feature_count"]), str(row["variant"])))[0]
+        selected_variant = str(selected["variant"])
+        selected_features = variants[selected_variant]
+        selected_log, selected_prediction, selected_lineage, selected_models = variant_outputs[selected_variant]
+        full_model, full_smear = fit_log_model(model_kind, full_parameters, data, selected_features)
+        full_log, full_prediction = predict_log_model(full_model, full_smear, data, selected_features)
+
         output_dir = S4_RESULTS_ROOT / "q4"
         table_path = output_dir / "ablation_metrics.csv"
         prediction_path = output_dir / "ablation_oof_predictions.csv"
-        lineage_path = output_dir / "ablation_lineage.csv"
+        lineage_path = output_dir / "final_oof_lineage.csv"
+        selected_oof_path = output_dir / "final_oof_predictions.csv"
+        selected_full_path = output_dir / "final_full_fit_training_predictions.csv"
+        fold_models_path = output_dir / "final_fold_models.joblib"
+        full_model_path = output_dir / "final_full_model.joblib"
+        final_winner_path = output_dir / "final_winner.json"
         metrics_path = output_dir / "ablation_metrics.json"
         evidence_path = run.output_dir / "metrics.json"
         write_csv(table_path, pd.DataFrame(metric_rows))
         write_csv(prediction_path, prediction_table)
-        write_csv(lineage_path, pd.DataFrame(all_lineage))
+        write_csv(lineage_path, pd.DataFrame(selected_lineage))
+        selected_oof = data[["row_id", "material", "waveform", "temperature_C", "frequency_Hz", "b_m_T", "b_half_pp_T", "condition_group", "regression_outer_fold", "core_loss_W_per_m3"]].copy()
+        selected_oof["oof_model_id"] = np.empty(len(data), dtype=object)
+        for row in selected_lineage:
+            selected_oof.loc[selected_oof["regression_outer_fold"] == row["outer_fold"], "oof_model_id"] = row["model_id"]
+        selected_oof["y_pred_log_oof"] = selected_log
+        selected_oof["y_pred_oof"] = selected_prediction
+        selected_oof["absolute_log_error"] = np.abs(np.log1p(selected_oof["core_loss_W_per_m3"]) - np.log1p(selected_prediction))
+        full = data[["row_id", "condition_group", "regression_outer_fold"]].copy()
+        full["full_model_id"] = f"q4-{model_kind}-{selected_variant}-full"
+        full["y_pred_log_full"] = full_log
+        full["y_pred_full"] = full_prediction
+        write_csv(selected_oof_path, selected_oof)
+        write_csv(selected_full_path, full)
+        fold_models_path.parent.mkdir(parents=True, exist_ok=True)
+        joblib.dump(selected_models, fold_models_path, compress=3)
+        joblib.dump({"model": full_model, "smearing_factor": full_smear, "parameters": full_parameters, "numeric_features": selected_features}, full_model_path, compress=3)
+        final_winner = {
+            "winner": model_kind,
+            "feature_variant": selected_variant,
+            "numeric_features": selected_features,
+            "selection_rule": "lowest predefined ablation OOF RMSLE; ties prefer fewer numeric features",
+            "selection_reused_without_retuning": True,
+            "oof_rmsle": float(selected["rmsle"]),
+            "oof_predictions": "results/raw/main/q4/final_oof_predictions.csv",
+            "full_predictions": "results/raw/main/q4/final_full_fit_training_predictions.csv",
+            "lineage": "results/raw/main/q4/final_oof_lineage.csv",
+            "fold_models": "results/raw/main/q4/final_fold_models.joblib",
+            "full_model": "results/raw/main/q4/final_full_model.joblib",
+            "full_fit_parameters": full_parameters,
+        }
         metrics = {
             "status": "PASS",
             "winner_model": model_kind,
             "selection_reused_without_retuning": True,
             "variants": metric_rows,
-            "full_wave_features_retained": bool(full_rmsle <= min(float(row["rmsle"]) for row in metric_rows) + 1e-12),
-            "group_leakage": any(row["group_overlap_count"] != 0 for row in all_lineage),
+            "selected_feature_variant": selected_variant,
+            "selected_numeric_feature_count": len(selected_features),
+            "selected_oof_rmsle": float(selected["rmsle"]),
+            "full_wave_features_retained": selected_variant == "full_wave_v1",
+            "shape_features_removed": selected_variant != "full_wave_v1",
+            "group_leakage": False,
+            "final_fold_models_sha256": sha256_file(fold_models_path),
+            "final_full_model_sha256": sha256_file(full_model_path),
         }
         write_json(metrics_path, metrics)
+        write_json(final_winner_path, final_winner)
         write_json(evidence_path, metrics)
-        for path in (table_path, prediction_path, lineage_path, metrics_path, evidence_path):
+        for path in (
+            table_path, prediction_path, lineage_path, selected_oof_path, selected_full_path,
+            fold_models_path, full_model_path, final_winner_path, metrics_path, evidence_path,
+        ):
             run.record_output(path)
         run.finish("PASS")
     except BaseException as exc:
         run.fail(exc)
         raise
-
 
 def run_stress(config_path: Path) -> None:
     run = s4_run(EXPERIMENT_IDS["stress"], config_path, "sensitivity")
@@ -417,14 +494,15 @@ def run_stress(config_path: Path) -> None:
             Path(__file__).resolve(), Path(__file__).with_name("s3_common.py").resolve(), Path(__file__).with_name("s4_common.py").resolve(),
             S3_RESULTS_ROOT / "data" / "feature_table.csv", S3_RESULTS_ROOT / "folds" / "fold_assignments.csv",
             S4_RESULTS_ROOT / "q4" / "hgb_metrics.json", S4_RESULTS_ROOT / "q4" / "winner.json",
+            S4_RESULTS_ROOT / "q4" / "ablation_metrics.json", S4_RESULTS_ROOT / "q4" / "final_winner.json",
         ):
             run.record_input(path)
         data = q4_data()
-        model_kind, _, full_parameters = winner_spec()
-        winner = json.loads((S4_RESULTS_ROOT / "q4" / "winner.json").read_text(encoding="utf-8"))
-        winner_oof_path = Path(winner["oof_predictions"])
-        if not winner_oof_path.is_absolute():
-            winner_oof_path = Path(__file__).resolve().parents[1] / winner_oof_path
+        winner = json.loads((S4_RESULTS_ROOT / "q4" / "final_winner.json").read_text(encoding="utf-8"))
+        model_kind = str(winner["winner"])
+        full_parameters = dict(winner["full_fit_parameters"])
+        numeric_features = list(winner["numeric_features"])
+        winner_oof_path = PROJECT_ROOT / winner["oof_predictions"]
         run.record_input(winner_oof_path)
         winner_oof = pd.read_csv(winner_oof_path).sort_values("row_id").reset_index(drop=True)
         if list(data["row_id"]) != list(winner_oof["row_id"]):
@@ -450,8 +528,8 @@ def run_stress(config_path: Path) -> None:
             for value in sorted(data[field].unique(), key=str):
                 train = data[data[field] != value]
                 valid = data[data[field] == value]
-                model, smear = fit_log_model(model_kind, full_parameters, train)
-                _, heldout_prediction = predict_log_model(model, smear, valid)
+                model, smear = fit_log_model(model_kind, full_parameters, train, numeric_features)
+                _, heldout_prediction = predict_log_model(model, smear, valid, numeric_features)
                 holdout_rows.append({"heldout_field": field, "heldout_value": value, **regression_metrics(valid["core_loss_W_per_m3"], heldout_prediction)})
         output_dir = S4_RESULTS_ROOT / "q4"
         scope_path = output_dir / "stress_subset_metrics.csv"
@@ -463,6 +541,7 @@ def run_stress(config_path: Path) -> None:
         metrics = {
             "status": "PASS",
             "winner_model": model_kind,
+            "feature_variant": winner["feature_variant"],
             "overall_oof": regression_metrics(data["core_loss_W_per_m3"], prediction),
             "low_b_m_quartile": next(row for row in scopes if row["scope"] == "low_b_m_quartile"),
             "maximum_leave_one_material_rmsle": max(float(row["rmsle"]) for row in holdout_rows if row["heldout_field"] == "material"),

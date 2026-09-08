@@ -4,7 +4,7 @@
   "question": "Q5",
   "purpose": "Check expanded frequency boundaries, Bpp/2 peak convention, and retained exact duplicates without relaxing the primary recommendation gates.",
   "seed": 20240922,
-  "inputs": ["results/raw/main/q5/robustness_metrics.json", "results/raw/main/q4/winner.json"],
+  "inputs": ["results/raw/main/q5/robustness_metrics.json", "results/raw/main/q4/final_winner.json"],
   "outputs": ["results/raw/main/q5/sensitivity_metrics.json"],
   "test_attachments_allowed": false
 }
