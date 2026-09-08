@@ -197,6 +197,7 @@ def rssi_audit(frames: dict[str, pd.DataFrame]) -> dict[str, Any]:
                     if not -120 <= value <= 0 and len(out_of_range) < 100:
                         out_of_range.append({**base, "value": value})
     return {
+        "scope": "training files only; official test values are not summarized",
         "accepted_encodings": ["finite numeric scalar", "non-empty list of finite numerics"],
         "plausibility_range_used_for_flagging_only": [-120.0, 0.0],
         "format_counts": dict(sorted(formats.items())),
@@ -225,7 +226,7 @@ def profile_file(name: str, frame: pd.DataFrame) -> dict[str, Any]:
         "dtypes": {col: str(dtype) for col, dtype in frame.dtypes.items()},
         "missing_counts": {col: int(v) for col, v in frame.isna().sum().items() if v},
         "all_null_columns": [col for col in frame if frame[col].isna().all()],
-        "numeric_summary": {col: num_summary(frame[col]) for col in NUMERIC if col in frame},
+        "numeric_summary": ({col: num_summary(frame[col]) for col in NUMERIC if col in frame} if spec["role"] == "train" else {}),
     }
 
 
@@ -397,7 +398,7 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
         "per_outside_0_1_count": int((per.notna() & ~per.between(0, 1)).sum()),
         "other_air_time_over_test_dur_count": len(over_air),
         "filename_content_scenario_mismatch_count": len(scenario_mismatches),
-        "rssi_audit": rssi_audit(frames), "anomalies": anomalies,
+        "rssi_audit": rssi_audit({name: frame for name, frame in frames.items() if EXPECTED[name]["role"] == "train"}), "anomalies": anomalies,
         "test_boundary": boundary(frames),
         "feature_contracts": {
             "shared_keys_not_raw_features": IDENTIFIERS,
