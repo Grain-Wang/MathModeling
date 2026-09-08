@@ -59,6 +59,11 @@ G4_REVIEWED_COMMIT = "2309b1e361701be9818544fa18740cd8f5694f2e"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument(
+        "--resume-after-template-failure",
+        action="store_true",
+        help="Reuse and verify existing prediction CSVs; do not overwrite them.",
+    )
     return parser.parse_args()
 
 
@@ -218,6 +223,23 @@ def predict_q4(frame: pd.DataFrame, frozen: dict[str, Any]) -> pd.DataFrame:
     return output
 
 
+def load_verified_existing_predictions(path: Path, expected: pd.DataFrame) -> pd.DataFrame:
+    if not path.is_file():
+        raise FileNotFoundError(f"Resume prediction file missing: {path}")
+    actual = pd.read_csv(path)
+    if list(actual.columns) != list(expected.columns) or len(actual) != len(expected):
+        raise ValueError(f"Resume prediction schema mismatch: {path}")
+    for column in expected.columns:
+        if pd.api.types.is_numeric_dtype(expected[column]):
+            left = actual[column].to_numpy(dtype=np.float64)
+            right = expected[column].to_numpy(dtype=np.float64)
+            if not np.isfinite(left).all() or not np.allclose(left, right, rtol=5e-12, atol=1e-12):
+                raise ValueError(f"Resume numeric prediction mismatch: {path.name}:{column}")
+        elif list(actual[column].astype(str)) != list(expected[column].astype(str)):
+            raise ValueError(f"Resume text prediction mismatch: {path.name}:{column}")
+    return actual
+
+
 def write_submission(q1: pd.DataFrame, q4: pd.DataFrame, destination: Path) -> None:
     workbook = load_workbook(TEMPLATE_FILE)
     try:
@@ -231,6 +253,8 @@ def write_submission(q1: pd.DataFrame, q4: pd.DataFrame, destination: Path) -> N
             raise ValueError("Attachment 4 Q1 output cells are not blank")
         if any(sheet.cell(row=row, column=3).value is not None for row in range(2, 402)):
             raise ValueError("Attachment 4 Q4 output cells are not blank")
+        for sample_id in range(1, 401):
+            sheet.cell(row=sample_id + 1, column=1, value=sample_id).number_format = "0"
         for item in q1.itertuples(index=False):
             row = int(item.sample_id) + 1
             if int(sheet.cell(row=row, column=1).value) != int(item.sample_id):
@@ -294,6 +318,34 @@ def main() -> None:
         if q4_winner.get("feature_variant") != "amplitude_and_condition" or q4_winner.get("winner") != "hgb":
             raise ValueError("Q4 frozen winner differs from the G4-approved model")
 
+        prediction_dir = RAW_S5_ROOT / "predictions"
+        submission_path = RAW_S5_ROOT / "submission" / "附件四（Excel表）.xlsx"
+        q1_path = prediction_dir / "q1_attachment2_predictions.csv"
+        q4_path = prediction_dir / "q4_attachment3_predictions.csv"
+        failed_after_predictions = RUN_ROOT / EXPERIMENT_ID / "failed_manifest_after_prediction_csvs.json"
+        recovery: dict[str, Any] = {
+            "resume_after_template_failure": bool(args.resume_after_template_failure),
+            "prediction_csvs_overwritten": False,
+        }
+        if args.resume_after_template_failure:
+            if not failed_after_predictions.is_file():
+                raise FileNotFoundError("Resume requested without preserved post-prediction failure manifest")
+            prior_failure = json.loads(failed_after_predictions.read_text(encoding="utf-8"))
+            if (
+                prior_failure.get("status") != "FAIL"
+                or "invalid literal for int()" not in str(prior_failure.get("error"))
+                or prior_failure.get("git_commit") != "c4d7121056fc0d8dd31e170c86857db9c017fc36"
+            ):
+                raise ValueError("Preserved post-prediction failure does not match the authorized recovery case")
+            run.record_input(failed_after_predictions)
+            run.record_input(q1_path, label="resume_input::q1_prediction_csv")
+            run.record_input(q4_path, label="resume_input::q4_prediction_csv")
+            recovery["prediction_generation_commit"] = prior_failure["git_commit"]
+            recovery["q1_sha256_before_resume"] = sha256_file(q1_path)
+            recovery["q4_sha256_before_resume"] = sha256_file(q4_path)
+        elif q1_path.exists() or q4_path.exists():
+            raise FileExistsError("Prediction CSVs already exist; refusing to overwrite without explicit recovery mode")
+
         plateau = float(config["feature_contract"]["plateau_relative_slope_threshold"])
         test2 = load_test_features(TEST2_FILE, "test2", plateau)
         test3 = load_test_features(TEST3_FILE, "test3", plateau)
@@ -312,12 +364,18 @@ def main() -> None:
         ):
             raise AssertionError("Q4 repeated prediction is not bitwise identical")
 
-        prediction_dir = RAW_S5_ROOT / "predictions"
-        submission_path = RAW_S5_ROOT / "submission" / "附件四（Excel表）.xlsx"
-        q1_path = prediction_dir / "q1_attachment2_predictions.csv"
-        q4_path = prediction_dir / "q4_attachment3_predictions.csv"
-        write_csv(q1_path, q1_predictions)
-        write_csv(q4_path, q4_predictions)
+        if args.resume_after_template_failure:
+            q1_predictions = load_verified_existing_predictions(q1_path, q1_predictions)
+            q4_predictions = load_verified_existing_predictions(q4_path, q4_predictions)
+            if (
+                sha256_file(q1_path) != recovery["q1_sha256_before_resume"]
+                or sha256_file(q4_path) != recovery["q4_sha256_before_resume"]
+            ):
+                raise AssertionError("Prediction CSV changed during recovery verification")
+        else:
+            write_csv(q1_path, q1_predictions)
+            write_csv(q4_path, q4_predictions)
+            recovery["prediction_csvs_overwritten"] = True
         write_submission(q1_predictions, q4_predictions, submission_path)
 
         template_hash_after = sha256_file(TEMPLATE_FILE)
@@ -334,6 +392,7 @@ def main() -> None:
             "status": "PASS",
             "prediction_policy": "one_time_frozen_prediction_after_G4_PASS",
             "selection_or_tuning_with_test_attachments": False,
+            "recovery": recovery,
             "g4_authorization": authorization,
             "q1": {
                 "model_id": "q1-shape-logistic-full-g4",
@@ -395,6 +454,7 @@ def main() -> None:
                 "smearing_factor": float(q4_model["smearing_factor"]),
             },
             "official_input_hashes": verified_inputs,
+            "prediction_recovery": recovery,
             "raw_prediction_outputs": {
                 "q1_csv": {"path": "results/raw/s5/predictions/q1_attachment2_predictions.csv", "sha256": sha256_file(q1_path)},
                 "q4_csv": {"path": "results/raw/s5/predictions/q4_attachment3_predictions.csv", "sha256": sha256_file(q4_path)},

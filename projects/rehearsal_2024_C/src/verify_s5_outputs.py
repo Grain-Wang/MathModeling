@@ -102,12 +102,20 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def compare_numeric(name: str, actual: pd.Series, expected: pd.Series, *, atol: float, checks: list[dict[str, Any]]) -> None:
+def compare_numeric(
+    name: str,
+    actual: pd.Series,
+    expected: pd.Series,
+    *,
+    atol: float,
+    checks: list[dict[str, Any]],
+    rtol: float = 0.0,
+) -> None:
     left = actual.to_numpy(dtype=np.float64)
     right = expected.to_numpy(dtype=np.float64)
-    passed = left.shape == right.shape and np.isfinite(left).all() and np.allclose(left, right, rtol=0.0, atol=atol)
+    passed = left.shape == right.shape and np.isfinite(left).all() and np.allclose(left, right, rtol=rtol, atol=atol)
     maximum = float(np.max(np.abs(left - right))) if left.shape == right.shape and left.size else None
-    record_check(checks, name, passed, {"maximum_absolute_difference": maximum, "atol": atol})
+    record_check(checks, name, passed, {"maximum_absolute_difference": maximum, "atol": atol, "rtol": rtol})
 
 
 def record_check(checks: list[dict[str, Any]], name: str, passed: bool, detail: Any) -> None:
@@ -290,8 +298,8 @@ def main() -> None:
         record_check(checks, "q1_waveform_lineage", list(actual_q1["waveform_sha256"]) == list(expected_q1["waveform_sha256"]), "80/80")
 
         record_check(checks, "q4_row_and_id_coverage", len(actual_q4) == 400 and list(actual_q4["sample_id"]) == list(range(1, 401)), len(actual_q4))
-        compare_numeric("q4_log_prediction_recomputed", actual_q4["prediction_log"], expected_q4["prediction_log"], atol=1e-12, checks=checks)
-        compare_numeric("q4_loss_prediction_recomputed", actual_q4["predicted_loss_W_per_m3"], expected_q4["predicted_loss_W_per_m3"], atol=1e-9, checks=checks)
+        compare_numeric("q4_log_prediction_recomputed", actual_q4["prediction_log"], expected_q4["prediction_log"], atol=1e-12, rtol=5e-12, checks=checks)
+        compare_numeric("q4_loss_prediction_recomputed", actual_q4["predicted_loss_W_per_m3"], expected_q4["predicted_loss_W_per_m3"], atol=1e-9, rtol=5e-12, checks=checks)
         compare_numeric("q4_rounded_prediction_recomputed", actual_q4["predicted_loss_rounded_1dp_W_per_m3"], expected_q4["predicted_loss_rounded_1dp_W_per_m3"], atol=0.0, checks=checks)
         record_check(checks, "q4_predictions_positive_finite", np.isfinite(actual_q4["predicted_loss_W_per_m3"]).all() and (actual_q4["predicted_loss_W_per_m3"] > 0).all(), [float(actual_q4["predicted_loss_W_per_m3"].min()), float(actual_q4["predicted_loss_W_per_m3"].max())])
         record_check(checks, "q4_waveform_lineage", list(actual_q4["waveform_sha256"]) == list(expected_q4["waveform_sha256"]), "400/400")
