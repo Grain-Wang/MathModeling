@@ -317,7 +317,18 @@ def main() -> None:
         provenance = promote_whitelist(checks)
         registry_path = VERIFIED_ROOT / "result_registry.md"
         registry_path.write_text(build_registry(summary), encoding="utf-8", newline="\n")
-        record_check(checks, "result_registry_has_15_evidence_ids", registry_path.read_text(encoding="utf-8").count("| E") == 15, "E001..E015")
+        registry_lines = registry_path.read_text(encoding="utf-8").splitlines()
+        evidence_ids = [
+            line.split("|")[1].strip()
+            for line in registry_lines
+            if line.startswith("| E") and line.split("|")[1].strip()[1:].isdigit()
+        ]
+        record_check(
+            checks,
+            "result_registry_has_15_evidence_ids",
+            evidence_ids == [f"E{index:03d}" for index in range(1, 16)],
+            evidence_ids,
+        )
 
         report = {
             "status": "PASS",

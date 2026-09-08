@@ -67,3 +67,5 @@
 | 2026-09-08 14:40 | EXP-S5-PRED-001-PRE | S5 | 正式预测前置读取检查 | 冻结模型、附件二至四、G4审核 | 启动冻结预测入口；在产生任何输出前严格校验附件二表头 | 首个波形列名含单位说明，旧检查误要求纯数字0；`output_hashes={}`，未生成预测 | FAIL PRE-OUTPUT — parser fixed before official prediction |
 | 2026-09-08 14:42 | EXP-S5-PRED-001-POST | S5 | 生成冻结预测并填写附件四副本 | G4批准的 Q1/Q4 冻结模型；附件二、三、四 | 已写出附件二/三预测 CSV；填写附件四时核验原模板序号列 | 模板序号 2–400 为公式，旧检查将公式当整数而失败；两份预测 CSV 已冻结，不重写，改由显式恢复模式只读复算后完成后处理 | FAIL POST-PREDICTION — output CSVs preserved |
 | 2026-09-08 14:46 | EXP-S5-PRED-001-GUARD | S5 | 验证恢复授权条件 | 已保存的后处理失败清单 | 在读取预测 CSV 前核对失败类型与预测生成提交 | 手工录入的完整提交 SHA 与 Git 实值不一致，恢复保护拒绝；预测 CSV 哈希保持不变 | FAIL PRE-RESUME — guard corrected |
+| 2026-09-08 14:48 | EXP-S5-PRED-001 | S5 | 完成冻结预测与附件四副本 | 已冻结预测 CSV、原始附件四、G4批准模型 | 恢复模式只读复算全部预测列，确认 CSV 哈希未变；输出副本序号固化为1–400并填列 | Q1 80条：正弦20/三角44/梯形16；Q4 400条均正有限；附件四副本生成；原始附件哈希不变 | PASS |
+| 2026-09-08 14:49 | EXP-S5-VERIFY-001-PRE | S5 | 独立复算并晋级白名单证据 | S4已批准证据、S5预测与附件四副本 | 完成模型/预测/附件映射/源目标哈希检查；生成15项 Evidence registry | 最终断言把表头“Evidence ID”误计为第16项而失败；预测和证据数值未改，verified 尚无 PASS 报告 | FAIL POST-CHECK — count predicate fixed |
