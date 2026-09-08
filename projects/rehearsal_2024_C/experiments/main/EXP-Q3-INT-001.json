@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP-Q3-INT-001",
+  "stage": "S4",
+  "question": "Q3",
+  "purpose": "Compare the three predefined pairwise interactions with the additive adjusted-association baseline using identical grouped outer folds.",
+  "seed": 20240920,
+  "inputs": ["results/raw/s3/q3/additive_oof_predictions.csv", "results/raw/s3/data/feature_table.csv"],
+  "outputs": ["results/raw/main/q3/interaction_metrics.json", "results/raw/main/q3/winner.json"],
+  "test_attachments_allowed": false
+}

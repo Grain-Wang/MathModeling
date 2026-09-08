@@ -1,0 +1,13 @@
+{
+  "experiment_id": "EXP-Q1-ABL-001",
+  "stage": "S4",
+  "question": "Q1",
+  "purpose": "Stress the saturated shape-only Logistic model under phase/amplitude transformations, leave-one-material transfer, feature groups, and auxiliary-field diagnostics.",
+  "seed": 20240920,
+  "phase_shift_samples": 137,
+  "amplitude_multipliers": [0.5, 2.0],
+  "inputs": ["src/附件一（训练集）.xlsx", "results/raw/s3/q1/logistic_fold_models.joblib", "results/raw/s3/q1/baseline_oof_predictions.csv"],
+  "outputs": ["results/raw/main/q1/stress_metrics.json"],
+  "tree_candidate_policy": "skip if Logistic remains saturated after mandatory stress tests",
+  "test_attachments_allowed": false
+}

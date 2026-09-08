@@ -1,0 +1,11 @@
+{
+  "experiment_id": "EXP-Q4-ABL-001",
+  "stage": "S4",
+  "question": "Q4",
+  "purpose": "Compare condition-only, amplitude-and-condition, and complete wave-v1 feature groups using the frozen Q4 winner and fold-specific parameters.",
+  "seed": 20240920,
+  "inputs": ["results/raw/main/q4/winner.json", "results/raw/main/q4/hgb_metrics.json"],
+  "outputs": ["results/raw/main/q4/ablation_metrics.json"],
+  "retune": false,
+  "test_attachments_allowed": false
+}

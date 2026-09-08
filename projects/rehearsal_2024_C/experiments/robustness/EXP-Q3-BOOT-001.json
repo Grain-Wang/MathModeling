@@ -1,0 +1,12 @@
+{
+  "experiment_id": "EXP-Q3-BOOT-001",
+  "stage": "S4",
+  "question": "Q3",
+  "purpose": "Estimate adjusted main and pairwise interaction intervals with 500 condition-group cluster bootstrap repetitions.",
+  "seed": 20240921,
+  "repetitions": 500,
+  "inputs": ["results/raw/main/q3/winner.json", "results/raw/s3/data/feature_table.csv"],
+  "outputs": ["results/raw/main/q3/bootstrap_metrics.json"],
+  "interpretation": "adjusted association, not causality",
+  "test_attachments_allowed": false
+}

@@ -1,0 +1,12 @@
+{
+  "experiment_id": "EXP-Q4-MAIN-001",
+  "stage": "S4",
+  "question": "Q4",
+  "purpose": "Nested grouped comparison of the frozen 18-candidate HGB search against Ridge on identical outer folds.",
+  "seed": 20240920,
+  "inputs": ["results/raw/s3/data/feature_table.csv", "results/raw/s3/folds/fold_assignments.csv", "results/raw/s3/q4/ridge_oof_predictions.csv"],
+  "outputs": ["results/raw/main/q4/hgb_metrics.json", "results/raw/main/q4/winner.json"],
+  "adoption_rule": "relative RMSLE improvement >= 0.02 and every major subgroup degradation <= 0.10",
+  "candidate_limit": 18,
+  "test_attachments_allowed": false
+}

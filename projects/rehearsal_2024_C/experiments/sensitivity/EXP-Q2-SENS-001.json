@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP-Q2-SENS-001",
+  "stage": "S4",
+  "question": "Q2",
+  "purpose": "Check leave-one-temperature, Bpp/2 peak convention, and exact-duplicate sensitivity after the main comparison.",
+  "seed": 20240920,
+  "inputs": ["results/raw/main/q2/quadratic_temperature_metrics.json", "results/raw/s3/q2/leave_one_temperature_out.csv"],
+  "outputs": ["results/raw/main/q2/sensitivity_metrics.json"],
+  "test_attachments_allowed": false
+}

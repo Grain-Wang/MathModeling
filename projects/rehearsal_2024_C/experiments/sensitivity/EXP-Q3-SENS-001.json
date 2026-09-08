@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP-Q3-SENS-001",
+  "stage": "S4",
+  "question": "Q3",
+  "purpose": "Check global common support, Bpp/2 peak convention, and exact-duplicate sensitivity for the Q3 winner.",
+  "seed": 20240920,
+  "inputs": ["results/raw/main/q3/winner.json", "results/raw/s3/q3/common_support_summary.json"],
+  "outputs": ["results/raw/main/q3/sensitivity_metrics.json"],
+  "test_attachments_allowed": false
+}

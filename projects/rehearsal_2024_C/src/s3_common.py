@@ -181,8 +181,7 @@ def git_commit() -> str:
 def implementation_git_dirty() -> bool:
     tracked_inputs = [
         (PROJECT_ROOT / "src").relative_to(REPO_ROOT).as_posix(),
-        (PROJECT_ROOT / "experiments" / "s2_frozen_config.json").relative_to(REPO_ROOT).as_posix(),
-        (PROJECT_ROOT / "experiments" / "baseline").relative_to(REPO_ROOT).as_posix(),
+        (PROJECT_ROOT / "experiments").relative_to(REPO_ROOT).as_posix(),
     ]
     result = subprocess.run(
         ["git", "-C", str(REPO_ROOT), "status", "--porcelain", "--", *tracked_inputs],
@@ -377,16 +376,26 @@ def load_features_and_folds() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]
 class ExperimentRun:
     """Small run recorder that writes reproducible evidence without hiding failures."""
 
-    def __init__(self, experiment_id: str, frozen_config_path: Path, manifest_aliases: Iterable[Path] = ()) -> None:
+    def __init__(
+        self,
+        experiment_id: str,
+        frozen_config_path: Path,
+        manifest_aliases: Iterable[Path] = (),
+        *,
+        descriptor_path: Path | None = None,
+        evidence_root: Path | None = None,
+        stage: str = "S3",
+    ) -> None:
         self.experiment_id = experiment_id
+        self.stage = stage
         self.frozen_config_path = frozen_config_path.resolve()
-        self.descriptor_path = BASELINE_CONFIG_DIR / f"{experiment_id}.json"
+        self.descriptor_path = (descriptor_path or (BASELINE_CONFIG_DIR / f"{experiment_id}.json")).resolve()
         if not self.descriptor_path.is_file():
             raise FileNotFoundError(f"Missing experiment descriptor: {self.descriptor_path}")
         self.descriptor = json.loads(self.descriptor_path.read_text(encoding="utf-8"))
         if self.descriptor.get("experiment_id") != experiment_id:
             raise ValueError("Experiment descriptor ID mismatch")
-        self.output_dir = BASELINE_EVIDENCE_ROOT / experiment_id
+        self.output_dir = (evidence_root or BASELINE_EVIDENCE_ROOT).resolve() / experiment_id
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.stdout_path = self.output_dir / "stdout.log"
         self.config_copy_path = self.output_dir / "config.json"
@@ -440,7 +449,7 @@ class ExperimentRun:
             output_hashes[label] = sha256_file(path)
         manifest = {
             "experiment_id": self.experiment_id,
-            "stage": "S3",
+            "stage": self.stage,
             "git_commit": git_commit(),
             "implementation_git_dirty_at_finish": implementation_git_dirty(),
             "command": relative_command(),

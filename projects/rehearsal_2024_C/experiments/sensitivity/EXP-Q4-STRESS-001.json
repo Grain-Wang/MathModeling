@@ -1,0 +1,10 @@
+{
+  "experiment_id": "EXP-Q4-STRESS-001",
+  "stage": "S4",
+  "question": "Q4",
+  "purpose": "Evaluate low-Bm, frequency/loss tails, nominal-boundary rows, leave-one-material and leave-one-temperature behavior of the frozen winner.",
+  "seed": 20240920,
+  "inputs": ["results/raw/main/q4/winner.json", "results/raw/main/q4/hgb_metrics.json"],
+  "outputs": ["results/raw/main/q4/stress_metrics.json"],
+  "test_attachments_allowed": false
+}
