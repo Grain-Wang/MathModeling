@@ -402,16 +402,16 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
         "feature_contracts": {
             "shared_keys_not_raw_features": IDENTIFIERS,
             "q1": {
-                "target": "seq_time", "allowed_base_families": CONFIG + ["RSSI-derived summaries"],
+                "target": "seq_time", "allowed_base_families": CONFIG + ["RSSI-derived summaries", "AP-count and group-relative topology features"],
                 "forbidden": POST_EVENT + PREDICTION,
             },
             "q2": {
-                "targets": ["nss", "mcs"], "allowed_base_families": CONFIG + ["RSSI-derived summaries"],
+                "targets": ["nss", "mcs"], "allowed_base_families": CONFIG + ["RSSI-derived summaries", "AP-count and group-relative topology features"],
                 "conditionally_allowed": ["out-of-fold Q1 seq_time predictions during training", "Q1 predictions at inference"],
                 "forbidden": ["true nss/mcs or derivatives", "per", "num_ampdu", "ppdu_dur", "other_air_time", "true seq_time", "throughput", *PREDICTION],
             },
             "q3": {
-                "target": "throughput", "allowed_base_families": CONFIG + ["RSSI-derived summaries"],
+                "target": "throughput", "allowed_base_families": CONFIG + ["RSSI-derived summaries", "AP-count and group-relative topology features"],
                 "explicitly_allowed_by_statement": ["actual nss", "actual mcs", "Q1-predicted seq_time or out-of-fold equivalent"],
                 "forbidden": ["per", "num_ampdu", "ppdu_dur", "other_air_time", "true seq_time", "throughput", *PREDICTION],
                 "boundary_note": "Q3 permission for actual MCS/NSS is not generalized to PER or other post-event fields.",
