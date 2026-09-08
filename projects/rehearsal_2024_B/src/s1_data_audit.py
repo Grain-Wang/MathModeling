@@ -8,6 +8,7 @@ import hashlib
 import json
 import math
 import platform
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -311,6 +312,18 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
         if size != EXPECTED[name]["ap_count"]:
             eligible_bad.append({"file": name, "test_id": native(test_id), "rows": int(size)})
     per = pd.to_numeric(raw.per, errors="coerce")
+    over_air = eligible.loc[pd.to_numeric(eligible.other_air_time, errors="coerce") > pd.to_numeric(eligible.test_dur, errors="coerce")]
+    scenario_mismatches = []
+    for name, frame in frames.items():
+        if EXPECTED[name]["role"] != "train":
+            continue
+        match = re.search(r"_loc([^_]+)_nav", name)
+        file_loc = f"loc{match.group(1)}" if match else None
+        content_locs = sorted(str(value) for value in frame.loc_id.dropna().unique())
+        if file_loc is not None and content_locs != [file_loc]:
+            scenario_mismatches.append({
+                "file": name, "filename_loc": file_loc, "content_loc_id_values": content_locs,
+            })
     anomalies = [
         {
             "id": "A01", "severity": "WARN",
@@ -353,6 +366,24 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
             },
             "frozen_handling": "Normalize aliases only in derived data; exclude every predict/error placeholder from features; retain original headers in source files.",
         },
+        {
+            "id": "A05", "severity": "WARN",
+            "title": "two other_air_time values exceed their 60-second test duration by orders of magnitude",
+            "row_count": len(over_air),
+            "rows": [
+                {"source_file": row.source_file, "row_index_zero_based": int(row.source_row_index),
+                 "test_id": native(row.test_id), "ap_id": native(row.ap_id),
+                 "test_dur": native(row.test_dur), "other_air_time": native(row.other_air_time)}
+                for _, row in over_air.iterrows()
+            ],
+            "frozen_handling": "Treat these two field values as invalid/missing in derived analysis and never as model inputs. Keep their otherwise plausible target rows; S2 must include a whole-group exclusion sensitivity check if those rows affect a candidate model.",
+        },
+        {
+            "id": "A06", "severity": "WARN",
+            "title": "one training filename location token disagrees with its content",
+            "mismatches": scenario_mismatches,
+            "frozen_handling": "Do not rename or rewrite the source. Use content loc_id=loc4 as the feature value, preserve source_file as a separate scenario key, and do not infer whether the intended official label was loc4 or loc33.",
+        },
     ]
     return {
         "audit_status": "PASS_WITH_WARNINGS", "critical_failures": [],
@@ -364,6 +395,8 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
         "eligible_training_bad_groups": eligible_bad,
         "training_exact_duplicate_rows": int(sum(frame.duplicated().sum() for name, frame in frames.items() if EXPECTED[name]["role"] == "train")),
         "per_outside_0_1_count": int((per.notna() & ~per.between(0, 1)).sum()),
+        "other_air_time_over_test_dur_count": len(over_air),
+        "filename_content_scenario_mismatch_count": len(scenario_mismatches),
         "rssi_audit": rssi_audit(frames), "anomalies": anomalies,
         "test_boundary": boundary(frames),
         "feature_contracts": {
