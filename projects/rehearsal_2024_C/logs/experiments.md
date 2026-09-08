@@ -64,3 +64,4 @@
 | Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / command | Result | Status |
 |---|---|---|---|---|---|---|---|
 | 2026-09-08 | X0014 | S5 | 拉取并核对 G4 审核、进入 S5 | `reviews/gate_4_review.md` | 核对 Verdict、Reviewed Commit、Review Commit 和 S5 授权；读取结果核验/绘图/论文交接协议 | G4=PASS；S4→S5 AUTHORIZED；识别 Q5/Q3/Q4 强制表述限制及绘图 Skill/配色指南缺口 | PASS |
+| 2026-09-08 14:40 | EXP-S5-PRED-001-PRE | S5 | 正式预测前置读取检查 | 冻结模型、附件二至四、G4审核 | 启动冻结预测入口；在产生任何输出前严格校验附件二表头 | 首个波形列名含单位说明，旧检查误要求纯数字0；`output_hashes={}`，未生成预测 | FAIL PRE-OUTPUT — parser fixed before official prediction |

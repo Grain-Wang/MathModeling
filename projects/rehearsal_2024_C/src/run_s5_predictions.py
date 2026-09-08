@@ -118,8 +118,12 @@ def load_test_features(path: Path, dataset: str, plateau_fraction: float) -> pd.
         header = tuple(next(rows))
         if header[:metadata_width] != expected_prefix:
             raise ValueError(f"Unexpected metadata header in {path.name}: {header[:metadata_width]}")
-        expected_wave_header = tuple(range(WAVEFORM_POINTS))
-        if tuple(int(float(value)) for value in header[metadata_width:]) != expected_wave_header:
+        wave_header = header[metadata_width:]
+        if (
+            len(wave_header) != WAVEFORM_POINTS
+            or not str(wave_header[0]).startswith("0")
+            or any(int(float(value)) != index for index, value in enumerate(wave_header[1:], start=1))
+        ):
             raise ValueError(f"Unexpected waveform header in {path.name}")
 
         for excel_row, row in enumerate(rows, start=2):
