@@ -39,7 +39,43 @@ G5 已授权基于冻结证据完成论文、图表、技术一致性与提交�
 
 ## Current Goal
 
-保持 `S5-FREEZE-2024C-V1` 与 `results/verified/` 不变，完成正式图表、参考文献、官方模板论文、最终 PDF 与提交一致性检查；全部前置项关闭后提交 G6。
+保持 `S5-FREEZE-2024C-V1` 与 `results/verified/` 不变；当前暂停主动制作，等待配图队友和论文队友回交成果。收到后完成导入验收、技术一致性检查、官方提交检查，再决定是否提交 G6。
+
+## Waiting Status
+
+状态：`WAITING_FOR_FIGURE_AND_PAPER_HANDOFF`
+
+开始等待：2026-09-08（Asia/Shanghai）
+
+已向配图队友提供：
+
+- `package_for_deliver/rehearsal_2024_C_figure_handoff.zip`；
+- 包内44个说明、verified数据及控制文件；
+- 八图任务卡、Evidence ID、禁止表述、交付格式和独立校验脚本。
+
+等待配图队友回交：
+
+1. 图1–图8的最终 PDF/SVG 与宽度至少2000 px的 PNG；
+2. 图1/3/8的可编辑矢量源，以及数值图的完整生成脚本；
+3. 实际使用的数据切片、Skill/工具名称和版本；
+4. 每张图的标题、图注、坐标与单位、Evidence ID 和变更说明；
+5. 配色方案已经负责人确认的说明。
+
+等待论文队友回交：
+
+1. 基于2024官方模板的可编辑论文源文件；
+2. 插图、表格、公式、符号和单位已经排版的完整正文；
+3. 已核验并与正文逐项对应的参考文献；
+4. 摘要不超过两页、逐问作答且保留全部证据边界；
+5. 可供最终检查的 PDF 候选稿及修改说明。
+
+收到回交后由 Main Agent 执行：
+
+1. 核验交付文件完整性、来源和可复现性；
+2. 检查所有图表和论文数字只来自 E001–E015 / `results/verified/`；
+3. 复跑 S6 一致性检查，核对公式、单位、摘要、图注和限制表述；
+4. 检查官方模板、匿名、PDF渲染、附件、文件名与MD5；
+5. 更新技术审计和 final fix log；全部条件满足后创建 `reviews/gate_6_submission.md`。
 
 ## Completed S4 Tasks
 
@@ -71,9 +107,9 @@ G5 已授权基于冻结证据完成论文、图表、技术一致性与提交�
 
 ## Known Blockers
 
-- 正式绘图暂缓：`guide/09_plotting_protocol.md` 要求先指定并确认 Skill，但 `.agents/skills/` 当前为空，且其引用的 `guide/figure_color_guide.md` 不存在。
-- 图1/3/8要求的 Scientific Illustrator 尚未安装，数值图使用的具体 plotting Skill 尚未指定。
-- 参考文献、官方 Word 模板排版、最终 PDF、匿名检查、队伍编号文件名与 MD5 尚未完成。
+- 外部协作阻断：正在等待配图队友和论文队友回交，回交前不提交 G6。
+- 配图交付必须说明实际 Skill/工具与配色确认结果；仓库本地仍缺少 `guide/figure_color_guide.md`。
+- 论文交付返回前，参考文献、官方模板成稿、最终 PDF、匿名检查、队伍编号文件名与 MD5 仍未完成。
 - Q5 Jaccard=0.39535<0.50 是必须保留的实证限制，不是待“修好”的运行错误。
 
 ## Forbidden Now
@@ -91,7 +127,7 @@ G6 — 论文技术一致性与提交准备审核
 
 Verdict：`NOT SUBMITTED / NOT READY`
 
-Submission：待正式图、参考文献、官方模板与最终 PDF 全部完成后创建。
+Submission：等待配图与论文队友回交；完成导入验收、最终一致性和提交合规检查后创建。
 
 ## Last Updated
 
