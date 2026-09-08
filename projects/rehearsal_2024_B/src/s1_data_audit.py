@@ -230,7 +230,7 @@ def profile_file(name: str, frame: pd.DataFrame) -> dict[str, Any]:
 
 def training_frames(frames: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame, pd.DataFrame]:
     raw = pd.concat(
-        [frame.assign(source_file=name) for name, frame in frames.items() if EXPECTED[name]["role"] == "train"],
+        [frame.assign(source_file=name, source_row_index=np.arange(len(frame))) for name, frame in frames.items() if EXPECTED[name]["role"] == "train"],
         ignore_index=True, sort=False,
     )
     a01 = raw.source_file.eq("training_set_2ap_loc2_nav82.csv") & raw.test_id.isin([40, 41])
@@ -317,12 +317,12 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
             "title": "two shifted rows in training_set_2ap_loc2_nav82.csv",
             "detected_corrupt_rows": int(corrupt.sum()),
             "row_keys": [
-                {"source_file": row.source_file, "row_index_zero_based": int(index),
+                {"source_file": row.source_file, "row_index_zero_based": int(row.source_row_index),
                  "test_id": native(row.test_id), "ap_id": native(row.ap_id)}
                 for index, row in raw.loc[corrupt].iterrows()
             ],
-            "isolated_group_count": 2, "isolated_row_count": int(isolate.sum()),
-            "frozen_handling": "Do not edit source; isolate both complete test_id 40/41 groups (4 rows) from training and model selection, because retaining only ap_0 breaks the AP-group unit.",
+            "isolated_incomplete_group_count": 2, "isolated_row_count": int(isolate.sum()),
+            "frozen_handling": "Do not edit source; isolate the two already-incomplete test_id 40/41 groups (one corrupt ap_1 row each, 2 rows total) from training and model selection. The remaining groups all retain their expected AP count.",
         },
         {
             "id": "A02", "severity": "WARN",
@@ -362,7 +362,7 @@ def quality(frames: dict[str, pd.DataFrame], before: dict[str, Any]) -> dict[str
         "A01_isolated_rows": int(isolate.sum()),
         "eligible_training_bad_group_count": len(eligible_bad),
         "eligible_training_bad_groups": eligible_bad,
-        "training_exact_duplicate_rows": int(raw.duplicated().sum()),
+        "training_exact_duplicate_rows": int(sum(frame.duplicated().sum() for name, frame in frames.items() if EXPECTED[name]["role"] == "train")),
         "per_outside_0_1_count": int((per.notna() & ~per.between(0, 1)).sum()),
         "rssi_audit": rssi_audit(frames), "anomalies": anomalies,
         "test_boundary": boundary(frames),
