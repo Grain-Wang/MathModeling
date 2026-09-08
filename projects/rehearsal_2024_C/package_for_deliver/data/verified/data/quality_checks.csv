@@ -1,0 +1,155 @@
+check_id,dataset,scope,severity,status,value,expected,notes
+TRAIN_SHEETS,train,workbook,CRITICAL,PASS,材料1|材料2|材料3|材料4,材料1|材料2|材料3|材料4,工作表名称与顺序。
+TRAIN_SHAPE,train,材料1,CRITICAL,PASS,3401x1028,3401x1028,含表头；实际文件为 4 个元字段 + 1024 点。
+TRAIN_HEADER_PREFIX,train,材料1,CRITICAL,PASS,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,元数据字段顺序。
+TRAIN_WAVEFORM_WIDTH,train,材料1,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TRAIN_WAVEFORM_HEADER,train,材料1,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TRAIN_ROW_COUNT,train,材料1,CRITICAL,PASS,3400,3400,不含表头。
+TRAIN_WAVEFORM_ROW_WIDTH,train,材料1,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TRAIN_SHAPE,train,材料2,CRITICAL,PASS,3001x1028,3001x1028,含表头；实际文件为 4 个元字段 + 1024 点。
+TRAIN_HEADER_PREFIX,train,材料2,CRITICAL,PASS,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,元数据字段顺序。
+TRAIN_WAVEFORM_WIDTH,train,材料2,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TRAIN_WAVEFORM_HEADER,train,材料2,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TRAIN_ROW_COUNT,train,材料2,CRITICAL,PASS,3000,3000,不含表头。
+TRAIN_WAVEFORM_ROW_WIDTH,train,材料2,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TRAIN_SHAPE,train,材料3,CRITICAL,PASS,3201x1028,3201x1028,含表头；实际文件为 4 个元字段 + 1024 点。
+TRAIN_HEADER_PREFIX,train,材料3,CRITICAL,PASS,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,元数据字段顺序。
+TRAIN_WAVEFORM_WIDTH,train,材料3,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TRAIN_WAVEFORM_HEADER,train,材料3,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TRAIN_ROW_COUNT,train,材料3,CRITICAL,PASS,3200,3200,不含表头。
+TRAIN_WAVEFORM_ROW_WIDTH,train,材料3,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TRAIN_SHAPE,train,材料4,CRITICAL,PASS,2801x1028,2801x1028,含表头；实际文件为 4 个元字段 + 1024 点。
+TRAIN_HEADER_PREFIX,train,材料4,CRITICAL,PASS,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,温度，oC|频率，Hz|磁芯损耗，w/m3|励磁波形,元数据字段顺序。
+TRAIN_WAVEFORM_WIDTH,train,材料4,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TRAIN_WAVEFORM_HEADER,train,材料4,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TRAIN_ROW_COUNT,train,材料4,CRITICAL,PASS,2800,2800,不含表头。
+TRAIN_WAVEFORM_ROW_WIDTH,train,材料4,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TEST_SHEETS,test2,workbook,CRITICAL,PASS,测试集,测试集,测试工作表。
+TEST_SHAPE,test2,测试集,CRITICAL,PASS,81x1028,81x1028,含表头。
+TEST_HEADER_PREFIX,test2,测试集,CRITICAL,PASS,序号|温度，oC|频率，Hz|磁芯材料,序号|温度，oC|频率，Hz|磁芯材料,元数据字段顺序。
+TEST_WAVEFORM_WIDTH,test2,测试集,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TEST_WAVEFORM_HEADER,test2,测试集,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TEST_ROW_COUNT,test2,测试集,CRITICAL,PASS,80,80,不含表头。
+TEST_ID_UNIQUE,test2,测试集,CRITICAL,PASS,0,0,重复样本序号数。
+TEST_ID_RANGE,test2,测试集,CRITICAL,PASS,1..80,1..80,样本序号完整性。
+TEST_WAVEFORM_ROW_WIDTH,test2,测试集,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TEST_SHEETS,test3,workbook,CRITICAL,PASS,测试集,测试集,测试工作表。
+TEST_SHAPE,test3,测试集,CRITICAL,PASS,401x1029,401x1029,含表头。
+TEST_HEADER_PREFIX,test3,测试集,CRITICAL,PASS,序号|温度，oC|频率，Hz|磁芯材料|励磁波形,序号|温度，oC|频率，Hz|磁芯材料|励磁波形,元数据字段顺序。
+TEST_WAVEFORM_WIDTH,test3,测试集,CRITICAL,PASS,1024,1024,等间距单周期磁通密度采样点数。
+TEST_WAVEFORM_HEADER,test3,测试集,CRITICAL,PASS,0..1023,0..1023,采样位置表头连续且顺序正确。
+TEST_ROW_COUNT,test3,测试集,CRITICAL,PASS,400,400,不含表头。
+TEST_ID_UNIQUE,test3,测试集,CRITICAL,PASS,0,0,重复样本序号数。
+TEST_ID_RANGE,test3,测试集,CRITICAL,PASS,1..400,1..400,样本序号完整性。
+TEST_WAVEFORM_ROW_WIDTH,test3,测试集,CRITICAL,PASS,0,0,波形长度异常的记录数。
+TEMPLATE_SHEETS,template4,workbook,CRITICAL,PASS,Sheet1|Sheet2|Sheet3,Sheet1|Sheet2|Sheet3,附件四工作表集合。
+TEMPLATE_SHAPE,template4,Sheet1,CRITICAL,PASS,401x3,401x3,400 个样本的统一结果表。
+TEMPLATE_HEADER,template4,Sheet1,CRITICAL,PASS,序号|附件二（80个样品）励磁波形分类结果|附件三（400个样品）磁芯损耗预测结果,序号|附件二（80个样品）励磁波形分类结果|附件三（400个样品）磁芯损耗预测结果,附件四输出列名称与顺序。
+TEMPLATE_ID_RANGE,template4,Sheet1,CRITICAL,PASS,1..400,1..400,首列样本序号。
+TEMPLATE_OUTPUT_BLANK,template4,Sheet1,INFO,PASS,col2=0;col3=0,col2=0;col3=0,S1 只检查容量，不填预测。
+TEMPERATURE_DOMAIN,train,材料1,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,train,材料1,RISK,PASS,range=50020..446410;outside=0,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+WAVEFORM_DOMAIN,train,材料1,MAJOR,PASS,三角波|梯形波|正弦波,正弦波|三角波|梯形波,训练标签取值。
+LOSS_POSITIVE,train,材料1,MAJOR,PASS,684.0462375,>0,磁芯损耗密度应为正。
+TEMPERATURE_DOMAIN,train,材料2,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,train,材料2,RISK,WARN,range=49990..501180;outside=78,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+WAVEFORM_DOMAIN,train,材料2,MAJOR,PASS,三角波|梯形波|正弦波,正弦波|三角波|梯形波,训练标签取值。
+LOSS_POSITIVE,train,材料2,MAJOR,PASS,415.6131139,>0,磁芯损耗密度应为正。
+TEMPERATURE_DOMAIN,train,材料3,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,train,材料3,RISK,WARN,range=49990..501180;outside=85,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+WAVEFORM_DOMAIN,train,材料3,MAJOR,PASS,三角波|梯形波|正弦波,正弦波|三角波|梯形波,训练标签取值。
+LOSS_POSITIVE,train,材料3,MAJOR,PASS,739.3340863,>0,磁芯损耗密度应为正。
+TEMPERATURE_DOMAIN,train,材料4,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,train,材料4,RISK,PASS,range=50010..446690;outside=0,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+WAVEFORM_DOMAIN,train,材料4,MAJOR,PASS,三角波|梯形波|正弦波,正弦波|三角波|梯形波,训练标签取值。
+LOSS_POSITIVE,train,材料4,MAJOR,PASS,452.2277116,>0,磁芯损耗密度应为正。
+TEMPERATURE_DOMAIN,train,all,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,train,all,RISK,WARN,range=49990..501180;outside=163,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+WAVEFORM_DOMAIN,train,all,MAJOR,PASS,三角波|梯形波|正弦波,正弦波|三角波|梯形波,训练标签取值。
+LOSS_POSITIVE,train,all,MAJOR,PASS,415.6131139,>0,磁芯损耗密度应为正。
+TEMPERATURE_DOMAIN,test2,测试集,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,test2,测试集,RISK,WARN,range=50020..501180;outside=2,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+MATERIAL_DOMAIN,test2,测试集,MAJOR,PASS,材料1|材料2|材料3|材料4,材料1|材料2|材料3|材料4,测试集材料取值。
+TEMPERATURE_DOMAIN,test3,测试集,MAJOR,PASS,25|50|70|90,25|50|70|90,题目声明的离散温度。
+FREQUENCY_DOMAIN,test3,测试集,RISK,WARN,range=50020..501180;outside=2,50000..500000;outside=0,实测频率对题目文字范围存在轻微越界时保留原值，并在后续切分/建模中作为数据范围风险处理。
+MATERIAL_DOMAIN,test3,测试集,MAJOR,PASS,材料1|材料2|材料3|材料4,材料1|材料2|材料3|材料4,测试集材料取值。
+EXACT_CONTENT_DUPLICATES,test2,test2,INFO,PASS,groups=0;excess_rows=0,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,test3,test3,INFO,PASS,groups=0;excess_rows=0,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,train,train,INFO,PASS,groups=1;excess_rows=1,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,train,train/材料1,INFO,PASS,groups=0;excess_rows=0,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,train,train/材料2,INFO,PASS,groups=0;excess_rows=0,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,train,train/材料3,INFO,PASS,groups=1;excess_rows=1,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_CONTENT_DUPLICATES,train,train/材料4,INFO,PASS,groups=0;excess_rows=0,diagnostic,测试集内容重复检查不含样本序号；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,test2,测试集,INFO,PASS,groups=0;excess_rows=0,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,test3,测试集,INFO,PASS,groups=0;excess_rows=0,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,train,all,INFO,PASS,groups=1;excess_rows=1,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,train,材料1,INFO,PASS,groups=0;excess_rows=0,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,train,材料2,INFO,PASS,groups=0;excess_rows=0,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,train,材料3,INFO,PASS,groups=1;excess_rows=1,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+EXACT_WAVEFORM_DUPLICATES,train,材料4,INFO,PASS,groups=0;excess_rows=0,diagnostic,基于 1024 个 IEEE-754 数值的确定性指纹；重复不自动判为错误。
+TRAIN_TEST_WAVEFORM_OVERLAP,test2,all,MAJOR,PASS,hashes=0;test_rows=0,0,与训练集 1024 点波形完全相同会带来泄漏/近重复风险。
+TRAIN_TEST_WAVEFORM_OVERLAP,test3,all,MAJOR,PASS,hashes=0;test_rows=0,0,与训练集 1024 点波形完全相同会带来泄漏/近重复风险。
+TEST2_TEST3_WAVEFORM_OVERLAP,test2_vs_test3,all,INFO,PASS,0,diagnostic,两个官方测试集之间的完全相同波形指纹数。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,sample_id:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test2,测试集,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,sample_id:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,test3,测试集,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,core_loss_W_per_m3:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,all,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,core_loss_W_per_m3:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料1,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,core_loss_W_per_m3:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料2,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,core_loss_W_per_m3:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料3,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,b_mean_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,b_peak_abs_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,b_peak_to_peak_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,b_rms_T:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,core_loss_W_per_m3:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,frequency_Hz:missing=0;nonfinite=0,0,数值字段完整性。
+NUMERIC_COMPLETENESS,train,材料4,MAJOR,PASS,temperature_C:missing=0;nonfinite=0,0,数值字段完整性。
+WAVEFORM_COMPLETENESS,test2,测试集,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,test2,测试集,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,test3,测试集,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,test3,测试集,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,train,all,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,train,all,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,train,材料1,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,train,材料1,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,train,材料2,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,train,材料2,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,train,材料3,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,train,材料3,MAJOR,PASS,0,0,峰峰值为零的波形数。
+WAVEFORM_COMPLETENESS,train,材料4,MAJOR,PASS,missing=0;nonfinite=0;uniform_finite_count=True,0,全部 1024 点应为有限数值。
+FLAT_WAVEFORMS,train,材料4,MAJOR,PASS,0,0,峰峰值为零的波形数。

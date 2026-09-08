@@ -1,0 +1,267 @@
+{
+  "package": "rehearsal_2024_C figure handoff",
+  "generated_at": "2026-09-08T16:01:34.535429+08:00",
+  "source_git_commit": "0bcd9a8606b65de3820044a955af7403f917e9e4",
+  "source_policy": "Only verified numerical evidence and necessary documentation are copied; results/raw and original contest attachments are excluded.",
+  "file_count_excluding_manifest_and_archive": 43,
+  "files": [
+    {
+      "package_path": "README.md",
+      "source_path": "projects/rehearsal_2024_C/package_for_deliver/README.md",
+      "size_bytes": 7617,
+      "sha256": "D2FE5A71C51E08B795B4F104EF74725AD9998FECD0A5DFE4358D26BBE4DA7A98"
+    },
+    {
+      "package_path": "data/verified/data/categorical_counts.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/data/categorical_counts.csv",
+      "size_bytes": 5411,
+      "sha256": "612C682E5B248977954EAAD79F9800C79120C1316597DFEFAFCB709AC2043D3F"
+    },
+    {
+      "package_path": "data/verified/data/data_profile.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/data/data_profile.json",
+      "size_bytes": 4814,
+      "sha256": "9CB54159C4D7A8632D918D485D037F987BAF5F7B16B7091C4C1A494769D14C57"
+    },
+    {
+      "package_path": "data/verified/data/dataset_summary.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/data/dataset_summary.csv",
+      "size_bytes": 929,
+      "sha256": "DBA0D5AD17398F028BA61930B0F9C0A8176A49EFF30ABE3E71459CFD6805E02B"
+    },
+    {
+      "package_path": "data/verified/data/numeric_ranges.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/data/numeric_ranges.csv",
+      "size_bytes": 7144,
+      "sha256": "1179DD751F808ADD53F4F259DA71D3CD306AA7FF3D3B9E6E850170BA3EA128DB"
+    },
+    {
+      "package_path": "data/verified/data/quality_checks.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/data/quality_checks.csv",
+      "size_bytes": 18412,
+      "sha256": "501E3816BC32C8F92F2D881E2A731AC92B3C06581644646936C4E81DEE5174B6"
+    },
+    {
+      "package_path": "data/verified/q2/leave_one_temperature_comparison.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q2/leave_one_temperature_comparison.csv",
+      "size_bytes": 334,
+      "sha256": "D28240BB6C44F268BA5EB0C57C582BFC00AB21DF136D16DAC795D15D57BD0B38"
+    },
+    {
+      "package_path": "data/verified/q2/quadratic_temperature_by_temperature.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q2/quadratic_temperature_by_temperature.csv",
+      "size_bytes": 731,
+      "sha256": "705FC42D8BF166E209925BF1BA1827CDD1B0ED006862DA4A11B64B78F7084145"
+    },
+    {
+      "package_path": "data/verified/q2/quadratic_temperature_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q2/quadratic_temperature_metrics.json",
+      "size_bytes": 1039,
+      "sha256": "BA227235FD48AC92DD993FC6D513BC86F4D79F5FED80C5AFEBFDC644AE01BB42"
+    },
+    {
+      "package_path": "data/verified/q2/quadratic_temperature_parameters.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q2/quadratic_temperature_parameters.csv",
+      "size_bytes": 893,
+      "sha256": "9E70B24F991DBBEB560FFC0EE23ACD10AAC34B545CAF1F57F1A9F82DAABF4996"
+    },
+    {
+      "package_path": "data/verified/q4/ablation_metrics.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/ablation_metrics.csv",
+      "size_bytes": 515,
+      "sha256": "86C6AEFFFEDF453D74B2A74B7A93FFBF66F50420C9348CF1F87E7836B7B62931"
+    },
+    {
+      "package_path": "data/verified/q4/ablation_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/ablation_metrics.json",
+      "size_bytes": 1460,
+      "sha256": "28B0F4ED3ECC328BFBF1BD8467F2B7E1A4354BD5516A32799BFD2054072D42E5"
+    },
+    {
+      "package_path": "data/verified/q4/final_oof_predictions.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/final_oof_predictions.csv",
+      "size_bytes": 2695840,
+      "sha256": "B31F4B61ABE29211032FD4A5B89C3BA6EE1A1FDE3BB61F0A4B4A152E4ED4D73D"
+    },
+    {
+      "package_path": "data/verified/q4/hgb_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/hgb_metrics.json",
+      "size_bytes": 1503,
+      "sha256": "CD5FE6875F817020B5AD367533C606C96A66B5721F04B282C25CFAC58FBF550F"
+    },
+    {
+      "package_path": "data/verified/q4/hgb_subgroup_metrics.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/hgb_subgroup_metrics.csv",
+      "size_bytes": 2508,
+      "sha256": "279449D06D16618D28BDC6FAFC81453BC83C70DC86530D4535287E4A9F2FC0A2"
+    },
+    {
+      "package_path": "data/verified/q4/leave_one_level_out_metrics.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/leave_one_level_out_metrics.csv",
+      "size_bytes": 971,
+      "sha256": "1C272CAD804FEA7EA8F40CFB8F9B46D95D2BF852563C8AFC3A01D2F1D1AB0F56"
+    },
+    {
+      "package_path": "data/verified/q4/stress_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/stress_metrics.json",
+      "size_bytes": 791,
+      "sha256": "22C3E1F4292D9EAB74C52E0740681678CD0BBF5BA77BE3008FFB028FD206CE71"
+    },
+    {
+      "package_path": "data/verified/q4/stress_subset_metrics.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q4/stress_subset_metrics.csv",
+      "size_bytes": 786,
+      "sha256": "E326809EC961846E3D48708E8F9731934C29C2D04AE2D86229D50979AB63240E"
+    },
+    {
+      "package_path": "data/verified/q5/bootstrap_region_stability.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/bootstrap_region_stability.csv",
+      "size_bytes": 37439,
+      "sha256": "904FCD154D68522D8B5BC3F0DBAF198F99E2ACCD16C49B4C3691A9EBBEFBA51B"
+    },
+    {
+      "package_path": "data/verified/q5/final_full_fit_reference_pareto.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/final_full_fit_reference_pareto.csv",
+      "size_bytes": 185324,
+      "sha256": "27E09AD18348A560A1A60763D28E82F6DC2631C92D0490ECA2DF6B6B7221FA09"
+    },
+    {
+      "package_path": "data/verified/q5/final_oof_pareto.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/final_oof_pareto.csv",
+      "size_bytes": 178934,
+      "sha256": "52B71C906A8200044CDBF3E9399E46DB19C11D8FE78EBBCE53E23208C66AAF74"
+    },
+    {
+      "package_path": "data/verified/q5/heldout_fold_region_support.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/heldout_fold_region_support.csv",
+      "size_bytes": 30825,
+      "sha256": "9BE252619D74ADCB2D2A18FB59DE8C929D3F92861E1F261E25739343C7BE73E4"
+    },
+    {
+      "package_path": "data/verified/q5/representative_conditions.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/representative_conditions.json",
+      "size_bytes": 395,
+      "sha256": "29D6058A2131A926882CACF12FDB58565BA45EFA16816DD46C162A7C1F670878"
+    },
+    {
+      "package_path": "data/verified/q5/robustness_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/robustness_metrics.json",
+      "size_bytes": 1512,
+      "sha256": "C2088B49BB06C163E0F561CB459B45E2D3936346D292EE64B609681060EE59FB"
+    },
+    {
+      "package_path": "data/verified/q5/sensitivity_metrics.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/sensitivity_metrics.json",
+      "size_bytes": 1610,
+      "sha256": "8E79D88E75E3F221E05B9F4563C903787CE4DBA93A7B1E2ECD43427C65475AFC"
+    },
+    {
+      "package_path": "data/verified/q5/sensitivity_scenarios.csv",
+      "source_path": "projects/rehearsal_2024_C/results/verified/q5/sensitivity_scenarios.csv",
+      "size_bytes": 535,
+      "sha256": "ED24CA3FCF2F7EE31D857FB49E8BE8B89D51ACE8D73E93FEA0F9C65BDA394582"
+    },
+    {
+      "package_path": "docs/figure_handoff.md",
+      "source_path": "projects/rehearsal_2024_C/work/handoff/figure_handoff.md",
+      "size_bytes": 8799,
+      "sha256": "46F3F1EB2604AF5B540137C2AF8203D5F19EB4C3BFC215D37ABE44E4F1BCFF60"
+    },
+    {
+      "package_path": "docs/guides/09_plotting_protocol.md",
+      "source_path": "guide/09_plotting_protocol.md",
+      "size_bytes": 1177,
+      "sha256": "86D40BED033C9B467BFDF0463B0AC6384ABF034F8E43B7F30E9160E54226078A"
+    },
+    {
+      "package_path": "docs/guides/figures_guide.md",
+      "source_path": "guide/figures_guide.md",
+      "size_bytes": 18225,
+      "sha256": "EB37B7541228E26A240DC9AB4BF944125864761B4555A43E46AD806A8EF2C09D"
+    },
+    {
+      "package_path": "docs/model_contracts/q1_model_contract.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/q1_model_contract.md",
+      "size_bytes": 5274,
+      "sha256": "E0E61EEEA810A9BD40C202444AE770F3512FF07692CE08D8BB853AD10A7E8991"
+    },
+    {
+      "package_path": "docs/model_contracts/q2_model_contract.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/q2_model_contract.md",
+      "size_bytes": 5475,
+      "sha256": "FCE105629E864E758F06D8E6382708199B5E9627B2C9D699F145276A229A2AA6"
+    },
+    {
+      "package_path": "docs/model_contracts/q3_model_contract.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/q3_model_contract.md",
+      "size_bytes": 6149,
+      "sha256": "CC74CFE37D60C3A668EE3E30ACCEDA94168C4E83006A63D486B79B9F578EA08A"
+    },
+    {
+      "package_path": "docs/model_contracts/q4_model_contract.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/q4_model_contract.md",
+      "size_bytes": 7816,
+      "sha256": "86217B7B974E8AF7BBF290835A1F7D2B7E58092C43D0C86EAF7619E54A54881F"
+    },
+    {
+      "package_path": "docs/model_contracts/q5_model_contract.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/q5_model_contract.md",
+      "size_bytes": 12411,
+      "sha256": "FCF935E2D01582D00F9DA1217F31C6D79EA9B04228001301B73E9F017DDC8850"
+    },
+    {
+      "package_path": "docs/model_contracts/shared_data_validation.md",
+      "source_path": "projects/rehearsal_2024_C/work/models/00_shared_data_validation_contract.md",
+      "size_bytes": 5397,
+      "sha256": "9CC19EC0695B129BC0B47F14D2A456EE032E19334729CFB4364BBB7A36A99B46"
+    },
+    {
+      "package_path": "docs/model_freeze.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/model_freeze.json",
+      "size_bytes": 4031,
+      "sha256": "5E630230DE315DA2E642FF50B836DAFC1CBAA53108B1E52A7B7C5170933C0999"
+    },
+    {
+      "package_path": "docs/provenance.json",
+      "source_path": "projects/rehearsal_2024_C/results/verified/provenance.json",
+      "size_bytes": 12523,
+      "sha256": "7A4BA71CA5FF76F46068C833CF790065B39F72D06F86204855E5F93FE0A5A019"
+    },
+    {
+      "package_path": "docs/result_freeze.md",
+      "source_path": "projects/rehearsal_2024_C/work/10_result_freeze.md",
+      "size_bytes": 7104,
+      "sha256": "A04BB46B1F5A2A5660265C6D6BDC5441E61E75DC3473B37EC4DE9C08CFB147CE"
+    },
+    {
+      "package_path": "docs/result_registry.md",
+      "source_path": "projects/rehearsal_2024_C/results/verified/result_registry.md",
+      "size_bytes": 3908,
+      "sha256": "CC91E9C97BC7849038857DE8143C784A9CA8B24E01644A97087FF43FA84EF6C8"
+    },
+    {
+      "package_path": "docs/solution_plan.md",
+      "source_path": "projects/rehearsal_2024_C/work/04_solution_plan.md",
+      "size_bytes": 14658,
+      "sha256": "E4B94323076FE84FDC7674D619D60DFA106BABA8079C8F50B84DF4257473353D"
+    },
+    {
+      "package_path": "docs/technical_draft.md",
+      "source_path": "projects/rehearsal_2024_C/paper/technical_draft.md",
+      "size_bytes": 15271,
+      "sha256": "D19D6F107D93076CA93F2C330F20A814161CBA34860FFB3A0ECA66E48AB4D4B3"
+    },
+    {
+      "package_path": "docs/writing_handoff.md",
+      "source_path": "projects/rehearsal_2024_C/work/handoff/writing_handoff.md",
+      "size_bytes": 10048,
+      "sha256": "3552B6148F9AA5569025E00CEA47D5108BE9899D362A8C01DBCABD4D9A9394E1"
+    },
+    {
+      "package_path": "verify_package.py",
+      "source_path": "projects/rehearsal_2024_C/package_for_deliver/verify_package.py",
+      "size_bytes": 1116,
+      "sha256": "B8EBBE5DECD0E4051F55C9C0C13B3F4473AA929089002A8476D649D00839F69A"
+    }
+  ]
+}
