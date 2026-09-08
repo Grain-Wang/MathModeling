@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-S6-CONSISTENCY-001",
+  "stage": "S6",
+  "purpose": "Verify that the S6 technical Markdown draft preserves the G5 evidence, model identity, numeric claims, and required limitations.",
+  "environment": "math_modeling",
+  "command_from_repository_root": "conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_C/src/check_s6_consistency.py",
+  "inputs": [
+    "projects/rehearsal_2024_C/reviews/gate_5_review.md",
+    "projects/rehearsal_2024_C/results/verified/",
+    "projects/rehearsal_2024_C/paper/technical_draft.md"
+  ],
+  "output": "projects/rehearsal_2024_C/results/raw/s6/consistency_report.json",
+  "write_policy": "results/verified is read-only; only results/raw/s6 is writable",
+  "non_coverage": [
+    "official Word template formatting",
+    "formal figures",
+    "final PDF rendering",
+    "team number dependent naming",
+    "platform upload"
+  ]
+}

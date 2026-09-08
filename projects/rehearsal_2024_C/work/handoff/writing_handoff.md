@@ -6,7 +6,7 @@
 - 数字索引：`results/verified/result_registry.md`
 - 模型身份：`results/verified/model_freeze.json`
 - 数字来源：`results/verified/provenance.json`
-- 当前状态：S5 已冻结，等待 G5；不得写成最终提交已批准
+- 当前状态：G5 已 PASS，S6 技术一致性与提交准备进行中；不得写成 G6 已通过或最终文件已可提交
 
 论文技术主线：
 

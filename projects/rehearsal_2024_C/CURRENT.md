@@ -14,32 +14,32 @@ ACTIVE_PROJECT：`projects/rehearsal_2024_C`
 
 ## Current Stage
 
-S5 — 结果核验、冻结与交接（进行中）
+S6 — 论文技术一致性与提交准备（进行中）
 
 ## Last Gate
 
-Gate：G4 / Review Round 1
+Gate：G5 / Review Round 1
 
 Verdict：`PASS`
 
-Review File：[`reviews/gate_4_review.md`](reviews/gate_4_review.md)
+Review File：[`reviews/gate_5_review.md`](reviews/gate_5_review.md)
 
-Reviewed Commit：`2309b1e361701be9818544fa18740cd8f5694f2e`
+Reviewed Commit：`4a14dfd88259c2a5186da1056c3994eccef5e5f7`
 
-Review Commit：`82504cc9343b437181e66520aee74c56e863d87a`
+Review Commit：`5078989`
 
 ## Approved Artifacts
 
-- S0–S4 的文档、合同、代码、Baseline、主模型与 raw 证据；
-- `work/06_baseline_report.md`、`work/07_failure_analysis.md`、`work/08_main_model_report.md`、`work/09_evidence_report.md`；
-- `results/raw/s3/`、`results/raw/baseline/`、`results/raw/main/`；
-- `reviews/gate_4_submission.md` 及 G4 固定快照。
+- S0–S5 的文档、合同、代码、Baseline、主模型、预测与验证证据；
+- `S5-FREEZE-2024C-V1`、84项独立验证、47个 provenance 白名单文件；
+- `results/verified/` 的 E001–E015、附件二/三冻结预测及附件四副本；
+- `work/10_result_freeze.md`、绘图/写作交接与 G5 固定快照。
 
-G4 已授权把明确白名单内、经 S5 独立复算的证据迁入 `results/verified/`；迁入前仍视为 raw。
+G5 已授权基于冻结证据完成论文、图表、技术一致性与提交准备；不授权改变模型、阈值或正式预测。
 
 ## Current Goal
 
-保持 `S5-FREEZE-2024C-V1` 不变，将84项独立核验、47个 verified 文件、结果登记和两份交接材料提交 G5；G5 PASS 前不进入 S6。
+保持 `S5-FREEZE-2024C-V1` 与 `results/verified/` 不变，完成正式图表、参考文献、官方模板论文、最终 PDF 与提交一致性检查；全部前置项关闭后提交 G6。
 
 ## Completed S4 Tasks
 
@@ -60,28 +60,37 @@ G4 已授权把明确白名单内、经 S5 独立复算的证据迁入 `results/
 5. 独立验证84/84 PASS；47个明确白名单文件由 raw 按同 SHA-256 晋级 `results/verified/`。
 6. 建立 E001–E015 结果登记、model freeze、provenance、figure handoff 与 writing handoff。
 
+## Completed S6 Start Tasks
+
+1. 拉取并核对 G5 Round 1 PASS，确认 `S5 -> S6` 已获授权。
+2. 建立 `paper/technical_draft.md`，逐问写入模型、公式、结果、Evidence ID 与强制限制。
+3. 建立只读 `src/check_s6_consistency.py`；在 `math_modeling` 中检查 G5 授权、47个 provenance 哈希、E001–E015、冻结模型和核心论文数字。
+4. 修复 Evidence ID 正则对 SHA-256 片段的误报并保留首次失败报告；当前一致性结果为 9/9 PASS。
+5. 建立 `work/11_technical_consistency_audit.md` 和 `work/revisions/final_fix_log.md`，区分技术底稿通过项与 G6 未完成项。
+
 ## Known Blockers
 
-- 进入 S6 的流程阻断：G5 尚未返回 PASS。
 - 正式绘图暂缓：`guide/09_plotting_protocol.md` 要求先指定并确认 Skill，但 `.agents/skills/` 当前为空，且其引用的 `guide/figure_color_guide.md` 不存在。
-- Q5 主稳定区域与观测区域 Jaccard 未达0.50，是实证限制，不是运行错误；本轮禁止唯一推荐。
+- 图1/3/8要求的 Scientific Illustrator 尚未安装，数值图使用的具体 plotting Skill 尚未指定。
+- 参考文献、官方 Word 模板排版、最终 PDF、匿名检查、队伍编号文件名与 MD5 尚未完成。
+- Q5 Jaccard=0.39535<0.50 是必须保留的实证限制，不是待“修好”的运行错误。
 
 ## Forbidden Now
 
-- 继续扩展模型族、搜索空间、随机种子或修改已冻结采用阈值。
-- 使用附件二、附件三参与特征选择、调参、模型选择或 Q5 域/阈值制定；两附件只允许冻结预测和只读复算。
-- 把 Q1 OOF=1.0 当成未知测试集准确率，把 Q3 调整关联写成因果，或隐藏 Q2/Q4 外推限制。
-- 用未施加折支持的敏感性 Jaccard 覆盖 Q5 主 Jaccard 失败，或给出唯一最优工况。
-- 把 `results/raw/` 当作论文证据；只有通过 S5 独立核验的白名单文件可进入 `results/verified/`。
-- 覆写题目 DOCX、四个原始 XLSX 或任何 Reviewer 审核文件。
+- 修改冻结模型、数据切分、采用阈值、附件二/三正式预测或 `results/verified/`。
+- 从 `results/raw/` 选择论文数字，或让附件二、附件三参与任何重新选模与调参。
+- 把 Q1 OOF=1.0 当成未知测试准确率，把 Q3 调整关联写成因果，或隐藏 Q2/Q4 外推限制。
+- 用敏感性结果覆盖 Q5 主 Jaccard 失败，或把代表点包装成唯一/全局最优工况。
+- 在未确认 Skill 前生成正式图，或把当前 Markdown 技术底稿称为可提交论文。
+- 覆写题目 DOCX、四个原始 XLSX、官方模板原件或任何 Reviewer 审核文件。
 
 ## Next Gate
 
-G5 — 结果核验、冻结与交接审核
+G6 — 论文技术一致性与提交准备审核
 
-Verdict：`SUBMITTED / PENDING REVIEW`
+Verdict：`NOT SUBMITTED / NOT READY`
 
-Submission：[`reviews/gate_5_submission.md`](reviews/gate_5_submission.md)
+Submission：待正式图、参考文献、官方模板与最终 PDF 全部完成后创建。
 
 ## Last Updated
 

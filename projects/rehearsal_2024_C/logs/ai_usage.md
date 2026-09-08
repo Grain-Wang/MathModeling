@@ -16,7 +16,7 @@
 ## Current Disclosure Status
 
 - AI 辅助了代码和报告编写；S3/S4 训练分数、OOF 预测和 Bootstrap 数值均由已记录环境中的脚本实际运行产生，不是人工或语言模型填写。
-- 已生成附件二、三冻结预测并完成84项独立复算；47个白名单文件已进入 `results/verified/`。尚未生成最终论文和正式图片，S5冻结与交接仍待G5复核。
+- 已生成附件二、三冻结预测并完成84项独立复算；47个白名单文件已进入 `results/verified/`，G5 已 PASS。S6 技术底稿已建立并通过 9/9 自动一致性检查；正式图片、官方模板成稿和最终 PDF 尚未生成。
 - 后续每次使用应追加记录，不得覆盖历史条目。
 | 2026-09-07 | OpenAI Codex | 仓库维护者 | 实现并执行 S3 全题 Baseline | 读取 G2 Round 2 PASS、冻结模型合同与实验计划；辅助编写特征/模型/验证代码、运行 8 个实验并整理 G3 证据 | 生成 `src/` S3 流水线、`experiments/baseline/`、`results/raw/`、Baseline 报告和 G3 submission | Yes | 在 `math_modeling` 中全量运行；8 份 manifest PASS；数据重建哈希一致；独立复算核心指标、Pareto 和逐候选 OOF 谱系 PASS；测试附件未参与建模，科学解释仍待团队与 Reviewer 复核 |
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 处理 G3 PASS 并启动 S4 | 拉取指定 review commit，读取 G3 审核、S3 报告、冻结配置和 Main Agent S4/G4 协议 | 更新阶段状态，关闭三项 Minor，起草失败分析并按审核优先级准备有限 S4 实验 | Yes | 审核 SHA、Verdict 和授权已核对；代码差异、合成测试及后续真实实验由 `math_modeling` 环境验证，科学结论仍待 G4 Reviewer 复核 |
@@ -27,3 +27,4 @@
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 修正 S5 恢复授权校验 | 初版恢复保护中的完整 Git SHA 抄录错误，保护在读取预测 CSV 前拒绝执行 | 改为从受控失败清单读取 40 位提交并用 Git 对象库确认其存在；保留拒绝清单 | Yes | 预测文件在拒绝前未读取或改写，SHA-256 仍为原值 |
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 修正 S5 Evidence ID 自检 | 独立验证已完成数值与哈希检查，但字符串计数同时包含表头“Evidence ID” | 改为解析表格首列并严格比较 E001–E015 序列；保留失败清单 | Yes | 不修改预测、指标或登记内容；verified 在产生 PASS 验证报告前仍不授权论文使用 |
 | 2026-09-08 | OpenAI Codex | 仓库维护者 | 完成 S5 结果冻结与交接 | G4批准模型、S5冻结预测、84项验证、47个verified文件 | 生成结果冻结说明、E001–E015索引、绘图/写作交接和G5提交材料 | Yes | 数字均来自 `math_modeling` 实机输出与verified文件；正式绘图因Skill/配色指南门槛未执行；全部成果待G5 Reviewer复核 |
+| 2026-09-08 | OpenAI Codex | 仓库维护者 | 处理 G5 PASS 并启动 S6 | 拉取并核对固定快照审核；基于写作交接和 E001–E015 构建论文技术底稿与只读一致性检查 | 生成 `paper/technical_draft.md`、S6 审计、修复日志和 raw 检查报告 | Yes | `math_modeling` 中 9/9 检查 PASS；47个 verified 来源哈希一致；首次 Evidence ID 正则误报已保留，正式图/模板/PDF 仍待团队完成 |

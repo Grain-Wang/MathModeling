@@ -1,0 +1,120 @@
+{
+  "stage": "S6",
+  "paper": "paper/technical_draft.md",
+  "generated_at": "2026-09-08T15:18:58.194972+08:00",
+  "check_count": 9,
+  "failed_count": 1,
+  "status": "FAIL",
+  "checks": [
+    {
+      "check": "g5_pass_authorizes_s6",
+      "status": "PASS",
+      "detail": "reviews/gate_5_review.md"
+    },
+    {
+      "check": "s5_verification_pass",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "check_count": 84,
+        "failed_count": 0
+      }
+    },
+    {
+      "check": "verified_provenance_hashes",
+      "status": "PASS",
+      "detail": {
+        "file_count": 47,
+        "failures": []
+      }
+    },
+    {
+      "check": "evidence_registry_complete",
+      "status": "PASS",
+      "detail": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015"
+      ]
+    },
+    {
+      "check": "frozen_model_identity",
+      "status": "PASS",
+      "detail": {
+        "freeze_id": "S5-FREEZE-2024C-V1",
+        "q1": "1DAEB3B97CA30B28A8E1D6748347B79D2B4DDFF1844969172774C3CC8000810F",
+        "q4": "B284879E38401A301DF02FAF564A4CD482623816E9704DCDADFA8E25DF71AABD"
+      }
+    },
+    {
+      "check": "verified_numeric_claims",
+      "status": "PASS",
+      "detail": {
+        "q2_baseline_rmsle": true,
+        "q2_candidate_rmsle": true,
+        "q2_improvement": true,
+        "q3_additive_log_rmse": true,
+        "q3_interaction_log_rmse": true,
+        "q4_ridge_rmsle": true,
+        "q4_full_hgb_rmsle": true,
+        "q4_final_rmsle": true,
+        "q4_lomo_max": true,
+        "q4_loto_max": true,
+        "q5_oof_pareto": true,
+        "q5_fold_regions": true,
+        "q5_bootstrap_regions": true,
+        "q5_jaccard": true,
+        "q5_unique_forbidden": true,
+        "attachment2_rows": true,
+        "attachment3_rows": true,
+        "attachment3_truth_unknown": true
+      }
+    },
+    {
+      "check": "paper_contains_required_claims_and_boundaries",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "paper_has_no_direct_overclaim",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "paper_evidence_ids_valid",
+      "status": "FAIL",
+      "detail": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015",
+        "E384",
+        "E970"
+      ]
+    }
+  ],
+  "scope_note": "PASS covers the technical Markdown draft and frozen evidence only; it does not approve figures, official Word formatting, PDF rendering, naming, or platform submission."
+}

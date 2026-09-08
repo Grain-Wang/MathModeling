@@ -40,9 +40,11 @@
 | 2026-09-08 | D0033 | S4 | Q1 保留 shape-only Logistic，不运行 HGB/RandomForest | 三项相位/幅值压力一致率1.0，留一材料最低Macro-F1=1.0；没有可测的性能提升空间 | 以简单、可解释模型进入冻结；OOF完美分数不外推为测试真值表现 | ACTIVE |
 | 2026-09-08 | D0034 | S5 | 接受 Reviewer 对固定快照 `2309b1e361701be9818544fa18740cd8f5694f2e` 的 G4 PASS，停止模型扩张并进入结果冻结 | `reviews/gate_4_review.md` 无 Critical/Major，明确授权 S4→S5；Q1/Q4 胜者和限制均已冻结 | 附件二、三仅作一次性正式预测与只读复算；白名单证据通过独立核验后才进入 `results/verified/` | ACTIVE |
 | 2026-09-08 | D0035 | S5 | 冻结 `S5-FREEZE-2024C-V1` 与 E001–E015，停止改写模型和正式预测 | 84项独立检查全部PASS；47个verified文件与raw来源哈希一致；附件四80+400映射通过 | G5前只允许审核修复；Q5唯一推荐继续禁用；正式绘图等待用户确认Skill与配色规范 | ACTIVE |
+| 2026-09-08 | D0036 | S6 | 接受 Reviewer 对固定快照 `4a14dfd88259c2a5186da1056c3994eccef5e5f7` 的 G5 PASS，进入论文技术一致性阶段 | `reviews/gate_5_review.md` 无 Critical/Major，明确授权 S5→S6 | 冻结模型、预测和 verified 证据保持只读；下一 Gate 为 G6 | ACTIVE |
+| 2026-09-08 | D0037 | S6 | 先建立可自动核验的 Markdown 技术底稿，不把未完成图表和排版伪装成最终论文 | 当前缺少已确认绘图 Skill、配色指南、正式参考文献和官方模板成稿；技术内容可先绑定 E001–E015 | `paper/technical_draft.md` 通过 9/9 一致性检查；G6 保持 NOT READY | ACTIVE |
 ## Pending Decisions
 
 1. 团队成员姓名及数据、建模、代码、绘图、写作责任人。
-2. G5 是否确认冻结证据、附件预测与交接材料可以进入论文技术一致性阶段。
+2. 正式图1/3/8和数值图分别使用哪个已安装 Skill，以及采用哪份配色规范。
 3. 是否在本轮演练结束后把原始 XLSX 受控迁移到 `problem/data/`。
 4. Q5 是否满足连续扩展的条件；默认保持关闭。
