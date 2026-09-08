@@ -1,0 +1,24 @@
+{
+  "experiment_id": "EXP-S5-PRED-001",
+  "stage": "S5",
+  "purpose": "Use the G4-approved frozen Q1 Logistic and Q4 18-feature HGB models to generate the one-time attachment 2/3 predictions and a filled copy of attachment 4.",
+  "seed": 20240920,
+  "inputs": [
+    "src/附件二（测试集）.xlsx",
+    "src/附件三（测试集）.xlsx",
+    "src/附件四（Excel表）.xlsx",
+    "results/raw/s3/q1/logistic_full_model.joblib",
+    "results/raw/main/q4/final_full_model.joblib",
+    "reviews/gate_4_review.md"
+  ],
+  "outputs": [
+    "results/raw/s5/predictions/q1_attachment2_predictions.csv",
+    "results/raw/s5/predictions/q4_attachment3_predictions.csv",
+    "results/raw/s5/submission/附件四（Excel表）.xlsx",
+    "results/raw/s5/model_freeze.json",
+    "results/raw/s5/prediction_summary.json"
+  ],
+  "selection_or_tuning_allowed": false,
+  "test_attachments_allowed": true,
+  "test_attachment_use": "prediction_only_after_G4_PASS"
+}

@@ -58,3 +58,9 @@
 | 2026-09-08 | EXP-Q3-SENS-001 | S4 | Q3 共同支持、峰值和重复敏感性 | Q3交互胜者 | `python src/run_s4_q3.py --mode sensitivity --config ...` | 共同支持14.24%；峰值相对+2.28%；去重+0.004%；仅保留稳定调整关联 | PASS |
 | 2026-09-08 | EXP-Q1-ABL-001 | S4 | Q1 真实波形不变性、留一材料和特征/辅助消融 | 附件一；Logistic折模型 | `python src/run_s4_q1.py --config ...` | 相位/幅值一致率1.0；LOMO min F1=1.0；辅助-only F1=0.41976；树模型不运行 | PASS |
 | 2026-09-08 | EXP-S4-COMP-001 | S4 | 独立复算与运行谱系总验证 | 11份run manifest；Q1–Q5核心输出 | `python src/verify_s4_outputs.py --config ...` | 23/23 PASS；统一实现SHA=`6accab2…`；环境/洁净/测试附件隔离/主指标/Pareto均通过 | PASS |
+
+## S5 Stage Events
+
+| Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / command | Result | Status |
+|---|---|---|---|---|---|---|---|
+| 2026-09-08 | X0014 | S5 | 拉取并核对 G4 审核、进入 S5 | `reviews/gate_4_review.md` | 核对 Verdict、Reviewed Commit、Review Commit 和 S5 授权；读取结果核验/绘图/论文交接协议 | G4=PASS；S4→S5 AUTHORIZED；识别 Q5/Q3/Q4 强制表述限制及绘图 Skill/配色指南缺口 | PASS |

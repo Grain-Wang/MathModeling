@@ -1,0 +1,22 @@
+{
+  "experiment_id": "EXP-S5-VERIFY-001",
+  "stage": "S5",
+  "purpose": "Independently recompute the frozen test predictions in memory, validate the attachment 4 mapping and approved S4 evidence, then promote only an explicit evidence whitelist to results/verified.",
+  "seed": 20240920,
+  "inputs": [
+    "results/raw/s5/predictions/q1_attachment2_predictions.csv",
+    "results/raw/s5/predictions/q4_attachment3_predictions.csv",
+    "results/raw/s5/submission/附件四（Excel表）.xlsx",
+    "results/raw/s5/model_freeze.json",
+    "results/raw/s5/prediction_summary.json",
+    "results/raw/main/verification_report.json"
+  ],
+  "outputs": [
+    "results/verified/result_registry.md",
+    "results/verified/verification_report.json",
+    "results/verified/provenance.json"
+  ],
+  "selection_or_tuning_allowed": false,
+  "test_attachments_allowed": true,
+  "test_attachment_use": "verification_recompute_only; raw official outputs are not overwritten"
+}
