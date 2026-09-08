@@ -1,0 +1,6 @@
+variant,feature_count,macro_f1,accuracy,balanced_accuracy,minimum_class_recall
+shape_full,30,1,1,1,1
+shape_time_domain_only,19,1,1,1,1
+shape_frequency_domain_only,11,1,1,1,1
+auxiliary_only,10,0.419757839336,0.451532258065,0.426318766293,0.219246615656
+shape_plus_auxiliary,40,1,1,1,1

@@ -69,3 +69,4 @@
 | 2026-09-08 14:46 | EXP-S5-PRED-001-GUARD | S5 | 验证恢复授权条件 | 已保存的后处理失败清单 | 在读取预测 CSV 前核对失败类型与预测生成提交 | 手工录入的完整提交 SHA 与 Git 实值不一致，恢复保护拒绝；预测 CSV 哈希保持不变 | FAIL PRE-RESUME — guard corrected |
 | 2026-09-08 14:48 | EXP-S5-PRED-001 | S5 | 完成冻结预测与附件四副本 | 已冻结预测 CSV、原始附件四、G4批准模型 | 恢复模式只读复算全部预测列，确认 CSV 哈希未变；输出副本序号固化为1–400并填列 | Q1 80条：正弦20/三角44/梯形16；Q4 400条均正有限；附件四副本生成；原始附件哈希不变 | PASS |
 | 2026-09-08 14:49 | EXP-S5-VERIFY-001-PRE | S5 | 独立复算并晋级白名单证据 | S4已批准证据、S5预测与附件四副本 | 完成模型/预测/附件映射/源目标哈希检查；生成15项 Evidence registry | 最终断言把表头“Evidence ID”误计为第16项而失败；预测和证据数值未改，verified 尚无 PASS 报告 | FAIL POST-CHECK — count predicate fixed |
+| 2026-09-08 14:54 | EXP-S5-VERIFY-001 | S5 | 最终独立复算、来源核验与白名单晋级 | G4批准证据、冻结模型/预测、附件四副本、47个晋级源 | `python src/verify_s5_outputs.py --config experiments/s2_frozen_config.json` | 84/84检查PASS；47个晋级文件源/目标SHA一致；E001–E015完整；Q5唯一推荐禁令保持 | PASS |

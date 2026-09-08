@@ -1,0 +1,21 @@
+[2026-09-08T14:49:22.072568+08:00] START EXP-S5-VERIFY-001
+[2026-09-08T14:49:22.072568+08:00] COMMAND python src/verify_s5_outputs.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:49:29.873301+08:00] Traceback (most recent call last):
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\verify_s5_outputs.py", line 320, in main
+    record_check(checks, "result_registry_has_15_evidence_ids", registry_path.read_text(encoding="utf-8").count("| E") == 15, "E001..E015")
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\verify_s5_outputs.py", line 124, in record_check
+    raise AssertionError(f"{name}: {detail}")
+AssertionError: result_registry_has_15_evidence_ids: E001..E015
+[2026-09-08T14:49:29.945260+08:00] END EXP-S5-VERIFY-001 status=FAIL runtime_seconds=7.873089
+[2026-09-08T14:51:55.217453+08:00] START EXP-S5-VERIFY-001
+[2026-09-08T14:51:55.218450+08:00] COMMAND python src/verify_s5_outputs.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:52:02.982986+08:00] {"check_count": 76, "verified_files": 39}
+[2026-09-08T14:52:03.091011+08:00] END EXP-S5-VERIFY-001 status=PASS runtime_seconds=7.874351
+[2026-09-08T14:54:13.801329+08:00] START EXP-S5-VERIFY-001
+[2026-09-08T14:54:13.802720+08:00] COMMAND python src/verify_s5_outputs.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:54:21.525094+08:00] {"check_count": 84, "verified_files": 47}
+[2026-09-08T14:54:21.629767+08:00] END EXP-S5-VERIFY-001 status=PASS runtime_seconds=7.828291
+[2026-09-08T15:04:19.704364+08:00] START EXP-S5-VERIFY-001
+[2026-09-08T15:04:19.705780+08:00] COMMAND python src/verify_s5_outputs.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T15:04:27.854457+08:00] {"check_count": 84, "verified_files": 47}
+[2026-09-08T15:04:27.960747+08:00] END EXP-S5-VERIFY-001 status=PASS runtime_seconds=8.257787

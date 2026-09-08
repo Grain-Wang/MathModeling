@@ -1,0 +1,138 @@
+{
+  "dataset_summary": [
+    {
+      "columns": 1028,
+      "dataset": "train",
+      "file": "附件一（训练集）.xlsx",
+      "id_field": "",
+      "label_fields": "core_loss_W_per_m3|waveform",
+      "role": "labeled_training",
+      "rows": 3400,
+      "scope": "材料1",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1028,
+      "dataset": "train",
+      "file": "附件一（训练集）.xlsx",
+      "id_field": "",
+      "label_fields": "core_loss_W_per_m3|waveform",
+      "role": "labeled_training",
+      "rows": 3000,
+      "scope": "材料2",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1028,
+      "dataset": "train",
+      "file": "附件一（训练集）.xlsx",
+      "id_field": "",
+      "label_fields": "core_loss_W_per_m3|waveform",
+      "role": "labeled_training",
+      "rows": 3200,
+      "scope": "材料3",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1028,
+      "dataset": "train",
+      "file": "附件一（训练集）.xlsx",
+      "id_field": "",
+      "label_fields": "core_loss_W_per_m3|waveform",
+      "role": "labeled_training",
+      "rows": 2800,
+      "scope": "材料4",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1029,
+      "dataset": "train",
+      "file": "附件一（训练集）.xlsx",
+      "id_field": "",
+      "label_fields": "core_loss_W_per_m3|waveform",
+      "role": "labeled_training",
+      "rows": 12400,
+      "scope": "all",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1028,
+      "dataset": "test2",
+      "file": "附件二（测试集）.xlsx",
+      "id_field": "sample_id",
+      "label_fields": "",
+      "role": "classification_test",
+      "rows": 80,
+      "scope": "测试集",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 1029,
+      "dataset": "test3",
+      "file": "附件三（测试集）.xlsx",
+      "id_field": "sample_id",
+      "label_fields": "waveform_input_only",
+      "role": "loss_prediction_test",
+      "rows": 400,
+      "scope": "测试集",
+      "waveform_points": 1024
+    },
+    {
+      "columns": 3,
+      "dataset": "template4",
+      "file": "附件四（Excel表）.xlsx",
+      "id_field": "sample_id",
+      "label_fields": "q1_classification_slot|q4_loss_prediction_slot",
+      "role": "submission_template",
+      "rows": 400,
+      "scope": "Sheet1",
+      "waveform_points": 0
+    }
+  ],
+  "execution": {
+    "deterministic": true,
+    "environment": "math_modeling",
+    "mode": "read_only_openpyxl_data_only",
+    "model_training_performed": false,
+    "official_test_sets_used_for_tuning": false
+  },
+  "input_hashes_after": {
+    "problem/数据驱动下磁性元件的磁芯损耗建模.docx": "3268B0B7A1A3CCC5E72CC1490F7389063A7DF35E35D307228E952504054E1EC8",
+    "src/附件一（训练集）.xlsx": "C16AEE712BC0AD480B5285F17FA7FA57A5E22A1901D4A6ADB0A1EB83ECFB7FFC",
+    "src/附件三（测试集）.xlsx": "8C403B8D7717E42567EC7C6DEC204FEFF87023B83D45B87EC0C983C53A2D929A",
+    "src/附件二（测试集）.xlsx": "B46A4BF69331A41D4CF6190C97906914619C76335BEF43EF37BA148CD99FC66C",
+    "src/附件四（Excel表）.xlsx": "D8FDFFDF63839F7B40D5DD87BE6923AF04AD1D52180072A47C5B4DF70832C1C8"
+  },
+  "input_hashes_before": {
+    "problem/数据驱动下磁性元件的磁芯损耗建模.docx": "3268B0B7A1A3CCC5E72CC1490F7389063A7DF35E35D307228E952504054E1EC8",
+    "src/附件一（训练集）.xlsx": "C16AEE712BC0AD480B5285F17FA7FA57A5E22A1901D4A6ADB0A1EB83ECFB7FFC",
+    "src/附件三（测试集）.xlsx": "8C403B8D7717E42567EC7C6DEC204FEFF87023B83D45B87EC0C983C53A2D929A",
+    "src/附件二（测试集）.xlsx": "B46A4BF69331A41D4CF6190C97906914619C76335BEF43EF37BA148CD99FC66C",
+    "src/附件四（Excel表）.xlsx": "D8FDFFDF63839F7B40D5DD87BE6923AF04AD1D52180072A47C5B4DF70832C1C8"
+  },
+  "leakage_policy": {
+    "attachment_2": "prediction_only_after_model_freeze; never for feature selection, tuning, or model selection",
+    "attachment_3": "prediction_only_after_model_freeze; never for feature selection, tuning, or model selection",
+    "exact_overlap_check": "SHA-256 over typed serialization of all 1024 waveform values"
+  },
+  "notes": [
+    "IQR outlier counts are diagnostics, not automatic deletion rules.",
+    "Test data were structurally audited only; no labels were inferred and no model was fit.",
+    "Attachment 4 was opened read-only and was not filled or saved."
+  ],
+  "quality_summary": {
+    "checks": 154,
+    "critical_or_major_failed": 0,
+    "failed": 0,
+    "failed_ids": [],
+    "warning_ids": [
+      "FREQUENCY_DOMAIN:train:材料2",
+      "FREQUENCY_DOMAIN:train:材料3",
+      "FREQUENCY_DOMAIN:train:all",
+      "FREQUENCY_DOMAIN:test2:测试集",
+      "FREQUENCY_DOMAIN:test3:测试集"
+    ],
+    "warnings": 5
+  },
+  "script_version": "1.0.0"
+}

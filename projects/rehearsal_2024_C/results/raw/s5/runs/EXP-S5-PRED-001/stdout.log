@@ -1,0 +1,35 @@
+[2026-09-08T14:39:59.136638+08:00] START EXP-S5-PRED-001
+[2026-09-08T14:39:59.136638+08:00] COMMAND python src/run_s5_predictions.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:40:00.720080+08:00] Traceback (most recent call last):
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 294, in main
+    test2 = load_test_features(TEST2_FILE, "test2", plateau)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 122, in load_test_features
+    if tuple(int(float(value)) for value in header[metadata_width:]) != expected_wave_header:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 122, in <genexpr>
+    if tuple(int(float(value)) for value in header[metadata_width:]) != expected_wave_header:
+                 ^^^^^^^^^^^^
+ValueError: could not convert string to float: '0（磁通密度B，T）'
+[2026-09-08T14:40:00.786809+08:00] END EXP-S5-PRED-001 status=FAIL runtime_seconds=1.652211
+[2026-09-08T14:42:21.600505+08:00] START EXP-S5-PRED-001
+[2026-09-08T14:42:21.601503+08:00] COMMAND python src/run_s5_predictions.py --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:42:29.485418+08:00] Traceback (most recent call last):
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 321, in main
+    write_submission(q1_predictions, q4_predictions, submission_path)
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 236, in write_submission
+    if int(sheet.cell(row=row, column=1).value) != int(item.sample_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '=A2+1'
+[2026-09-08T14:42:29.547476+08:00] END EXP-S5-PRED-001 status=FAIL runtime_seconds=7.947235
+[2026-09-08T14:46:23.425264+08:00] START EXP-S5-PRED-001
+[2026-09-08T14:46:23.426271+08:00] COMMAND python src/run_s5_predictions.py --resume-after-template-failure --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:46:23.563944+08:00] Traceback (most recent call last):
+  File "D:\Coding_FILES\MathModeling\projects\rehearsal_2024_C\src\run_s5_predictions.py", line 339, in main
+    raise ValueError("Preserved post-prediction failure does not match the authorized recovery case")
+ValueError: Preserved post-prediction failure does not match the authorized recovery case
+[2026-09-08T14:46:23.629293+08:00] END EXP-S5-PRED-001 status=FAIL runtime_seconds=0.204206
+[2026-09-08T14:48:22.366199+08:00] START EXP-S5-PRED-001
+[2026-09-08T14:48:22.367200+08:00] COMMAND python src/run_s5_predictions.py --resume-after-template-failure --config projects/rehearsal_2024_C/experiments/s2_frozen_config.json
+[2026-09-08T14:48:30.107741+08:00] {"q1_counts": {"三角波": 44, "梯形波": 16, "正弦波": 20}, "q4_range": [535.456415157, 2315612.57069]}
+[2026-09-08T14:48:30.196844+08:00] END EXP-S5-PRED-001 status=PASS runtime_seconds=7.832033

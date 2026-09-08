@@ -39,7 +39,7 @@ G4 已授权把明确白名单内、经 S5 独立复算的证据迁入 `results/
 
 ## Current Goal
 
-冻结 G4 已批准的 Q1 Logistic 与 Q4 18 特征 HGB；只运行一次附件二、三正式预测；独立复算并将白名单证据写入 `results/verified/`；完成结果登记、绘图/写作交接和 G5 提交。
+保持 `S5-FREEZE-2024C-V1` 不变，将84项独立核验、47个 verified 文件、结果登记和两份交接材料提交 G5；G5 PASS 前不进入 S6。
 
 ## Completed S4 Tasks
 
@@ -51,9 +51,18 @@ G4 已授权把明确白名单内、经 S5 独立复算的证据迁入 `results/
 6. Q1：相位/幅值一致率和留一材料最低 Macro-F1 均为1.0，保留 shape-only Logistic，不运行无收益空间的树模型。
 7. 12 份 manifest 均指向 `6accab2…`、环境 `math_modeling`、实现目录洁净；独立复算 23/23 PASS。
 
+## Completed S5 Tasks
+
+1. 冻结 Q1 Logistic 与 Q4 18特征 HGB 的模型文件、参数、特征 schema、输入和模型 SHA-256。
+2. 附件二完成80条冻结分类：正弦20、三角44、梯形16；预测 CSV 在受控恢复中未覆写。
+3. 附件三完成400条冻结损耗预测，全部正有限；附件四副本的80+400个输出映射通过复算。
+4. 原始题目与四个 XLSX 的冻结 SHA-256 保持不变；测试附件未参与特征、调参或模型选择。
+5. 独立验证84/84 PASS；47个明确白名单文件由 raw 按同 SHA-256 晋级 `results/verified/`。
+6. 建立 E001–E015 结果登记、model freeze、provenance、figure handoff 与 writing handoff。
+
 ## Known Blockers
 
-- 模型冻结与结果核验当前无流程阻断。
+- 进入 S6 的流程阻断：G5 尚未返回 PASS。
 - 正式绘图暂缓：`guide/09_plotting_protocol.md` 要求先指定并确认 Skill，但 `.agents/skills/` 当前为空，且其引用的 `guide/figure_color_guide.md` 不存在。
 - Q5 主稳定区域与观测区域 Jaccard 未达0.50，是实证限制，不是运行错误；本轮禁止唯一推荐。
 
@@ -70,9 +79,9 @@ G4 已授权把明确白名单内、经 S5 独立复算的证据迁入 `results/
 
 G5 — 结果核验、冻结与交接审核
 
-Verdict：`NOT SUBMITTED`
+Verdict：`SUBMITTED / PENDING REVIEW`
 
-Submission：待生成 `reviews/gate_5_submission.md`
+Submission：[`reviews/gate_5_submission.md`](reviews/gate_5_submission.md)
 
 ## Last Updated
 

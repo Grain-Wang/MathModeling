@@ -1,0 +1,4 @@
+perturbation,phase_shift_samples,amplitude_multiplier,prediction_agreement_with_baseline,macro_f1,accuracy,maximum_absolute_shape_feature_change
+phase_shift_137,137,1,1,1,1,5.00066654752e-12
+amplitude_half,0,0.5,1,1,1,5.0000004137e-12
+amplitude_double,0,2,1,1,1,5.0000004137e-12
