@@ -9,3 +9,6 @@
 # Python runtime caches.
 __pycache__/
 *.py[cod]
+
+# Ignore CSV files anywhere under the projects directory
+/projects/**/*.csv

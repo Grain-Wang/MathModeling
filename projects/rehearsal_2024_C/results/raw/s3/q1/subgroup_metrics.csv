@@ -1,9 +1,0 @@
-group_field,group_value,n,accuracy,balanced_accuracy,macro_f1
-material,材料1,3400,1,1,1
-material,材料2,3000,1,1,1
-material,材料3,3200,1,1,1
-material,材料4,2800,1,1,1
-temperature_C,25,3244,1,1,1
-temperature_C,50,3070,1,1,1
-temperature_C,70,3030,1,1,1
-temperature_C,90,3056,1,1,1

@@ -1,9 +1,0 @@
-file,dataset,scope,role,rows,columns,waveform_points,label_fields,id_field
-附件一（训练集）.xlsx,train,材料1,labeled_training,3400,1028,1024,core_loss_W_per_m3|waveform,
-附件一（训练集）.xlsx,train,材料2,labeled_training,3000,1028,1024,core_loss_W_per_m3|waveform,
-附件一（训练集）.xlsx,train,材料3,labeled_training,3200,1028,1024,core_loss_W_per_m3|waveform,
-附件一（训练集）.xlsx,train,材料4,labeled_training,2800,1028,1024,core_loss_W_per_m3|waveform,
-附件一（训练集）.xlsx,train,all,labeled_training,12400,1029,1024,core_loss_W_per_m3|waveform,
-附件二（测试集）.xlsx,test2,测试集,classification_test,80,1028,1024,,sample_id
-附件三（测试集）.xlsx,test3,测试集,loss_prediction_test,400,1029,1024,waveform_input_only,sample_id
-附件四（Excel表）.xlsx,template4,Sheet1,submission_template,400,3,0,q1_classification_slot|q4_loss_prediction_slot,sample_id

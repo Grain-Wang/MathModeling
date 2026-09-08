@@ -1,6 +1,0 @@
-outer_fold,train_n,validation_n,train_group_count,validation_group_count,group_overlap_count,smearing_factor,gram_condition_number,gram_condition_nonfinite
-0,9847,2553,3458,865,0,1.05805978536,177.562219181,False
-1,9919,2481,3458,865,0,1.06060234882,183.454108077,False
-2,9981,2419,3458,865,0,1.06081830334,181.994546989,False
-3,9937,2463,3459,864,0,1.05968337798,181.487180995,False
-4,9916,2484,3459,864,0,1.05960720872,182.15914842,False

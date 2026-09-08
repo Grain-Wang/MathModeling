@@ -1,6 +1,0 @@
-outer_fold,model_id,selected_alpha,train_n,validation_n,group_overlap_count
-0,q3-interaction-fold-0,0.1,9847,2553,0
-1,q3-interaction-fold-1,0.01,9919,2481,0
-2,q3-interaction-fold-2,0.01,9981,2419,0
-3,q3-interaction-fold-3,1,9937,2463,0
-4,q3-interaction-fold-4,1,9916,2484,0

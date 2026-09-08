@@ -1,6 +1,0 @@
-outer_fold,train_n,validation_n,train_group_count,validation_group_count,group_overlap_count,selected_C,selected_class_weight
-0,9899,2501,2542,633,0,0.1,None
-1,10041,2359,2540,635,0,0.1,None
-2,9943,2457,2540,635,0,0.1,None
-3,9867,2533,2539,636,0,0.1,None
-4,9850,2550,2539,636,0,0.1,None
