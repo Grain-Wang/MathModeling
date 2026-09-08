@@ -18,7 +18,7 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计（进行中）
+S1 — 题意拆解与数据审计（交付物完成，G1 本地审核包就绪）
 
 ## Last Gate
 
@@ -42,48 +42,53 @@ Review Commit：0fac4e099cffdafab32af0aa9af9f8969f087dbe
 
 ## Current Goal
 
-完成 Q1–Q3 逐问拆解、17 个 CSV 的可复现逐字段审计、异常处理合同、数据泄漏边界和“题目要求 → 模型输出 → 验证证据”矩阵，随后提交 G1 独立审核。
+将完整 S1 交付物固定到单一 Git commit，在获得明确远程推送授权后推送 origin/main，并以完整 SHA 请求 G1 Round 1 独立审核。
 
 ## Current Tasks
 
-1. 增加 problem/data/README.md，固化远程数据恢复和审计前哈希检查。
-2. 实现并固定 src/s1_data_audit.py，先在干净实现 commit 上运行。
-3. 生成 results/raw/s1/ 的 JSON/Markdown 审计证据，审计前后复核原件 SHA-256。
-4. 完成 work/01_problem_analysis.md、work/02_data_audit.md、work/03_requirement_matrix.md。
-5. 关闭可在 S1 处理的 G0 Minor，更新日志并创建 reviews/gate_1_submission.md。
+1. 完成最终一致性检查并提交 S1 文档、脚本、结果、日志、CURRENT 和 G1 submission。
+2. 等待用户明确授权 git push origin main；此前不产生远程写入。
+3. 推送后向 Reviewer 提供固定完整 SHA，等待 reviews/gate_1_review.md。
+4. G1 PASS 前不进入 S2。
 
 ## Current Process Blockers
 
-- None。G0 已 PASS，本机输入和环境允许执行 S1。
+- 远程 G1 审查尚未开始：当前会话的安全审批要求用户明确授权向 origin/main 推送；本地工作可继续且 S1 审核包已就绪。
 
 ## Known Limitations / Risks
 
 - CSV 被 Git 忽略，远程 Reviewer 不能重跑原始数据审计；必须依赖脚本、manifest、结果 JSON 和本地哈希证据。
-- 原始数据授权获取位置/稳定 URL 尚未记录；当前只确认团队本机副本和 SHA-256。
-- 已知两行错位、三个全空 RSSI 列、三条 nss=0 和 schema 差异必须在 S1 明确处理，原件不得改写。
-- 团队责任人姓名尚未提供；当前只记录功能角色。
+- 原始数据授权获取位置/稳定 URL 尚未记录；当前只确认团队本机副本与 manifest SHA-256 一致。
+- A01–A06 的错位、全空列、(NSS,MCS)=(0,0)、schema、other_air_time 超时长和 loc 标签不一致必须沿用冻结合同。
+- 团队责任人姓名尚未提供；当前只记录功能角色，最终提交必须由人类队员负责。
 - environment.yml 尚未 clean rebuild；当前机器 smoke=PASS。
+- 官方评分函数和最终预测文件格式未在题面明确给出。
 
 ## Forbidden Now
 
 - 在 G1 PASS 或用户书面批准前进入 S2、冻结主模型方案或运行正式模型比较/调参。
 - 覆写原始 DOCX/CSV，或将清洗结果写回 problem/data/。
 - 让同一 source_file + test_id 的不同 AP 行跨训练/验证折。
-- 使用四个官方测试集的分布或输出进行特征选择、调参、规则调整或模型选择。
+- 使用四个官方测试集的数值分布或输出进行特征选择、调参、规则调整或模型选择。
 - Q1 使用 nss、mcs、per、num_ampdu、ppdu_dur、other_air_time、seq_time、throughput 等事后统计。
 - Q2 使用真实 nss/mcs 或其派生量作输入；Q3 将题面只授权的真实 MCS/NSS 扩张到 PER 等其他事后字段。
-- 静默删除异常或把统计关联写成因果。
+- 静默删除异常、修改原件，或把统计关联写成因果。
+- Main Agent 自行新增或修改 reviews/gate_1_review.md。
 
 ## Next Gate
 
 G1 — 题意拆解与数据审计审核
 
-Verdict：NOT SUBMITTED
+Verdict：PENDING REVIEW（本地包完成；尚未推送远程）
 
-Submission：待 S1 交付物和证据完成后创建 reviews/gate_1_submission.md
+Submission：[reviews/gate_1_submission.md](reviews/gate_1_submission.md)
+
+待审核实现证据 commit：f4b8b9f70e049d497edf56a3bdac43669da932a6
+
+最终 Reviewed Commit：待包含全部 G1 交付物的本地 commit 创建并获准推送后，由调用 Reviewer 时传入
 
 ## Last Updated
 
-时间：2026-09-08T22:35:42+08:00
+时间：2026-09-08T23:13:34+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充

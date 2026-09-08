@@ -5,7 +5,7 @@
 **PASS_WITH_WARNINGS：本地数据足以进入模型方案设计，但必须携带 A01–A06 处理合同和泄漏边界。**
 
 - [FACT] 审计脚本：[src/s1_data_audit.py](../src/s1_data_audit.py)。
-- [FACT] 正式运行基于干净 commit 37fc3562e915562c09ea2a6000feeb1b703765b8，运行前工作树为空。
+- [FACT] 正式运行基于干净 commit f4b8b9f70e049d497edf56a3bdac43669da932a6，运行前工作树为空。
 - [FACT] 17/17 CSV 在审计前后均通过固定文件名、字节数和 SHA-256 校验；input_hashes_unchanged_during_audit=true。
 - [FACT] 13 个训练文件 1,252 行；A01 隔离后 1,250 行、482 个完整测试组。4 个测试文件 336 行、136 个完整测试组。
 - [FACT] 全部文件可由 pandas 解析；训练集和逐文件均无完全重复行；PER 非空值均位于 [0,1]。
@@ -80,7 +80,7 @@ conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/
 ## 4. RSSI 编码与缺失机制
 
 - [FACT] 审计器接受两种合法编码：有限数值标量，或非空有限数值列表。
-- [FACT] 17 个文件共扫描到 32,565 个列表单元、2,568 个标量单元、7,123 个空单元和 4 个非法文本单元。
+- [FACT] 13 个训练文件共扫描到 25,797 个列表单元、2,120 个标量单元、5,699 个空单元和 4 个非法文本单元。
 - [FACT] 列表长度从 1 到 521 不等，表明每次测试/方向的采样数不固定。
 - [FACT] 4 个非法文本和 12 个超出 [-120,0] dBm 的数值全部集中在 A01 两条错位行。
 - [INFERENCE] RSSI 特征需要在折内以 median、分位数、IQR、可用率等固定统计压缩；列表长度最多作为采样可靠性辅助量，不能当作信号强弱替代。
