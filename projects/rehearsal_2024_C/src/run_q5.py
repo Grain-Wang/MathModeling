@@ -134,6 +134,26 @@ def representative_points(pareto: pd.DataFrame) -> tuple[dict[str, object], dict
     )
 
 
+def pareto_intersection_empty(first_mask: np.ndarray, second_mask: np.ndarray) -> bool:
+    """Return whether two Pareto masks have no common candidate."""
+    first = np.asarray(first_mask, dtype=bool)
+    second = np.asarray(second_mask, dtype=bool)
+    if first.shape != second.shape:
+        raise ValueError("Pareto masks must have identical shapes")
+    return not bool(np.any(first & second))
+
+
+def region_jaccard(
+    model_regions: set[str], observed_regions: set[str], threshold: float
+) -> tuple[float | None, str, bool]:
+    """Compute region Jaccard and make the both-empty policy explicit."""
+    union = model_regions | observed_regions
+    if not union:
+        return None, "both_region_sets_empty", False
+    score = len(model_regions & observed_regions) / len(union)
+    return score, "defined", score >= threshold
+
+
 def main() -> None:
     args = parse_args()
     config_path = args.config.resolve()
@@ -283,15 +303,11 @@ def main() -> None:
 
         model_regions = set(candidates.loc[oof_mask & candidates["region_fold_support_pass"], "q5_region_id"])
         observed_regions = set(candidates.loc[observed_mask, "q5_region_id"])
-        union = model_regions | observed_regions
-        if not union:
-            jaccard = None
-            jaccard_case = "both_region_sets_empty"
-            jaccard_pass = False
-        else:
-            jaccard = len(model_regions & observed_regions) / len(union)
-            jaccard_case = "defined"
-            jaccard_pass = jaccard >= float(config["models"]["q5"]["conflict_diagnostics"]["observed_region_jaccard_min"])
+        jaccard, jaccard_case, jaccard_pass = region_jaccard(
+            model_regions,
+            observed_regions,
+            float(config["models"]["q5"]["conflict_diagnostics"]["observed_region_jaccard_min"]),
+        )
         candidates["observed_region_jaccard_pass"] = jaccard_pass
         candidates["prebootstrap_single_point_eligible"] = (
             candidates["strict_oof_lineage_pass"]
@@ -306,7 +322,7 @@ def main() -> None:
         full_pareto = candidates.loc[full_mask].copy().sort_values(["energy_proxy_Hz_T", "y_pred_full"], ascending=[True, True])
         observed_pareto = candidates.loc[observed_mask].copy().sort_values(["energy_proxy_Hz_T", "core_loss_W_per_m3"], ascending=[True, True])
         representatives, degeneracy = representative_points(oof_pareto)
-        empty_intersection = not bool(np.any(oof_mask & full_mask))
+        empty_intersection = pareto_intersection_empty(oof_mask, full_mask)
         q4_capability = bool(q4_metrics["beats_at_least_one_median_reference"])
 
         config_hash = sha256_file(config_path)

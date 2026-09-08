@@ -1,6 +1,6 @@
 # Experiment Log
 
-S0 只允许环境和输入完整性检查；S1 只允许题意与数据审计；S2 只冻结方案、合同和实验计划。本日志尚不包含模型训练、测试集调参或结果选择。
+本日志按阶段追加记录：S0–S2 条目不包含模型训练；S3 起记录实际训练与 OOF 预测。附件二、三始终不得用于调参或结果选择。
 
 | Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / command | Result | Status |
 |---|---|---|---|---|---|---|---|
@@ -31,8 +31,16 @@ S0 只允许环境和输入完整性检查；S1 只允许题意与数据审计�
 - 已实现最后一问：严格 OOF 实测工况 Pareto 及降级诊断；当前不授权唯一推荐。
 - `results/raw/s3/` 与 `results/raw/baseline/` 均为待 G3/G5 审核的原始证据，`results/verified/` 未写入。
 
-- 已训练模型：`None`
-- 已选择超参数：`None`
-- 已生成预测：`None`
+## 截至 S2 的历史状态（已由上方 S3 记录取代）
+
+- 截至 S2 已训练模型：`None`
+- 截至 S2 已选择超参数：`None`
+- 截至 S2 已生成预测：`None`
 - 已查看测试集目标答案：`No evidence / not available`
-- `results/raw/s1/` 只含未核验的数据审计证据；S2 只新增文档和冻结配置；`results/verified/` 当前不含正式模型结论。
+- 当时 `results/raw/s1/` 只含未核验的数据审计证据，S2 只新增文档和冻结配置；`results/verified/` 至今仍不含正式模型结论。
+
+## S4 Stage Events
+
+| Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / command | Result | Status |
+|---|---|---|---|---|---|---|---|
+| 2026-09-08 | X0011 | S4 | 拉取并核对 G3 审核、进入 S4 | `reviews/gate_3_review.md` | 核对 review commit `076a7a3…`、Verdict 和 Reviewed Commit | G3=PASS；S3→S4 AUTHORIZED；识别 3 项 Minor 与 5 项强制优先任务 | PASS |

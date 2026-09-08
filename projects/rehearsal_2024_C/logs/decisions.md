@@ -31,6 +31,8 @@
 | 2026-09-07 | D0024 | S3 | 先固定实现提交 `0d36ef8c16f3214b16d8580333f2925aaff45191`，再运行全部 Baseline | 使 8 份 manifest 的代码版本可审计，且避免结果提交改变实验所引用的 Git SHA | 所有实验均记录同一实现 SHA、`math_modeling` 环境和实现配置洁净状态；结果另行提交 G3 | ACTIVE |
 | 2026-09-07 | D0025 | S3 | Q5 在 S3 只完成严格 OOF 基线和前置诊断，不提前执行/伪装 500 次稳定性 Bootstrap | G2 合同把 Bootstrap 列为 S4 稳健性实验；固定 OOF 重采样也不能代表完整模型参数不确定性 | 输出 `PASS_WITH_S4_STABILITY_PENDING`；唯一推荐保持禁用，S4 按冻结解释继续 | ACTIVE |
 | 2026-09-07 | D0026 | S3 | 因模型/观测 Pareto 区域 Jaccard=0.0962<0.50，拒绝 S3 唯一工况推荐 | 冻结门槛要求 Jaccard≥0.50，且 500 次区域稳定性尚未完成；事后放宽阈值会破坏合同 | G3 只提交区域、端点、临时膝点和失败信号；S4 优先改进 Q4 并完成 Q5 稳健性 | ACTIVE |
+| 2026-09-08 | D0027 | S4 | 接受 Reviewer 对固定快照 `17cefbfe7bda13fa97f2eb19decc1abd02529597` 的 G3 PASS，进入 S4 | `reviews/gate_3_review.md` 无 Critical/Major，明确授权 S3→S4 | 允许执行冻结的有限主候选、比较、消融、敏感性与稳健性实验；下一 Gate 为 G4 | ACTIVE |
+| 2026-09-08 | D0028 | S4 | S4 严格采用 G3 优先级：Q2→Q4→Q5→Q3→Q1，并保持 `s2-r2-v1` 外折、指标、阈值和候选上限 | 优先级直接对应 S3 的温度外推、低 `B_m`、Q5 冲突、交互缺口和 Q1 饱和风险 | 先实现 Q2/Q4 主比较；Q4 胜者冻结后才运行 Q5；附件二、三继续隔离 | ACTIVE |
 ## Pending Decisions
 
 1. 团队成员姓名及数据、建模、代码、绘图、写作责任人。

@@ -212,13 +212,21 @@ def environment_info() -> dict[str, str]:
     }
 
 
-def relative_command() -> str:
-    script = Path(sys.argv[0]).resolve()
+def _repo_relative_arg(value: str) -> str:
+    """Render absolute paths inside this project as portable project-relative arguments."""
+    candidate = Path(value)
+    if not candidate.is_absolute():
+        return value.replace("\\", "/")
     try:
-        script_label = script.relative_to(PROJECT_ROOT).as_posix()
-    except ValueError:
-        script_label = str(script)
-    return shlex.join(["python", script_label, *sys.argv[1:]])
+        return candidate.resolve().relative_to(PROJECT_ROOT).as_posix()
+    except (OSError, ValueError):
+        return value
+
+
+def relative_command() -> str:
+    script = _repo_relative_arg(str(Path(sys.argv[0]).resolve()))
+    arguments = [_repo_relative_arg(value) for value in sys.argv[1:]]
+    return shlex.join(["python", script, *arguments])
 
 
 def regression_metrics(y_true: Sequence[float], y_pred: Sequence[float]) -> dict[str, float | int]:
@@ -436,6 +444,7 @@ class ExperimentRun:
             "git_commit": git_commit(),
             "implementation_git_dirty_at_finish": implementation_git_dirty(),
             "command": relative_command(),
+            "command_repo_relative": relative_command(),
             "environment": environment_info(),
             "seed": self.descriptor.get("seed"),
             "started_at": self.started.isoformat(),
