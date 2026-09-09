@@ -2,15 +2,20 @@
 
 ## 1. Audit verdict
 
-**PASS_WITH_WARNINGS：本地数据足以进入模型方案设计，但必须携带 A01–A06 处理合同和泄漏边界。**
+PASS_WITH_WARNINGS：本地数据足以支持 S2 方案设计，但在 G1 Round 2 通过前仍停留在 S1；A01–A06、严格身份、重复簇和泄漏合同必须继续执行。
 
 - [FACT] 审计脚本：[src/s1_data_audit.py](../src/s1_data_audit.py)。
-- [FACT] 正式运行基于干净 commit f4b8b9f70e049d497edf56a3bdac43669da932a6，运行前工作树为空。
-- [FACT] 17/17 CSV 在审计前后均通过固定文件名、字节数和 SHA-256 校验；input_hashes_unchanged_during_audit=true。
-- [FACT] 13 个训练文件 1,252 行；A01 隔离后 1,250 行、482 个完整测试组。4 个测试文件 336 行、136 个完整测试组。
-- [FACT] 全部文件可由 pandas 解析；训练集和逐文件均无完全重复行；PER 非空值均位于 [0,1]。
-- [FACT] 机器证据位于 [data_profile.json](../results/raw/s1/data_profile.json)、[quality_checks.json](../results/raw/s1/quality_checks.json)和[audit_summary.md](../results/raw/s1/audit_summary.md)。
-- [RISK] 原始 CSV 被 Git 忽略，远程 Reviewer 只能核对脚本、manifest、JSON/Markdown 证据，不能在无授权数据副本时重跑。
+- [FACT] 正式审计将基于干净实现提交 FORMAL_AUDIT_COMMIT_TO_BE_FILLED 运行；机器元数据必须显示该 HEAD 且运行前工作树为空。
+- [FACT] 17/17 CSV 在审计前后均通过固定文件名、字节数和 SHA-256 校验，且输入哈希在运行中不变。
+- [FACT] 13 个训练文件共 1,252 行、484 组；A01 隔离后 1,250 行、482 个严格完整组。4 个测试文件共 336 行、136 个严格完整组。
+- [FACT] 完整组定义为：预期行数正确、精确 AP 身份集合及次数正确、复合行键 source_file + test_id + ap_id 唯一且身份字段非空合法。
+- [FACT] 机器证据：
+  - [data_profile.json](../results/raw/s1/data_profile.json)：文件结构、训练分布与运行元数据；
+  - [quality_checks.json](../results/raw/s1/quality_checks.json)：完整质量、异常、泄漏和验证合同；
+  - [identity_checks.json](../results/raw/s1/identity_checks.json)：严格身份和重复指纹；
+  - [q3_target_contract.json](../results/raw/s1/q3_target_contract.json)：Q3 两级目标可构造性和正式指标合同；
+  - [audit_summary.md](../results/raw/s1/audit_summary.md)：人类可读摘要。
+- [RISK] 原始 CSV 被 Git 忽略，远程 Reviewer 只能核对脚本、manifest 和非 CSV 证据，无法在没有授权数据副本时重跑。
 
 复现命令：
 
@@ -21,145 +26,127 @@ conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/
 
 ## 2. 输入规模与组结构
 
-| 文件 | 角色 | 行 × 列 | test_id 组 | 组结构/备注 |
-|---|---|---:|---:|---|
-| test_set_1_2ap.csv | Q1/Q3 测试 | 80 × 47 | 40 | 全部 2 行/组 |
-| test_set_1_3ap.csv | Q1/Q3 测试 | 105 × 57 | 35 | 全部 3 行/组 |
-| test_set_2_2ap.csv | Q2 测试 | 64 × 46 | 32 | 全部 2 行/组 |
-| test_set_2_3ap.csv | Q2 测试 | 87 × 56 | 29 | 全部 3 行/组 |
-| training_set_2ap_loc0_nav82.csv | 训练 | 82 × 43 | 41 | 全部 2 行/组 |
-| training_set_2ap_loc0_nav86.csv | 训练 | 80 × 43 | 40 | 全部 2 行/组 |
-| training_set_2ap_loc1_nav82.csv | 训练 | 78 × 43 | 39 | 全部 2 行/组 |
-| training_set_2ap_loc1_nav86.csv | 训练 | 74 × 43 | 37 | 全部 2 行/组 |
-| training_set_2ap_loc2_nav82.csv | 训练 | 80 × 43 | 41 | 39 个完整组；test_id 40/41 各仅 1 条错位行 |
-| training_set_3ap_loc30_nav82.csv | 训练 | 123 × 55 | 41 | 全部 3 行/组；2 个空占位列 |
-| training_set_3ap_loc30_nav86.csv | 训练 | 120 × 55 | 40 | 全部 3 行/组；3 个 RSSI 列全空；2 个空占位列 |
-| training_set_3ap_loc31_nav82.csv | 训练 | 126 × 53 | 42 | 全部 3 行/组 |
-| training_set_3ap_loc31_nav86.csv | 训练 | 108 × 53 | 36 | 全部 3 行/组 |
-| training_set_3ap_loc32_nav82.csv | 训练 | 111 × 53 | 37 | 全部 3 行/组 |
-| training_set_3ap_loc32_nav86.csv | 训练 | 60 × 53 | 20 | 全部 3 行/组 |
-| training_set_3ap_loc33_nav82.csv | 训练 | 111 × 53 | 37 | 全部 3 行/组 |
-| training_set_3ap_loc33_nav88.csv | 训练 | 99 × 53 | 33 | 全部 3 行/组；内容 loc_id 全为 loc4 |
+| 数据范围 | AP 行 | source_file + test_id 组 | 严格有效组 | 严格无效组 |
+|---|---:|---:|---:|---:|
+| 原始训练 | 1,252 | 484 | 482 | 2 |
+| A01 后 eligible 训练 | 1,250 | 482 | 482 | 0 |
+| 官方测试合计 | 336 | 136 | 136 | 0 |
+| Q3 测试 test_set_1 | 185 | 75 | 75 | 0 |
 
-- [FACT] 原始 2 AP 训练部分为 394 行；隔离 A01 后为 392 行、196 组。3 AP 训练部分为 858 行、286 组。
-- [FACT] test_id 会在不同 source_file 中重复，故全局唯一键不是 test_id，而是至少 source_file + test_id；行键再加 ap_id。
-- [RISK] source_file 同时编码 AP 数、loc 和 nav，若将其直接作为模型类别，会让模型记忆场景；仅作为分组、溯源和压力测试键。
+| 分层 | eligible 训练 AP 行 / 组 | 官方测试 AP 行 / 组 |
+|---|---:|---:|
+| 2 AP | 392 / 196 | 144 / 72 |
+| 3 AP | 858 / 286 | 192 / 64 |
 
-## 3. 字段字典与规范化合同
+四个测试文件分别通过严格身份检查：
 
-机器证据保存了 57 个联合字段的逐文件覆盖、dtype、全空列和缺失数。下表给出建模所需的族级合同。
+| 文件 | AP 行 | 严格组 |
+|---|---:|---:|
+| test_set_1_2ap.csv | 80 | 40 |
+| test_set_1_3ap.csv | 105 | 35 |
+| test_set_2_2ap.csv | 64 | 32 |
+| test_set_2_3ap.csv | 87 | 29 |
 
-| 字段/字段族 | 含义与单位 | 审计类型 | S1 使用合同 |
-|---|---|---|---|
-| test_id | 一次测试编号，无量纲 | 组标识 | 与 source_file 组成切分组，不作原始特征 |
-| test_dur | 一次测试时长，s | 数值 | 训练中恒为 60；只作边界/归一化候选 |
-| loc_id | 场景位置标识 | 类别/场景键 | 用于分层和外推压力测试；默认不直接记忆 |
-| protocol | tcp/udp | 类别 | 基本输入 |
-| pkt_len | 包长，byte | 数值 | 训练中恒为 1500，当前效应不可识别 |
-| bss_id、ap_name、ap_mac、ap_id | BSS/设备/AP 标识 | 标识/类别 | MAC 不作特征；AP 标识只用于构造组内相对拓扑 |
-| pd、ed、nav | 门限，dBm | 数值 | 基本输入；pd=-82、ed=-62 在训练中恒定，nav 有 -82/-86/-88 |
-| eirp | 等效全向辐射功率，dBm | 数值 | 基本输入，训练范围 9–29 |
-| ap_from_ap_x_*_ant_rssi | AP 接收 AP_x 的 RSSI，dBm | 列表或标量 | 派生稳健统计、门限差和可用掩码，不直接喂原字符串 |
-| sta_to_ap_x_*_ant_rssi | STA 到 AP_x 的 RSSI，dBm | 列表或标量 | 同上 |
-| sta_from_ap_x_*_ant_rssi | STA 接收 AP_x 的 RSSI，dBm | 列表或标量 | 同上，可构造服务信号/干扰差 |
-| sta_from_sta_x_rssi | STA 间 RSSI，dBm | 列表或标量 | 同上；非适用方向保留缺失掩码 |
-| sta_mac、sta_id | STA 标识 | 标识 | 只作对齐与拓扑构造，不直接记忆 |
-| nss、mcs | 最常用空间流数/MCS | 离散标签 | Q2 标签；Q3 仅按题面许可使用真实值 |
-| per | 丢包率，[0,1] | 事后统计 | Q1/Q2/Q3 均禁用 |
-| num_ampdu | CSV 聚合数；题面称 num_ppdu | 事后统计 | 派生表统一名仍需保留 source alias；三问输入均禁用 |
-| ppdu_dur | 平均帧时长，s | 事后统计 | 三问输入均禁用 |
-| other_air_time | 其他帧发送与接收占用时间，s | 事后统计 | 三问输入均禁用；A05 两值置缺失 |
-| seq_time | 帧序列总时长，s | Q1 标签 | Q1 标签；下游只能用 OOF/推理预测 |
-| throughput | 实测吞吐量，Mbps | Q3 标签 | 仅作 Q3 标签 |
-| predict *、error%、error%.1 | 待填输出/误差占位 | 输出 | 永不作为特征；原表头不修改 |
+- [FACT] test_id 会在不同 source_file 中重复；系统键必须是 source_file + test_id，AP 行键必须再加 ap_id。
+- [FACT] A01 位于 training_set_2ap_loc2_nav82.csv：test_id 40、41 各只有一条错位 ap_1 行，故按整组隔离 2 行；原 CSV 不改。
 
-- [FACT] test_set_1_* 的重复 error% 表头被 pandas 解析为 error% 和 error%.1。
-- [FACT] 两个 loc30 训练文件比其他训练表多 predict throughput、error% 两个全空列。
-- [INFERENCE] 规范化只发生在派生数据；原始字段名和文件保持逐字节不变。
+## 3. 严格身份审计
 
-## 4. RSSI 编码与缺失机制
+每个范围均执行以下可机读断言：
 
-- [FACT] 审计器接受两种合法编码：有限数值标量，或非空有限数值列表。
-- [FACT] 13 个训练文件共扫描到 25,797 个列表单元、2,120 个标量单元、5,699 个空单元和 4 个非法文本单元。
-- [FACT] 列表长度从 1 到 521 不等，表明每次测试/方向的采样数不固定。
-- [FACT] 4 个非法文本和 12 个超出 [-120,0] dBm 的数值全部集中在 A01 两条错位行。
-- [INFERENCE] RSSI 特征需要在折内以 median、分位数、IQR、可用率等固定统计压缩；列表长度最多作为采样可靠性辅助量，不能当作信号强弱替代。
-- [INFERENCE] 多数 ap_from_ap_x 和 sta_from_sta_x 的 AP 数比例缺失与“自身链路/不适用方向”一致，属于结构性缺失候选；必须保留方向掩码，不能全局均值填补。
-- [FACT] A02 是额外的整列整场景缺失，不属于上述每组一个方向的常规结构模式。
-- [RISK] 缺失本身可能携带拓扑信息；所有缺失处理器必须只在训练折拟合，并以消融检查是否依赖数据采集伪迹。
+1. source_file、test_id、ap_id 非空；
+2. ap_id 符合 ap_数字 格式；
+3. source_file + test_id + ap_id 复合键唯一；
+4. 2 AP 组恰含 ap_0、ap_1 各一次；
+5. 3 AP 组恰含 ap_0、ap_1、ap_2 各一次；
+6. 预期组内行数同时正确。
 
-## 5. 训练集描述统计
+| 范围 | 空 test_id | 空 ap_id | 非法 ap_id | 重复复合键 | AP 集合/次数或行数异常组 | strict_pass |
+|---|---:|---:|---:|---:|---:|---:|
+| 原始训练 | 0 | 0 | 0 | 0 | 2 | No，原因仅为 A01 |
+| eligible 训练 | 0 | 0 | 0 | 0 | 0 | Yes |
+| 官方测试合计 | 0 | 0 | 0 | 0 | 0 | Yes |
+| Q3 测试 | 0 | 0 | 0 | 0 | 0 | Yes |
 
-以下统计只使用 A01 隔离后的 1,250 行训练候选；官方测试集未参与分布分析。
+- [FACT] 因此“482 个完整训练组”是三重身份结论，不是仅凭行数得出。
+- [RISK] 后续任何 join、组内特征、系统吞吐量聚合和导出都必须先复用同一严格身份断言。
 
-| 项目 | 结果 |
-|---|---|
-| AP 数 | 2 AP：392 行；3 AP：858 行 |
-| protocol | tcp 675；udp 575 |
-| nav | -82: 709；-86: 442；-88: 99 |
-| loc_id | loc0 162；loc1 152；loc2 78；loc30 243；loc31 234；loc32 171；loc33 111；loc4 99 |
-| nss | 0: 3；1: 26；2: 1221 |
-| mcs | 0–11，缺少 1；mcs=11 为 604 行 |
-| per | min 0，median 0.11，max 1；无越界 |
-| seq_time | min 0.40，median 32.03，max 52.02 s |
-| throughput | min 0，median 83.995，max 240.48 Mbps；5 行为 0 |
-| ppdu_dur | 0.000764463–0.004435589 s |
-| num_ampdu | 4–21 |
-| other_air_time | median 14.7232 s；两个异常值使 max 达 1,341,524.319 s |
+## 4. 重复范围与稳定内容指纹
 
-- [FACT] test_dur=60、pkt_len=1500、pd=-82、ed=-62 在训练候选中方差为 0。
-- [RISK] 常量字段在本数据上无法获得经验影响排序；论文不能把模型重要性为零解释成系统上没有影响。
-- [RISK] NSS 极端不平衡；Q2 必须使用 macro/平衡指标与联合类别指标。
-- [RISK] throughput=0 使普通 MAPE 不可定义。
-- [INFERENCE] other_air_time 大于 test_dur 的两个值违反题面单位与观测窗口边界，按 A05 字段级无效处理；其余大量 seq_time + other_air_time > 60 的记录不直接判错，因为两个统计口径是否有重叠/重复计数尚无充分证据。
+- 文件内检查：对每个训练 CSV 的全部原始列执行完全重复检查，13 个文件合计 0 行。
+- 跨文件检查：只在相同 AP 数分层内比较 eligible 训练观测；取该分层各文件共有的语义字段，排除 source_file、test_id 和 predict/error 占位列，统一缺失表示和稳定数值文本，并把 RSSI 标量与单元素列表规范到相同表示。
+- 行指纹：对规范化字段的确定性 UTF-8 JSON 计算 SHA-256。
+- 组指纹：按 ap_id 排序组合组内行指纹，再计算 SHA-256。
 
-## 6. 异常登记与冻结处理
+| AP 分层 | 行数 / 组数 | 唯一行指纹 | 唯一组指纹 | 跨文件重复行指纹簇 | 跨文件重复组指纹簇 |
+|---|---:|---:|---:|---:|---:|
+| 2 AP | 392 / 196 | 392 | 196 | 0 | 0 |
+| 3 AP | 858 / 286 | 858 | 286 | 0 | 0 |
+| 合计 | 1,250 / 482 | 1,250 | 482 | 0 | 0 |
 
-| ID | 证据 | 冻结处理 | 对样本量/模型的影响 |
-|---|---|---|---|
-| A01 | training_set_2ap_loc2_nav82.csv 源内索引 78/79，test_id 40/41、ap_1；4 个非法 RSSI 文本、12 个正 RSSI 数值、标签块为空；两组均只有 1 行 | 原件不改；隔离两个不完整 source_file + test_id 组 | 删除 2 行，1,252 → 1,250；剩余组完整 |
-| A02 | training_set_3ap_loc30_nav86.csv 的 ap_from_ap_0_sum/max/mean_ant_rssi 各 120/120 为空 | 不反向复制、不对称臆造；保留缺失与可用掩码 | S2 使用缺失感知方案或删不可用方向并做消融 |
-| A03 | 3 条 (NSS,MCS)=(0,0)，但 PER、seq_time、throughput 非空 | 原值保留；不改成 NSS=1 | S2 比较保留/排除后再冻结 Q2 类别合同 |
-| A04 | num_ppdu/num_ampdu 别名、重复 error%、空预测列 | 仅派生表规范化；所有输出占位列禁作特征 | 不改原始 schema |
-| A05 | loc31/nav82 索引 86 为 1,181,768.274 s；loc31/nav86 索引 14 为 1,341,524.319 s，均 test_dur=60 | other_air_time 字段置缺失且禁作输入；目标行暂保留 | 如候选模型受影响，S2 增加整组排除敏感性 |
-| A06 | training_set_3ap_loc33_nav88.csv 的 99 行 loc_id 全为 loc4 | 不改文件名/内容；loc4 作字段值，source_file 作独立场景键 | 官方意图保持 UNKNOWN，分层报告需披露 |
+- [FACT] “重复为 0”现在明确区分文件内全列完全重复和跨文件规范化等价重复。
+- [INFERENCE] 若未来派生数据发现重复簇，不静默删除；整簇绑定到同一验证折，考虑删除时必须报告敏感性。
 
-- [FACT] 关于 A01，竞赛讨论中的 B 题专家回复允许自行剔除异常数据：https://www.shumo.com/forum/forum.php?mod=viewthread&tid=107845
-- [FACT] 关于 A02，该文件问题被列入 B 题专家普遍问题汇总：https://www.shumo.com/forum/forum.php?mod=viewthread&tid=107966
-- [RISK] 外部论坛回复只是处理许可/佐证，不替代本项目的逐行规则、样本量审计或敏感性分析。
+## 5. 字段、单位与训练侧分布
 
-## 7. 测试集封存检查
+- seq_time、ppdu_dur、other_air_time、test_dur：s。
+- throughput：Mbps；PER：无量纲且训练非空值均在 [0,1]。
+- RSSI、pd、ed、eirp：dBm；pkt_len：byte；nav：μs。
+- nss、mcs 是 Q2 标签；只有 Q3 可按题面特许使用真实 nss/mcs。
+- test_dur、pkt_len、pd、ed 在 eligible 训练中恒定，无法从当前样本经验识别其影响。
+- Q2 eligible 标签：NSS 为 0:3、1:26、2:1221；联合类别存在一例 (2,2) 和三例 (0,0)，S2 必须固定全局标签集、缺类规则和 A03 敏感性。
 
-| 测试集 | 提供字段 | 空白字段 | 允许用途 |
-|---|---|---|---|
-| test_set_1_2ap / 3ap | 基本输入、RSSI、nss、mcs、per | num_ampdu、ppdu_dur、other_air_time、seq_time、throughput、预测/误差列 | Q1/Q3 最终推理；Q3 仅使用题面明确许可的真实 nss/mcs，不使用 per |
-| test_set_2_2ap / 3ap | 基本输入、RSSI | nss、mcs 及所有事后/输出列 | Q2 最终推理 |
+训练 RSSI 解析共得到列表 25,797 个、标量 2,120 个、缺失 5,699 个、非法文本 4 个；非法和 12 个范围越界值均来自 A01 错位行。测试集只报告结构和非空计数，不输出数值分布。
 
-- [FACT] 四个测试文件组大小全部正确，预测列和对应未知标签均为空。
-- [FACT] 审计器只记录行列、组大小、dtype、缺失和非空计数，未输出测试特征分布。
-- [RISK] 即使测试集中某字段非空，也不自动意味着可作为模型输入；以题面任务时点和显式许可为准。
+## 6. A01–A06 冻结处理
 
-## 8. 层级、泄漏与验证候选
-
-- [FACT] 切分原子：source_file + test_id；同组全部 AP 行必须同折。
-- [INFERENCE] 主验证候选：GroupKFold 或重复分组留出；RSSI 聚合、缺失处理、编码、缩放和特征选择全部在训练折内拟合。
-- [INFERENCE] 场景压力测试：leave-one-source-file-out；样本允许时 leave-one-loc_id-out；并按 AP 数、loc、nav、protocol 报告。
-- [FACT] Q1 的事后字段全部禁用；Q2 只可接收 Q1 折外预测；Q3 只接受真实 nss/mcs 的题面特许和 Q1 折外/推理预测。
-- [RISK] 先全数据生成 RSSI 统计阈值、填补量或目标编码再切分仍属于泄漏。
-- [RISK] 官方测试集不得用于阈值选择、特征筛选、异常规则调整、调参或模型选择。
-
-## 9. 各问数据充分性
-
-| 问题 | 结论 | 限制 |
+| ID | 证据 | 冻结动作 |
 |---|---|---|
-| Q1 | [FACT] 有 1,250 行完整分组训练候选和 185 行目标测试输入，可开始方案设计 | [RISK] 多个门限/业务字段恒定，影响排序只能覆盖样本中有变化的因素 |
-| Q2 | [FACT] 训练 nss/mcs 完整，151 行测试标签为空且基本输入存在 | [RISK] 类别严重不平衡，A03 语义未知 |
-| Q3 | [FACT] 训练 throughput 完整，test_set_1 提供题面许可的 nss/mcs，可开始方案设计 | [RISK] 必须用 Q1 OOF 链路；零吞吐量影响相对误差；PER 虽非空仍禁用 |
+| A01 | 两个不完整 2 AP 组、共 2 行 | 在派生训练中按组隔离，原件不改 |
+| A02 | training_set_3ap_loc30_nav86.csv 三个 RSSI 列全空 | 保留缺失，不臆造反向链路；S2 做缺失处理消融 |
+| A03 | 三条 (NSS,MCS)=(0,0) 且目标非空 | 暂保留，不改为 NSS=1；S2 报保留/排除敏感性 |
+| A04 | schema alias、空预测列、重复 error 表头 | 只在派生层规范化；所有输出占位列禁作特征 |
+| A05 | 两个 other_air_time 远超 60 s | 对该字段视为无效；目标行保留，必要时做整组敏感性 |
+| A06 | 文件名 loc33 与内容 loc4 不一致 | 原件不改；用内容 loc4，source_file 保留为场景键，官方原意 UNKNOWN |
 
-## 10. 数据来源、责任与剩余限制
+当前没有触发 A07；A07 仅在跨文件规范化重复簇数量大于 0 时登记。
 
-- [FACT] 当前不需要外部数据，也未使用预训练模型或外部数据集。
-- [FACT] 数据恢复步骤和 17 个期望文件名见 [problem/data/README.md](../problem/data/README.md)。
-- [UNKNOWN] 官方压缩包稳定 URL、总哈希和逐文件发布方校验值尚未取得，因此只能证明本地副本与 S0 manifest 一致。
-- [UNKNOWN] 团队数据审计、代码、建模和最终提交责任人的实名尚未提供；当前仓库执行者为 Main Agent/Codex，最终提交必须由人类队员确认并操作。
-- [RISK] 在另一机器复现前必须先取得授权数据副本并运行 --verify-only；任何哈希不一致都应停止，而不是更新 EXPECTED 常量迎合新文件。
+## 7. Q3 两级目标可构造性
+
+| 粒度 | 键 | eligible 训练数量 | Q3 测试输出数量 | 单位 |
+|---|---|---:|---:|---|
+| 每 AP throughput | source_file + test_id + ap_id | 1,250 | 185 | Mbps |
+| 系统 throughput | source_file + test_id | 482 | 75 | Mbps |
+
+- [FACT] 题面明确系统吞吐量为同一完整组所有 AP 吞吐量之和。真实和预测都必须在严格组内分别求和。
+- [FACT] 482 个训练系统目标均可构造、无缺失、均大于 0，范围 77.33–618.67 Mbps。
+- [FACT] AP 目标无缺失，其中 5 个为 0、1,245 个大于 0。
+
+AP 与系统两级分别执行唯一指标合同：
+
+1. 主误差为有符号相对误差 r = (预测 - 实测) / 实测，百分数为 100r；
+2. 经验 CDF 为 F(x)=count(r≤x)/n；
+3. ERROR_90 为 r 升序后的一基第 ceil(0.90n) 项，不插值；
+4. 并列值全部保留，固定位置取值；
+5. accuracy_90 = 1 - ERROR_90，百分数乘 100，不裁剪；
+6. 实测为 0 时从相对 CDF 和 ERROR_90 排除、披露数量，并单独报告绝对误差；
+7. 绝对相对误差 CDF、MAE、RMSE、R²只作辅助，不能替代题面主指标。
+
+该合同在看到模型结果前冻结；有符号误差可能使精度超过 100% 或为负，必须原样披露并辅以偏差和绝对相对误差诊断。
+
+## 8. 泄漏、验证与测试封存
+
+- 原子切分组为 source_file + test_id；同组所有 AP 行不得跨折。
+- 主内部比较候选为 GroupKFold 或重复分组留出，所有预处理在训练折内拟合。
+- leave-one-source-file-out 是 S2 强制压力测试；leave-one-loc_id-out 在可行时补充。
+- Q1 预测传给 Q2/Q3 时，训练阶段必须为折外预测。
+- Q1 禁用全部事后字段；Q2 禁真实标签和事后字段；Q3 只额外许可真实 nss/mcs，不扩展到 PER 等字段。
+- 官方测试集只用于最终推理与导出；当前只审计 schema、dtype、缺失/非空和身份，不用数值分布选择规则或模型。
+
+## 9. 充分性与剩余风险
+
+- [FACT] 完成 A01 隔离后，三个问题的训练目标、严格组、身份键和 Q3 系统目标均可构造。
+- [FACT] 没有 Critical 数据失败，结论为 PASS_WITH_WARNINGS。
+- [UNKNOWN] Q1/Q2 官方评分函数、最终预测文件格式、A03 业务语义和 A06 官方位置原意。
+- [RISK] 环境尚未 clean rebuild；团队实名责任分配尚待人类队员补充。
+- [BOUNDARY] 本审计没有拟合模型、调参或生成官方测试预测；G1 Round 2 PASS 前不得进入 S2。

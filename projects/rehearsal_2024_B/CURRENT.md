@@ -18,76 +18,88 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计（交付物完成，等待 G1 远程审核）
+S1 — 题意拆解与数据审计；G1 Round 1 结果为 REVISE，正在完成 Round 2 修订。
+
+S1 → S2：NOT AUTHORIZED。
 
 ## Last Gate
 
-Gate：G0 / Review Round 1
+Gate：G1 / Review Round 1
 
-Verdict：PASS
+Verdict：REVISE
 
-Review File：[reviews/gate_0_review.md](reviews/gate_0_review.md)
+Review File：[reviews/gate_1_review.md](reviews/gate_1_review.md)
 
-Reviewed Commit：2afba29b3cae4d6e500e0b4faa25aa3130953672
+Reviewed Commit：512e461033c8378f1e591912b4992d8486bde396
 
-Review Commit：0fac4e099cffdafab32af0aa9af9f8969f087dbe
+Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
 
 ## Approved Artifacts
 
-- S0 的 problem/manifest.md、work/00_project_brief.md、三份日志、CURRENT 和 G0 submission。
-- 本地题目与 17 个 CSV 的只读清点、逐文件 SHA-256 和基础结构证据。
-- competition/2024/ 中适用的官方规则、格式规范、提交手册和模板。
-- math_modeling 当前机器环境的导入冒烟结果。
-- G0 Reviewer 授权的 S1 工作边界。
+- G0/R1 已 PASS，S0 交付物和进入 S1 的授权保持有效。
+- G1/R1 认可 A01–A06、测试集封存、逐问白名单、OOF 链路和 source_file + test_id 分组方向。
+- G1/R1 未授权进入 S2，要求在 S1 内修复 M1-01 与 M1-02。
 
 ## Current Goal
 
-等待 Reviewer 对已推送的 S1 固定快照执行 G1 Round 1 独立审核。
+完成 G1 Round 2 修订：
+
+1. 恢复并冻结 Q3 的系统吞吐量、AP/系统两级误差 CDF、ERROR_90 和 accuracy_90；
+2. 补齐精确 AP 身份集合、复合键唯一和跨文件规范化重复指纹审计；
+3. 在干净实现 commit 上重跑正式审计；
+4. 提交并推送 Round 2 响应包，然后等待独立复审。
 
 ## Current Tasks
 
-1. 向 Reviewer 提供推送后由 git rev-parse HEAD 确认的远程完整 SHA。
-2. 等待 Reviewer 新增 reviews/gate_1_review.md。
-3. G1 PASS 前不进入 S2。
+1. 完成 work/01–03、src/s1_data_audit.py 与机器证据同步。
+2. 更新 decisions、experiments、ai_usage 和正式审计 commit 谱系。
+3. 编写 work/revisions/gate_1_response.md。
+4. 编写 reviews/gate_1_submission_r2.md 并推送固定 SHA。
+5. 停留在 S1，等待 reviews/gate_1_review_r2.md。
 
 ## Current Process Blockers
 
-- None。用户已明确授权向 origin/main 推送；G1 审核包完整且验证通过。
+- 科学门禁：M1-01 与 M1-02 在 Round 2 正式证据和复审 PASS 前仍阻断进入 S2。
+- 外部流程阻塞：None。用户已授权推送 origin/main。
 
 ## Known Limitations / Risks
 
-- CSV 被 Git 忽略，远程 Reviewer 不能重跑原始数据审计；必须依赖脚本、manifest、结果 JSON 和本地哈希证据。
-- 原始数据授权获取位置/稳定 URL 尚未记录；当前只确认团队本机副本与 manifest SHA-256 一致。
-- A01–A06 的错位、全空列、(NSS,MCS)=(0,0)、schema、other_air_time 超时长和 loc 标签不一致必须沿用冻结合同。
-- 团队责任人姓名尚未提供；当前只记录功能角色，最终提交必须由人类队员负责。
-- environment.yml 尚未 clean rebuild；当前机器 smoke=PASS。
-- 官方评分函数和最终预测文件格式未在题面明确给出。
+- 原始 CSV 被 Git 忽略，远程 Reviewer 无授权副本时只能核对脚本、manifest、JSON/Markdown 和本地哈希证据。
+- 原始数据授权获取位置或稳定 URL 尚未记录；当前只确认团队本机副本与 manifest 哈希一致。
+- A01–A06 的错位、全空列、(NSS,MCS)=(0,0)、schema、other_air_time 超时长和 loc 标签不一致必须继续遵循冻结合同。
+- 团队成员实名责任分配尚未提供；最终提交须由人类队员负责。
+- environment.yml 尚未 clean rebuild；当前机器导入 smoke=PASS。
+- Q1/Q2 官方评分函数和最终预测文件格式未在现有题面材料中明确。
+- 题面 Q3 使用有符号相对误差，可能产生超过 100% 或为负的 accuracy_90，必须按合同原样披露并辅以绝对误差诊断。
 
 ## Forbidden Now
 
-- 在 G1 PASS 或用户书面批准前进入 S2、冻结主模型方案或运行正式模型比较/调参。
-- 覆写原始 DOCX/CSV，或将清洗结果写回 problem/data/。
-- 让同一 source_file + test_id 的不同 AP 行跨训练/验证折。
-- 使用四个官方测试集的数值分布或输出进行特征选择、调参、规则调整或模型选择。
-- Q1 使用 nss、mcs、per、num_ampdu、ppdu_dur、other_air_time、seq_time、throughput 等事后统计。
-- Q2 使用真实 nss/mcs 或其派生量作输入；Q3 将题面只授权的真实 MCS/NSS 扩张到 PER 等其他事后字段。
-- 静默删除异常、修改原件，或把统计关联写成因果。
-- Main Agent 自行新增或修改 reviews/gate_1_review.md。
+- 在 G1 Round 2 PASS 或用户书面改变门禁前进入 S2、拟合正式模型、调参或生成测试预测。
+- 覆写原始 DOCX/CSV，或把派生数据写回 problem/data。
+- 让同一 source_file + test_id 组的 AP 行跨训练/验证折。
+- 使用官方测试集数值分布或输出选择特征、阈值、规则、超参数或模型。
+- Q1 使用事后统计；Q2 使用真实 nss/mcs 或其派生量；Q3 将真实 MCS/NSS 特许扩展到 PER 等字段。
+- 静默删除异常或重复簇、修改原件，或把统计关联写成因果。
+- Main Agent 新增或修改 reviews/gate_1_review_r2.md。
 
 ## Next Gate
 
-G1 — 题意拆解与数据审计审核
+G1 — 题意拆解与数据审计
 
-Verdict：PENDING REVIEW
+Review Round：2
 
-Submission：[reviews/gate_1_submission.md](reviews/gate_1_submission.md)
+Verdict：NOT SUBMITTED
 
-待审核实现证据 commit：f4b8b9f70e049d497edf56a3bdac43669da932a6
+Planned Response：work/revisions/gate_1_response.md
 
-最终 Reviewed Commit：由调用 Reviewer 时传入已推送的 git rev-parse HEAD 完整 SHA
+Planned Submission：reviews/gate_1_submission_r2.md
+
+Expected Review：reviews/gate_1_review_r2.md
+
+Formal Audit Implementation Commit：FORMAL_AUDIT_COMMIT_TO_BE_FILLED
 
 ## Last Updated
 
-时间：2026-09-09T09:48:26+08:00
+时间：2026-09-09T10:33:25+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充
