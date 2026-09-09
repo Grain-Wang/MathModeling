@@ -16,3 +16,4 @@ __pycache__/
 
 # Ignore CSV files anywhere under the projects directory
 /projects/**/*.csv
+sshconfig.md

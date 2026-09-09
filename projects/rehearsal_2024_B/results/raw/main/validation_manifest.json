@@ -1,0 +1,135 @@
+{
+  "check_counts": {
+    "global": 25,
+    "q2": 16,
+    "q3": 19,
+    "selection": 14
+  },
+  "command": "conda run -n math_modeling python projects/rehearsal_2024_B/src/s4_validation.py",
+  "consumed_artifacts": [
+    {
+      "bytes": 1609,
+      "path": "projects/rehearsal_2024_B/results/raw/main/a03_evaluation_exclusion.json",
+      "sha256": "B4A7C408C9445AEC5A85A3E57A2B7985407F06DD0C8E80A7F4289A67DCF35794"
+    },
+    {
+      "bytes": 26328,
+      "path": "projects/rehearsal_2024_B/results/raw/main/failure_cases.json",
+      "sha256": "22284A8BBB1DEAC366CCD6E5C8DD7436B2F9E4C45FE5D0FF6C0F98ABCC3E38FB"
+    },
+    {
+      "bytes": 15649,
+      "path": "projects/rehearsal_2024_B/results/raw/main/final_candidate.json",
+      "sha256": "EC8DCEE24BDEF84A5EBE8CCFBE61E9BEB7DB7EE46081C6794657D7D563FE0BF3"
+    },
+    {
+      "bytes": 75608,
+      "path": "projects/rehearsal_2024_B/results/raw/main/fold_status.json",
+      "sha256": "3A4C5B02466D9F5932CA42ED47ABEDD827D615281466560A443877524F10B171"
+    },
+    {
+      "bytes": 2932,
+      "path": "projects/rehearsal_2024_B/results/raw/main/group_bootstrap_intervals.json",
+      "sha256": "CD4E2AB250834397A6880FD98C2815A27EBC6785BB570C07DF695A17F92EE672"
+    },
+    {
+      "bytes": 228056,
+      "path": "projects/rehearsal_2024_B/results/raw/main/main_summary.json",
+      "sha256": "446E7E1A4A7C327176CD02DAF37DB37C80911D7E59AD78D7788D1063BBC52A6D"
+    },
+    {
+      "bytes": 13187,
+      "path": "projects/rehearsal_2024_B/results/raw/main/promotion_decision.json",
+      "sha256": "49DE4E34D61FE6451B487E3E2C23AC1FFEC99A926072A65F4E9D9E93BFE296F7"
+    },
+    {
+      "bytes": 2778133,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q1_actual_upstream_lineage.json",
+      "sha256": "63D140EE12DAFC461057161F7B902847DA7C9FD07E63930B6208647592682465"
+    },
+    {
+      "bytes": 123544,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q2_candidate_metrics.json",
+      "sha256": "13C8FDC80AB9C88DBCA287EB4D64096229AD4A479A0BC7CDFACCB65DC9B1581B"
+    },
+    {
+      "bytes": 2829020,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q2_oof_predictions.jsonl.gz",
+      "sha256": "7243BDA54DD540452CF61A8431C99EC25F3226DA02DBE64ACD19D4B5CA2812BB"
+    },
+    {
+      "bytes": 243556,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q2_selection.json",
+      "sha256": "CAD23DEF20E6FAFC0BE9449A156A564FB2F97EFCD552F25B59ADDD9916424EE7"
+    },
+    {
+      "bytes": 557228,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_ap_oof_predictions.jsonl.gz",
+      "sha256": "A179C4C188C320E30946C132A5595DB9F77E0BD096730269DB9D973F1CA98F07"
+    },
+    {
+      "bytes": 57541,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_candidate_metrics.json",
+      "sha256": "6505C07D0248FB75E42C5AB76FB4E7D30DAEA2F31B6F8B7F6998AA807F688BD8"
+    },
+    {
+      "bytes": 1491406,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_error_cdf.json",
+      "sha256": "D9284FD770D6D78D08AB2EEC90607FEFEDD0DF8FDAC53D96FBFF7F423CBC3831"
+    },
+    {
+      "bytes": 762692,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_selection.json",
+      "sha256": "42AF03E19FDEEE8CCF43D40B5882EEC1DFE595BF303DB69D6521A1C89BD3568E"
+    },
+    {
+      "bytes": 135512,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_system_oof_predictions.jsonl.gz",
+      "sha256": "D8C09DEFC59EE60B8F46D6B84C6CF04CDFAE4570411D6EA075A01D7DCB1FF53B"
+    },
+    {
+      "bytes": 31601,
+      "path": "projects/rehearsal_2024_B/results/raw/main/run_manifest.json",
+      "sha256": "C38A0B61D367686E5F5AECD5AF11B5E8880D303B7F25A4236B8D8FA021EDB968"
+    },
+    {
+      "bytes": 2125,
+      "path": "projects/rehearsal_2024_B/results/raw/main/s4_feature_schema.json",
+      "sha256": "E3B998D7231B3CFF6BA8C644E21931F40C82ED2AFAA27A037A3BB922D8CCFF73"
+    },
+    {
+      "bytes": 224786,
+      "path": "projects/rehearsal_2024_B/results/raw/main/stratified_metrics.json",
+      "sha256": "91606BEF29291B80BED8775B1D4BF840EF602104C66CA497491B33DD6AF1B1D1"
+    },
+    {
+      "bytes": 124224,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q2_metrics.json",
+      "sha256": "8F0A3A313E59A9E6561C11858E50B339993B63B1BD752443798A2C9CF5B90F1E"
+    },
+    {
+      "bytes": 85428,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q3_metrics.json",
+      "sha256": "A0AF876FA8E4CE3D0DB8E5277489610C3F87402BAE013FFC1EDF66097A0F5BE1"
+    },
+    {
+      "bytes": 202016,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_oof_predictions.jsonl.gz",
+      "sha256": "23B1FDF2CDBDD09374CC2CA873773F166CAAAD9EBC5EFD3F435069F4DBCB66CF"
+    }
+  ],
+  "executed_at": "2026-09-09T20:56:42+08:00",
+  "formal_generation_sources_unchanged": true,
+  "formal_run_head": "329566748d594e877b57f99cfdddf6796a584d81",
+  "formal_run_head_is_ancestor": true,
+  "git_head_at_validation": "329566748d594e877b57f99cfdddf6796a584d81",
+  "git_status_before_validation": "M .gitignore\n?? projects/rehearsal_2024_B/results/raw/main/",
+  "status": "PASS",
+  "validation_output": {
+    "bytes": 2887,
+    "path": "projects/rehearsal_2024_B/results/raw/main/post_run_validation.json",
+    "sha256": "B6B1135333009D7B6C7654DDEEDE56A7C49FB5613B79F0ABF1D35C04FCEAB4F2"
+  },
+  "validator_path": "projects/rehearsal_2024_B/src/s4_validation.py",
+  "validator_sha256": "2442739C7FA9B6A17430DDC5F8E2D19EBB70E395EDE0FB02EE2D3669CA186A9D"
+}

@@ -1,0 +1,62 @@
+{
+  "ap_count_representation": "basic__ap_count is numeric binary (2 or 3), shared by every S4 candidate",
+  "base_feature_count": 312,
+  "base_feature_schema_sha256": "DD9569F8F9707F2B951AD18F75CD109F0E4AC23AA2B7717FA0F98D8FDF669C59",
+  "q2_feature_count": 312,
+  "q2_with_q1_ablation_feature_count": 313,
+  "q3_additional_features": [
+    {
+      "column_order": 312,
+      "dtype": "float64",
+      "missing_semantics": "not missing after guarded feature construction",
+      "name": "upstream__q1_seq_time_bounded",
+      "unit": "s"
+    },
+    {
+      "column_order": 313,
+      "dtype": "float64",
+      "missing_semantics": "not missing after guarded feature construction",
+      "name": "physical__actual_nss",
+      "unit": "count"
+    },
+    {
+      "column_order": 314,
+      "dtype": "float64",
+      "missing_semantics": "not missing after guarded feature construction",
+      "name": "physical__actual_mcs",
+      "unit": "index"
+    },
+    {
+      "column_order": 315,
+      "dtype": "float64",
+      "missing_semantics": "NaN denotes undefined PHY rate and is paired with rate_missing",
+      "name": "physical__phy_rate_mbps",
+      "unit": "Mbps"
+    },
+    {
+      "column_order": 316,
+      "dtype": "float64",
+      "missing_semantics": "not missing after guarded feature construction",
+      "name": "physical__q1_air_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 317,
+      "dtype": "float64",
+      "missing_semantics": "NaN denotes undefined PHY rate and is paired with rate_missing",
+      "name": "physical__proxy_mbps",
+      "unit": "Mbps"
+    },
+    {
+      "column_order": 318,
+      "dtype": "float64",
+      "missing_semantics": "not missing after guarded feature construction",
+      "name": "physical__rate_missing",
+      "unit": "indicator"
+    }
+  ],
+  "q3_feature_count": 319,
+  "recomputed_base_feature_schema_matches": true,
+  "recomputed_base_feature_schema_normalized_sha256": "4FA9CEE3C904D7B9B8AAD62648834B7BEAAA7EBE4555F108C2E9AB8CA1B0415E",
+  "schema_version": "s4_feature_schema_v1"
+}

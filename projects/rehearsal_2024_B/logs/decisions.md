@@ -50,3 +50,5 @@
 
 | 2026-09-09 | D0038 | S4 | 接受 G3/R1 PASS 并由 S3 进入 S4，下一门禁为 G4 | 审核 commit a543325 对 e352c42 判定 Critical=0、Major=0，并明确授权 S3→S4 | 只执行 O2 冻结的 Q2 四点 HGB/唯一条件权重和 Q3 direct/residual 八候选/唯一 AP-count 对照；官方测试继续封存 | ACTIVE |
 | 2026-09-09 | D0039 | S4 | S4 全部候选继续共享 numeric binary AP-count；A03 只作 evaluation-exclusion；最终全量配置由 primary 内层证据按冻结词典序唯一确定 | 闭合 G3 Minor-01/02 与 G2 Minor-03，避免改变表示后与旧 Baseline 不公平比较，也不把未重拟合的 A03 诊断扩大为训练鲁棒性 | O3 只能冻结该规则给出的唯一配置或回退 Q1-B1/Q2-B1A/Q3-B1；不得接触测试集或事后改规则 | ACTIVE |
+
+| 2026-09-09 | D0040 | S4 | O3 决定 FREEZE_CANDIDATE：冻结 Q1-B1 + Q2-B1A + Q3-M1-HGB-UNIFIED，并关闭 S4 选择 | Q2 unweighted/weighted macro-F1 增益 +0.013736/+0.019002，均未达 +0.02；Q3 unified primary S=0.550330，相对 Q3-B1 改善 31.60%，3/3 repeats 改善且 bias guards 通过；独立验证 74/74 PASS | 形成 G4 submission 并停在 G4；不得新增候选或读取测试数值，S5 仅可由未来 G4 PASS 授权 | ACTIVE |
