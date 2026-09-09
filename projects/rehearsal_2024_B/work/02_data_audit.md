@@ -91,7 +91,7 @@ conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/
 
 - seq_time、ppdu_dur、other_air_time、test_dur：s。
 - throughput：Mbps；PER：无量纲且训练非空值均在 [0,1]。
-- RSSI、pd、ed、eirp：dBm；pkt_len：byte；nav：μs。
+- RSSI、pd、ed、nav、eirp：dBm；pkt_len：byte。nav 是 NAV 门限，不是 NAV 静默时长。
 - nss、mcs 是 Q2 标签；只有 Q3 可按题面特许使用真实 nss/mcs。
 - test_dur、pkt_len、pd、ed 在 eligible 训练中恒定，无法从当前样本经验识别其影响。
 - Q2 eligible 标签：NSS 为 0:3、1:26、2:1221；联合类别存在一例 (2,2) 和三例 (0,0)，S2 必须固定全局标签集、缺类规则和 A03 敏感性。

@@ -18,89 +18,92 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计；G1 Round 1 的两项 Major 已修订，G1 Round 2 提交包已完成并等待独立复审。
+S2 — 总体方案与模型合同。
 
-S1 → S2：NOT AUTHORIZED。
+G1 Round 2 已 PASS；S1 → S2 已授权。G2 PASS 前不进入 S3 或训练正式 Baseline。
 
 ## Last Gate
 
-Gate：G1 / Review Round 1
+Gate：G1 / Review Round 2
 
-Verdict：REVISE
+Verdict：PASS
 
-Review File：[reviews/gate_1_review.md](reviews/gate_1_review.md)
+Review File：[reviews/gate_1_review_r2.md](reviews/gate_1_review_r2.md)
 
-Reviewed Commit：512e461033c8378f1e591912b4992d8486bde396
+Reviewed Commit：9f0a209f55351aff306aa7ecd6d38486fcf43352
 
-Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
+Review Commit：fd6e33b4fa9a7f2de4764ff52272cd62ff52a45b
 
 ## Approved Artifacts
 
-- G0/R1 已 PASS，S0 交付物和进入 S1 的授权保持有效。
-- G1/R1 认可 A01–A06、测试集封存、逐问白名单、OOF 链路和 source_file + test_id 分组方向。
-- G1/R1 未授权进入 S2，并要求修复 M1-01 与 M1-02；这些修订现已形成 Round 2 待审包。
-
-## Completed Round 2 Fixes
-
-1. Q3 已覆盖 185 个 AP throughput、75 个严格系统组 throughput，以及 AP/系统两级 signed CDF、ERROR_90 和 accuracy_90。
-2. 完整组已采用预期行数、精确 AP ID 集合/次数、复合键唯一三重检查。
-3. 重复审计已区分文件内全列完全重复与跨文件规范化 SHA-256 行/组指纹。
-4. 正式审计基于干净 commit affff4fa6ef2d9a5431adac6e7341c993b946f4d：17/17 输入哈希前后 PASS 且不变；eligible 482/482、测试 136/136 严格组通过；跨文件重复行/组簇均为 0。
-5. work/revisions/gate_1_response.md 与 reviews/gate_1_submission_r2.md 已完成。
+- G0/R1 与 G1/R2 均已 PASS。
+- S1 的题意、数据层级、A01–A06、严格身份、跨文件重复、测试封存和 Q3 两级指标合同已批准。
+- 正式 S1 审计基于干净 commit affff4fa6ef2d9a5431adac6e7341c993b946f4d。
+- Reviewer 授权进入 S2，要求在正式训练前完成统一方案、逐问模型合同、实验计划和 O1。
 
 ## Current Goal
 
-提交并推送 G1 Round 2 固定快照，然后等待 Reviewer 新增 reviews/gate_1_review_r2.md。
+在不拟合模型、不使用官方测试数值分布的前提下，完成并冻结：
+
+1. Q1→Q2/Q3 的统一技术主线；
+2. Q1、Q2、Q3 模型合同；
+3. 分组切分、机器配置、评价、候选预算和停止条件；
+4. O1 总体方案优化报告；
+5. G2 审核包。
 
 ## Current Tasks
 
-1. 完成最终一致性校验和日志。
-2. 提交并推送 Round 2 固定 SHA。
-3. 等待 G1 Round 2 独立审核；PASS 前不进入 S2。
+1. 依据题目附录统一 nav 为 NAV 门限，单位 dBm。
+2. 编写 work/04_solution_plan.md 和 work/models/*_model_contract.md。
+3. 编写 work/05_experiment_plan.md，并冻结 source_file + test_id 分组、LOSO、Q2 标签及 Q3 指标。
+4. 完成 O1 并仅在决策为 PROCEED_TO_G2 时提交 G2。
+5. 更新日志、CURRENT 和 reviews/gate_2_submission.md。
 
 ## Current Process Blockers
 
-- 科学门禁：G1 Round 2 Reviewer 尚未给出 PASS。
-- 外部流程阻塞：None。用户已授权推送 origin/main。
+- None。G1 已授权进入 S2。
+- G2 尚未审核，因此正式 Baseline 训练和 S3 仍被门禁阻止。
 
 ## Known Limitations / Risks
 
-- 原始 CSV 被 Git 忽略，远程 Reviewer 无授权副本时只能核对脚本、manifest、JSON/Markdown 和本地哈希证据。
-- 原始数据授权获取位置或稳定 URL 尚未记录；当前只确认团队本机副本与 manifest 哈希一致。
-- A01–A06 必须继续遵循冻结合同。
-- 团队成员实名责任分配尚未提供；最终提交须由人类队员负责。
-- environment.yml 尚未 clean rebuild；当前机器导入 smoke=PASS。
-- Q1/Q2 官方评分函数和最终预测文件格式未在现有题面材料中明确。
-- 题面 Q3 使用有符号相对误差，可能产生超过 100% 或为负的 accuracy_90，必须按合同原样披露并辅以绝对误差诊断。
+- 原始 CSV 被 Git 忽略；远程 Reviewer 需依赖 manifest、脚本和非 CSV 机器证据。
+- 团队成员实名责任分配尚未提供。
+- environment.yml 尚未在全新环境 clean rebuild；当前机器导入 smoke=PASS。
+- Q2 含极稀有联合类别，普通分组折可能缺类，必须执行固定标签和回退合同。
+- 普通 grouped K-fold 共享 source 场景，必须另报 leave-one-source-file-out。
+- Q3 题面有符号误差可能产生超过 100% 或为负的 accuracy_90，必须如实报告并使用绝对误差辅助诊断。
+- A01–A06 和官方测试分布封存边界继续有效。
 
 ## Forbidden Now
 
-- 在 G1 Round 2 PASS 或用户书面改变门禁前进入 S2、拟合正式模型、调参或生成测试预测。
-- 覆写原始 DOCX/CSV，或把派生数据写回 problem/data。
-- 让同一 source_file + test_id 组的 AP 行跨训练/验证折。
-- 使用官方测试集数值分布或输出选择特征、阈值、规则、超参数或模型。
-- Q1 使用事后统计；Q2 使用真实 nss/mcs 或其派生量；Q3 将真实 MCS/NSS 特许扩展到 PER 等字段。
-- 静默删除异常或重复簇、修改原件，或把统计关联写成因果。
-- Main Agent 新增或修改 reviews/gate_1_review_r2.md。
+- G2 PASS 前进入 S3、训练正式 Baseline、比较模型性能或调参。
+- 使用官方测试集数值分布、空白目标或预测结果选择任何方案。
+- 覆写原始 DOCX/CSV，或将 CSV 上传远程。
+- 让同一 source_file + test_id 组跨折；在全数据上拟合 RSSI 汇总后的可学习预处理。
+- Q1 使用事后字段；Q2 使用真实标签；Q3 将真实 MCS/NSS 特许扩展到 PER 等字段。
+- Main Agent 创建或修改 reviews/gate_2_review.md。
+- 未记录理由地突破候选数量、时间盒和停止条件。
 
 ## Next Gate
 
-Gate：G1 / Review Round 2
+Gate：G2 — 总体方案与模型合同
 
-Verdict：PENDING REVIEW
+Verdict：NOT SUBMITTED
 
-Response：[work/revisions/gate_1_response.md](work/revisions/gate_1_response.md)
+Planned Deliverables：
 
-Submission：[reviews/gate_1_submission_r2.md](reviews/gate_1_submission_r2.md)
+- work/04_solution_plan.md
+- work/models/q1_model_contract.md
+- work/models/q2_model_contract.md
+- work/models/q3_model_contract.md
+- work/05_experiment_plan.md
+- work/optimization/o1_solution_optimization.md
+- reviews/gate_2_submission.md
 
-Expected Review：reviews/gate_1_review_r2.md
-
-Formal Audit Implementation Commit：affff4fa6ef2d9a5431adac6e7341c993b946f4d
-
-Reviewed Commit：由 Reviewer 使用推送后的 origin/main 完整 SHA
+Expected Review：reviews/gate_2_review.md
 
 ## Last Updated
 
-时间：2026-09-09T10:52:09+08:00
+时间：2026-09-09T11:30:19+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充
