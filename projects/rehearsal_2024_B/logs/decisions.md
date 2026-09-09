@@ -42,3 +42,6 @@
 | 2026-09-09T14:54:01+08:00 | D0032 | S2 | 删除 S3 官方测试 Baseline 推理；唯一释放点为 G4 PASS 后、S5 freeze manifest 完整后的一次最终推理 | 提前预测即使无标签也可能以范围、类别或物理外观反馈 O2/O3/S4 | protected phases 的 run manifest 若含四个测试文件即硬失败；最终释放后写 ledger 且禁止反馈 | ACTIVE |
 | 2026-09-09T14:54:01+08:00 | D0033 | S2 | Q2/Q3 上游统一固定为 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded，postprocess=q1_clip_0_test_dur_v1 | 固定上游身份可避免 Q1 胜者选择与下游选参双重耦合，同时保持 Q1→下游技术链 | Q1-HGB 只回答 Q1；每批下游预测必须保存模型、版本和 fit-group hash 血缘 | ACTIVE |
 | 2026-09-09T14:54:01+08:00 | D0034 | S2 | 为 S4 下游 inner-CV 冻结第三层 3-fold Q1 cross-fitting，并统一 repeated-CV、bootstrap 和 raw/bounded 口径 | outer-train 预生成 OOF 可能让 inner-validation 标签进入 inner-training 特征；重复预测也不能当独立样本 | primary/LOSO 各 11,568 个 nested 分配；bounded 为晋升口径，raw 仅审计；LOSO 选择保持 source-blind | ACTIVE |
+
+| 2026-09-09 | D0035 | S3 | 接受 G2/R2 PASS 并由 S2 进入 S3，下一门禁为 G3 | 审核 commit 6504c54 对 facedf1 明确给出 Critical=0、Major=0，并授权 S2→S3 | 只运行冻结八个 Baseline、15 外层折、13 LOSO、训练侧 dry-run 和 O2；官方测试继续封存 | ACTIVE |
+| 2026-09-09 | D0036 | S3 | Ridge(alpha=1.0) 固定使用确定性 LSQR 求解器，逐行证据写为 gzip JSONL | 312 个高相关派生特征令默认求解器产生 LinAlgWarning；LSQR 不改变模型族或 alpha，压缩不改变证据语义 | 正式运行要求 warning_count=0；所有逐行键、概率、预测和血缘仍完整保留 | ACTIVE |
