@@ -36,3 +36,7 @@ X0001 只证明文件可打开、规模与基础结构可清点、当前环境�
 | 2026-09-09T11:56:04+08:00 | X0009 | S2 | G2 提交前全套一致性检查 | S2 方案/三问合同/O1、机器配置、正式结果、日志、Git 索引与本地原始输入 | 14 个合同必备标题；O1 决策；JSON/切分计数；占位符/Parquet；gate_2_review 边界；CSV track/ignore；diff --check；verify-only | headings、O1、formal evidence、CSV policy、placeholder、review boundary、diff 和 contract validation 全部 PASS；无模型拟合、无官方测试数值读取 | PASS |
 
 | 2026-09-09T14:54:01+08:00 | X0010 | S2 | G2/R2 机器合同 v2 预检 | 修订后人工合同、配置 v2、13 个训练 CSV 身份；官方测试仅哈希验证 | py_compile；--verify-only；outer/downstream-inner/nested-upstream/LOSO registry；合同哈希；泄漏与测试释放负向 fixture | PASS；primary/LOSO nested assignments 均 11,568；lineage batches=409；合同哈希、Q3、lineage、test guard 全 PASS；model_fit=0、test numeric read=0 | PASS |
+
+| 2026-09-09T14:58:08+08:00 | X0011 | S2 | G2/R2 正式合同、nested lineage 与测试释放门禁审计 | 干净 commit 43a8566；13 个训练 CSV；六份 SHA 锁人工合同；官方测试仅做 S1 哈希校验 | 输入前后 verify；outer/downstream-inner/nested-upstream；source-blind LOSO；409 lineage batches；泄漏和 test guard 负向 fixture | PASS；outer/inner/nested=1,446/5,784/11,568；LOSO=13，inner/nested=5,784/11,568；两类 fit overlap=0；registry SHA 88B108D1…；model_fit/test reads/test predictions=0/0/0 | PASS |
+
+| 2026-09-09T15:03:48+08:00 | X0012 | S2 | G2/R2 提交前全套一致性检查 | Round 2 人工/机器合同、正式结果、response/submission、Git 索引与本地 17 CSV | py_compile；verify-only；正式 metadata/计数/零交集；负向 tests；遗留冲突；合同哈希；gate review 边界；CSV track/ignore；active project；diff --check | 全部 PASS；正式 HEAD=43a8566 且运行前 clean；17 CSV 全忽略/0 tracked；无 gate_2_review_r2；无模型拟合或测试数值读取 | PASS |

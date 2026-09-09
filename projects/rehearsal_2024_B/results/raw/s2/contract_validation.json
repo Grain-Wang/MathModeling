@@ -1,17 +1,77 @@
 {
   "checks": {
+    "contract_artifact_hashes": true,
     "eligible_groups": true,
     "eligible_identity": true,
     "eligible_rows": true,
+    "inner_assignment_count": true,
     "input_after": true,
     "input_before": true,
     "input_hashes_unchanged": true,
+    "lineage_downstream_validation_fit_overlap_zero": true,
+    "lineage_identity_fixed": true,
+    "lineage_prediction_fit_overlap_zero": true,
+    "loso_inner_assignment_count": true,
+    "loso_nested_assignment_count": true,
     "loso_split_count": true,
+    "nested_upstream_assignment_count": true,
     "outer_assignment_count": true,
     "outer_fold_count": true,
     "q2_labels_match": true,
     "q3_synthetic_metrics": true,
-    "stage_boundary": true
+    "schema_v2": true,
+    "stage_boundary": true,
+    "synthetic_lineage_leakage": true,
+    "synthetic_test_release_guard": true,
+    "upstream_estimator_fixed": true
+  },
+  "contract_artifact_verification": {
+    "files": [
+      {
+        "actual_sha256": "AF3C7444D8D5559548EECCDDB9B61D7625EA4FACBD4E67229259D9711438328D",
+        "exists": true,
+        "expected_sha256": "AF3C7444D8D5559548EECCDDB9B61D7625EA4FACBD4E67229259D9711438328D",
+        "match": true,
+        "path": "work/04_solution_plan.md"
+      },
+      {
+        "actual_sha256": "D17E56F943F71604DC0DD6AFAB8D4CBAA89ACF49BC0052C27C60BC6AFAA0A284",
+        "exists": true,
+        "expected_sha256": "D17E56F943F71604DC0DD6AFAB8D4CBAA89ACF49BC0052C27C60BC6AFAA0A284",
+        "match": true,
+        "path": "work/05_experiment_plan.md"
+      },
+      {
+        "actual_sha256": "C11029B60480EBDF9C11523531BBA7ACE7623AB7CA488CF9E9FD6FE81D320730",
+        "exists": true,
+        "expected_sha256": "C11029B60480EBDF9C11523531BBA7ACE7623AB7CA488CF9E9FD6FE81D320730",
+        "match": true,
+        "path": "work/models/q1_model_contract.md"
+      },
+      {
+        "actual_sha256": "4ADC5629DD9810C88F8CBCD33F1F8EE0851578D273B467BDACBC324341F04741",
+        "exists": true,
+        "expected_sha256": "4ADC5629DD9810C88F8CBCD33F1F8EE0851578D273B467BDACBC324341F04741",
+        "match": true,
+        "path": "work/models/q2_model_contract.md"
+      },
+      {
+        "actual_sha256": "5D950827880E1F094E2854C1204562B8E000B718E5B0551B99A6FE52C4A937DD",
+        "exists": true,
+        "expected_sha256": "5D950827880E1F094E2854C1204562B8E000B718E5B0551B99A6FE52C4A937DD",
+        "match": true,
+        "path": "work/models/q3_model_contract.md"
+      },
+      {
+        "actual_sha256": "694ABFF33CD2E8D22086A1F48170E587FB7A278303D17644670E11C98CACCD1E",
+        "exists": true,
+        "expected_sha256": "694ABFF33CD2E8D22086A1F48170E587FB7A278303D17644670E11C98CACCD1E",
+        "match": true,
+        "path": "work/optimization/o1_solution_optimization.md"
+      }
+    ],
+    "hash_algorithm": "SHA-256 of UTF-8 text after CRLF/CR to LF normalization",
+    "status": "PASS"
   },
   "eligible_identity": {
     "composite_key": [
@@ -401,13 +461,18 @@
   },
   "metadata": {
     "config": "configs/s2_experiment_plan.json",
-    "config_sha256": "5DB3A27DD10CA9C747B82FE3F4C5757CFE407E6BDBE88BAD65CDEAF057D91556",
-    "generated_at": "2026-09-09T11:50:06+08:00",
-    "git_head": "6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39",
+    "config_sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A",
+    "generated_at": "2026-09-09T14:58:08+08:00",
+    "git_head": "43a856642e9405b0c42cf479160f30cd2dae0653",
     "git_status_porcelain_before_outputs": "",
+    "guard_script": "src/contract_guard.py",
+    "guard_script_sha256": "24D5DA851151F41C8285691E563F063EF756A04C5699A5B2F9A6F715DECC8EE3",
     "model_fit_count": 0,
     "official_test_numeric_read_count": 0,
+    "official_test_prediction_count": 0,
+    "official_test_run_manifest_count": 0,
     "script": "src/s2_contract_validation.py",
+    "script_sha256": "11CA2427734045D63027DD47054662059ECC0F23E56CA96305A750EC20366411",
     "stage": "S2"
   },
   "model_fit_count": 0,
@@ -422,6 +487,7 @@
     "value": "NAV threshold"
   },
   "official_test_numeric_read_count": 0,
+  "official_test_prediction_count": 0,
   "q2_label_contract": {
     "encoding": "nss|mcs",
     "global_label_count": 17,
@@ -555,5 +621,153 @@
     },
     "status": "PASS"
   },
-  "status": "PASS"
+  "repeated_cv_metric_contract": {
+    "bootstrap_resamples_original_groups_once_and_keeps_all_repeat_predictions": true,
+    "predictions_across_repeats_are_independent_samples": false,
+    "repeat_level_metric_first": true,
+    "repeat_level_primary_reducer": "arithmetic_mean"
+  },
+  "status": "PASS",
+  "synthetic_lineage_tests": {
+    "checks": {
+      "clean_lineage_accepted": true,
+      "downstream_validation_label_bleed_rejected": true,
+      "fixed_upstream_identity": true,
+      "in_sample_prediction_rejected": true
+    },
+    "clean_example": {
+      "downstream_validation_fit_overlap_count": 0,
+      "fixture": "clean",
+      "lineage_id": "31C0AB7C8359C75673AAC8217CBD6C652030D120E43865D2A49AB3101D82FF01",
+      "postprocess_version": "q1_clip_0_test_dur_v1",
+      "prediction_fit_overlap_count": 0,
+      "prediction_group_count": 1,
+      "prediction_groups": [
+        "c"
+      ],
+      "prediction_groups_hash": "2E7D2C03A9507AE265ECF5B5356885A53393A2029D241394997265A1A25AEFC6",
+      "prediction_mode": "OOF",
+      "prediction_role": "synthetic_training_oof",
+      "prediction_variant": "seq_time_bounded",
+      "upstream_fit_group_count": 2,
+      "upstream_fit_groups_hash": "7E18F737311B2DC3B2F269DD78396B0351F14FB66EFA879F768CB23181883C78",
+      "upstream_model_id": "Q1-B1"
+    },
+    "status": "PASS"
+  },
+  "synthetic_test_release_guard_tests": {
+    "checks": {
+      "complete_first_release_accepted": true,
+      "early_official_test_rejected": true,
+      "incomplete_freeze_manifest_rejected": true,
+      "protected_training_manifest_accepted": true
+    },
+    "final_release_example": {
+      "input_file_count": 4,
+      "mode": "ONE_TIME_FINAL_RELEASE_AUTHORIZED",
+      "official_test_file_count": 4,
+      "phase": "S5_FINAL_INFERENCE",
+      "prior_release_count": 0,
+      "selection_closed": true,
+      "status": "PASS"
+    },
+    "official_test_numeric_read_count": 0,
+    "protected_example": {
+      "input_file_count": 1,
+      "mode": "PROTECTED_NO_OFFICIAL_TEST",
+      "official_test_file_count": 0,
+      "phase": "S3",
+      "status": "PASS"
+    },
+    "status": "PASS"
+  },
+  "test_release_contract": {
+    "dry_run_sources": [
+      "synthetic_schema_fixture",
+      "training_outer_validation_output",
+      "training_loso_output"
+    ],
+    "exactly_once": true,
+    "final_release_phase": "S5_FINAL_INFERENCE",
+    "minimum_gate_state": "G4_PASS",
+    "official_test_denylist": [
+      "test_set_1_2ap.csv",
+      "test_set_1_3ap.csv",
+      "test_set_2_2ap.csv",
+      "test_set_2_3ap.csv"
+    ],
+    "post_release_feedback_forbidden": [
+      "O2",
+      "O3",
+      "S4"
+    ],
+    "post_release_feedback_to": [],
+    "prior_release_count_required": 0,
+    "protected_phases": [
+      "S2",
+      "S3",
+      "O2",
+      "S4",
+      "O3",
+      "G4_REVIEW"
+    ],
+    "release_ledger": "results/raw/final/test_release_ledger.json",
+    "required_freeze_fields": [
+      "selection_closed",
+      "model_ids_and_parameters_sha256",
+      "training_inputs_sha256",
+      "feature_schema_sha256",
+      "q1_postprocess_version",
+      "q2_label_order_sha256",
+      "q3_postprocess_version",
+      "output_schema_sha256"
+    ],
+    "required_freeze_manifest": "results/verified/freeze_manifest.json",
+    "training_file_allowlist": [
+      "training_set_2ap_loc0_nav82.csv",
+      "training_set_2ap_loc0_nav86.csv",
+      "training_set_2ap_loc1_nav82.csv",
+      "training_set_2ap_loc1_nav86.csv",
+      "training_set_2ap_loc2_nav82.csv",
+      "training_set_3ap_loc30_nav82.csv",
+      "training_set_3ap_loc30_nav86.csv",
+      "training_set_3ap_loc31_nav82.csv",
+      "training_set_3ap_loc31_nav86.csv",
+      "training_set_3ap_loc32_nav82.csv",
+      "training_set_3ap_loc32_nav86.csv",
+      "training_set_3ap_loc33_nav82.csv",
+      "training_set_3ap_loc33_nav88.csv"
+    ]
+  },
+  "upstream_feature_contract": {
+    "applies_to": [
+      "Q2-S3",
+      "Q3-S3",
+      "Q2-S4",
+      "Q3-S4",
+      "LOSO"
+    ],
+    "estimator": "Ridge",
+    "estimator_id": "Q1-B1",
+    "lineage_fields": [
+      "upstream_model_id",
+      "prediction_variant",
+      "postprocess_version",
+      "prediction_role",
+      "prediction_groups",
+      "upstream_fit_groups_hash",
+      "upstream_fit_group_count",
+      "prediction_fit_overlap_count",
+      "downstream_validation_fit_overlap_count"
+    ],
+    "parameters": {
+      "alpha": 1
+    },
+    "postprocess": "clip(seq_time_raw, 0, row test_dur)",
+    "postprocess_version": "q1_clip_0_test_dur_v1",
+    "prediction_variant": "seq_time_bounded",
+    "q1_hgb_candidate_may_replace_downstream_upstream": false,
+    "s3_rule": "fixed downstream baselines; outer-training Q1 OOF via frozen inner folds; outer-validation inference from all outer-training",
+    "s4_rule": "nested Q1 OOF inside every downstream inner-training; downstream inner-validation inference from all corresponding inner-training"
+  }
 }

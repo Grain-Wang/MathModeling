@@ -8,3 +8,5 @@
 | 2026-09-09T10:39:37+08:00 | OpenAI Codex | 仓库维护者 | 根据 G1/R1 审核意见完成 Round 2 修订 | 用户指定审核 commit e9253ce 并要求按改进计划执行；输入包括 gate_1_review、题面、S1 文档、审计脚本和本地 17 个 CSV | 冻结 Q3 AP/系统两级输出与 signed CDF/ERROR_90 合同；实现严格 AP 身份和跨文件指纹；重跑干净审计；形成 response/submission | Yes | 正式审计基于干净 affff4f；17/17 哈希前后 PASS；identity/q3 JSON 关键计数、测试封存、CSV ignore、Git 差异和门禁状态由本机命令复核；未进入 S2 或拟合模型 |
 
 | 2026-09-09T11:51:36+08:00 | OpenAI Codex | 仓库维护者 | 拉取 G1/R2 PASS 并完成 S2、O1 与 G2 审核包 | 用户指定 review commit fd6e33b 并要求按意见继续；输入包括 G1 review、题目 DOCX、S1 证据、仓库协议和本地训练 CSV | 修正 nav 单位；编写统一方案、三问合同、实验/机器配置；生成严格外/内/LOSO 注册表与 Q3 指标单测；完成 O1 和 G2 submission | Yes | 正式验证来自干净 6b88cd1；输入哈希、严格组、固定标签、分割数量、合成指标、CSV ignore、Git 状态和零训练/零测试数值读取均由本机命令复核 |
+
+| 2026-09-09T14:59:02+08:00 | OpenAI Codex | 仓库维护者 | 根据 G2/R1 REVISE 完成 Round 2 修订 | 用户指定 review commit fe959af 并要求按计划改进；输入包括 gate_2_review、S2 人工/机器合同、split registry、角色与实验协议 | 删除提前测试推理；新增 run-manifest guard；固定 Q1-B1 bounded 上游；生成 primary/LOSO 第三层分割和 409 批血缘；统一 repeat/bootstrap/raw-bounded；锁定合同 SHA；形成 response/submission R2 | Yes | 正式验证来自干净 43a8566；合同/输入哈希、分割计数、两个零交集、泄漏负例、测试门禁、CSV ignore 和零模型/零测试读取均由本机命令复核 |
