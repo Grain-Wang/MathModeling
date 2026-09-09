@@ -11,83 +11,80 @@
 
 ## Current Stage
 
-S2 — 总体方案与模型合同已完成，等待 G2 Reviewer 判定。
+S2 — G2 Review Round 1 修订中。
 
-S2→S3：NOT AUTHORIZED。G2 PASS 前不进入 S3，不拟合正式 Baseline。
+S2→S3：NOT AUTHORIZED。G2 Round 2 PASS 前不进入 S3，不拟合正式 Baseline。
 
 ## Last Gate
 
-- Gate：G1 / Review Round 2
-- Verdict：PASS
-- Review File：[reviews/gate_1_review_r2.md](reviews/gate_1_review_r2.md)
-- Reviewed Commit：9f0a209f55351aff306aa7ecd6d38486fcf43352
-- Review Commit：fd6e33b4fa9a7f2de4764ff52272cd62ff52a45b
+- Gate：G2 / Review Round 1
+- Verdict：REVISE
+- Review File：[reviews/gate_2_review.md](reviews/gate_2_review.md)
+- Reviewed Commit：5bf0126d03ad0ce81cdd2c6c594a35c68d0f0ebb
+- Review Commit：fe959aff8f53e0add7c473a97f981ffc679e293d
+- Major：M2-01 官方测试释放过早；M2-02 下游 inner-CV 的 Q1 嵌套血缘未唯一化
 
 ## Approved Artifacts
 
-- G0/R1 与 G1/R2 均已 PASS。
-- S1 的题意、数据层级、A01–A06、严格身份、跨文件重复、测试封存和 Q3 两级目标/指标合同已批准。
-- 正式 S1 审计来自干净提交 affff4fa6ef2d9a5431adac6e7341c993b946f4d。
-- Reviewer 已授权进入 S2，并要求在正式训练前完成统一方案、逐问合同、实验计划、强制 LOSO、固定 Q2 标签/缺类行为、固定 Q3 指标与 O1。
+- G0/R1 与 G1/R2 已 PASS。
+- S1 的题意、数据层级、A01–A06、严格身份、跨文件重复、测试封存和 Q3 两级目标/指标合同继续有效。
+- G2/R1 认可统一三问主线、Baseline、有限候选、主验证、LOSO、nav 单位和 O1 主体；只要求局部修复两项 Major。
 
-## S2 Evidence
+## Current Revision
 
-- 统一方案：[work/04_solution_plan.md](work/04_solution_plan.md)
-- 三问合同：work/models/q1_model_contract.md、q2_model_contract.md、q3_model_contract.md
-- 实验计划：[work/05_experiment_plan.md](work/05_experiment_plan.md)
-- 可机读合同：[configs/s2_experiment_plan.json](configs/s2_experiment_plan.json)
-- O1：[work/optimization/o1_solution_optimization.md](work/optimization/o1_solution_optimization.md)，Decision=PROCEED_TO_G2
-- 正式合同校验提交：6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39
-- 校验结论：PASS；输入前后哈希不变；model_fit_count=0；official_test_numeric_read_count=0
-- 训练候选：1,250 个 AP 行、482 个严格 source_file+test_id 组
-- 冻结切分：15 个外层折、1,446 个外层分配、5,784 个嵌套内层分配、13 个 LOSO
-- Q2：固定 17 个联合标签；Q3 合成指标测试：PASS
-- Split registry core SHA-256：E1DE3911D78140DB8F3A3342F7982959EB28FBA85DCFB3AF09AE990BBAC5D704
+- RF-1：S3 的官方测试 Baseline 推理已删除；唯一释放点冻结为 G4 PASS 后的 S5 freeze manifest 完成后一次最终推理。
+- RF-1 machine guard：S2/S3/O2/S4/O3/G4_REVIEW 的 run manifest 若含四个官方测试文件即硬失败。
+- RF-2 upstream：Q2/Q3 统一使用 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded，postprocess=q1_clip_0_test_dur_v1。
+- RF-2 nested lineage：每个 downstream inner-training 内增加第三层 3-fold Q1 OOF；inner-validation 不进入任何相关上游拟合。
+- LOSO：held-out source 从预处理、上游/下游拟合与选择中全部排除。
+- Minor：按 repeat 先算指标再平均；group bootstrap 保留同组全部 repeat；Q1/Q3 bounded 为主、raw 仅审计；六份人工合同 SHA 已锁。
+- 当前只校验预检：PASS；11,568 个 primary nested-upstream 分配、11,568 个 LOSO nested-upstream 分配、409 个 lineage batches；模型拟合和官方测试数值读取均为 0。
 
 ## Current Goal
 
-提交 G2 审核包并等待 Reviewer 对 S2→S3 给出 PASS / REVISE / BLOCK。当前不实施模型训练。
+从新的干净修订提交重新生成 S2 合同、split/lineage 与负向门禁证据，逐项响应 RF-1/RF-2，并提交 G2 Review Round 2。
 
 ## Current Tasks
 
-1. 将完整 S2/G2 审核快照推送至 origin/main。
-2. 向 Reviewer 提供最终 origin/main 完整 SHA。
-3. 停在 S2，等待 reviews/gate_2_review.md。
+1. 登记 G2/R1 REVISE 和修订决策。
+2. 创建干净的 G2/R2 合同实现提交。
+3. 从该提交正式运行零训练验证器并更新 results/raw/s2。
+4. 创建 work/revisions/gate_2_response.md 与 reviews/gate_2_submission_r2.md。
+5. 完成全套校验、提交、推送，并停在 S2 等待复审。
 
 ## Current Process Blockers
 
-- G2 尚未审核；这是进入 S3 和正式 Baseline 训练的唯一当前门禁。
-- 其余 S2 必要产物与 O1 均已完成，无技术阻塞。
+- G2/R1 为 REVISE；在 Round 2 PASS 前，S3 和任何正式模型训练均被门禁阻止。
+- 无其他技术阻塞。
 
 ## Known Limitations / Risks
 
-- 原始 CSV 由 /projects/**/*.csv 忽略；远程 Reviewer 需依赖 manifest、恢复说明、脚本和非 CSV 机器证据。
+- 原始 CSV 由 /projects/**/*.csv 忽略，远程 Reviewer 需按 manifest 恢复。
 - 团队成员实名责任分配尚未提供，最终交付前必须补齐。
-- environment.yml 尚未在全新环境 clean rebuild；当前 math_modeling 环境的已记录导入 smoke=PASS。
-- Q2 含极稀有联合类；固定标签、缺类零概率、support 披露、A03 敏感性和条件权重规则已冻结。
-- 普通 grouped K-fold 共享 source 场景；13 折 LOSO 必须单独报告。
-- Q3 题面有符号 ERROR_90 可能产生负数或超过 100% 的 accuracy_90；必须原样报告，并以绝对误差辅助诊断。
-- A01–A06 与官方测试集分布封存边界继续有效。
+- environment.yml 尚未完成全新环境 clean rebuild。
+- Q2 极稀有类、LOSO 场景偏移及 Q3 有符号指标风险继续按既有合同披露。
+- 第三层血缘增加运行量，但固定 Ridge 与有限候选保持计算可行。
 
 ## Forbidden Now
 
-- G2 PASS 前进入 S3、拟合正式 Baseline、比较模型性能或调参。
-- 使用官方测试集数值分布、空白目标或预测结果选择方案。
-- 覆写原始 DOCX/CSV，或将任何 CSV 上传远程。
-- 让同一 source_file+test_id 跨折，或在全数据上拟合可学习预处理。
-- Q1 使用事后字段；Q2 使用真实 Q1/Q2 目标；Q3 将真实 MCS/NSS 的题面许可扩展到 PER 等字段。
-- 临时扩大候选数量、时间盒或指标定义。
-- Main Agent 创建或修改 reviews/gate_2_review.md。
+- G2 Round 2 PASS 前进入 S3、拟合正式 Baseline、比较模型性能或调参。
+- 在 S5 freeze manifest 和 G4 PASS 前解析或推理任何官方测试 CSV 数值。
+- 使用测试预测外观反馈 O2/O3/S4。
+- 下游使用非 Q1-B1、非 bounded、训练内或无血缘的 Q1 特征。
+- 让 outer/downstream-inner/nested-upstream/LOSO 的验证组进入相应拟合。
+- 修改 reviews/gate_2_review.md 或创建 reviews/gate_2_review_r2.md。
+- 上传任何 CSV。
 
 ## Next Gate
 
-- Gate：G2 — 总体方案与模型合同
-- Verdict：PENDING REVIEW
-- Submission：[reviews/gate_2_submission.md](reviews/gate_2_submission.md)
-- Expected Review：reviews/gate_2_review.md
+- Gate：G2 — Review Round 2
+- Verdict：NOT SUBMITTED
+- Planned Response：work/revisions/gate_2_response.md
+- Planned Submission：reviews/gate_2_submission_r2.md
+- Expected Review：reviews/gate_2_review_r2.md
 - Requested transition：S2→S3
 
 ## Last Updated
 
-- 时间：2026-09-09T11:51:36+08:00
+- 时间：2026-09-09T14:54:01+08:00
 - 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充

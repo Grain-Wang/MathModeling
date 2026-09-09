@@ -37,3 +37,8 @@
 | 2026-09-09T11:51:36+08:00 | D0028 | S2 | 冻结 source_file+test_id 的 3×5 外层、逐外层 3 折内层和 13 折 LOSO 注册表，并冻结 Q2 全局 17 类 | 正式合同校验在干净 6b88cd1 上得到 1,446 个外层、5,784 个内层分配和 13 个 LOSO；Q2 折间可能缺类 | 所有问题共享外层分配；预处理只在当前训练折拟合；缺类概率置零并以固定标签 macro-F1/report support 评估 | ACTIVE |
 | 2026-09-09T11:51:36+08:00 | D0029 | S2 | Q3 以物理效率 Baseline 为锚，仅比较直接 HGB 与非负残差 HGB；系统预测严格等于 AP 预测之和 | 题面提供 PHY rate 表且要求 AP/系统两级结果；独立系统头会破坏可加一致性 | 以 AP/系统绝对相对误差 90 分位最大值选择，保留题面有符号指标为主报告并执行偏差护栏 | ACTIVE |
 | 2026-09-09T11:51:36+08:00 | D0030 | S2 | O1 决策为 PROCEED_TO_G2 | 三问、数据流、单位、目标、约束、Baseline、嵌套验证、LOSO、候选预算、停止条件和回退均已冻结；合同校验 PASS 且零模型拟合/零测试数值读取 | 允许提交 G2；G2 PASS 前仍不得进入 S3 | ACTIVE |
+
+| 2026-09-09T14:54:01+08:00 | D0031 | S2 | 接受 G2/R1 REVISE 并保持 S2，禁止进入 S3 | review commit fe959af 对 5bf0126 判定 M2-01/M2-02 两项 Major，S2→S3 未授权 | 只允许修订合同、split/lineage、合成门禁证据和 Round 2 提交 | ACTIVE |
+| 2026-09-09T14:54:01+08:00 | D0032 | S2 | 删除 S3 官方测试 Baseline 推理；唯一释放点为 G4 PASS 后、S5 freeze manifest 完整后的一次最终推理 | 提前预测即使无标签也可能以范围、类别或物理外观反馈 O2/O3/S4 | protected phases 的 run manifest 若含四个测试文件即硬失败；最终释放后写 ledger 且禁止反馈 | ACTIVE |
+| 2026-09-09T14:54:01+08:00 | D0033 | S2 | Q2/Q3 上游统一固定为 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded，postprocess=q1_clip_0_test_dur_v1 | 固定上游身份可避免 Q1 胜者选择与下游选参双重耦合，同时保持 Q1→下游技术链 | Q1-HGB 只回答 Q1；每批下游预测必须保存模型、版本和 fit-group hash 血缘 | ACTIVE |
+| 2026-09-09T14:54:01+08:00 | D0034 | S2 | 为 S4 下游 inner-CV 冻结第三层 3-fold Q1 cross-fitting，并统一 repeated-CV、bootstrap 和 raw/bounded 口径 | outer-train 预生成 OOF 可能让 inner-validation 标签进入 inner-training 特征；重复预测也不能当独立样本 | primary/LOSO 各 11,568 个 nested 分配；bounded 为晋升口径，raw 仅审计；LOSO 选择保持 source-blind | ACTIVE |

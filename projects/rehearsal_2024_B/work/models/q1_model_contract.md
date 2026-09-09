@@ -127,12 +127,13 @@ I_j>0 表示该族在该验证设置下改善预测，不等于因果效应。
 
 - group=source_file + test_id 永不跨折；
 - 所有插补、编码、缩放和模型选择仅用当前训练折；
-- 官方测试数值不参与任何选择；
+- S2/S3/O2/S4/O3/G4_REVIEW 的输入 manifest 不得含官方测试文件；run guard 必须在任何数值解析前执行；
+- 官方测试只有在 G4 PASS 后的 S5 freeze manifest 完整且 selection_closed=true 时允许一次最终推理，之后禁止反馈；
 - 输出键必须唯一、非空并保持源行顺序；
 - A02 不构造虚假反向链路；
 - 不把 loc_id/source_file 当预测特征；
 - HGB early_stopping=false，避免内部随机行切分；
-- 任何 Q1 预测进入 Q2/Q3 时，训练样本必须使用 cross-fitted 值。
+- 任何 Q1 预测进入 Q2/Q3 时均固定为 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded 与 q1_clip_0_test_dur_v1；训练样本必须为 OOF，验证样本只能由不含该验证组的 fit groups 推理。
 
 ## Parameters
 
@@ -150,16 +151,19 @@ I_j>0 表示该族在该验证设置下改善预测，不等于因果效应。
 
 ## Training / Solving Procedure
 
-1. 校验输入哈希、A01 排除和严格身份。
-2. 读取冻结 outer/inner split_registry。
-3. 每个外层折仅用 outer-train 拟合预处理。
-4. S3 先运行 Q1-B0 与 Q1-B1，不调参。
-5. O2 若授权 HGB，再在 outer-train 的固定 inner folds 选择 4 个配置之一。
-6. 用选择后的配置拟合 outer-train，预测 outer-validation。
-7. 合并全部 OOF 预测，计算总体、重复、折和分层指标。
-8. 为下游保存严格 cross-fitted Q1 预测。
-9. 模型全部冻结后才可用所有 eligible 训练行重拟合并对 test_set_1 一次推理。
-10. 导出前验证 185 行、键、顺序、有限值和物理边界。
+1. 校验输入哈希、A01、严格身份、合同文件 SHA-256 和 phase 输入白名单。
+2. 读取冻结 outer/downstream-inner/nested-upstream/LOSO split registry。
+3. 每个外层折仅用 outer-training 拟合预处理。
+4. S3 运行 Q1-B0 与 Q1-B1，不调参；Q1 主评价使用 bounded，raw 只作审计。
+5. S3 下游特征固定由 Q1-B1 在 outer-training 的 inner 3-fold 生成 bounded OOF；outer-validation 由完整 outer-training 的 Q1-B1 预测。
+6. O2 若授权 Q1-HGB，只为 Q1 自身在 outer-training 的固定 inner folds 选择 4 个配置之一；该胜者不替换下游固定 Q1-B1。
+7. S4 下游 inner-CV 对每个 inner-training 使用其内部 nested-upstream 3-fold 生成 Q1-B1 bounded OOF，再由完整 inner-training 预测 inner-validation。
+8. 每个 lineage batch 保存模型 ID、prediction_variant、postprocess_version、预测组与 fit-group hash；任一交集失败即停止。
+9. 每个 LOSO 折完全排除 held-out source；Q1-B1 和任何 Q1 候选的拟合/选择只使用其余 source。
+10. 每个 repeat 独立合并 OOF 计算指标，再取三者算术平均；组 bootstrap 保留同组全部 repeat 预测。
+11. S3/S4 导出 dry-run 使用合成 fixture 或训练侧验证输出，不读取官方测试。
+12. 只有 G4 PASS 后进入 S5，且 freeze manifest 固定模型、schema、后处理与格式，才可用全部 eligible 训练行重拟合并对 test_set_1 一次最终推理。
+13. 导出前验证 185 行、键、顺序、有限值和物理边界；写 release ledger 后不得反馈模型选择。
 
 ## Baseline
 
@@ -177,16 +181,17 @@ HGB 只有在相对 Q1-B1 有稳定增益时才晋升。
 
 Primary：
 
-- grouped OOF MAE，单位 s；
-- 每个 repeat 单独报告和合并报告。
+- seq_time_bounded 的 grouped OOF MAE，单位 s；
+- 每个 repeat 独立计算，主点估计为三个 repeat MAE 的算术平均。
 
 Secondary：
 
-- RMSE、R²；
-- raw 与 bounded 指标及裁剪比例；
+- bounded RMSE、R²；
+- raw MAE/RMSE/R²及裁剪比例，raw 不参与晋升或事后替换；
 - AP 数、loc、nav、protocol 分层；
-- 13-fold LOSO 同口径与相对退化；
-- 按组 bootstrap 95% 区间。
+- 13-fold source-blind LOSO 同口径与相对退化；
+- fold dispersion 与 repeat dispersion 分开描述；
+- 按原始组抽样、保留同组全部 repeat 预测的 95% group-bootstrap uncertainty interval。
 
 Influence：
 

@@ -1,205 +1,534 @@
 {
-  "schema_version": "rehearsal_2024_B.s2_contract.v1",
-  "stage": "S2",
-  "next_gate": "G2",
-  "status": "CONTRACT_ONLY_NO_MODEL_FIT",
-  "source_review": {
-    "gate": "G1",
-    "round": 2,
-    "reviewed_commit": "9f0a209f55351aff306aa7ecd6d38486fcf43352",
-    "review_commit": "fd6e33b4fa9a7f2de4764ff52272cd62ff52a45b",
-    "verdict": "PASS"
-  },
-  "data_contract": {
-    "manifest": "problem/manifest.md",
-    "data_dir": "problem/data",
-    "training_files": 13,
-    "official_test_files": 4,
-    "raw_training_rows": 1252,
-    "eligible_training_rows": 1250,
-    "eligible_groups": 482,
-    "a01_excluded": {
-      "source_file": "training_set_2ap_loc2_nav82.csv",
-      "test_ids": [40, 41],
-      "rows": 2,
-      "rule": "exclude the whole already-incomplete group"
-    },
-    "atomic_group": ["source_file", "test_id"],
-    "row_key": ["source_file", "test_id", "ap_id"],
-    "strict_identity_required": true,
-    "cross_file_duplicate_cluster_rule": "bind the complete equivalence cluster to one fold; current cluster count is zero",
-    "official_test_policy": "hash/schema/identity and final inference/export only; never use numerical distribution or predictions for selection"
-  },
-  "units": {
-    "test_dur": "s",
-    "pkt_len": "byte",
-    "pd": "dBm threshold",
-    "ed": "dBm threshold",
-    "nav": "dBm NAV threshold",
-    "eirp": "dBm",
-    "rssi": "dBm",
-    "seq_time": "s",
-    "phy_rate": "Mbps",
-    "throughput": "Mbps",
-    "per": "dimensionless ratio"
-  },
-  "split_contract": {
-    "primary": {
-      "algorithm": "GroupKFold",
-      "n_splits": 5,
-      "shuffle": true,
-      "random_states": [202409, 202410, 202411],
-      "groups": ["source_file", "test_id"],
-      "assignment_uses_targets": false,
-      "purpose": "interpolation estimate and common outer split registry for all questions"
-    },
-    "inner_selection": {
-      "algorithm": "GroupKFold",
-      "n_splits": 3,
-      "shuffle": true,
-      "random_state_base": 302409,
-      "scope": "outer-training groups only",
-      "all_preprocessing_refit": true
-    },
-    "mandatory_stress": {
-      "algorithm": "LeaveOneGroupOut",
-      "group": "source_file",
-      "expected_splits": 13,
-      "purpose": "scenario extrapolation; reported separately and never substituted for primary CV"
-    },
-    "bootstrap": {
-      "unit": ["source_file", "test_id"],
-      "replicates": 1000,
-      "random_state": 202412,
-      "interval": 0.95
-    }
-  },
-  "preprocessing": {
-    "rssi_cell_summaries": ["median", "q10", "q90", "iqr", "valid_count", "missing_indicator"],
-    "peer_aggregation": ["strongest", "weakest", "mean", "available_count", "missing_fraction"],
-    "mechanism_margins": [
-      "ap_peer_max_rssi_minus_pd",
-      "ap_peer_max_rssi_minus_ed",
-      "ap_peer_mean_rssi_minus_nav",
-      "desired_rssi_minus_strongest_peer_rssi"
-    ],
-    "learned_steps": "fit only inside the current training fold",
-    "numeric_imputer": "median plus missing indicator",
-    "categorical_encoder": "one-hot with unknown ignored",
-    "scaler": "standard scaling for Ridge/LogisticRegression only",
-    "identifier_policy": "source_file, test_id, loc_id, bss_id, names, MACs and raw AP/STA IDs are keys/strata/alignment aids, not model features",
-    "constant_training_fields": ["test_dur", "pkt_len", "pd", "ed"],
-    "constant_field_policy": "retain for formula/boundary checks; do not claim learned empirical effects"
-  },
-  "q1": {
-    "target": "seq_time",
-    "unit": "s",
-    "output_rows": 185,
-    "baselines": [
-      {"id": "Q1-B0", "model": "DummyRegressor", "strategy": "median"},
-      {"id": "Q1-B1", "model": "Ridge", "alpha": 1.0}
-    ],
-    "main_family": "HistGradientBoostingRegressor",
-    "objective": "squared_error",
-    "selection": ["minimize grouped OOF MAE", "tie-break RMSE", "then lower complexity"],
-    "physical_bounds": {"lower": 0.0, "upper": "row test_dur", "report_raw_and_bounded": true},
-    "influence_evidence": ["held-out feature-family ablation", "held-out grouped permutation", "fold-wise direction and rank stability"],
-    "accept_main_if": "MAE improves at least 5 percent over Q1-B1 in at least two of three repeats without material LOSO instability"
-  },
-  "q2": {
-    "target": ["nss", "mcs"],
-    "joint_label_encoding": "nss|mcs",
-    "global_joint_labels": [
-      "0|0",
-      "1|0",
-      "1|4",
-      "1|5",
-      "1|6",
-      "1|7",
-      "1|9",
-      "2|2",
-      "2|3",
-      "2|4",
-      "2|5",
-      "2|6",
-      "2|7",
-      "2|8",
-      "2|9",
-      "2|10",
-      "2|11"
-    ],
-    "label_order": "numeric nss ascending, then numeric mcs ascending",
-    "baselines": [
-      {"id": "Q2-B0", "model": "DummyClassifier", "strategy": "most_frequent"},
-      {"id": "Q2-B1", "model": "LogisticRegression", "C": 1.0, "max_iter": 2000, "class_weight": null}
-    ],
-    "main_family": "HistGradientBoostingClassifier",
-    "training_objective": "multiclass log loss",
-    "selection": ["maximize fixed-global-label macro-F1", "tie-break joint exact accuracy", "then lower log loss and complexity"],
-    "missing_training_class_policy": "reindex probabilities to all 17 labels; absent training labels receive probability zero and cannot be predicted in that fold; disclose them",
-    "metric_policy": {"macro_f1_labels": "all 17 global labels", "zero_division": 0, "disclose_support": true},
-    "a03_sensitivity": ["retain 0|0 primary", "exclude A03 groups sensitivity"],
-    "conditional_weighted_candidate": "one square-root inverse-frequency weighting run, capped at 5, only if O2 identifies minority collapse",
-    "output_rule": "predict one of the 17 fixed observed joint labels; never create an unobserved nss/mcs combination",
-    "output_rows": 151
-  },
-  "q3": {
-    "per_ap_target": "throughput",
-    "system_target": "sum of per-AP throughput inside each strict source_file+test_id group",
-    "units": "Mbps",
-    "training_counts": {"per_ap": 1250, "system": 482},
-    "test_output_counts": {"per_ap": 185, "system": 75},
-    "authorized_inputs": ["actual nss", "actual mcs", "Q1 cross-fitted or inference seq_time prediction"],
-    "phy_rate_source": "20 MHz MCS/NSS table in the problem statement",
-    "baselines": [
-      {"id": "Q3-B0", "model": "DummyRegressor", "strategy": "median"},
-      {"id": "Q3-B1", "model": "Ridge", "alpha": 1.0},
-      {"id": "Q3-B2", "model": "constrained scalar efficiency", "formula": "clip(eta,0,1) * predicted_seq_time/test_dur * phy_rate"}
-    ],
-    "main_architectures": [
-      "direct HistGradientBoostingRegressor with physical proxy features",
-      "nonnegative residual HistGradientBoostingRegressor around Q3-B2"
-    ],
-    "selection_score": "minimize max(AP absolute-relative-error nearest-rank 90th percentile, system absolute-relative-error nearest-rank 90th percentile)",
-    "tie_break": "lower normalized AP/system MAE, then smaller model",
-    "signed_metric_bias_guard": "absolute median signed relative error at either level must not worsen by more than 0.02",
-    "system_consistency": "system prediction is always the sum of exported AP predictions; no independent system head",
-    "prediction_bound": "per-AP throughput >= 0; report raw and bounded validation predictions",
-    "a03_phy_rate_policy": "0|0 has undefined PHY rate; retain with missing-rate indicator in primary analysis and run whole-group exclusion sensitivity"
-  },
-  "q3_metric_contract": {
-    "signed_error_fraction": "(prediction - truth) / truth",
-    "signed_error_percent": "100 * signed_error_fraction",
-    "empirical_cdf": "count(error <= x) / n",
-    "error_90": "ascending error at one-indexed rank ceil(0.90*n); no interpolation",
-    "tie_rule": "retain all observations and use the fixed nearest-rank position",
-    "accuracy_90": "1 - ERROR_90",
-    "clipping": "none",
-    "zero_truth": "exclude from relative CDF and ERROR_90, disclose count, report absolute error separately",
-    "levels": ["per_ap", "system_sum"],
-    "supplementary": ["absolute-relative-error CDF and ERROR_90", "MAE", "RMSE", "R2", "median signed bias"]
-  },
-  "main_candidate_budget": {
-    "hgb_common": {
-      "loss_regression": "squared_error",
-      "loss_classification": "log_loss",
-      "max_iter": 200,
-      "min_samples_leaf": 20,
-      "early_stopping": false,
-      "random_state": 202409
-    },
-    "grid": [
-      {"learning_rate": 0.05, "max_leaf_nodes": 7, "l2_regularization": 0.0},
-      {"learning_rate": 0.05, "max_leaf_nodes": 7, "l2_regularization": 1.0},
-      {"learning_rate": 0.05, "max_leaf_nodes": 15, "l2_regularization": 0.0},
-      {"learning_rate": 0.05, "max_leaf_nodes": 15, "l2_regularization": 1.0}
-    ],
-    "maximum_configs": {"q1": 4, "q2": 4, "q3": 8},
-    "no_unplanned_expansion": true
-  },
-  "stage_boundary": {
-    "g2_pass_required_before_model_fit": true,
-    "current_allowed_actions": ["contract validation", "split registry generation from training identities", "synthetic metric tests"],
-    "current_forbidden_actions": ["fit prediction models", "inspect official test numeric distributions", "generate official test predictions"]
-  }
+    "schema_version":  "rehearsal_2024_B.s2_contract.v2",
+    "stage":  "S2",
+    "next_gate":  "G2",
+    "status":  "CONTRACT_ONLY_NO_MODEL_FIT",
+    "source_review":  {
+                          "gate":  "G1",
+                          "round":  2,
+                          "reviewed_commit":  "9f0a209f55351aff306aa7ecd6d38486fcf43352",
+                          "review_commit":  "fd6e33b4fa9a7f2de4764ff52272cd62ff52a45b",
+                          "verdict":  "PASS"
+                      },
+    "data_contract":  {
+                          "manifest":  "problem/manifest.md",
+                          "data_dir":  "problem/data",
+                          "training_files":  13,
+                          "official_test_files":  4,
+                          "raw_training_rows":  1252,
+                          "eligible_training_rows":  1250,
+                          "eligible_groups":  482,
+                          "a01_excluded":  {
+                                               "source_file":  "training_set_2ap_loc2_nav82.csv",
+                                               "test_ids":  [
+                                                                40,
+                                                                41
+                                                            ],
+                                               "rows":  2,
+                                               "rule":  "exclude the whole already-incomplete group"
+                                           },
+                          "atomic_group":  [
+                                               "source_file",
+                                               "test_id"
+                                           ],
+                          "row_key":  [
+                                          "source_file",
+                                          "test_id",
+                                          "ap_id"
+                                      ],
+                          "strict_identity_required":  true,
+                          "cross_file_duplicate_cluster_rule":  "bind the complete equivalence cluster to one fold; current cluster count is zero",
+                          "official_test_policy":  "Hash/schema/identity only until G4 PASS and an S5 freeze manifest; then exactly one final inference/export release with no feedback to O2/O3/S4."
+                      },
+    "units":  {
+                  "test_dur":  "s",
+                  "pkt_len":  "byte",
+                  "pd":  "dBm threshold",
+                  "ed":  "dBm threshold",
+                  "nav":  "dBm NAV threshold",
+                  "eirp":  "dBm",
+                  "rssi":  "dBm",
+                  "seq_time":  "s",
+                  "phy_rate":  "Mbps",
+                  "throughput":  "Mbps",
+                  "per":  "dimensionless ratio"
+              },
+    "split_contract":  {
+                           "primary":  {
+                                           "algorithm":  "GroupKFold",
+                                           "n_splits":  5,
+                                           "shuffle":  true,
+                                           "random_states":  [
+                                                                 202409,
+                                                                 202410,
+                                                                 202411
+                                                             ],
+                                           "groups":  [
+                                                          "source_file",
+                                                          "test_id"
+                                                      ],
+                                           "assignment_uses_targets":  false,
+                                           "purpose":  "interpolation estimate and common outer split registry for all questions"
+                                       },
+                           "inner_selection":  {
+                                                   "algorithm":  "GroupKFold",
+                                                   "n_splits":  3,
+                                                   "shuffle":  true,
+                                                   "random_state_base":  302409,
+                                                   "scope":  "outer-training groups only",
+                                                   "all_preprocessing_refit":  true,
+                                                   "purpose":  "downstream candidate selection inside each outer-training set"
+                                               },
+                           "mandatory_stress":  {
+                                                    "algorithm":  "LeaveOneGroupOut",
+                                                    "group":  "source_file",
+                                                    "expected_splits":  13,
+                                                    "purpose":  "scenario extrapolation; reported separately and never substituted for primary CV"
+                                                },
+                           "bootstrap":  {
+                                             "unit":  [
+                                                          "source_file",
+                                                          "test_id"
+                                                      ],
+                                             "replicates":  1000,
+                                             "random_state":  202412,
+                                             "interval":  0.95
+                                         },
+                           "nested_upstream":  {
+                                                   "algorithm":  "GroupKFold",
+                                                   "n_splits":  3,
+                                                   "shuffle":  true,
+                                                   "random_state_base":  402409,
+                                                   "random_state_formula":  "base + 1000*outer_repeat + 100*outer_fold + downstream_inner_fold",
+                                                   "scope":  "downstream inner-training groups only",
+                                                   "upstream_estimator_id":  "Q1-B1",
+                                                   "prediction_variant":  "seq_time_bounded",
+                                                   "postprocess_version":  "q1_clip_0_test_dur_v1",
+                                                   "expected_primary_group_assignments":  11568,
+                                                   "purpose":  "OOF Q1 features for downstream inner-training without inner-validation label influence"
+                                               },
+                           "loso_selection":  {
+                                                  "held_out_unit":  "source_file",
+                                                  "downstream_inner_splits":  3,
+                                                  "downstream_inner_random_state_formula":  "502409 + loso_split",
+                                                  "nested_upstream_splits":  3,
+                                                  "nested_upstream_random_state_formula":  "602409 + 100*loso_split + 10*downstream_inner_fold",
+                                                  "expected_inner_group_assignments":  5784,
+                                                  "expected_nested_upstream_group_assignments":  11568,
+                                                  "selection_scope":  "remaining source files only",
+                                                  "global_configuration_touching_held_out_source_forbidden":  true
+                                              },
+                           "aggregation":  {
+                                               "primary_point_estimate":  "compute metric after combining OOF inside each repeat, then arithmetic mean of three repeat metrics",
+                                               "fold_dispersion":  "descriptive only and separately named",
+                                               "repeat_dispersion":  "descriptive only and separately named",
+                                               "bootstrap_unit":  [
+                                                                      "source_file",
+                                                                      "test_id"
+                                                                  ],
+                                               "bootstrap_preserves_all_repeat_predictions_for_sampled_group":  true,
+                                               "bootstrap_label":  "95 percent group-bootstrap uncertainty interval"
+                                           }
+                       },
+    "preprocessing":  {
+                          "rssi_cell_summaries":  [
+                                                      "median",
+                                                      "q10",
+                                                      "q90",
+                                                      "iqr",
+                                                      "valid_count",
+                                                      "missing_indicator"
+                                                  ],
+                          "peer_aggregation":  [
+                                                   "strongest",
+                                                   "weakest",
+                                                   "mean",
+                                                   "available_count",
+                                                   "missing_fraction"
+                                               ],
+                          "mechanism_margins":  [
+                                                    "ap_peer_max_rssi_minus_pd",
+                                                    "ap_peer_max_rssi_minus_ed",
+                                                    "ap_peer_mean_rssi_minus_nav",
+                                                    "desired_rssi_minus_strongest_peer_rssi"
+                                                ],
+                          "learned_steps":  "fit only inside the current training fold",
+                          "numeric_imputer":  "median plus missing indicator",
+                          "categorical_encoder":  "one-hot with unknown ignored",
+                          "scaler":  "standard scaling for Ridge/LogisticRegression only",
+                          "identifier_policy":  "source_file, test_id, loc_id, bss_id, names, MACs and raw AP/STA IDs are keys/strata/alignment aids, not model features",
+                          "constant_training_fields":  [
+                                                           "test_dur",
+                                                           "pkt_len",
+                                                           "pd",
+                                                           "ed"
+                                                       ],
+                          "constant_field_policy":  "retain for formula/boundary checks; do not claim learned empirical effects"
+                      },
+    "q1":  {
+               "target":  "seq_time",
+               "unit":  "s",
+               "output_rows":  185,
+               "baselines":  [
+                                 {
+                                     "id":  "Q1-B0",
+                                     "model":  "DummyRegressor",
+                                     "strategy":  "median"
+                                 },
+                                 {
+                                     "id":  "Q1-B1",
+                                     "model":  "Ridge",
+                                     "alpha":  1.0
+                                 }
+                             ],
+               "main_family":  "HistGradientBoostingRegressor",
+               "objective":  "squared_error",
+               "selection":  [
+                                 "minimize grouped OOF MAE",
+                                 "tie-break RMSE",
+                                 "then lower complexity"
+                             ],
+               "physical_bounds":  {
+                                       "lower":  0.0,
+                                       "upper":  "row test_dur",
+                                       "report_raw_and_bounded":  true,
+                                       "primary_selection_variant":  "seq_time_bounded",
+                                       "raw_variant_role":  "audit_only"
+                                   },
+               "influence_evidence":  [
+                                          "held-out feature-family ablation",
+                                          "held-out grouped permutation",
+                                          "fold-wise direction and rank stability"
+                                      ],
+               "accept_main_if":  "MAE improves at least 5 percent over Q1-B1 in at least two of three repeats without material LOSO instability",
+               "downstream_upstream_estimator_id":  "Q1-B1"
+           },
+    "q2":  {
+               "target":  [
+                              "nss",
+                              "mcs"
+                          ],
+               "joint_label_encoding":  "nss|mcs",
+               "global_joint_labels":  [
+                                           "0|0",
+                                           "1|0",
+                                           "1|4",
+                                           "1|5",
+                                           "1|6",
+                                           "1|7",
+                                           "1|9",
+                                           "2|2",
+                                           "2|3",
+                                           "2|4",
+                                           "2|5",
+                                           "2|6",
+                                           "2|7",
+                                           "2|8",
+                                           "2|9",
+                                           "2|10",
+                                           "2|11"
+                                       ],
+               "label_order":  "numeric nss ascending, then numeric mcs ascending",
+               "baselines":  [
+                                 {
+                                     "id":  "Q2-B0",
+                                     "model":  "DummyClassifier",
+                                     "strategy":  "most_frequent"
+                                 },
+                                 {
+                                     "id":  "Q2-B1",
+                                     "model":  "LogisticRegression",
+                                     "C":  1.0,
+                                     "max_iter":  2000,
+                                     "class_weight":  null
+                                 }
+                             ],
+               "main_family":  "HistGradientBoostingClassifier",
+               "training_objective":  "multiclass log loss",
+               "selection":  [
+                                 "maximize fixed-global-label macro-F1",
+                                 "tie-break joint exact accuracy",
+                                 "then lower log loss and complexity"
+                             ],
+               "missing_training_class_policy":  "reindex probabilities to all 17 labels; absent training labels receive probability zero and cannot be predicted in that fold; disclose them",
+               "metric_policy":  {
+                                     "macro_f1_labels":  "all 17 global labels",
+                                     "zero_division":  0,
+                                     "disclose_support":  true
+                                 },
+               "a03_sensitivity":  [
+                                       "retain 0|0 primary",
+                                       "exclude A03 groups sensitivity"
+                                   ],
+               "conditional_weighted_candidate":  "one square-root inverse-frequency weighting run, capped at 5, only if O2 identifies minority collapse",
+               "output_rule":  "predict one of the 17 fixed observed joint labels; never create an unobserved nss/mcs combination",
+               "output_rows":  151,
+               "upstream_feature":  {
+                                        "estimator_id":  "Q1-B1",
+                                        "prediction_variant":  "seq_time_bounded",
+                                        "postprocess_version":  "q1_clip_0_test_dur_v1"
+                                    }
+           },
+    "q3":  {
+               "per_ap_target":  "throughput",
+               "system_target":  "sum of per-AP throughput inside each strict source_file+test_id group",
+               "units":  "Mbps",
+               "training_counts":  {
+                                       "per_ap":  1250,
+                                       "system":  482
+                                   },
+               "test_output_counts":  {
+                                          "per_ap":  185,
+                                          "system":  75
+                                      },
+               "authorized_inputs":  [
+                                         "actual nss",
+                                         "actual mcs",
+                                         "Q1-B1 cross-fitted or inference seq_time_bounded"
+                                     ],
+               "phy_rate_source":  "20 MHz MCS/NSS table in the problem statement",
+               "baselines":  [
+                                 {
+                                     "id":  "Q3-B0",
+                                     "model":  "DummyRegressor",
+                                     "strategy":  "median"
+                                 },
+                                 {
+                                     "id":  "Q3-B1",
+                                     "model":  "Ridge",
+                                     "alpha":  1.0
+                                 },
+                                 {
+                                     "id":  "Q3-B2",
+                                     "model":  "constrained scalar efficiency",
+                                     "formula":  "clip(eta,0,1) * predicted_seq_time/test_dur * phy_rate"
+                                 }
+                             ],
+               "main_architectures":  [
+                                          "direct HistGradientBoostingRegressor with physical proxy features",
+                                          "nonnegative residual HistGradientBoostingRegressor around Q3-B2"
+                                      ],
+               "selection_score":  "minimize max(AP absolute-relative-error nearest-rank 90th percentile, system absolute-relative-error nearest-rank 90th percentile)",
+               "tie_break":  "lower normalized AP/system MAE, then smaller model",
+               "signed_metric_bias_guard":  "absolute median signed relative error at either level must not worsen by more than 0.02",
+               "system_consistency":  "primary system prediction is always the sum of throughput_bounded AP predictions; no independent system head",
+               "prediction_bound":  "per-AP throughput \u003e= 0; report raw and bounded validation predictions",
+               "a03_phy_rate_policy":  "0|0 has undefined PHY rate; retain with missing-rate indicator in primary analysis and run whole-group exclusion sensitivity",
+               "primary_prediction_variant":  "throughput_bounded",
+               "raw_prediction_role":  "audit_only"
+           },
+    "q3_metric_contract":  {
+                               "signed_error_fraction":  "(prediction - truth) / truth",
+                               "signed_error_percent":  "100 * signed_error_fraction",
+                               "empirical_cdf":  "count(error \u003c= x) / n",
+                               "error_90":  "ascending error at one-indexed rank ceil(0.90*n); no interpolation",
+                               "tie_rule":  "retain all observations and use the fixed nearest-rank position",
+                               "accuracy_90":  "1 - ERROR_90",
+                               "clipping":  "none",
+                               "zero_truth":  "exclude from relative CDF and ERROR_90, disclose count, report absolute error separately",
+                               "levels":  [
+                                              "per_ap",
+                                              "system_sum"
+                                          ],
+                               "supplementary":  [
+                                                     "absolute-relative-error CDF and ERROR_90",
+                                                     "MAE",
+                                                     "RMSE",
+                                                     "R2",
+                                                     "median signed bias"
+                                                 ]
+                           },
+    "main_candidate_budget":  {
+                                  "hgb_common":  {
+                                                     "loss_regression":  "squared_error",
+                                                     "loss_classification":  "log_loss",
+                                                     "max_iter":  200,
+                                                     "min_samples_leaf":  20,
+                                                     "early_stopping":  false,
+                                                     "random_state":  202409
+                                                 },
+                                  "grid":  [
+                                               {
+                                                   "learning_rate":  0.05,
+                                                   "max_leaf_nodes":  7,
+                                                   "l2_regularization":  0.0
+                                               },
+                                               {
+                                                   "learning_rate":  0.05,
+                                                   "max_leaf_nodes":  7,
+                                                   "l2_regularization":  1.0
+                                               },
+                                               {
+                                                   "learning_rate":  0.05,
+                                                   "max_leaf_nodes":  15,
+                                                   "l2_regularization":  0.0
+                                               },
+                                               {
+                                                   "learning_rate":  0.05,
+                                                   "max_leaf_nodes":  15,
+                                                   "l2_regularization":  1.0
+                                               }
+                                           ],
+                                  "maximum_configs":  {
+                                                          "q1":  4,
+                                                          "q2":  4,
+                                                          "q3":  8
+                                                      },
+                                  "no_unplanned_expansion":  true
+                              },
+    "stage_boundary":  {
+                           "g2_pass_required_before_model_fit":  true,
+                           "current_allowed_actions":  [
+                                                           "contract validation",
+                                                           "outer/downstream-inner/nested-upstream split registry generation from training identities",
+                                                           "synthetic metric tests",
+                                                           "synthetic lineage leakage tests",
+                                                           "synthetic test-release guard tests"
+                                                       ],
+                           "current_forbidden_actions":  [
+                                                             "fit prediction models",
+                                                             "parse official test numerical values",
+                                                             "generate official test predictions",
+                                                             "use an official test file in any protected-phase run manifest"
+                                                         ]
+                       },
+    "upstream_feature_contract":  {
+                                      "estimator_id":  "Q1-B1",
+                                      "estimator":  "Ridge",
+                                      "parameters":  {
+                                                         "alpha":  1
+                                                     },
+                                      "prediction_variant":  "seq_time_bounded",
+                                      "postprocess":  "clip(seq_time_raw, 0, row test_dur)",
+                                      "postprocess_version":  "q1_clip_0_test_dur_v1",
+                                      "applies_to":  [
+                                                         "Q2-S3",
+                                                         "Q3-S3",
+                                                         "Q2-S4",
+                                                         "Q3-S4",
+                                                         "LOSO"
+                                                     ],
+                                      "q1_hgb_candidate_may_replace_downstream_upstream":  false,
+                                      "s3_rule":  "fixed downstream baselines; outer-training Q1 OOF via frozen inner folds; outer-validation inference from all outer-training",
+                                      "s4_rule":  "nested Q1 OOF inside every downstream inner-training; downstream inner-validation inference from all corresponding inner-training",
+                                      "lineage_fields":  [
+                                                             "upstream_model_id",
+                                                             "prediction_variant",
+                                                             "postprocess_version",
+                                                             "prediction_role",
+                                                             "prediction_groups",
+                                                             "upstream_fit_groups_hash",
+                                                             "upstream_fit_group_count",
+                                                             "prediction_fit_overlap_count",
+                                                             "downstream_validation_fit_overlap_count"
+                                                         ]
+                                  },
+    "repeated_cv_metric_contract":  {
+                                        "repeat_level_metric_first":  true,
+                                        "repeat_level_primary_reducer":  "arithmetic_mean",
+                                        "predictions_across_repeats_are_independent_samples":  false,
+                                        "bootstrap_resamples_original_groups_once_and_keeps_all_repeat_predictions":  true
+                                    },
+    "test_release_contract":  {
+                                  "training_file_allowlist":  [
+                                                                  "training_set_2ap_loc0_nav82.csv",
+                                                                  "training_set_2ap_loc0_nav86.csv",
+                                                                  "training_set_2ap_loc1_nav82.csv",
+                                                                  "training_set_2ap_loc1_nav86.csv",
+                                                                  "training_set_2ap_loc2_nav82.csv",
+                                                                  "training_set_3ap_loc30_nav82.csv",
+                                                                  "training_set_3ap_loc30_nav86.csv",
+                                                                  "training_set_3ap_loc31_nav82.csv",
+                                                                  "training_set_3ap_loc31_nav86.csv",
+                                                                  "training_set_3ap_loc32_nav82.csv",
+                                                                  "training_set_3ap_loc32_nav86.csv",
+                                                                  "training_set_3ap_loc33_nav82.csv",
+                                                                  "training_set_3ap_loc33_nav88.csv"
+                                                              ],
+                                  "official_test_denylist":  [
+                                                                 "test_set_1_2ap.csv",
+                                                                 "test_set_1_3ap.csv",
+                                                                 "test_set_2_2ap.csv",
+                                                                 "test_set_2_3ap.csv"
+                                                             ],
+                                  "protected_phases":  [
+                                                           "S2",
+                                                           "S3",
+                                                           "O2",
+                                                           "S4",
+                                                           "O3",
+                                                           "G4_REVIEW"
+                                                       ],
+                                  "dry_run_sources":  [
+                                                          "synthetic_schema_fixture",
+                                                          "training_outer_validation_output",
+                                                          "training_loso_output"
+                                                      ],
+                                  "final_release_phase":  "S5_FINAL_INFERENCE",
+                                  "minimum_gate_state":  "G4_PASS",
+                                  "required_freeze_manifest":  "results/verified/freeze_manifest.json",
+                                  "required_freeze_fields":  [
+                                                                 "selection_closed",
+                                                                 "model_ids_and_parameters_sha256",
+                                                                 "training_inputs_sha256",
+                                                                 "feature_schema_sha256",
+                                                                 "q1_postprocess_version",
+                                                                 "q2_label_order_sha256",
+                                                                 "q3_postprocess_version",
+                                                                 "output_schema_sha256"
+                                                             ],
+                                  "exactly_once":  true,
+                                  "prior_release_count_required":  0,
+                                  "release_ledger":  "results/raw/final/test_release_ledger.json",
+                                  "post_release_feedback_to":  [
+
+                                                               ],
+                                  "post_release_feedback_forbidden":  [
+                                                                          "O2",
+                                                                          "O3",
+                                                                          "S4"
+                                                                      ]
+                              },
+    "feature_schema_contract":  {
+                                    "generated_stage":  "S3",
+                                    "path":  "results/raw/baseline/feature_schema.json",
+                                    "required_fields":  [
+                                                            "name",
+                                                            "dtype",
+                                                            "unit",
+                                                            "missing_semantics",
+                                                            "column_order"
+                                                        ],
+                                    "training_side_only_until_final_release":  true
+                                },
+    "contract_artifacts":  {
+                               "hash_algorithm":  "SHA-256 of UTF-8 text after CRLF/CR to LF normalization",
+                               "files":  [
+                                             {
+                                                 "path":  "work/04_solution_plan.md",
+                                                 "sha256":  "AF3C7444D8D5559548EECCDDB9B61D7625EA4FACBD4E67229259D9711438328D"
+                                             },
+                                             {
+                                                 "path":  "work/05_experiment_plan.md",
+                                                 "sha256":  "D17E56F943F71604DC0DD6AFAB8D4CBAA89ACF49BC0052C27C60BC6AFAA0A284"
+                                             },
+                                             {
+                                                 "path":  "work/models/q1_model_contract.md",
+                                                 "sha256":  "C11029B60480EBDF9C11523531BBA7ACE7623AB7CA488CF9E9FD6FE81D320730"
+                                             },
+                                             {
+                                                 "path":  "work/models/q2_model_contract.md",
+                                                 "sha256":  "4ADC5629DD9810C88F8CBCD33F1F8EE0851578D273B467BDACBC324341F04741"
+                                             },
+                                             {
+                                                 "path":  "work/models/q3_model_contract.md",
+                                                 "sha256":  "5D950827880E1F094E2854C1204562B8E000B718E5B0551B99A6FE52C4A937DD"
+                                             },
+                                             {
+                                                 "path":  "work/optimization/o1_solution_optimization.md",
+                                                 "sha256":  "694ABFF33CD2E8D22086A1F48170E587FB7A278303D17644670E11C98CACCD1E"
+                                             }
+                                         ],
+                               "require_match_before_s3":  true
+                           }
 }

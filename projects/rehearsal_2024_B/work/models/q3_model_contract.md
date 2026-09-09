@@ -16,7 +16,7 @@ AP 与系统必须代数一致，不训练互相矛盾的独立系统模型。
 
 - S2 统一基本信息、拓扑感知 RSSI 与门限裕量；
 - AP 数、protocol、eirp；
-- 训练阶段严格 cross-fitted Q1 seq_time，推理阶段 Q1 预测；
+- 固定 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded：训练阶段严格 OOF，验证/最终推理阶段 inference；postprocess=q1_clip_0_test_dur_v1；
 - 题面明确许可的真实 nss、mcs；
 - 由真实 nss/mcs 和题面 20 MHz 表唯一映射的 PHY Rate；
 - 基于以上合法量构造的 airtime fraction 和物理容量代理。
@@ -169,13 +169,14 @@ $$
 - source_file + test_id 是所有切分和系统求和原子；
 - AP 和系统键先通过严格身份检查；
 - 系统预测只能是最终 AP 预测之和；
-- Q1 输入必须具有 cross-fit/inference 血缘；
-- 所有预处理、eta 和模型只在当前训练折拟合；
+- Q1 输入必须具有 Q1-B1、seq_time_bounded、q1_clip_0_test_dur_v1、prediction_role 和 fit-group hash 血缘；
+- 所有预处理、eta、上游和下游模型只在当前训练边界拟合；
 - Q3-B2 不使用真实 seq_time；
 - rate_missing 不静默填 0、不改标签；
 - AP 输出不小于 0，raw 与 bounded 都保存；
 - 真实 throughput=0 不进入相对误差分母；
-- 官方测试不参与任何模型或规则选择；
+- S2/S3/O2/S4/O3/G4_REVIEW 的输入 manifest 不得含官方测试文件；
+- 官方测试只允许在 G4 PASS 后的 S5 freeze manifest 完整时一次最终推理，且不参与任何模型、裁剪或规则选择；
 - 不使用 PER、聚合、PPDU 或 other_air_time 作为特征。
 
 ## Parameters
@@ -193,18 +194,20 @@ $$
 
 ## Training / Solving Procedure
 
-1. 校验输入哈希、A01 和严格身份。
-2. 读取外/内层 split registry。
-3. 在每个 outer-train 内生成严格 Q1 cross-fitted seq_time；outer-validation 使用 outer-train Q1 预测。
+1. 校验输入哈希、A01、严格身份、合同 SHA 和 phase 输入白名单。
+2. 读取 outer/downstream-inner/nested-upstream/LOSO registry。
+3. S3 的 outer-training 使用 inner 3-fold Q1-B1 bounded OOF；outer-validation 使用完整 outer-training 拟合的 Q1-B1 bounded 预测。
 4. 由题面表映射实际 nss/mcs 到 PHY Rate，0|0 标 rate_missing。
-5. S3 依次运行 Q3-B0、Q3-B1、Q3-B2。
-6. 对每个预测先输出 AP 行，再由严格组求和生成系统行。
-7. 同时计算 AP/system 指标和逐组诊断。
-8. O2 若授权主候选，在固定 inner folds 中比较 direct/residual 的 8 个上限配置。
-9. 外层只评价 inner 已选架构/参数，不用 outer-validation 反调。
-10. 运行 A03 完整组排除、with/without Q1、2/3 AP 分层和 LOSO。
-11. 所有选择冻结后用全 eligible 训练重拟合，对 test_set_1 一次推理。
-12. 导出前验证 185 AP、75 system、键、组和 sum equality，容许绝对数值误差 1e-9 Mbps。
+5. S3 依次运行固定 Q3-B0、Q3-B1、Q3-B2，不做下游调参。
+6. 每个 AP 先得到 throughput_raw 和 throughput_bounded=max(0,raw)；主系统预测严格求和 bounded AP。
+7. 同时计算 bounded AP/system 主指标、raw 审计指标和逐组诊断。
+8. O2 若授权主候选，对每个 downstream inner fold，只在 inner-training 的 nested-upstream 3-fold 生成 Q1-B1 bounded OOF，并由完整 inner-training 预测 inner-validation，再比较 direct/residual 的最多 8 个配置。
+9. 每个 lineage 断言 OOF 目标和 downstream inner-validation 均不进入相应上游 fit groups；外层只评价 inner 已选配置。
+10. 运行 A03 完整组排除、with/without 固定 Q1、2/3 AP 分层和 source-blind LOSO；LOSO 的选择只使用剩余 source。
+11. 每个 repeat 独立计算指标后取算术平均；组 bootstrap 保留同组所有 repeat 预测。
+12. S3/S4 导出 dry-run 只用合成 fixture 或训练侧 outer-validation/LOSO 输出。
+13. 只有 G4 PASS 后进入 S5，且 freeze manifest 固定模型、schema、Q1/Q3 后处理和输出格式，才可用全 eligible 训练重拟合并对 test_set_1 一次最终推理。
+14. 导出前验证 185 AP、75 system、键、组和 bounded sum equality，容许绝对数值误差 1e-9 Mbps；写 release ledger 后不得反馈选择。
 
 ## Baseline
 
@@ -222,7 +225,7 @@ Ridge(alpha=1.0)，共享合法特征和 Q1 cross-fitted 预测。
 
 ## Evaluation
 
-题面主报告，AP 与系统分开：
+题面主报告以 throughput_bounded 为唯一晋升口径，AP 与 bounded AP 严格求和后的系统分别计算：
 
 $$
 r=(\widehat y-y)/y，
@@ -240,9 +243,10 @@ $$
 - absolute-relative-error CDF 与 nearest-rank 90%；
 - MAE、RMSE、R²；
 - median signed bias；
-- raw/bounded 差异、负预测裁剪率、超 PHY Rate 率；
+- raw AP/system 审计指标、raw/bounded 差异、负预测裁剪率、超 PHY Rate 率；raw 不参与晋升或事后替换；
 - AP 数、loc、nav、protocol 分层；
-- 3 repeats、LOSO、组 bootstrap 95% 区间；
+- 每个 repeat 独立指标、三者算术平均、fold/repeat dispersion；
+- source-blind LOSO，以及以原始组为单位并保留全部 repeat 预测的 95% group-bootstrap uncertainty interval；
 - A03 组排除、有/无 Q1、direct/residual 消融。
 
 ## Failure Conditions

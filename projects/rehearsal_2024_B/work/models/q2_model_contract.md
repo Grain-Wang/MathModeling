@@ -12,7 +12,7 @@
 
 - Q1 合同中的基本信息、拓扑感知 RSSI 与门限裕量特征；
 - AP 数和 protocol；
-- 严格 cross-fitted Q1 seq_time 预测，或最终推理时的 Q1 预测；
+- 固定 Q1-B1 Ridge(alpha=1.0) 产生的 seq_time_bounded：训练行为严格 OOF，验证/最终推理行为 inference；postprocess=q1_clip_0_test_dur_v1；
 - Q1 发送机会特征族贡献，仅用于解释，不把验证标签统计编码为特征。
 
 ### Key or stratum only
@@ -124,9 +124,10 @@ $$
 - 缺失训练类概率为 0，并披露；
 - 未见联合标签使流程硬失败，不能临时加类；
 - 预测必须落在固定集合；
-- Q1 输入必须有 cross-fit 血缘；
+- Q1 输入必须具有 Q1-B1、seq_time_bounded、q1_clip_0_test_dur_v1 和 fit-group hash 血缘；
 - A03 敏感性按包含异常行的完整组排除，避免拆组；
-- 官方测试不参与标签、阈值、类别权重或模型选择。
+- S2/S3/O2/S4/O3/G4_REVIEW 的输入 manifest 不得含官方测试文件；
+- 官方测试只允许在 G4 PASS 后的 S5 freeze manifest 完整时一次最终推理，且不参与标签、阈值、类别权重、模型或后处理选择。
 
 ## Parameters
 
@@ -144,17 +145,19 @@ $$
 
 ## Training / Solving Procedure
 
-1. 验证输入哈希、A01、严格身份和固定 17 类完全匹配。
-2. 读取冻结 split registry。
-3. S3 在每个外层折运行 Q2-B0、Q2-B1。
-4. 对每个外层训练集，在固定 inner folds 内生成 Q1 cross-fitted seq_time；外层验证使用仅由 outer-train 拟合的 Q1 预测。
-5. 比较有/无 Q1 预测两条 Baseline 链，禁止训练内 Q1 值。
-6. O2 若授权 HGB，在 inner folds 中从 4 个配置选择。
-7. 把 estimator.classes_ 对齐到 17 列，缺类补 0。
-8. 保存逐行 OOF 概率、预测、真实标签、support、缺类和切分 ID。
-9. 合并全部 OOF 后计算主指标；LOSO 另跑同样过程。
-10. 所有选择冻结后，用完整 eligible 训练重拟合并对 test_set_2 一次推理。
-11. 导出前检查 151 行、唯一键、固定标签和概率和为 1；浮点误差容许 1e-10。
+1. 验证输入哈希、A01、严格身份、合同 SHA、phase 白名单和固定 17 类。
+2. 读取冻结 outer/downstream-inner/nested-upstream/LOSO registry。
+3. S3 在每个 outer fold 运行固定 Q2-B0、Q2-B1，不做下游调参。
+4. S3 的 outer-training 使用 inner 3-fold Q1-B1 bounded OOF；outer-validation 使用完整 outer-training 拟合的 Q1-B1 bounded 预测。
+5. 比较有/无固定 Q1 特征两条 Baseline 链，禁止训练内 Q1 值。
+6. O2 若授权 HGB，对每个 downstream inner fold，只在 inner-training 的 nested-upstream 3-fold 生成 Q1-B1 bounded OOF，并由完整 inner-training 预测 inner-validation，再从 4 个配置选择。
+7. 对每个 prediction lineage 断言目标组不在 fit groups，且 downstream inner-validation 不进入生成 inner-training 特征的任何上游拟合。
+8. 把 estimator.classes_ 对齐到 17 列，缺类补 0。
+9. 保存逐行 OOF 概率、预测、真实标签、support、缺类、切分 ID 和 upstream lineage ID。
+10. 每个 repeat 独立计算指标后取算术平均；LOSO 每折只在剩余 source 内执行相同的固定 Baseline或嵌套选择。
+11. S3/S4 导出 dry-run 仅用合成 fixture 或训练侧验证输出。
+12. 只有 G4 PASS 后进入 S5，且 freeze manifest 固定模型、schema、Q1 后处理、17 类顺序和输出格式，才可用完整 eligible 训练重拟合并对 test_set_2 一次最终推理。
+13. 导出前检查 151 行、唯一键、固定标签和概率和为 1；浮点误差容许 1e-10；写 release ledger 后不得反馈选择。
 
 ## Baseline
 
@@ -183,10 +186,10 @@ Secondary：
 - 17×17 confusion matrix；
 - 每类 train/validation/OOF support；
 - 每折缺失训练类；
-- 三个 repeat 和折间波动；
-- 13-fold LOSO；
+- 每个 repeat 独立指标、三者算术平均、fold dispersion 与 repeat dispersion；
+- 13-fold source-blind LOSO；
 - 按 AP 数、loc、nav、protocol 分层；
-- 按完整组 bootstrap 95% 区间；
+- 以原始组为单位并保留同组全部 repeat 预测的 95% group-bootstrap uncertainty interval；
 - A03 组保留/排除敏感性；
 - 有/无 Q1 OOF 消融。
 

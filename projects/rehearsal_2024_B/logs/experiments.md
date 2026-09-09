@@ -34,3 +34,5 @@ X0001 只证明文件可打开、规模与基础结构可清点、当前环境�
 | 2026-09-09T11:50:06+08:00 | X0008 | S2 | 正式 S2 合同、切分与 Q3 指标校验 | 干净 commit 6b88cd1；13 个训练 CSV；17 个输入仅做哈希校验 | py_compile；输入前后 verify；A01 后严格身份；3×5 外层和嵌套 3 折注册；13 折 LOSO；Q2 固定标签；Q3 合成单测 | PASS；1,250 行/482 组；15 外层折；1,446/5,784 外/内分配；13 LOSO；17 标签；registry SHA E1DE3911…；model_fit=0；test numeric reads=0 | PASS |
 
 | 2026-09-09T11:56:04+08:00 | X0009 | S2 | G2 提交前全套一致性检查 | S2 方案/三问合同/O1、机器配置、正式结果、日志、Git 索引与本地原始输入 | 14 个合同必备标题；O1 决策；JSON/切分计数；占位符/Parquet；gate_2_review 边界；CSV track/ignore；diff --check；verify-only | headings、O1、formal evidence、CSV policy、placeholder、review boundary、diff 和 contract validation 全部 PASS；无模型拟合、无官方测试数值读取 | PASS |
+
+| 2026-09-09T14:54:01+08:00 | X0010 | S2 | G2/R2 机器合同 v2 预检 | 修订后人工合同、配置 v2、13 个训练 CSV 身份；官方测试仅哈希验证 | py_compile；--verify-only；outer/downstream-inner/nested-upstream/LOSO registry；合同哈希；泄漏与测试释放负向 fixture | PASS；primary/LOSO nested assignments 均 11,568；lineage batches=409；合同哈希、Q3、lineage、test guard 全 PASS；model_fit=0、test numeric read=0 | PASS |

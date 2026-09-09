@@ -5,7 +5,7 @@
 - Project: rehearsal_2024_B
 - Stage: S2
 - Current Gate: G2（待提交）
-- Git Commit / Model Version: 6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39 / CONTRACT_ONLY_NO_MODEL_FIT
+- Git Commit / Model Version: G2 Round 2 revised contract / CONTRACT_ONLY_NO_MODEL_FIT；正式 commit 由最新 contract_validation metadata 记录
 - Remaining Time: UNKNOWN；按下述保守时间盒约束后续工作
 - Review basis: G1 Round 2 PASS，review commit fd6e33b4fa9a7f2de4764ff52272cd62ff52a45b
 - Inputs reviewed: work/01_problem_analysis.md、work/02_data_audit.md、work/03_requirement_matrix.md、work/04_solution_plan.md、work/models/、work/05_experiment_plan.md、CURRENT.md、results/raw/s2/
@@ -16,8 +16,8 @@
 - 当前模型与结果：尚未拟合任何预测模型；当前只有合同校验证据。正式校验为 PASS，模型拟合数 0，官方测试集数值读取数 0。
 - 已批准成果：G1 Round 2 已批准 S1 的题意、A01–A06、严格身份、跨文件重复、测试封存及 Q3 两级目标/指标合同。
 - 数据规模：A01 后训练候选 1,250 个 AP 行、482 个 source_file+test_id 组；Q2 固定 17 个联合标签；13 个 source_file 场景。
-- 切分证据：3×5 外层分组折共 15 折、1,446 个外层组分配、5,784 个嵌套内层组分配、13 个 LOSO 分割已冻结。
-- 当前边界：G2 PASS 前只允许合同与切分验证，不允许正式 Baseline 训练、调参或官方测试预测。
+- 切分证据：3×5 外层 1,446 个组分配、5,784 个 downstream-inner 分配、11,568 个 nested-upstream 分配及 13 个 source-blind LOSO 已冻结。
+- 当前边界：G2 PASS 前只允许合同、切分、血缘和合成门禁验证，不允许正式 Baseline 训练、调参或官方测试预测。
 
 ## 3. Evidence-Based Bottlenecks
 
@@ -44,9 +44,9 @@
 
 - 选择：C1 作为 S3 必做 Baseline，C2 作为 G2 通过后唯一主候选家族；C3 仅在预先定义的分层失败证据出现时允许一次有界对照。
 - 理由：该组合完整回答三问，以同一机制特征和同一分组注册表闭合 Q1→Q2/Q3 链路；它覆盖线性、物理与非线性三类必要比较，但没有算法堆叠。
-- Q1：以 DummyMedian/Ridge 建下限，HGB 预测 seq_time，并以 held-out 消融、分组置换和跨折方向稳定性回答发送机会影响。
-- Q2：只预测 17 个已观察联合标签；缺类折按零概率回填；主指标为固定标签 macro-F1。
-- Q3：先用题面 PHY rate 构造受限效率基线，再比较直接 HGB 与非负残差 HGB；系统输出始终为 AP 输出之和。
+- Q1：以 DummyMedian/Ridge 建下限，HGB 只回答 Q1；下游统一锁定 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded，避免双重选择。
+- Q2：只预测 17 个已观察联合标签；缺类折按零概率回填；主指标为固定标签 macro-F1；S4 含 Q1 的选参执行第三层 cross-fitting。
+- Q3：先用题面 PHY rate 构造受限效率基线，再比较直接 HGB 与非负残差 HGB；主指标使用 bounded AP，系统输出始终为 bounded AP 之和。
 - 未选择 C4：破坏 AP/系统严格一致性。
 - 未选择 C5：1,250 行不足以支持其额外自由度，且超过当前复现与时间预算。
 - 暂不执行 C3：只有共享模型在预注册 AP-count 分层上出现稳定失效时才有证据启动。
@@ -65,7 +65,7 @@
 2. Q1/Q2/Q3 Baseline 均产生可复核的逐折 JSON/JSONL 结果；Q2 始终使用固定 17 类；Q3 AP/系统指标与严格求和恒等式通过。
 3. 15 折主 CV 与 13 折 LOSO 均完整报告，不以主 CV 替代外推压力测试。
 4. 主候选只有在各合同的预注册阈值、复杂度 tie-break 和失败护栏全部满足时才可晋级。
-5. 原始输入哈希不变，官方测试数值在模型冻结前继续封存，所有中间结果不使用 CSV 格式。
+5. 原始输入和合同文件哈希不变；官方测试在 G4 PASS 后的 S5 freeze manifest 完整前继续封存，且只允许一次无反馈最终推理；所有中间结果不使用 CSV 格式。
 
 ## 8. Stop Conditions
 
@@ -78,7 +78,7 @@
 
 ## 9. Rollback Plan
 
-若 C2 不满足晋级标准，回退到 C1 中表现最稳健的简单 Baseline，并保留同一特征、切分与评估注册表。若发现 S2 合同缺陷，停止 S3/S4，回到最后一个输入哈希不变且 split registry 校验 PASS 的提交 6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39，修订合同后重新提交 G2。任何失败运行写入实验日志，不覆盖最近一次有效原始结果。
+若 C2 不满足晋级标准，回退到 C1 中表现最稳健的简单 Baseline，并保留同一特征、切分与评估注册表。若发现 S2 合同缺陷，停止 S3/S4，回到最新 contract_validation.json 所记录的输入哈希不变、合同哈希与 split registry 均 PASS 的干净提交，修订合同后重新提交 G2。任何失败运行写入实验日志，不覆盖最近一次有效原始结果。
 
 ## 10. Advisor Input（如有）
 

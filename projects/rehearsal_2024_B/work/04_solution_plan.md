@@ -170,7 +170,7 @@ HistGradientBoostingRegressor 表达门限裕量、协议、AP 数和 RSSI 间�
 - Q2-B1：C=1 的多项 LogisticRegression；
 - 主候选：HistGradientBoostingClassifier，多分类 log loss。
 
-输入为共享基本/RSSI特征和可选的 Q1 交叉拟合 seq_time。Q1 训练内拟合值、真实 seq_time、真实 nss/mcs、PER 和其他事后字段全部禁止。
+输入为共享基本/RSSI 特征以及预注册依赖消融中的“无 Q1”或固定 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded；含 Q1 的训练行必须严格 OOF。Q1 训练内拟合值、真实 seq_time、真实 nss/mcs、PER 和其他事后字段全部禁止。
 
 A03 的 0|0 在主分析保留；另做对应完整组排除敏感性。只有 O2 发现少数类完全坍缩时，才允许一次上限为 5 的平方根逆频率权重候选。
 
@@ -181,7 +181,7 @@ A03 的 0|0 在主分析保留；另做对应完整组排除敏感性。只有 O
 Q3 使用：
 
 - 共享 z_ig；
-- 对训练行为严格交叉拟合的 Q1 seq_time，推理时使用 Q1 预测；
+- 固定 Q1-B1 Ridge(alpha=1.0) 的 seq_time_bounded：训练行为严格 OOF，验证/最终行为由相应训练边界拟合后推理；
 - 题面明确许可的真实 nss/mcs；
 - 题面 20 MHz 映射表得到的 PHY Rate R_i。
 
@@ -229,25 +229,56 @@ AP 和系统分别计算题面 signed error、经验 CDF、最近秩 ERROR_90 �
 
 ## 9. Cross-fitting and leakage control
 
-对每个外层验证折：
+### 9.1 Frozen upstream feature identity
 
-1. 只用外层训练组拟合特征学习步骤；
-2. 在外层训练组内部按固定 3-fold registry 产生 Q1 cross-fitted 预测；
-3. 用这些预测训练 Q2/Q3；
-4. 用整个外层训练组重拟合 Q1，预测外层验证组；
-5. Q2/Q3 对外层验证组给出预测；
-6. 保存键、repeat、fold、真实值、预测、缺类和预处理哈希。
+Q2/Q3 的 Q1 特征在 S3 与 S4 均唯一冻结为：
 
-外层验证组从不进入上游 Q1、下游模型、插补器、编码器、超参数选择或效率系数估计。
+- estimator：`Q1-B1 Ridge(alpha=1.0)`；
+- prediction：`seq_time_bounded=clip(seq_time_raw,0,test_dur)`；
+- postprocess：`q1_clip_0_test_dur_v1`；
+- Q1 的 HGB 只回答 Q1 自身，不进入下游特征，避免上游模型选择与下游选参双重耦合。
+
+每批上游预测必须保存 `upstream_model_id`、`prediction_variant`、`postprocess_version`、`prediction_role`、预测组列表以及 `upstream_fit_groups_hash`。
+
+### 9.2 S3 fixed Baseline flow
+
+S3 的 Q2/Q3 Baseline 参数均固定，不进行下游 inner-CV 选参。对每个 outer fold：
+
+1. 只用 outer-training groups 拟合预处理；
+2. 用冻结 inner 3-fold 在 outer-training 内生成 Q1-B1 bounded OOF 特征；
+3. 用这些 OOF 特征训练固定 Q2/Q3 Baseline；
+4. 用全部 outer-training 拟合 Q1-B1，预测 outer-validation；
+5. 下游模型预测 outer-validation；
+6. 断言任一预测组不在其上游 fit groups 中。
+
+### 9.3 S4 nested downstream selection
+
+对每个 `outer_repeat × outer_fold × downstream_inner_fold`：
+
+1. downstream inner-validation 完全隔离；
+2. 只在 downstream inner-training 内按冻结的第三层 3-fold registry 生成 Q1-B1 bounded OOF 特征；
+3. 用完整 downstream inner-training 拟合 Q1-B1 后预测 downstream inner-validation；
+4. 任何 inner-validation 组及其真实 seq_time 均不得进入为 inner-training 生成 Q1 特征的上游拟合；
+5. 候选共享同一 nested registry，不得重新随机划分。
+
+选出下游配置后，outer-training 仍使用第 9.2 节的 OOF 特征，outer-validation 仍只接受 outer-training 拟合的 Q1 预测。
+
+### 9.4 LOSO source blindness
+
+每个 LOSO 折把 held-out source 的全部行、标签和组从预处理、Q1 拟合、下游拟合及候选选择中排除。S4 的选择只能在其余 source 内执行同一 nested cross-fitting；不得使用接触过 held-out source 的全局最优配置。
 
 ## 10. Validation and model promotion
 
 - 主估计：3×5 repeated GroupKFold，组为 source_file + test_id；
-- 内层选择：每个外层训练集固定 3-fold GroupKFold；
-- 强制外推：13 个 leave-one-source-file-out；
-- 置信区间：按完整组 bootstrap 1,000 次；
+- 主点估计：每个 repeat 独立合并其 OOF 后计算指标，再对 3 个 repeat 指标取算术平均；
+- 折间波动与 repeat 间波动仅作分别命名的描述性离散度；
+- 内层选择：每个 outer-training 固定 3-fold；含 Q1 特征的 S4 下游选择再使用冻结第三层 3-fold；
+- 强制外推：13 个 source-blind leave-one-source-file-out；
+- 不确定性：按原始完整组 bootstrap 1,000 次；一次抽中保留该组 3 个 repeat 的全部预测，称为 group-bootstrap uncertainty interval；
 - 分层：AP 数、loc、nav、protocol，仅用于诊断；
-- 官方测试：所有选择冻结后一次推理，不产生验证分数。
+- Q1 主选择和 Q2/Q3 输入使用 bounded Q1；Q3 主 AP/系统评价使用非负 bounded AP 预测并先聚合 AP 再得系统，raw 只作审计；
+- 官方测试释放：G4 PASS 后进入 S5，且模型、特征 schema、后处理、类别映射与输出格式写入 freeze manifest 后，才允许一次性最终推理；此后禁止返回 O2/O3/S4；
+- S3/S4 导出 dry-run 只用合成 schema fixture、训练侧 outer-validation 或 LOSO 输出，不得读取官方测试数值。
 
 主候选必须超过对应结构 Baseline 的预注册阈值；否则回退 Baseline。任何额外候选须由 O2 的实际失败证据授权，不能在 S2 预先无限扩张。
 
