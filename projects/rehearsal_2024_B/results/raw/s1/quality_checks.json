@@ -3,7 +3,7 @@
   "anomalies": [
     {
       "detected_corrupt_rows": 2,
-      "frozen_handling": "Do not edit source; isolate the two already-incomplete test_id 40/41 groups (one corrupt ap_1 row each, 2 rows total) from training and model selection. The remaining groups all retain their expected AP count.",
+      "frozen_handling": "Do not edit source; isolate the two already-incomplete test_id 40/41 groups (one corrupt ap_1 row each, 2 rows total) from training and model selection. Strict identity auditing verifies every remaining group.",
       "id": "A01",
       "isolated_incomplete_group_count": 2,
       "isolated_row_count": 2,
@@ -95,13 +95,13 @@
           "training_set_3ap_loc30_nav86.csv"
         ]
       },
-      "frozen_handling": "Normalize aliases only in derived data; exclude every predict/error placeholder from features; retain original headers in source files.",
+      "frozen_handling": "Normalize aliases only in derived data; exclude every predict/error placeholder from features; retain original headers.",
       "id": "A04",
       "severity": "WARN",
       "title": "schema aliases and empty prediction placeholders differ across files"
     },
     {
-      "frozen_handling": "Treat these two field values as invalid/missing in derived analysis and never as model inputs. Keep their otherwise plausible target rows; S2 must include a whole-group exclusion sensitivity check if those rows affect a candidate model.",
+      "frozen_handling": "Treat these two field values as invalid/missing in derived analysis and never as model inputs. Keep otherwise plausible target rows; S2 adds whole-group exclusion sensitivity if relevant.",
       "id": "A05",
       "row_count": 2,
       "rows": [
@@ -123,10 +123,10 @@
         }
       ],
       "severity": "WARN",
-      "title": "two other_air_time values exceed their 60-second test duration by orders of magnitude"
+      "title": "two other_air_time values exceed their 60-second test duration"
     },
     {
-      "frozen_handling": "Do not rename or rewrite the source. Use content loc_id=loc4 as the feature value, preserve source_file as a separate scenario key, and do not infer whether the intended official label was loc4 or loc33.",
+      "frozen_handling": "Do not rename or rewrite source. Use content loc_id=loc4 as the feature value, preserve source_file as a scenario key, and keep the intended official label UNKNOWN.",
       "id": "A06",
       "mismatches": [
         {
@@ -143,8 +143,177 @@
   ],
   "audit_status": "PASS_WITH_WARNINGS",
   "critical_failures": [],
-  "eligible_training_bad_group_count": 0,
-  "eligible_training_bad_groups": [],
+  "cross_file_duplicate_group_fingerprint_count": 0,
+  "cross_file_duplicate_row_fingerprint_count": 0,
+  "duplicate_audit": {
+    "by_ap_count": {
+      "2": {
+        "cross_file_duplicate_group_examples": [],
+        "cross_file_duplicate_group_fingerprint_count": 0,
+        "cross_file_duplicate_group_occurrence_count": 0,
+        "cross_file_duplicate_row_examples": [],
+        "cross_file_duplicate_row_fingerprint_count": 0,
+        "cross_file_duplicate_row_occurrence_count": 0,
+        "eligible_group_count": 196,
+        "eligible_row_count": 392,
+        "group_fingerprint_unique_count": 196,
+        "normalization": "intersection of semantic columns for the AP-count stratum; source_file, test_id and prediction/error placeholders excluded; missing values canonicalized; RSSI scalar and one-element list share the same numeric representation",
+        "normalized_columns": [
+          "ap_from_ap_0_max_ant_rssi",
+          "ap_from_ap_0_mean_ant_rssi",
+          "ap_from_ap_0_sum_ant_rssi",
+          "ap_from_ap_1_max_ant_rssi",
+          "ap_from_ap_1_mean_ant_rssi",
+          "ap_from_ap_1_sum_ant_rssi",
+          "ap_id",
+          "ap_mac",
+          "ap_name",
+          "bss_id",
+          "ed",
+          "eirp",
+          "loc_id",
+          "mcs",
+          "nav",
+          "nss",
+          "num_ampdu",
+          "other_air_time",
+          "pd",
+          "per",
+          "pkt_len",
+          "ppdu_dur",
+          "protocol",
+          "seq_time",
+          "sta_from_ap_0_max_ant_rssi",
+          "sta_from_ap_0_mean_ant_rssi",
+          "sta_from_ap_0_sum_ant_rssi",
+          "sta_from_ap_1_max_ant_rssi",
+          "sta_from_ap_1_mean_ant_rssi",
+          "sta_from_ap_1_sum_ant_rssi",
+          "sta_from_sta_0_rssi",
+          "sta_from_sta_1_rssi",
+          "sta_id",
+          "sta_mac",
+          "sta_to_ap_0_max_ant_rssi",
+          "sta_to_ap_0_mean_ant_rssi",
+          "sta_to_ap_0_sum_ant_rssi",
+          "sta_to_ap_1_max_ant_rssi",
+          "sta_to_ap_1_mean_ant_rssi",
+          "sta_to_ap_1_sum_ant_rssi",
+          "test_dur",
+          "throughput"
+        ],
+        "row_fingerprint_unique_count": 392,
+        "source_files": [
+          "training_set_2ap_loc0_nav82.csv",
+          "training_set_2ap_loc0_nav86.csv",
+          "training_set_2ap_loc1_nav82.csv",
+          "training_set_2ap_loc1_nav86.csv",
+          "training_set_2ap_loc2_nav82.csv"
+        ]
+      },
+      "3": {
+        "cross_file_duplicate_group_examples": [],
+        "cross_file_duplicate_group_fingerprint_count": 0,
+        "cross_file_duplicate_group_occurrence_count": 0,
+        "cross_file_duplicate_row_examples": [],
+        "cross_file_duplicate_row_fingerprint_count": 0,
+        "cross_file_duplicate_row_occurrence_count": 0,
+        "eligible_group_count": 286,
+        "eligible_row_count": 858,
+        "group_fingerprint_unique_count": 286,
+        "normalization": "intersection of semantic columns for the AP-count stratum; source_file, test_id and prediction/error placeholders excluded; missing values canonicalized; RSSI scalar and one-element list share the same numeric representation",
+        "normalized_columns": [
+          "ap_from_ap_0_max_ant_rssi",
+          "ap_from_ap_0_mean_ant_rssi",
+          "ap_from_ap_0_sum_ant_rssi",
+          "ap_from_ap_1_max_ant_rssi",
+          "ap_from_ap_1_mean_ant_rssi",
+          "ap_from_ap_1_sum_ant_rssi",
+          "ap_from_ap_2_max_ant_rssi",
+          "ap_from_ap_2_mean_ant_rssi",
+          "ap_from_ap_2_sum_ant_rssi",
+          "ap_id",
+          "ap_mac",
+          "ap_name",
+          "bss_id",
+          "ed",
+          "eirp",
+          "loc_id",
+          "mcs",
+          "nav",
+          "nss",
+          "num_ampdu",
+          "other_air_time",
+          "pd",
+          "per",
+          "pkt_len",
+          "ppdu_dur",
+          "protocol",
+          "seq_time",
+          "sta_from_ap_0_max_ant_rssi",
+          "sta_from_ap_0_mean_ant_rssi",
+          "sta_from_ap_0_sum_ant_rssi",
+          "sta_from_ap_1_max_ant_rssi",
+          "sta_from_ap_1_mean_ant_rssi",
+          "sta_from_ap_1_sum_ant_rssi",
+          "sta_from_ap_2_max_ant_rssi",
+          "sta_from_ap_2_mean_ant_rssi",
+          "sta_from_ap_2_sum_ant_rssi",
+          "sta_from_sta_0_rssi",
+          "sta_from_sta_1_rssi",
+          "sta_from_sta_2_rssi",
+          "sta_id",
+          "sta_mac",
+          "sta_to_ap_0_max_ant_rssi",
+          "sta_to_ap_0_mean_ant_rssi",
+          "sta_to_ap_0_sum_ant_rssi",
+          "sta_to_ap_1_max_ant_rssi",
+          "sta_to_ap_1_mean_ant_rssi",
+          "sta_to_ap_1_sum_ant_rssi",
+          "sta_to_ap_2_max_ant_rssi",
+          "sta_to_ap_2_mean_ant_rssi",
+          "sta_to_ap_2_sum_ant_rssi",
+          "test_dur",
+          "throughput"
+        ],
+        "row_fingerprint_unique_count": 858,
+        "source_files": [
+          "training_set_3ap_loc30_nav82.csv",
+          "training_set_3ap_loc30_nav86.csv",
+          "training_set_3ap_loc31_nav82.csv",
+          "training_set_3ap_loc31_nav86.csv",
+          "training_set_3ap_loc32_nav82.csv",
+          "training_set_3ap_loc32_nav86.csv",
+          "training_set_3ap_loc33_nav82.csv",
+          "training_set_3ap_loc33_nav88.csv"
+        ]
+      }
+    },
+    "cross_file_duplicate_group_fingerprint_count": 0,
+    "cross_file_duplicate_row_fingerprint_count": 0,
+    "cross_file_scope": "eligible training rows/groups, compared only within the same AP-count stratum after excluding provenance keys and prediction placeholders",
+    "handling_if_found": "Do not silently delete. Register each cluster and bind the entire duplicate-equivalence cluster to one validation fold in S2; report a sensitivity analysis if removal is considered.",
+    "hash_algorithm": "SHA-256 over deterministic UTF-8 JSON",
+    "strict_no_cross_file_duplicates": true,
+    "within_file_exact_duplicate_row_count": 0,
+    "within_file_exact_duplicate_rows_by_file": {
+      "training_set_2ap_loc0_nav82.csv": 0,
+      "training_set_2ap_loc0_nav86.csv": 0,
+      "training_set_2ap_loc1_nav82.csv": 0,
+      "training_set_2ap_loc1_nav86.csv": 0,
+      "training_set_2ap_loc2_nav82.csv": 0,
+      "training_set_3ap_loc30_nav82.csv": 0,
+      "training_set_3ap_loc30_nav86.csv": 0,
+      "training_set_3ap_loc31_nav82.csv": 0,
+      "training_set_3ap_loc31_nav86.csv": 0,
+      "training_set_3ap_loc32_nav82.csv": 0,
+      "training_set_3ap_loc32_nav86.csv": 0,
+      "training_set_3ap_loc33_nav82.csv": 0,
+      "training_set_3ap_loc33_nav88.csv": 0
+    },
+    "within_file_exact_duplicate_scope": "all original columns within each training file"
+  },
+  "eligible_training_strict_complete_group_count": 482,
   "external_data_contract": {
     "current_use": "None",
     "policy": "Later external data/artifacts require provenance, license, version/hash, download date, and a no-external-data ablation.",
@@ -249,7 +418,10 @@
         "error%",
         "error%.1"
       ],
-      "target": "throughput"
+      "targets": [
+        "per-AP throughput",
+        "system throughput=sum of group AP throughput"
+      ]
     },
     "shared_keys_not_raw_features": [
       "test_id",
@@ -263,6 +435,229 @@
     ]
   },
   "filename_content_scenario_mismatch_count": 1,
+  "identity_audit": {
+    "eligible_training": {
+      "composite_key": [
+        "source_file",
+        "test_id",
+        "ap_id"
+      ],
+      "composite_key_duplicate_examples": [],
+      "composite_key_duplicate_key_count": 0,
+      "composite_key_duplicate_row_count": 0,
+      "group_count": 482,
+      "illegal_ap_id_examples": [],
+      "illegal_ap_id_row_count": 0,
+      "invalid_group_count": 0,
+      "invalid_group_examples": [],
+      "null_ap_id_examples": [],
+      "null_ap_id_row_count": 0,
+      "null_test_id_examples": [],
+      "null_test_id_row_count": 0,
+      "row_count": 1250,
+      "scope": "eligible training after A01 isolation",
+      "strict_pass": true,
+      "strict_valid_group_count": 482
+    },
+    "official_tests_combined": {
+      "composite_key": [
+        "source_file",
+        "test_id",
+        "ap_id"
+      ],
+      "composite_key_duplicate_examples": [],
+      "composite_key_duplicate_key_count": 0,
+      "composite_key_duplicate_row_count": 0,
+      "group_count": 136,
+      "illegal_ap_id_examples": [],
+      "illegal_ap_id_row_count": 0,
+      "invalid_group_count": 0,
+      "invalid_group_examples": [],
+      "null_ap_id_examples": [],
+      "null_ap_id_row_count": 0,
+      "null_test_id_examples": [],
+      "null_test_id_row_count": 0,
+      "row_count": 336,
+      "scope": "four official tests; identity fields only",
+      "strict_pass": true,
+      "strict_valid_group_count": 136
+    },
+    "q3_tests_combined": {
+      "composite_key": [
+        "source_file",
+        "test_id",
+        "ap_id"
+      ],
+      "composite_key_duplicate_examples": [],
+      "composite_key_duplicate_key_count": 0,
+      "composite_key_duplicate_row_count": 0,
+      "group_count": 75,
+      "illegal_ap_id_examples": [],
+      "illegal_ap_id_row_count": 0,
+      "invalid_group_count": 0,
+      "invalid_group_examples": [],
+      "null_ap_id_examples": [],
+      "null_ap_id_row_count": 0,
+      "null_test_id_examples": [],
+      "null_test_id_row_count": 0,
+      "row_count": 185,
+      "scope": "test_set_1 files; identity fields only",
+      "strict_pass": true,
+      "strict_valid_group_count": 75
+    },
+    "raw_training": {
+      "composite_key": [
+        "source_file",
+        "test_id",
+        "ap_id"
+      ],
+      "composite_key_duplicate_examples": [],
+      "composite_key_duplicate_key_count": 0,
+      "composite_key_duplicate_row_count": 0,
+      "group_count": 484,
+      "illegal_ap_id_examples": [],
+      "illegal_ap_id_row_count": 0,
+      "invalid_group_count": 2,
+      "invalid_group_examples": [
+        {
+          "actual_ap_id_counts": {
+            "ap_1": 1
+          },
+          "expected_ap_ids": [
+            "ap_0",
+            "ap_1"
+          ],
+          "reasons": [
+            "ap_id_multiplicity",
+            "ap_id_set",
+            "row_count"
+          ],
+          "row_count": 1,
+          "source_file": "training_set_2ap_loc2_nav82.csv",
+          "test_id": 40
+        },
+        {
+          "actual_ap_id_counts": {
+            "ap_1": 1
+          },
+          "expected_ap_ids": [
+            "ap_0",
+            "ap_1"
+          ],
+          "reasons": [
+            "ap_id_multiplicity",
+            "ap_id_set",
+            "row_count"
+          ],
+          "row_count": 1,
+          "source_file": "training_set_2ap_loc2_nav82.csv",
+          "test_id": 41
+        }
+      ],
+      "null_ap_id_examples": [],
+      "null_ap_id_row_count": 0,
+      "null_test_id_examples": [],
+      "null_test_id_row_count": 0,
+      "row_count": 1252,
+      "scope": "raw training before A01",
+      "strict_pass": false,
+      "strict_valid_group_count": 482
+    },
+    "tests_by_file": {
+      "test_set_1_2ap.csv": {
+        "composite_key": [
+          "source_file",
+          "test_id",
+          "ap_id"
+        ],
+        "composite_key_duplicate_examples": [],
+        "composite_key_duplicate_key_count": 0,
+        "composite_key_duplicate_row_count": 0,
+        "group_count": 40,
+        "illegal_ap_id_examples": [],
+        "illegal_ap_id_row_count": 0,
+        "invalid_group_count": 0,
+        "invalid_group_examples": [],
+        "null_ap_id_examples": [],
+        "null_ap_id_row_count": 0,
+        "null_test_id_examples": [],
+        "null_test_id_row_count": 0,
+        "row_count": 80,
+        "scope": "test_set_1_2ap.csv; identity fields only",
+        "strict_pass": true,
+        "strict_valid_group_count": 40
+      },
+      "test_set_1_3ap.csv": {
+        "composite_key": [
+          "source_file",
+          "test_id",
+          "ap_id"
+        ],
+        "composite_key_duplicate_examples": [],
+        "composite_key_duplicate_key_count": 0,
+        "composite_key_duplicate_row_count": 0,
+        "group_count": 35,
+        "illegal_ap_id_examples": [],
+        "illegal_ap_id_row_count": 0,
+        "invalid_group_count": 0,
+        "invalid_group_examples": [],
+        "null_ap_id_examples": [],
+        "null_ap_id_row_count": 0,
+        "null_test_id_examples": [],
+        "null_test_id_row_count": 0,
+        "row_count": 105,
+        "scope": "test_set_1_3ap.csv; identity fields only",
+        "strict_pass": true,
+        "strict_valid_group_count": 35
+      },
+      "test_set_2_2ap.csv": {
+        "composite_key": [
+          "source_file",
+          "test_id",
+          "ap_id"
+        ],
+        "composite_key_duplicate_examples": [],
+        "composite_key_duplicate_key_count": 0,
+        "composite_key_duplicate_row_count": 0,
+        "group_count": 32,
+        "illegal_ap_id_examples": [],
+        "illegal_ap_id_row_count": 0,
+        "invalid_group_count": 0,
+        "invalid_group_examples": [],
+        "null_ap_id_examples": [],
+        "null_ap_id_row_count": 0,
+        "null_test_id_examples": [],
+        "null_test_id_row_count": 0,
+        "row_count": 64,
+        "scope": "test_set_2_2ap.csv; identity fields only",
+        "strict_pass": true,
+        "strict_valid_group_count": 32
+      },
+      "test_set_2_3ap.csv": {
+        "composite_key": [
+          "source_file",
+          "test_id",
+          "ap_id"
+        ],
+        "composite_key_duplicate_examples": [],
+        "composite_key_duplicate_key_count": 0,
+        "composite_key_duplicate_row_count": 0,
+        "group_count": 29,
+        "illegal_ap_id_examples": [],
+        "illegal_ap_id_row_count": 0,
+        "invalid_group_count": 0,
+        "invalid_group_examples": [],
+        "null_ap_id_examples": [],
+        "null_ap_id_row_count": 0,
+        "null_test_id_examples": [],
+        "null_test_id_row_count": 0,
+        "row_count": 87,
+        "scope": "test_set_2_3ap.csv; identity fields only",
+        "strict_pass": true,
+        "strict_valid_group_count": 29
+      }
+    }
+  },
   "input_hashes_unchanged_during_audit": true,
   "input_verification_after": {
     "actual_count": 17,
@@ -624,8 +1019,88 @@
     "missing": [],
     "status": "PASS"
   },
+  "official_test_strict_complete_group_count": 136,
   "other_air_time_over_test_dur_count": 2,
   "per_outside_0_1_count": 0,
+  "q3_target_and_metric_contract": {
+    "frozen_metric_contract": {
+      "accuracy_90_fraction": "accuracy_90 = 1 - ERROR_90",
+      "accuracy_90_percent": "accuracy_90_percent = 100 * (1 - ERROR_90)",
+      "auxiliary_metrics": [
+        "MAE",
+        "RMSE",
+        "R2"
+      ],
+      "clipping": "none; negative or >100% displayed accuracy is not hidden",
+      "empirical_cdf": "F(x) = count(r_i <= x) / n over defined denominators",
+      "error_90": "sort signed r_i ascending and take one-indexed rank ceil(0.90*n); no interpolation (inverse empirical CDF)",
+      "levels_computed_separately": [
+        "per_ap",
+        "system_sum"
+      ],
+      "primary_statement_error_direction": "signed; no absolute value",
+      "signed_error_fraction": "r_i = (yhat_i - y_i) / y_i",
+      "signed_error_percent": "error_i_percent = 100 * r_i",
+      "supplementary_diagnostic": "also report absolute relative error |r_i| CDF and nearest-rank 90th percentile, explicitly not substituted for the statement metric",
+      "system_aggregation": "y_group = sum_AP y_i and yhat_group = sum_AP yhat_i within the same strict (source_file, test_id) group",
+      "tie_rule": "ties retain all observations; ERROR_90 is the value at the fixed nearest-rank position",
+      "zero_true_policy": "exclude y_i=0 from relative-error CDF/ERROR_90, disclose excluded count, and report absolute error for zero-target cases separately"
+    },
+    "keys_and_counts": {
+      "eligible_identity_strict_pass": true,
+      "eligible_training_ap_rows": 1250,
+      "eligible_training_complete_system_groups": 482,
+      "eligible_training_system_groups_by_ap_count": {
+        "2": 196,
+        "3": 286
+      },
+      "q3_test_ap_rows": 185,
+      "q3_test_complete_system_groups": 75,
+      "q3_test_groups_by_file": {
+        "test_set_1_2ap.csv": 40,
+        "test_set_1_3ap.csv": 35
+      },
+      "q3_test_identity_strict_pass": true,
+      "training_ap_key": [
+        "source_file",
+        "test_id",
+        "ap_id"
+      ],
+      "training_system_key": [
+        "source_file",
+        "test_id"
+      ]
+    },
+    "statement_facts": {
+      "cdf_requirement": "CDF of throughput prediction error; take ERROR where empirical probability error <= ERROR reaches 90%; model accuracy is 1-ERROR",
+      "per_ap_target": "throughput in Mbps for each AP row",
+      "required_levels": [
+        "per_ap",
+        "system_sum"
+      ],
+      "statement_signed_error_percent": "(predicted throughput - measured throughput) / measured throughput * 100",
+      "system_target": "sum of throughput over all AP rows in the same complete test group; unit Mbps"
+    },
+    "training_target_constructibility": {
+      "per_ap_positive_denominator_count": 1245,
+      "per_ap_throughput_missing_count": 0,
+      "per_ap_true_zero_count": 5,
+      "system_positive_denominator_count": 482,
+      "system_throughput_mbps_summary": {
+        "coercion_failures": 0,
+        "count": 482,
+        "max": 618.67,
+        "mean": 252.40269709543568,
+        "median": 211.715,
+        "min": 77.33,
+        "q25": 159.5,
+        "q75": 312.9775,
+        "std": 119.66393811428004
+      },
+      "system_throughput_missing_count": 0,
+      "system_true_zero_count": 0
+    }
+  },
   "rssi_audit": {
     "accepted_encodings": [
       "finite numeric scalar",
@@ -1175,7 +1650,6 @@
       "rows": 87
     }
   },
-  "training_exact_duplicate_rows": 0,
   "training_rows_eligible_after_A01_group_isolation": 1250,
   "training_rows_raw": 1252,
   "validation_contract": {
@@ -1183,14 +1657,16 @@
       "source_file",
       "test_id"
     ],
+    "duplicate_cluster_rule": "Do not silently delete. Register each cluster and bind the entire duplicate-equivalence cluster to one validation fold in S2; report a sensitivity analysis if removal is considered.",
     "primary_candidate": "GroupKFold or repeated grouped holdout; fit preprocessing inside each training fold.",
-    "rule": "Every AP row for a test remains in one fold.",
     "scenario_stress_tests": [
-      "leave-one-source-file-out",
+      "mandatory leave-one-source-file-out",
       "leave-one-loc_id-out where feasible",
       "report by ap_count/loc_id/nav/protocol"
     ],
-    "sealed_test_rule": "Official tests are final inference/export only; their feature distributions and blank targets cannot drive feature, rule, hyperparameter, or model selection.",
-    "stacking_rule": "Any Q1 prediction used to train Q2/Q3 must be out-of-fold; in-sample upstream predictions are forbidden."
-  }
+    "sealed_test_rule": "Official tests are final inference/export only; their feature distributions and blank targets cannot drive selection.",
+    "stacking_rule": "Any Q1 prediction used to train Q2/Q3 must be out-of-fold; in-sample upstream predictions are forbidden.",
+    "strict_group_identity": "row count + exact AP ID set/multiplicity + unique (source_file,test_id,ap_id)"
+  },
+  "within_file_training_exact_duplicate_row_count": 0
 }

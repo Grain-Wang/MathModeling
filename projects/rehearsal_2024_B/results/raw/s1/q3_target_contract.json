@@ -1,0 +1,79 @@
+{
+  "frozen_metric_contract": {
+    "accuracy_90_fraction": "accuracy_90 = 1 - ERROR_90",
+    "accuracy_90_percent": "accuracy_90_percent = 100 * (1 - ERROR_90)",
+    "auxiliary_metrics": [
+      "MAE",
+      "RMSE",
+      "R2"
+    ],
+    "clipping": "none; negative or >100% displayed accuracy is not hidden",
+    "empirical_cdf": "F(x) = count(r_i <= x) / n over defined denominators",
+    "error_90": "sort signed r_i ascending and take one-indexed rank ceil(0.90*n); no interpolation (inverse empirical CDF)",
+    "levels_computed_separately": [
+      "per_ap",
+      "system_sum"
+    ],
+    "primary_statement_error_direction": "signed; no absolute value",
+    "signed_error_fraction": "r_i = (yhat_i - y_i) / y_i",
+    "signed_error_percent": "error_i_percent = 100 * r_i",
+    "supplementary_diagnostic": "also report absolute relative error |r_i| CDF and nearest-rank 90th percentile, explicitly not substituted for the statement metric",
+    "system_aggregation": "y_group = sum_AP y_i and yhat_group = sum_AP yhat_i within the same strict (source_file, test_id) group",
+    "tie_rule": "ties retain all observations; ERROR_90 is the value at the fixed nearest-rank position",
+    "zero_true_policy": "exclude y_i=0 from relative-error CDF/ERROR_90, disclose excluded count, and report absolute error for zero-target cases separately"
+  },
+  "keys_and_counts": {
+    "eligible_identity_strict_pass": true,
+    "eligible_training_ap_rows": 1250,
+    "eligible_training_complete_system_groups": 482,
+    "eligible_training_system_groups_by_ap_count": {
+      "2": 196,
+      "3": 286
+    },
+    "q3_test_ap_rows": 185,
+    "q3_test_complete_system_groups": 75,
+    "q3_test_groups_by_file": {
+      "test_set_1_2ap.csv": 40,
+      "test_set_1_3ap.csv": 35
+    },
+    "q3_test_identity_strict_pass": true,
+    "training_ap_key": [
+      "source_file",
+      "test_id",
+      "ap_id"
+    ],
+    "training_system_key": [
+      "source_file",
+      "test_id"
+    ]
+  },
+  "statement_facts": {
+    "cdf_requirement": "CDF of throughput prediction error; take ERROR where empirical probability error <= ERROR reaches 90%; model accuracy is 1-ERROR",
+    "per_ap_target": "throughput in Mbps for each AP row",
+    "required_levels": [
+      "per_ap",
+      "system_sum"
+    ],
+    "statement_signed_error_percent": "(predicted throughput - measured throughput) / measured throughput * 100",
+    "system_target": "sum of throughput over all AP rows in the same complete test group; unit Mbps"
+  },
+  "training_target_constructibility": {
+    "per_ap_positive_denominator_count": 1245,
+    "per_ap_throughput_missing_count": 0,
+    "per_ap_true_zero_count": 5,
+    "system_positive_denominator_count": 482,
+    "system_throughput_mbps_summary": {
+      "coercion_failures": 0,
+      "count": 482,
+      "max": 618.67,
+      "mean": 252.40269709543568,
+      "median": 211.715,
+      "min": 77.33,
+      "q25": 159.5,
+      "q75": 312.9775,
+      "std": 119.66393811428004
+    },
+    "system_throughput_missing_count": 0,
+    "system_true_zero_count": 0
+  }
+}

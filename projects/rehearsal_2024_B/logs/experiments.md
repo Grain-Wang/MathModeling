@@ -1,16 +1,15 @@
 # Experiment Log
 
-本日志记录环境检查、数据审计和模型实验。S0 只允许输入与环境验证，不产生建模结论。
+本日志记录环境检查、数据审计和模型实验。S0/S1 只允许输入、题意和数据合同验证，不产生建模结论。
 
 | Time (Asia/Shanghai) | ID | Stage | Purpose | Inputs | Method / Command | Result | Status |
 |---|---|---|---|---|---|---|---|
-| 2026-09-08 22:10 | X0001 | S0 | 核对题目、数据附件、哈希、结构和当前运行环境 | 1 个 DOCX、13 个训练 CSV、4 个测试 CSV、math_modeling 环境 | DOCX ZIP/XML 只读解析；pandas 只读解析；SHA-256；核心依赖导入；CPU/RAM/GPU 查询 | DOCX 标题与 3 问可读；17/17 CSV 可解析；训练 1,252 行、测试 336 行；无完全重复行；smoke=PASS；已知异常已登记 | PASS_WITH_KNOWN_INPUT_RISKS |
-
+| 2026-09-08 22:10 | X0001 | S0 | 核对题目、数据附件、哈希、结构和当前运行环境 | 1 个 DOCX、13 个训练 CSV、4 个测试 CSV、math_modeling 环境 | DOCX ZIP/XML 只读解析；pandas 只读解析；SHA-256；核心依赖导入；CPU/RAM/GPU 查询 | DOCX 标题与 3 问可读；17/17 CSV 可解析；训练 1,252 行、测试 336 行；无文件内完全重复行；smoke=PASS；已知异常已登记 | PASS_WITH_KNOWN_INPUT_RISKS |
 | 2026-09-08T22:48:49+08:00 | X0002 | S1 | 审计器预检与原始输入复核 | 17 个本地 CSV、src/s1_data_audit.py | py_compile；--verify-only；逐文件名/大小/SHA-256；git diff --check | 脚本编译通过；input_verification=PASS；17/17 文件匹配；未写审计结果 | PASS |
-
-| 2026-09-08T23:14:11+08:00 | X0003 | S1 | 正式逐字段数据审计 | commit f4b8b9f；13 个训练 CSV、4 个封存测试 CSV | 审计前后文件名/大小/SHA-256；训练 schema/数值/RSSI/异常/分组审计；测试仅结构与非空计数 | 前后 17/17 PASS 且哈希不变；训练 1,252 -> 1,250 行、482 完整组；测试 336 行；A01-A06 已登记；测试数值摘要为空 | PASS_WITH_WARNINGS |
-
-| 2026-09-08T23:15:54+08:00 | X0004 | S1 | G1 提交前一致性检查 | S1 全部文档、脚本、JSON/MD 证据、Git 索引与本地输入 | py_compile；--verify-only；JSON 断言；必需文件；diff --check；CSV ignore/track；活动项目唯一性 | required_files=PASS；csv_policy=PASS；s1_json_assertions=PASS；B 为唯一 ACTIVE；无校验失败 | PASS |
+| 2026-09-08T23:14:11+08:00 | X0003 | S1 | G1/R1 正式逐字段数据审计 | commit f4b8b9f；13 个训练 CSV、4 个封存测试 CSV | 审计前后文件名/大小/SHA-256；训练 schema/数值/RSSI/异常/分组审计；测试仅结构与非空计数 | 前后 17/17 PASS 且哈希不变；训练 1,252→1,250 行、482 个行数完整组；测试 336 行；A01–A06 登记；测试数值摘要为空 | PASS_WITH_WARNINGS |
+| 2026-09-08T23:15:54+08:00 | X0004 | S1 | G1/R1 提交前一致性检查 | S1 文档、脚本、JSON/MD、Git 索引与本地输入 | py_compile；--verify-only；JSON 断言；必需文件；diff --check；CSV ignore/track；活动项目唯一性 | required_files=PASS；csv_policy=PASS；s1_json_assertions=PASS；B 为唯一 ACTIVE；无校验失败 | PASS |
+| 2026-09-09T10:36:50+08:00 | X0005 | S1 | G1/R2 正式身份、重复与 Q3 两级目标审计 | 干净 commit 03ac99d；13 个训练 CSV、4 个封存测试 CSV | 编译与 verify-only；输入前后文件名/大小/SHA-256；严格 AP 身份；跨文件规范化 SHA-256 行/组指纹；系统目标可构造性 | 17/17 前后 PASS 且哈希不变；训练 1,252→1,250 行、482/482 eligible 严格组；测试 136/136；跨文件行/组簇 0；Q3 训练 AP/系统 1,250/482，测试 185/75；测试数值分布仍封存 | PASS_WITH_WARNINGS |
+| 2026-09-09T10:44:03+08:00 | X0006 | S1 | G1/R2 提交前全套一致性检查 | Round 2 文档、脚本、5 个机器证据文件、Git 索引与本地输入 | py_compile；--verify-only；正式提交谱系、严格身份、重复、Q3、测试封存 JSON 断言；必需文件；CSV ignore/track；活动项目；diff --check | required_files、formal_audit_lineage、strict_identity、duplicate_scope、q3_contract、sealed_test、csv_policy、active_project、diff_check 全部 PASS | PASS |
 
 ## X0001 Environment Snapshot
 
@@ -29,4 +28,4 @@
 
 ## Boundary
 
-X0001 只证明文件可打开、规模与基础结构可清点、当前环境可运行。缺失模式、字段语义、异常值、数据泄漏和验证切分必须在 S1 另行审计。
+X0001 只证明文件可打开、规模与基础结构可清点、当前环境可运行。X0002–X0006 只验证 S1 题意、数据和交付合同。尚未拟合模型、调参或生成官方测试预测。

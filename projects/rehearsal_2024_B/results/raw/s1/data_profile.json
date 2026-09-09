@@ -229,8 +229,6 @@
         "error%.1"
       ],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -358,6 +356,8 @@
       },
       "numeric_summary": {},
       "role": "test_q1_q3",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 80,
       "shape_ok": true,
       "test_id_count": 40
@@ -375,8 +375,6 @@
         "error%.1"
       ],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -528,6 +526,8 @@
       },
       "numeric_summary": {},
       "role": "test_q1_q3",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 105,
       "shape_ok": true,
       "test_id_count": 35
@@ -547,8 +547,6 @@
         "error%"
       ],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -676,6 +674,8 @@
       },
       "numeric_summary": {},
       "role": "test_q2",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 64,
       "shape_ok": true,
       "test_id_count": 32
@@ -695,8 +695,6 @@
         "error%"
       ],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -848,6 +846,8 @@
       },
       "numeric_summary": {},
       "role": "test_q2",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 87,
       "shape_ok": true,
       "test_id_count": 29
@@ -855,8 +855,6 @@
     {
       "all_null_columns": [],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -1122,6 +1120,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 82,
       "shape_ok": true,
       "test_id_count": 41
@@ -1129,8 +1129,6 @@
     {
       "all_null_columns": [],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -1396,6 +1394,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 80,
       "shape_ok": true,
       "test_id_count": 40
@@ -1403,8 +1403,6 @@
     {
       "all_null_columns": [],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -1670,6 +1668,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 78,
       "shape_ok": true,
       "test_id_count": 39
@@ -1677,8 +1677,6 @@
     {
       "all_null_columns": [],
       "ap_count": 2,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -1944,6 +1942,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 74,
       "shape_ok": true,
       "test_id_count": 37
@@ -1951,17 +1951,6 @@
     {
       "all_null_columns": [],
       "ap_count": 2,
-      "bad_group_count": 2,
-      "bad_groups": [
-        {
-          "rows": 1,
-          "test_id": 40
-        },
-        {
-          "rows": 1,
-          "test_id": 41
-        }
-      ],
       "columns": [
         "test_id",
         "test_dur",
@@ -2246,6 +2235,17 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 2,
+      "row_count_mismatch_groups": [
+        {
+          "rows": 1,
+          "test_id": 40
+        },
+        {
+          "rows": 1,
+          "test_id": 41
+        }
+      ],
       "rows": 80,
       "shape_ok": true,
       "test_id_count": 41
@@ -2256,8 +2256,6 @@
         "error%"
       ],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -2553,6 +2551,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 123,
       "shape_ok": true,
       "test_id_count": 41
@@ -2566,8 +2566,6 @@
         "error%"
       ],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -2863,6 +2861,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 120,
       "shape_ok": true,
       "test_id_count": 40
@@ -2870,8 +2870,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -3161,6 +3159,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 126,
       "shape_ok": true,
       "test_id_count": 42
@@ -3168,8 +3168,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -3459,6 +3457,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 108,
       "shape_ok": true,
       "test_id_count": 36
@@ -3466,8 +3466,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -3757,6 +3755,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 111,
       "shape_ok": true,
       "test_id_count": 37
@@ -3764,8 +3764,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -4055,6 +4053,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 60,
       "shape_ok": true,
       "test_id_count": 20
@@ -4062,8 +4062,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -4356,6 +4354,8 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 111,
       "shape_ok": true,
       "test_id_count": 37
@@ -4363,8 +4363,6 @@
     {
       "all_null_columns": [],
       "ap_count": 3,
-      "bad_group_count": 0,
-      "bad_groups": [],
       "columns": [
         "test_id",
         "test_dur",
@@ -4654,14 +4652,16 @@
         }
       },
       "role": "train",
+      "row_count_mismatch_group_count": 0,
+      "row_count_mismatch_groups": [],
       "rows": 99,
       "shape_ok": true,
       "test_id_count": 33
     }
   ],
   "metadata": {
-    "generated_at": "2026-09-08T23:09:15+08:00",
-    "git_head": "f4b8b9f70e049d497edf56a3bdac43669da932a6",
+    "generated_at": "2026-09-09T10:36:50+08:00",
+    "git_head": "03ac99d91004fca2123011a3db29043d5612568c",
     "git_status_porcelain_before_outputs": "",
     "numpy": "2.4.4",
     "pandas": "3.0.2",

@@ -18,7 +18,7 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计；G1 Round 1 结果为 REVISE，正在完成 Round 2 修订。
+S1 — 题意拆解与数据审计；G1 Round 1 的两项 Major 已修订，G1 Round 2 提交包已完成并等待独立复审。
 
 S1 → S2：NOT AUTHORIZED。
 
@@ -38,35 +38,36 @@ Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
 
 - G0/R1 已 PASS，S0 交付物和进入 S1 的授权保持有效。
 - G1/R1 认可 A01–A06、测试集封存、逐问白名单、OOF 链路和 source_file + test_id 分组方向。
-- G1/R1 未授权进入 S2，要求在 S1 内修复 M1-01 与 M1-02。
+- G1/R1 未授权进入 S2，并要求修复 M1-01 与 M1-02；这些修订现已形成 Round 2 待审包。
+
+## Completed Round 2 Fixes
+
+1. Q3 已覆盖 185 个 AP throughput、75 个严格系统组 throughput，以及 AP/系统两级 signed CDF、ERROR_90 和 accuracy_90。
+2. 完整组已采用预期行数、精确 AP ID 集合/次数、复合键唯一三重检查。
+3. 重复审计已区分文件内全列完全重复与跨文件规范化 SHA-256 行/组指纹。
+4. 正式审计基于干净 commit 03ac99d91004fca2123011a3db29043d5612568c：17/17 输入哈希前后 PASS 且不变；eligible 482/482、测试 136/136 严格组通过；跨文件重复行/组簇均为 0。
+5. work/revisions/gate_1_response.md 与 reviews/gate_1_submission_r2.md 已完成。
 
 ## Current Goal
 
-完成 G1 Round 2 修订：
-
-1. 恢复并冻结 Q3 的系统吞吐量、AP/系统两级误差 CDF、ERROR_90 和 accuracy_90；
-2. 补齐精确 AP 身份集合、复合键唯一和跨文件规范化重复指纹审计；
-3. 在干净实现 commit 上重跑正式审计；
-4. 提交并推送 Round 2 响应包，然后等待独立复审。
+提交并推送 G1 Round 2 固定快照，然后等待 Reviewer 新增 reviews/gate_1_review_r2.md。
 
 ## Current Tasks
 
-1. 完成 work/01–03、src/s1_data_audit.py 与机器证据同步。
-2. 更新 decisions、experiments、ai_usage 和正式审计 commit 谱系。
-3. 编写 work/revisions/gate_1_response.md。
-4. 编写 reviews/gate_1_submission_r2.md 并推送固定 SHA。
-5. 停留在 S1，等待 reviews/gate_1_review_r2.md。
+1. 完成最终一致性校验和日志。
+2. 提交并推送 Round 2 固定 SHA。
+3. 等待 G1 Round 2 独立审核；PASS 前不进入 S2。
 
 ## Current Process Blockers
 
-- 科学门禁：M1-01 与 M1-02 在 Round 2 正式证据和复审 PASS 前仍阻断进入 S2。
+- 科学门禁：G1 Round 2 Reviewer 尚未给出 PASS。
 - 外部流程阻塞：None。用户已授权推送 origin/main。
 
 ## Known Limitations / Risks
 
 - 原始 CSV 被 Git 忽略，远程 Reviewer 无授权副本时只能核对脚本、manifest、JSON/Markdown 和本地哈希证据。
 - 原始数据授权获取位置或稳定 URL 尚未记录；当前只确认团队本机副本与 manifest 哈希一致。
-- A01–A06 的错位、全空列、(NSS,MCS)=(0,0)、schema、other_air_time 超时长和 loc 标签不一致必须继续遵循冻结合同。
+- A01–A06 必须继续遵循冻结合同。
 - 团队成员实名责任分配尚未提供；最终提交须由人类队员负责。
 - environment.yml 尚未 clean rebuild；当前机器导入 smoke=PASS。
 - Q1/Q2 官方评分函数和最终预测文件格式未在现有题面材料中明确。
@@ -84,22 +85,22 @@ Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
 
 ## Next Gate
 
-G1 — 题意拆解与数据审计
+Gate：G1 / Review Round 2
 
-Review Round：2
+Verdict：PENDING REVIEW
 
-Verdict：NOT SUBMITTED
+Response：[work/revisions/gate_1_response.md](work/revisions/gate_1_response.md)
 
-Planned Response：work/revisions/gate_1_response.md
-
-Planned Submission：reviews/gate_1_submission_r2.md
+Submission：[reviews/gate_1_submission_r2.md](reviews/gate_1_submission_r2.md)
 
 Expected Review：reviews/gate_1_review_r2.md
 
-Formal Audit Implementation Commit：FORMAL_AUDIT_COMMIT_TO_BE_FILLED
+Formal Audit Implementation Commit：03ac99d91004fca2123011a3db29043d5612568c
+
+Reviewed Commit：由 Reviewer 使用推送后的 origin/main 完整 SHA
 
 ## Last Updated
 
-时间：2026-09-09T10:33:25+08:00
+时间：2026-09-09T10:39:37+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充

@@ -267,11 +267,19 @@ def strict_identity_audit(data: pd.DataFrame, scope: str) -> dict[str, Any]:
             "missing_required_columns": missing_columns,
         }
 
-    null_test = data["test_id"].isna()
-    null_ap = data["ap_id"].isna()
+    source_text = data["source_file"].astype("string")
     ap_text = data["ap_id"].astype("string")
-    illegal_ap = data["ap_id"].notna() & ~ap_text.str.fullmatch(r"ap_\d+", na=False)
-    complete_key = ~(null_test | null_ap)
+    null_source = (
+        data["source_file"].isna()
+        | source_text.str.strip().eq("").fillna(True)
+    )
+    null_test = data["test_id"].isna()
+    null_ap = (
+        data["ap_id"].isna()
+        | ap_text.str.strip().eq("").fillna(True)
+    )
+    illegal_ap = ~null_ap & ~ap_text.str.fullmatch(r"ap_\d+", na=False)
+    complete_key = ~(null_source | null_test | null_ap)
     duplicate_mask = pd.Series(False, index=data.index)
     duplicate_mask.loc[complete_key] = data.loc[complete_key].duplicated(
         ["source_file", "test_id", "ap_id"], keep=False
@@ -305,7 +313,7 @@ def strict_identity_audit(data: pd.DataFrame, scope: str) -> dict[str, Any]:
 
     invalid_groups = []
     strict_valid = 0
-    grouped = data.loc[~null_test].groupby(
+    grouped = data.loc[~(null_source | null_test)].groupby(
         ["source_file", "test_id"], dropna=False, sort=True
     )
     for (name, test_id), group in grouped:
@@ -340,7 +348,8 @@ def strict_identity_audit(data: pd.DataFrame, scope: str) -> dict[str, Any]:
 
     group_count = int(grouped.ngroups)
     strict_pass = not (
-        null_test.any()
+        null_source.any()
+        or null_test.any()
         or null_ap.any()
         or illegal_ap.any()
         or duplicate_mask.any()
@@ -354,6 +363,8 @@ def strict_identity_audit(data: pd.DataFrame, scope: str) -> dict[str, Any]:
         "strict_valid_group_count": int(strict_valid),
         "invalid_group_count": int(group_count - strict_valid),
         "invalid_group_examples": invalid_groups,
+        "null_source_file_row_count": int(null_source.sum()),
+        "null_source_file_examples": locators(null_source),
         "null_test_id_row_count": int(null_test.sum()),
         "null_test_id_examples": locators(null_test),
         "null_ap_id_row_count": int(null_ap.sum()),
