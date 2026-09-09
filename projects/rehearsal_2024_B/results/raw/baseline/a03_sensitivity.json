@@ -1,0 +1,52 @@
+{
+  "analysis_type": "whole-group evaluation exclusion on primary OOF predictions; primary model fits retain A03",
+  "excluded_group_count": 3,
+  "excluded_groups": [
+    "training_set_2ap_loc1_nav86.csv::7",
+    "training_set_3ap_loc33_nav82.csv::21",
+    "training_set_3ap_loc33_nav82.csv::3"
+  ],
+  "q2": {
+    "Q2-B0": {
+      "balanced_accuracy": 0.0625,
+      "joint_accuracy": 0.4863123993558776,
+      "macro_f1_fixed_17": 0.03849340386208654,
+      "mcs_accuracy": 0.4863123993558776,
+      "multiclass_log_loss": 17.74214117548552,
+      "nss_accuracy": 0.9790660225442834
+    },
+    "Q2-B1A": {
+      "balanced_accuracy": 0.3492623817613967,
+      "joint_accuracy": 0.7560386473429951,
+      "macro_f1_fixed_17": 0.3374973509118959,
+      "mcs_accuracy": 0.7576489533011271,
+      "multiclass_log_loss": 0.973591210995556,
+      "nss_accuracy": 0.9734299516908212
+    },
+    "Q2-B1B": {
+      "balanced_accuracy": 0.34655477341667257,
+      "joint_accuracy": 0.7552334943639293,
+      "macro_f1_fixed_17": 0.3341681806449522,
+      "mcs_accuracy": 0.7568438003220613,
+      "multiclass_log_loss": 0.9748336230053564,
+      "nss_accuracy": 0.9736983360171766
+    }
+  },
+  "q3": {
+    "Q3-B0": {
+      "per_ap_are90": 1.4148573750476967,
+      "selection_score": 1.4148573750476967,
+      "system_are90": 0.7366406344226203
+    },
+    "Q3-B1": {
+      "per_ap_are90": 0.7876312077109744,
+      "selection_score": 0.7876312077109744,
+      "system_are90": 0.3423236120219519
+    },
+    "Q3-B2": {
+      "per_ap_are90": 0.8441813008900723,
+      "selection_score": 0.8441813008900723,
+      "system_are90": 0.3549397364468538
+    }
+  }
+}

@@ -10,3 +10,5 @@
 | 2026-09-09T11:51:36+08:00 | OpenAI Codex | 仓库维护者 | 拉取 G1/R2 PASS 并完成 S2、O1 与 G2 审核包 | 用户指定 review commit fd6e33b 并要求按意见继续；输入包括 G1 review、题目 DOCX、S1 证据、仓库协议和本地训练 CSV | 修正 nav 单位；编写统一方案、三问合同、实验/机器配置；生成严格外/内/LOSO 注册表与 Q3 指标单测；完成 O1 和 G2 submission | Yes | 正式验证来自干净 6b88cd1；输入哈希、严格组、固定标签、分割数量、合成指标、CSV ignore、Git 状态和零训练/零测试数值读取均由本机命令复核 |
 
 | 2026-09-09T14:59:02+08:00 | OpenAI Codex | 仓库维护者 | 根据 G2/R1 REVISE 完成 Round 2 修订 | 用户指定 review commit fe959af 并要求按计划改进；输入包括 gate_2_review、S2 人工/机器合同、split registry、角色与实验协议 | 删除提前测试推理；新增 run-manifest guard；固定 Q1-B1 bounded 上游；生成 primary/LOSO 第三层分割和 409 批血缘；统一 repeat/bootstrap/raw-bounded；锁定合同 SHA；形成 response/submission R2 | Yes | 正式验证来自干净 43a8566；合同/输入哈希、分割计数、两个零交集、泄漏负例、测试门禁、CSV ignore 和零模型/零测试读取均由本机命令复核 |
+
+| 2026-09-09 | OpenAI Codex | 仓库维护者 | 拉取 G2/R2 PASS，完成 S3 Baseline、O2 与 G3 审核包 | 用户指定 review commit 6504c54 并要求继续；输入包括 G2/R2 review、冻结合同/切分、题目、本地 13 个训练 CSV 和 4 个封存测试文件的哈希 | 实现真实入口门禁、312 特征、八个 Baseline、15 outer/13 LOSO、实际 Q1 血缘、bootstrap、独立验证器、Baseline 报告、O2 诊断和 G3 submission | Yes | 正式模型运行来自干净 2222cf5；327 fits、warning=0；独立重算 83 项检查通过；17/17 输入哈希匹配，测试只做字节校验且数值读取/预测=0/0；S4 未启动 |

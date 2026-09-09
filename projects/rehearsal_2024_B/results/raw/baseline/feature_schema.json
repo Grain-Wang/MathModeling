@@ -1,0 +1,2836 @@
+{
+  "ap_count_alignment": {
+    "same_order": true,
+    "three_ap_column_count": 312,
+    "two_ap_column_count": 312
+  },
+  "categorical_features": [
+    "basic__protocol"
+  ],
+  "engine": "topology_aware_rssi_v1",
+  "families": {
+    "basic": [
+      "basic__test_dur",
+      "basic__pkt_len",
+      "basic__pd",
+      "basic__ed",
+      "basic__nav",
+      "basic__eirp",
+      "basic__ap_count",
+      "basic__protocol"
+    ],
+    "desired_rssi": [
+      "desired_sta_to_focal__sum__median",
+      "desired_sta_to_focal__sum__q10",
+      "desired_sta_to_focal__sum__q90",
+      "desired_sta_to_focal__sum__iqr",
+      "desired_sta_to_focal__sum__valid_count",
+      "desired_sta_to_focal__sum__missing",
+      "desired_sta_to_focal__max__median",
+      "desired_sta_to_focal__max__q10",
+      "desired_sta_to_focal__max__q90",
+      "desired_sta_to_focal__max__iqr",
+      "desired_sta_to_focal__max__valid_count",
+      "desired_sta_to_focal__max__missing",
+      "desired_sta_to_focal__mean__median",
+      "desired_sta_to_focal__mean__q10",
+      "desired_sta_to_focal__mean__q90",
+      "desired_sta_to_focal__mean__iqr",
+      "desired_sta_to_focal__mean__valid_count",
+      "desired_sta_to_focal__mean__missing",
+      "desired_sta_from_focal__sum__median",
+      "desired_sta_from_focal__sum__q10",
+      "desired_sta_from_focal__sum__q90",
+      "desired_sta_from_focal__sum__iqr",
+      "desired_sta_from_focal__sum__valid_count",
+      "desired_sta_from_focal__sum__missing",
+      "desired_sta_from_focal__max__median",
+      "desired_sta_from_focal__max__q10",
+      "desired_sta_from_focal__max__q90",
+      "desired_sta_from_focal__max__iqr",
+      "desired_sta_from_focal__max__valid_count",
+      "desired_sta_from_focal__max__missing",
+      "desired_sta_from_focal__mean__median",
+      "desired_sta_from_focal__mean__q10",
+      "desired_sta_from_focal__mean__q90",
+      "desired_sta_from_focal__mean__iqr",
+      "desired_sta_from_focal__mean__valid_count",
+      "desired_sta_from_focal__mean__missing"
+    ],
+    "group_context": [
+      "group_context__peer_eirp__strongest",
+      "group_context__peer_eirp__weakest",
+      "group_context__peer_eirp__mean",
+      "group_context__focal_minus_peer_eirp_mean",
+      "group_context__peer_tcp__count",
+      "group_context__peer_tcp__fraction"
+    ],
+    "mechanism": [
+      "mechanism__peer_max_minus_pd__strongest",
+      "mechanism__peer_max_above_pd__count",
+      "mechanism__peer_max_above_pd__fraction",
+      "mechanism__peer_max_minus_ed__strongest",
+      "mechanism__peer_max_above_ed__count",
+      "mechanism__peer_max_above_ed__fraction",
+      "mechanism__peer_mean_minus_nav__strongest",
+      "mechanism__peer_mean_above_nav__count",
+      "mechanism__peer_mean_above_nav__fraction",
+      "mechanism__desired_sta_to_focal_minus_strongest_peer_ap",
+      "mechanism__desired_sta_from_focal_minus_strongest_peer_ap",
+      "mechanism__peer_ap_mean_signal_minus_nav"
+    ],
+    "peer_rssi": [
+      "peer_ap_to_focal__sum__median__strongest",
+      "peer_ap_to_focal__sum__median__weakest",
+      "peer_ap_to_focal__sum__median__mean",
+      "peer_ap_to_focal__sum__median__available_count",
+      "peer_ap_to_focal__sum__median__missing_fraction",
+      "peer_ap_to_focal__sum__q10__strongest",
+      "peer_ap_to_focal__sum__q10__weakest",
+      "peer_ap_to_focal__sum__q10__mean",
+      "peer_ap_to_focal__sum__q10__available_count",
+      "peer_ap_to_focal__sum__q10__missing_fraction",
+      "peer_ap_to_focal__sum__q90__strongest",
+      "peer_ap_to_focal__sum__q90__weakest",
+      "peer_ap_to_focal__sum__q90__mean",
+      "peer_ap_to_focal__sum__q90__available_count",
+      "peer_ap_to_focal__sum__q90__missing_fraction",
+      "peer_ap_to_focal__sum__iqr__strongest",
+      "peer_ap_to_focal__sum__iqr__weakest",
+      "peer_ap_to_focal__sum__iqr__mean",
+      "peer_ap_to_focal__sum__iqr__available_count",
+      "peer_ap_to_focal__sum__iqr__missing_fraction",
+      "peer_ap_to_focal__sum__valid_count__strongest",
+      "peer_ap_to_focal__sum__valid_count__weakest",
+      "peer_ap_to_focal__sum__valid_count__mean",
+      "peer_ap_to_focal__sum__valid_count__available_count",
+      "peer_ap_to_focal__sum__valid_count__missing_fraction",
+      "peer_ap_to_focal__max__median__strongest",
+      "peer_ap_to_focal__max__median__weakest",
+      "peer_ap_to_focal__max__median__mean",
+      "peer_ap_to_focal__max__median__available_count",
+      "peer_ap_to_focal__max__median__missing_fraction",
+      "peer_ap_to_focal__max__q10__strongest",
+      "peer_ap_to_focal__max__q10__weakest",
+      "peer_ap_to_focal__max__q10__mean",
+      "peer_ap_to_focal__max__q10__available_count",
+      "peer_ap_to_focal__max__q10__missing_fraction",
+      "peer_ap_to_focal__max__q90__strongest",
+      "peer_ap_to_focal__max__q90__weakest",
+      "peer_ap_to_focal__max__q90__mean",
+      "peer_ap_to_focal__max__q90__available_count",
+      "peer_ap_to_focal__max__q90__missing_fraction",
+      "peer_ap_to_focal__max__iqr__strongest",
+      "peer_ap_to_focal__max__iqr__weakest",
+      "peer_ap_to_focal__max__iqr__mean",
+      "peer_ap_to_focal__max__iqr__available_count",
+      "peer_ap_to_focal__max__iqr__missing_fraction",
+      "peer_ap_to_focal__max__valid_count__strongest",
+      "peer_ap_to_focal__max__valid_count__weakest",
+      "peer_ap_to_focal__max__valid_count__mean",
+      "peer_ap_to_focal__max__valid_count__available_count",
+      "peer_ap_to_focal__max__valid_count__missing_fraction",
+      "peer_ap_to_focal__mean__median__strongest",
+      "peer_ap_to_focal__mean__median__weakest",
+      "peer_ap_to_focal__mean__median__mean",
+      "peer_ap_to_focal__mean__median__available_count",
+      "peer_ap_to_focal__mean__median__missing_fraction",
+      "peer_ap_to_focal__mean__q10__strongest",
+      "peer_ap_to_focal__mean__q10__weakest",
+      "peer_ap_to_focal__mean__q10__mean",
+      "peer_ap_to_focal__mean__q10__available_count",
+      "peer_ap_to_focal__mean__q10__missing_fraction",
+      "peer_ap_to_focal__mean__q90__strongest",
+      "peer_ap_to_focal__mean__q90__weakest",
+      "peer_ap_to_focal__mean__q90__mean",
+      "peer_ap_to_focal__mean__q90__available_count",
+      "peer_ap_to_focal__mean__q90__missing_fraction",
+      "peer_ap_to_focal__mean__iqr__strongest",
+      "peer_ap_to_focal__mean__iqr__weakest",
+      "peer_ap_to_focal__mean__iqr__mean",
+      "peer_ap_to_focal__mean__iqr__available_count",
+      "peer_ap_to_focal__mean__iqr__missing_fraction",
+      "peer_ap_to_focal__mean__valid_count__strongest",
+      "peer_ap_to_focal__mean__valid_count__weakest",
+      "peer_ap_to_focal__mean__valid_count__mean",
+      "peer_ap_to_focal__mean__valid_count__available_count",
+      "peer_ap_to_focal__mean__valid_count__missing_fraction",
+      "focal_sta_to_peer_ap__sum__median__strongest",
+      "focal_sta_to_peer_ap__sum__median__weakest",
+      "focal_sta_to_peer_ap__sum__median__mean",
+      "focal_sta_to_peer_ap__sum__median__available_count",
+      "focal_sta_to_peer_ap__sum__median__missing_fraction",
+      "focal_sta_to_peer_ap__sum__q10__strongest",
+      "focal_sta_to_peer_ap__sum__q10__weakest",
+      "focal_sta_to_peer_ap__sum__q10__mean",
+      "focal_sta_to_peer_ap__sum__q10__available_count",
+      "focal_sta_to_peer_ap__sum__q10__missing_fraction",
+      "focal_sta_to_peer_ap__sum__q90__strongest",
+      "focal_sta_to_peer_ap__sum__q90__weakest",
+      "focal_sta_to_peer_ap__sum__q90__mean",
+      "focal_sta_to_peer_ap__sum__q90__available_count",
+      "focal_sta_to_peer_ap__sum__q90__missing_fraction",
+      "focal_sta_to_peer_ap__sum__iqr__strongest",
+      "focal_sta_to_peer_ap__sum__iqr__weakest",
+      "focal_sta_to_peer_ap__sum__iqr__mean",
+      "focal_sta_to_peer_ap__sum__iqr__available_count",
+      "focal_sta_to_peer_ap__sum__iqr__missing_fraction",
+      "focal_sta_to_peer_ap__sum__valid_count__strongest",
+      "focal_sta_to_peer_ap__sum__valid_count__weakest",
+      "focal_sta_to_peer_ap__sum__valid_count__mean",
+      "focal_sta_to_peer_ap__sum__valid_count__available_count",
+      "focal_sta_to_peer_ap__sum__valid_count__missing_fraction",
+      "focal_sta_to_peer_ap__max__median__strongest",
+      "focal_sta_to_peer_ap__max__median__weakest",
+      "focal_sta_to_peer_ap__max__median__mean",
+      "focal_sta_to_peer_ap__max__median__available_count",
+      "focal_sta_to_peer_ap__max__median__missing_fraction",
+      "focal_sta_to_peer_ap__max__q10__strongest",
+      "focal_sta_to_peer_ap__max__q10__weakest",
+      "focal_sta_to_peer_ap__max__q10__mean",
+      "focal_sta_to_peer_ap__max__q10__available_count",
+      "focal_sta_to_peer_ap__max__q10__missing_fraction",
+      "focal_sta_to_peer_ap__max__q90__strongest",
+      "focal_sta_to_peer_ap__max__q90__weakest",
+      "focal_sta_to_peer_ap__max__q90__mean",
+      "focal_sta_to_peer_ap__max__q90__available_count",
+      "focal_sta_to_peer_ap__max__q90__missing_fraction",
+      "focal_sta_to_peer_ap__max__iqr__strongest",
+      "focal_sta_to_peer_ap__max__iqr__weakest",
+      "focal_sta_to_peer_ap__max__iqr__mean",
+      "focal_sta_to_peer_ap__max__iqr__available_count",
+      "focal_sta_to_peer_ap__max__iqr__missing_fraction",
+      "focal_sta_to_peer_ap__max__valid_count__strongest",
+      "focal_sta_to_peer_ap__max__valid_count__weakest",
+      "focal_sta_to_peer_ap__max__valid_count__mean",
+      "focal_sta_to_peer_ap__max__valid_count__available_count",
+      "focal_sta_to_peer_ap__max__valid_count__missing_fraction",
+      "focal_sta_to_peer_ap__mean__median__strongest",
+      "focal_sta_to_peer_ap__mean__median__weakest",
+      "focal_sta_to_peer_ap__mean__median__mean",
+      "focal_sta_to_peer_ap__mean__median__available_count",
+      "focal_sta_to_peer_ap__mean__median__missing_fraction",
+      "focal_sta_to_peer_ap__mean__q10__strongest",
+      "focal_sta_to_peer_ap__mean__q10__weakest",
+      "focal_sta_to_peer_ap__mean__q10__mean",
+      "focal_sta_to_peer_ap__mean__q10__available_count",
+      "focal_sta_to_peer_ap__mean__q10__missing_fraction",
+      "focal_sta_to_peer_ap__mean__q90__strongest",
+      "focal_sta_to_peer_ap__mean__q90__weakest",
+      "focal_sta_to_peer_ap__mean__q90__mean",
+      "focal_sta_to_peer_ap__mean__q90__available_count",
+      "focal_sta_to_peer_ap__mean__q90__missing_fraction",
+      "focal_sta_to_peer_ap__mean__iqr__strongest",
+      "focal_sta_to_peer_ap__mean__iqr__weakest",
+      "focal_sta_to_peer_ap__mean__iqr__mean",
+      "focal_sta_to_peer_ap__mean__iqr__available_count",
+      "focal_sta_to_peer_ap__mean__iqr__missing_fraction",
+      "focal_sta_to_peer_ap__mean__valid_count__strongest",
+      "focal_sta_to_peer_ap__mean__valid_count__weakest",
+      "focal_sta_to_peer_ap__mean__valid_count__mean",
+      "focal_sta_to_peer_ap__mean__valid_count__available_count",
+      "focal_sta_to_peer_ap__mean__valid_count__missing_fraction",
+      "focal_sta_from_peer_ap__sum__median__strongest",
+      "focal_sta_from_peer_ap__sum__median__weakest",
+      "focal_sta_from_peer_ap__sum__median__mean",
+      "focal_sta_from_peer_ap__sum__median__available_count",
+      "focal_sta_from_peer_ap__sum__median__missing_fraction",
+      "focal_sta_from_peer_ap__sum__q10__strongest",
+      "focal_sta_from_peer_ap__sum__q10__weakest",
+      "focal_sta_from_peer_ap__sum__q10__mean",
+      "focal_sta_from_peer_ap__sum__q10__available_count",
+      "focal_sta_from_peer_ap__sum__q10__missing_fraction",
+      "focal_sta_from_peer_ap__sum__q90__strongest",
+      "focal_sta_from_peer_ap__sum__q90__weakest",
+      "focal_sta_from_peer_ap__sum__q90__mean",
+      "focal_sta_from_peer_ap__sum__q90__available_count",
+      "focal_sta_from_peer_ap__sum__q90__missing_fraction",
+      "focal_sta_from_peer_ap__sum__iqr__strongest",
+      "focal_sta_from_peer_ap__sum__iqr__weakest",
+      "focal_sta_from_peer_ap__sum__iqr__mean",
+      "focal_sta_from_peer_ap__sum__iqr__available_count",
+      "focal_sta_from_peer_ap__sum__iqr__missing_fraction",
+      "focal_sta_from_peer_ap__sum__valid_count__strongest",
+      "focal_sta_from_peer_ap__sum__valid_count__weakest",
+      "focal_sta_from_peer_ap__sum__valid_count__mean",
+      "focal_sta_from_peer_ap__sum__valid_count__available_count",
+      "focal_sta_from_peer_ap__sum__valid_count__missing_fraction",
+      "focal_sta_from_peer_ap__max__median__strongest",
+      "focal_sta_from_peer_ap__max__median__weakest",
+      "focal_sta_from_peer_ap__max__median__mean",
+      "focal_sta_from_peer_ap__max__median__available_count",
+      "focal_sta_from_peer_ap__max__median__missing_fraction",
+      "focal_sta_from_peer_ap__max__q10__strongest",
+      "focal_sta_from_peer_ap__max__q10__weakest",
+      "focal_sta_from_peer_ap__max__q10__mean",
+      "focal_sta_from_peer_ap__max__q10__available_count",
+      "focal_sta_from_peer_ap__max__q10__missing_fraction",
+      "focal_sta_from_peer_ap__max__q90__strongest",
+      "focal_sta_from_peer_ap__max__q90__weakest",
+      "focal_sta_from_peer_ap__max__q90__mean",
+      "focal_sta_from_peer_ap__max__q90__available_count",
+      "focal_sta_from_peer_ap__max__q90__missing_fraction",
+      "focal_sta_from_peer_ap__max__iqr__strongest",
+      "focal_sta_from_peer_ap__max__iqr__weakest",
+      "focal_sta_from_peer_ap__max__iqr__mean",
+      "focal_sta_from_peer_ap__max__iqr__available_count",
+      "focal_sta_from_peer_ap__max__iqr__missing_fraction",
+      "focal_sta_from_peer_ap__max__valid_count__strongest",
+      "focal_sta_from_peer_ap__max__valid_count__weakest",
+      "focal_sta_from_peer_ap__max__valid_count__mean",
+      "focal_sta_from_peer_ap__max__valid_count__available_count",
+      "focal_sta_from_peer_ap__max__valid_count__missing_fraction",
+      "focal_sta_from_peer_ap__mean__median__strongest",
+      "focal_sta_from_peer_ap__mean__median__weakest",
+      "focal_sta_from_peer_ap__mean__median__mean",
+      "focal_sta_from_peer_ap__mean__median__available_count",
+      "focal_sta_from_peer_ap__mean__median__missing_fraction",
+      "focal_sta_from_peer_ap__mean__q10__strongest",
+      "focal_sta_from_peer_ap__mean__q10__weakest",
+      "focal_sta_from_peer_ap__mean__q10__mean",
+      "focal_sta_from_peer_ap__mean__q10__available_count",
+      "focal_sta_from_peer_ap__mean__q10__missing_fraction",
+      "focal_sta_from_peer_ap__mean__q90__strongest",
+      "focal_sta_from_peer_ap__mean__q90__weakest",
+      "focal_sta_from_peer_ap__mean__q90__mean",
+      "focal_sta_from_peer_ap__mean__q90__available_count",
+      "focal_sta_from_peer_ap__mean__q90__missing_fraction",
+      "focal_sta_from_peer_ap__mean__iqr__strongest",
+      "focal_sta_from_peer_ap__mean__iqr__weakest",
+      "focal_sta_from_peer_ap__mean__iqr__mean",
+      "focal_sta_from_peer_ap__mean__iqr__available_count",
+      "focal_sta_from_peer_ap__mean__iqr__missing_fraction",
+      "focal_sta_from_peer_ap__mean__valid_count__strongest",
+      "focal_sta_from_peer_ap__mean__valid_count__weakest",
+      "focal_sta_from_peer_ap__mean__valid_count__mean",
+      "focal_sta_from_peer_ap__mean__valid_count__available_count",
+      "focal_sta_from_peer_ap__mean__valid_count__missing_fraction",
+      "peer_sta_to_focal_sta__median__strongest",
+      "peer_sta_to_focal_sta__median__weakest",
+      "peer_sta_to_focal_sta__median__mean",
+      "peer_sta_to_focal_sta__median__available_count",
+      "peer_sta_to_focal_sta__median__missing_fraction",
+      "peer_sta_to_focal_sta__q10__strongest",
+      "peer_sta_to_focal_sta__q10__weakest",
+      "peer_sta_to_focal_sta__q10__mean",
+      "peer_sta_to_focal_sta__q10__available_count",
+      "peer_sta_to_focal_sta__q10__missing_fraction",
+      "peer_sta_to_focal_sta__q90__strongest",
+      "peer_sta_to_focal_sta__q90__weakest",
+      "peer_sta_to_focal_sta__q90__mean",
+      "peer_sta_to_focal_sta__q90__available_count",
+      "peer_sta_to_focal_sta__q90__missing_fraction",
+      "peer_sta_to_focal_sta__iqr__strongest",
+      "peer_sta_to_focal_sta__iqr__weakest",
+      "peer_sta_to_focal_sta__iqr__mean",
+      "peer_sta_to_focal_sta__iqr__available_count",
+      "peer_sta_to_focal_sta__iqr__missing_fraction",
+      "peer_sta_to_focal_sta__valid_count__strongest",
+      "peer_sta_to_focal_sta__valid_count__weakest",
+      "peer_sta_to_focal_sta__valid_count__mean",
+      "peer_sta_to_focal_sta__valid_count__available_count",
+      "peer_sta_to_focal_sta__valid_count__missing_fraction"
+    ]
+  },
+  "features": [
+    {
+      "column_order": 0,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__test_dur",
+      "unit": "s"
+    },
+    {
+      "column_order": 1,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__pkt_len",
+      "unit": "byte"
+    },
+    {
+      "column_order": 2,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__pd",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 3,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__ed",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 4,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__nav",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 5,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__eirp",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 6,
+      "dtype": "float64",
+      "family": "basic",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "basic__ap_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 7,
+      "dtype": "string",
+      "family": "basic",
+      "missing_semantics": "unknown protocol; fold-local most-frequent imputation and one-hot unknown-category handling",
+      "name": "basic__protocol",
+      "unit": "categorical"
+    },
+    {
+      "column_order": 8,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 9,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 10,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 11,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 12,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 13,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__sum__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 14,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 15,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 16,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 17,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 18,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 19,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__max__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 20,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 21,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 22,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 23,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 24,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 25,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_to_focal__mean__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 26,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 27,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 28,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 29,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 30,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 31,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__sum__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 32,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 33,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 34,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 35,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 36,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 37,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__max__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 38,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__median",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 39,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__q10",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 40,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__q90",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 41,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__iqr",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 42,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__valid_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 43,
+      "dtype": "float64",
+      "family": "desired_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "desired_sta_from_focal__mean__missing",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 44,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 45,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 46,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 47,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 48,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 49,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 50,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 51,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 52,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 53,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 54,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 55,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 56,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 57,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 58,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 59,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 60,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 61,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 62,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 63,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 64,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 65,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 66,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 67,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 68,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__sum__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 69,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 70,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 71,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 72,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 73,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 74,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 75,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 76,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 77,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 78,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 79,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 80,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 81,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 82,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 83,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 84,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 85,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 86,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 87,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 88,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 89,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 90,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 91,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 92,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 93,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__max__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 94,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 95,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 96,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 97,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 98,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 99,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 100,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 101,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 102,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 103,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 104,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 105,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 106,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 107,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 108,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 109,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 110,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 111,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 112,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 113,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 114,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 115,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 116,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 117,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 118,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_ap_to_focal__mean__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 119,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 120,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 121,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 122,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 123,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 124,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 125,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 126,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 127,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 128,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 129,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 130,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 131,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 132,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 133,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 134,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 135,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 136,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 137,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 138,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 139,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 140,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 141,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 142,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 143,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__sum__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 144,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 145,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 146,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 147,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 148,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 149,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 150,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 151,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 152,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 153,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 154,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 155,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 156,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 157,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 158,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 159,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 160,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 161,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 162,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 163,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 164,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 165,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 166,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 167,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 168,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__max__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 169,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 170,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 171,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 172,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 173,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 174,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 175,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 176,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 177,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 178,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 179,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 180,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 181,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 182,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 183,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 184,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 185,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 186,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 187,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 188,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 189,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 190,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 191,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 192,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 193,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_to_peer_ap__mean__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 194,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 195,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 196,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 197,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 198,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 199,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 200,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 201,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 202,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 203,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 204,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 205,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 206,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 207,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 208,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 209,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 210,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 211,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 212,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 213,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 214,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 215,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 216,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 217,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 218,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__sum__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 219,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 220,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 221,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 222,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 223,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 224,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 225,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 226,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 227,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 228,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 229,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 230,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 231,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 232,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 233,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 234,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 235,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 236,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 237,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 238,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 239,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 240,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 241,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 242,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 243,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__max__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 244,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 245,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 246,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 247,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 248,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 249,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 250,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 251,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 252,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 253,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 254,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 255,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 256,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 257,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 258,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 259,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 260,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 261,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 262,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 263,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 264,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 265,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 266,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 267,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 268,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "focal_sta_from_peer_ap__mean__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 269,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__median__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 270,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__median__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 271,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__median__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 272,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__median__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 273,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__median__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 274,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q10__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 275,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q10__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 276,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q10__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 277,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q10__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 278,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q10__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 279,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q90__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 280,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q90__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 281,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q90__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 282,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q90__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 283,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__q90__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 284,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__iqr__strongest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 285,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__iqr__weakest",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 286,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__iqr__mean",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 287,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__iqr__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 288,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__iqr__missing_fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 289,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__valid_count__strongest",
+      "unit": "count"
+    },
+    {
+      "column_order": 290,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__valid_count__weakest",
+      "unit": "count"
+    },
+    {
+      "column_order": 291,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__valid_count__mean",
+      "unit": "count"
+    },
+    {
+      "column_order": 292,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__valid_count__available_count",
+      "unit": "count"
+    },
+    {
+      "column_order": 293,
+      "dtype": "float64",
+      "family": "peer_rssi",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "peer_sta_to_focal_sta__valid_count__missing_fraction",
+      "unit": "count"
+    },
+    {
+      "column_order": 294,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_minus_pd__strongest",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 295,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_above_pd__count",
+      "unit": "count"
+    },
+    {
+      "column_order": 296,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_above_pd__fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 297,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_minus_ed__strongest",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 298,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_above_ed__count",
+      "unit": "count"
+    },
+    {
+      "column_order": 299,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_max_above_ed__fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 300,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_mean_minus_nav__strongest",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 301,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_mean_above_nav__count",
+      "unit": "count"
+    },
+    {
+      "column_order": 302,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_mean_above_nav__fraction",
+      "unit": "dimensionless"
+    },
+    {
+      "column_order": 303,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__desired_sta_to_focal_minus_strongest_peer_ap",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 304,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__desired_sta_from_focal_minus_strongest_peer_ap",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 305,
+      "dtype": "float64",
+      "family": "mechanism",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "mechanism__peer_ap_mean_signal_minus_nav",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 306,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__peer_eirp__strongest",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 307,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__peer_eirp__weakest",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 308,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__peer_eirp__mean",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 309,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__focal_minus_peer_eirp_mean",
+      "unit": "dBm or dB difference"
+    },
+    {
+      "column_order": 310,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__peer_tcp__count",
+      "unit": "count"
+    },
+    {
+      "column_order": 311,
+      "dtype": "float64",
+      "family": "group_context",
+      "missing_semantics": "NaN means unavailable source signal/statistic; fold-local median imputation with an explicit missing indicator",
+      "name": "group_context__peer_tcp__fraction",
+      "unit": "dimensionless"
+    }
+  ],
+  "raw_feature_count": 312,
+  "schema_version": "s3_feature_schema_v1",
+  "training_side_only": true
+}

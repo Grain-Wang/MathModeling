@@ -1,0 +1,826 @@
+{
+  "eligible_support": {
+    "0|0": 3,
+    "1|0": 3,
+    "1|4": 2,
+    "1|5": 17,
+    "1|6": 1,
+    "1|7": 1,
+    "1|9": 2,
+    "2|10": 62,
+    "2|11": 604,
+    "2|2": 1,
+    "2|3": 10,
+    "2|4": 153,
+    "2|5": 97,
+    "2|6": 45,
+    "2|7": 69,
+    "2|8": 90,
+    "2|9": 90
+  },
+  "fixed_label_order": [
+    "0|0",
+    "1|0",
+    "1|4",
+    "1|5",
+    "1|6",
+    "1|7",
+    "1|9",
+    "2|2",
+    "2|3",
+    "2|4",
+    "2|5",
+    "2|6",
+    "2|7",
+    "2|8",
+    "2|9",
+    "2|10",
+    "2|11"
+  ],
+  "fold_status": [
+    {
+      "actual_upstream_lineage_ids": [
+        "L-2FF2597A635B3BBA3254",
+        "L-2334F0CC100717ACA8C0",
+        "L-D6CDF320B927BB322E08",
+        "L-53A060DF14870881936D"
+      ],
+      "fold": 0,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|4",
+          "1|6"
+        ],
+        "Q2-B1A": [
+          "1|4",
+          "1|6"
+        ],
+        "Q2-B1B": [
+          "1|4",
+          "1|6"
+        ]
+      },
+      "q3_eta": 0.8319820091089194,
+      "repeat": 0,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 996,
+      "validation_groups": 97,
+      "validation_rows": 254
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-2A9FEDC1000F18D81CE6",
+        "L-6C9AB05086303754AAE5",
+        "L-1143C3490A1F192005B8",
+        "L-492ED5FED5A0066C7AA4"
+      ],
+      "fold": 1,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8317726195752042,
+      "repeat": 0,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 997,
+      "validation_groups": 97,
+      "validation_rows": 253
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-F3A7C7D9EAD8A48EAB7B",
+        "L-FAB669BFC62D1E08ACEE",
+        "L-467EE8B7162B588F8B3A",
+        "L-7352B0C150840859D8D2"
+      ],
+      "fold": 2,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8357166956331054,
+      "repeat": 0,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 1004,
+      "validation_groups": 96,
+      "validation_rows": 246
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-07312A447CFF08C97BC2",
+        "L-8FC02C98BF3C6BF848BA",
+        "L-2A180F4349C8D936C96E",
+        "L-B38B29E4AE090493FE31"
+      ],
+      "fold": 3,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|7",
+          "2|2"
+        ],
+        "Q2-B1A": [
+          "1|7",
+          "2|2"
+        ],
+        "Q2-B1B": [
+          "1|7",
+          "2|2"
+        ]
+      },
+      "q3_eta": 0.8335550563081843,
+      "repeat": 0,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 1007,
+      "validation_groups": 96,
+      "validation_rows": 243
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-131880BC29D978079C06",
+        "L-523029BCC2A3EA1EBC49",
+        "L-E339310733C786454F84",
+        "L-CFAC2394AB7FA104EF33"
+      ],
+      "fold": 4,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8293958233890618,
+      "repeat": 0,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 996,
+      "validation_groups": 96,
+      "validation_rows": 254
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-2EA37B888E45128E5654",
+        "L-BCAC32A403B077C48A08",
+        "L-9A5B62C4A396AFD1A1D2",
+        "L-CE0585FEC16776B3CA7F"
+      ],
+      "fold": 0,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8326682593626457,
+      "repeat": 1,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 1004,
+      "validation_groups": 97,
+      "validation_rows": 246
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-6AA86DDAE13ED7FE6E44",
+        "L-B23D22EBDEB60C888D36",
+        "L-4B021FFB35781EBFECDB",
+        "L-8A713ECDE36709B80BA3"
+      ],
+      "fold": 1,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8286565711064209,
+      "repeat": 1,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 1008,
+      "validation_groups": 97,
+      "validation_rows": 242
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-0ED658C586AE3F8BE05A",
+        "L-759C863A4E43B18B9B49",
+        "L-91490056A4DAA39B8469",
+        "L-D1492A8B2F5578BF1031"
+      ],
+      "fold": 2,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "2|2"
+        ],
+        "Q2-B1A": [
+          "2|2"
+        ],
+        "Q2-B1B": [
+          "2|2"
+        ]
+      },
+      "q3_eta": 0.833088567295865,
+      "repeat": 1,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 992,
+      "validation_groups": 96,
+      "validation_rows": 258
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-9103151E84E84169EF6C",
+        "L-4ABFE4959BF28893362C",
+        "L-EAF0CF274011D0305D39",
+        "L-536C39E7DC14BE845647"
+      ],
+      "fold": 3,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|6"
+        ],
+        "Q2-B1A": [
+          "1|6"
+        ],
+        "Q2-B1B": [
+          "1|6"
+        ]
+      },
+      "q3_eta": 0.8310690482713863,
+      "repeat": 1,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 996,
+      "validation_groups": 96,
+      "validation_rows": 254
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-3C2305E604BDBC1F16A4",
+        "L-09FE1B59BCC18CD8B1D6",
+        "L-1B8D8A2933FB8C46DD72",
+        "L-4823123365C7DF8236C3"
+      ],
+      "fold": 4,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|7"
+        ],
+        "Q2-B1A": [
+          "1|7"
+        ],
+        "Q2-B1B": [
+          "1|7"
+        ]
+      },
+      "q3_eta": 0.8322497856044843,
+      "repeat": 1,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 1000,
+      "validation_groups": 96,
+      "validation_rows": 250
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-A853E6BEE1F675384F02",
+        "L-BBDD68A4F1F5A4C808A3",
+        "L-3A57357742AF66E8C7C4",
+        "L-A492A069BD13C0EBF5DE"
+      ],
+      "fold": 0,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|7"
+        ],
+        "Q2-B1A": [
+          "1|7"
+        ],
+        "Q2-B1B": [
+          "1|7"
+        ]
+      },
+      "q3_eta": 0.8314106160737611,
+      "repeat": 2,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 1012,
+      "validation_groups": 97,
+      "validation_rows": 238
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-141496DBB8A918EDFFEB",
+        "L-BC69C411B5D9D1E14376",
+        "L-DA69EAE4B130E66B1FDB",
+        "L-3D1BFF3B05C85684E07B"
+      ],
+      "fold": 1,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|6"
+        ],
+        "Q2-B1A": [
+          "1|6"
+        ],
+        "Q2-B1B": [
+          "1|6"
+        ]
+      },
+      "q3_eta": 0.8318603149545727,
+      "repeat": 2,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 385,
+      "train_rows": 993,
+      "validation_groups": 97,
+      "validation_rows": 257
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-E88FA5D30DBFD00BA9BA",
+        "L-F8B307D6F606FF360189",
+        "L-9EFED8DC5B78F4070B9A",
+        "L-6367C44B1BBDF67BFA82"
+      ],
+      "fold": 2,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8286994669777112,
+      "repeat": 2,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 994,
+      "validation_groups": 96,
+      "validation_rows": 256
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-D4630BD0A7647E2963EA",
+        "L-804AD7B58555DE93FEE5",
+        "L-A626622F5F1448AA6C38",
+        "L-31A90AF23A39155F1BAF"
+      ],
+      "fold": 3,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8360140114832162,
+      "repeat": 2,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 999,
+      "validation_groups": 96,
+      "validation_rows": 251
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-BE70B40BD8C94438B8A7",
+        "L-EF849EAFFC34FB868227",
+        "L-D3096C99362D42D140D8",
+        "L-CA0935E892C52FB5C85B"
+      ],
+      "fold": 4,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "2|2"
+        ],
+        "Q2-B1A": [
+          "2|2"
+        ],
+        "Q2-B1B": [
+          "2|2"
+        ]
+      },
+      "q3_eta": 0.824275229855298,
+      "repeat": 2,
+      "scope": "PRIMARY",
+      "status": "PASS",
+      "train_groups": 386,
+      "train_rows": 1002,
+      "validation_groups": 96,
+      "validation_rows": 248
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-275EB25B9114B33DCB28",
+        "L-B5BAE574420AECF93A0B",
+        "L-E0407AC16433586D950E",
+        "L-8C67B1615077D89BD6DF"
+      ],
+      "held_out_source_file": "training_set_2ap_loc0_nav82.csv",
+      "loso_split": 0,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8117922413866777,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 441,
+      "train_rows": 1168,
+      "validation_groups": 41,
+      "validation_rows": 82
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-8B68B23F4651B0212BF2",
+        "L-41A817E8277DC076FE5E",
+        "L-877CBA3737FEB50FB23B",
+        "L-EEA8F479A5A4A5D88BD8"
+      ],
+      "held_out_source_file": "training_set_2ap_loc0_nav86.csv",
+      "loso_split": 1,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8224556586744439,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 442,
+      "train_rows": 1170,
+      "validation_groups": 40,
+      "validation_rows": 80
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-BA123F3F667C60474D76",
+        "L-824DCAFEC0322721727E",
+        "L-5DD57D18E30B3B4FDD1A",
+        "L-F78EDA531BC87E25651A"
+      ],
+      "held_out_source_file": "training_set_2ap_loc1_nav82.csv",
+      "loso_split": 2,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|6"
+        ],
+        "Q2-B1A": [
+          "1|6"
+        ],
+        "Q2-B1B": [
+          "1|6"
+        ]
+      },
+      "q3_eta": 0.8398783482795981,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 443,
+      "train_rows": 1172,
+      "validation_groups": 39,
+      "validation_rows": 78
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-7D2EC8C479A8E318E0FA",
+        "L-FE45F1F874DCA4F5B38B",
+        "L-E30153F0A8CA498A522A",
+        "L-CEB8849783CE1AE1171D"
+      ],
+      "held_out_source_file": "training_set_2ap_loc1_nav86.csv",
+      "loso_split": 3,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8376584320557791,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 445,
+      "train_rows": 1176,
+      "validation_groups": 37,
+      "validation_rows": 74
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-A3220D7FDA92228F8C37",
+        "L-B435EE67781B21EB0C07",
+        "L-5F022ADFC14C1FCEA359",
+        "L-3E1F40D8E58D958AAFB0"
+      ],
+      "held_out_source_file": "training_set_2ap_loc2_nav82.csv",
+      "loso_split": 4,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "1|7"
+        ],
+        "Q2-B1A": [
+          "1|7"
+        ],
+        "Q2-B1B": [
+          "1|7"
+        ]
+      },
+      "q3_eta": 0.8305280953850764,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 443,
+      "train_rows": 1172,
+      "validation_groups": 39,
+      "validation_rows": 78
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-9CF166A36066E70D358F",
+        "L-19912FCC7FEE065506E0",
+        "L-D4D7E1B3F251BB8D89D8",
+        "L-7AD408C0C1D74B2978CD"
+      ],
+      "held_out_source_file": "training_set_3ap_loc30_nav82.csv",
+      "loso_split": 5,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8305372375086001,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 441,
+      "train_rows": 1127,
+      "validation_groups": 41,
+      "validation_rows": 123
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-FFD6D2705D47FD4E25AA",
+        "L-71E6761368860EE7A56F",
+        "L-85080D4BAEDAB765ECE0",
+        "L-30D3D4C79F8C13F04A8F"
+      ],
+      "held_out_source_file": "training_set_3ap_loc30_nav86.csv",
+      "loso_split": 6,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8320818674031265,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 442,
+      "train_rows": 1130,
+      "validation_groups": 40,
+      "validation_rows": 120
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-EED858E72B2C49BA169E",
+        "L-9E2EB4567074C8CF145F",
+        "L-2B4EFF92CC245348D15D",
+        "L-FE22F99FAAD449838BA0"
+      ],
+      "held_out_source_file": "training_set_3ap_loc31_nav82.csv",
+      "loso_split": 7,
+      "q2_missing_train_labels": {
+        "Q2-B0": [
+          "2|2"
+        ],
+        "Q2-B1A": [
+          "2|2"
+        ],
+        "Q2-B1B": [
+          "2|2"
+        ]
+      },
+      "q3_eta": 0.8408179558568321,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 440,
+      "train_rows": 1124,
+      "validation_groups": 42,
+      "validation_rows": 126
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-FFCED9E7FD73A25E6502",
+        "L-5ECDE65C5C401C202FC2",
+        "L-FB0340DCD478FE9E51FA",
+        "L-FE181AC5D196CC93E70C"
+      ],
+      "held_out_source_file": "training_set_3ap_loc31_nav86.csv",
+      "loso_split": 8,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8350694063237318,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 446,
+      "train_rows": 1142,
+      "validation_groups": 36,
+      "validation_rows": 108
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-B0528988E227AF164619",
+        "L-5C3BEB2DE26D2A29F908",
+        "L-B7949A2F0480D7BA626F",
+        "L-FF3A82B85D6F6B716EAC"
+      ],
+      "held_out_source_file": "training_set_3ap_loc32_nav82.csv",
+      "loso_split": 9,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8361524683583144,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 445,
+      "train_rows": 1139,
+      "validation_groups": 37,
+      "validation_rows": 111
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-F4DD19933399D1460099",
+        "L-4F891F0E99BB34D16CCF",
+        "L-2D1CA39353BB312F3170",
+        "L-04AD572117EB0E97D4D0"
+      ],
+      "held_out_source_file": "training_set_3ap_loc32_nav86.csv",
+      "loso_split": 10,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.836270049148505,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 462,
+      "train_rows": 1190,
+      "validation_groups": 20,
+      "validation_rows": 60
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-8B8866FB3398067BF7C9",
+        "L-68E9FBB15C88C07935E5",
+        "L-D18F909163E0FD832126",
+        "L-684118234FB2AEDE33F5"
+      ],
+      "held_out_source_file": "training_set_3ap_loc33_nav82.csv",
+      "loso_split": 11,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8379125301072973,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 445,
+      "train_rows": 1139,
+      "validation_groups": 37,
+      "validation_rows": 111
+    },
+    {
+      "actual_upstream_lineage_ids": [
+        "L-E798A43454C7AA564B89",
+        "L-30AA0D65CC8C65B6E5D6",
+        "L-00190347FCAC5D9F8834",
+        "L-DE39E49B2AA9BCEB39F1"
+      ],
+      "held_out_source_file": "training_set_3ap_loc33_nav88.csv",
+      "loso_split": 12,
+      "q2_missing_train_labels": {
+        "Q2-B0": [],
+        "Q2-B1A": [],
+        "Q2-B1B": []
+      },
+      "q3_eta": 0.8380965493265917,
+      "scope": "LOSO",
+      "status": "PASS",
+      "train_groups": 449,
+      "train_rows": 1151,
+      "validation_groups": 33,
+      "validation_rows": 99
+    }
+  ],
+  "minority_collapse": {
+    "Q2-B0": {
+      "0": [
+        "0|0",
+        "1|0",
+        "1|4",
+        "1|5",
+        "1|6",
+        "1|7",
+        "1|9",
+        "2|2",
+        "2|3",
+        "2|4",
+        "2|5",
+        "2|6",
+        "2|7",
+        "2|8",
+        "2|9",
+        "2|10"
+      ],
+      "1": [
+        "0|0",
+        "1|0",
+        "1|4",
+        "1|5",
+        "1|6",
+        "1|7",
+        "1|9",
+        "2|2",
+        "2|3",
+        "2|4",
+        "2|5",
+        "2|6",
+        "2|7",
+        "2|8",
+        "2|9",
+        "2|10"
+      ],
+      "2": [
+        "0|0",
+        "1|0",
+        "1|4",
+        "1|5",
+        "1|6",
+        "1|7",
+        "1|9",
+        "2|2",
+        "2|3",
+        "2|4",
+        "2|5",
+        "2|6",
+        "2|7",
+        "2|8",
+        "2|9",
+        "2|10"
+      ]
+    },
+    "Q2-B1A": {
+      "0": [
+        "1|6",
+        "1|7",
+        "1|9",
+        "2|2"
+      ],
+      "1": [
+        "1|6",
+        "1|7",
+        "2|2"
+      ],
+      "2": [
+        "1|4",
+        "1|6",
+        "1|7",
+        "2|2"
+      ]
+    },
+    "Q2-B1B": {
+      "0": [
+        "1|6",
+        "1|7",
+        "1|9",
+        "2|2"
+      ],
+      "1": [
+        "1|6",
+        "1|7",
+        "2|2"
+      ],
+      "2": [
+        "1|4",
+        "1|6",
+        "1|7",
+        "2|2"
+      ]
+    }
+  }
+}

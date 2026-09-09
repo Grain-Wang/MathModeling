@@ -215,9 +215,19 @@ def main() -> int:
     }
     global_checks = {
         "run_status": manifest["status"] == "PASS",
-        "manifest_head_matches_current": manifest["git_head"] == git(
-            "rev-parse", "HEAD"
-        ),
+        "formal_head_is_ancestor": git(
+            "merge-base", manifest["git_head"], git("rev-parse", "HEAD")
+        ) == manifest["git_head"],
+        "formal_model_sources_unchanged": git(
+            "diff", "--name-only", manifest["git_head"], "--",
+            "projects/rehearsal_2024_B/src/s3_baseline.py",
+            "projects/rehearsal_2024_B/src/s3_evaluation.py",
+            "projects/rehearsal_2024_B/src/s3_features.py",
+            "projects/rehearsal_2024_B/src/s3_io.py",
+            "projects/rehearsal_2024_B/src/s3_lineage.py",
+            "projects/rehearsal_2024_B/src/s3_metrics.py",
+            "projects/rehearsal_2024_B/src/s3_models.py",
+        ) == "",
         "formal_run_started_clean": manifest["git_status_before_outputs"] == "",
         "baseline_run_count": manifest["baseline_run_count"] == 8,
         "model_fit_count_positive": manifest["model_fit_count"] > 0,

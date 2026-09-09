@@ -45,3 +45,5 @@
 
 | 2026-09-09 | D0035 | S3 | 接受 G2/R2 PASS 并由 S2 进入 S3，下一门禁为 G3 | 审核 commit 6504c54 对 facedf1 明确给出 Critical=0、Major=0，并授权 S2→S3 | 只运行冻结八个 Baseline、15 外层折、13 LOSO、训练侧 dry-run 和 O2；官方测试继续封存 | ACTIVE |
 | 2026-09-09 | D0036 | S3 | Ridge(alpha=1.0) 固定使用确定性 LSQR 求解器，逐行证据写为 gzip JSONL | 312 个高相关派生特征令默认求解器产生 LinAlgWarning；LSQR 不改变模型族或 alpha，压缩不改变证据语义 | 正式运行要求 warning_count=0；所有逐行键、概率、预测和血缘仍完整保留 | ACTIVE |
+
+| 2026-09-09 | D0037 | S3 | O2 决策为 PROCEED_TO_G3，仅选择 Q2 finite HGB 与 Q3 direct/physics-residual HGB 两个受限 S4 方向 | 八个 Baseline、15 个 outer folds、13 个 LOSO 与独立重算均闭环；真实瓶颈集中在 Q2 稀有类/场景外推和 Q3 3 AP/物理外推取舍 | 形成 G3 submission；在 Reviewer 给出 G3 PASS 前不启动 S4，也不读取官方测试数值 | ACTIVE |

@@ -1,0 +1,695 @@
+{
+  "actual_lineage_assertions": {
+    "batch_count": 112,
+    "fixed_upstream_identity": true,
+    "held_out_fit_overlap_total": 0,
+    "loso_batch_count": 52,
+    "prediction_fit_overlap_total": 0,
+    "primary_batch_count": 60
+  },
+  "baseline_run_count": 8,
+  "config_sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A",
+  "eligible_groups": 482,
+  "eligible_rows": 1250,
+  "feature_schema_sha256": "DD9569F8F9707F2B951AD18F75CD109F0E4AC23AA2B7717FA0F98D8FDF669C59",
+  "finished_at": "2026-09-09T16:22:03+08:00",
+  "git_head": "2222cf5f4e17a6dac832c4e65f9c5a60cd01060d",
+  "git_status_before_outputs": "",
+  "guard_sha256": "24D5DA851151F41C8285691E563F063EF756A04C5699A5B2F9A6F715DECC8EE3",
+  "loso_split_count": 13,
+  "model_fit_count": 327,
+  "numpy": "2.4.4",
+  "official_test_hash_only_count": 4,
+  "official_test_numeric_read_count": 0,
+  "official_test_prediction_count": 0,
+  "outer_fold_count": 15,
+  "output_artifacts": [
+    {
+      "bytes": 1697,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/a03_sensitivity.json",
+      "sha256": "C2C28DF40BB07AC89019C6DA9F1E155AC5DF063FADB0C9A578B6A03B8097A73E"
+    },
+    {
+      "bytes": 16949,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/baseline_summary.json",
+      "sha256": "5B561E7CE8D3859954844A398124806A97A04DD94A8C008ADC59CEE835307A16"
+    },
+    {
+      "bytes": 120161,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/feature_schema.json",
+      "sha256": "DD9569F8F9707F2B951AD18F75CD109F0E4AC23AA2B7717FA0F98D8FDF669C59"
+    },
+    {
+      "bytes": 4008,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/group_bootstrap_intervals.json",
+      "sha256": "1FD653ECC2B5E672CFCAB3871BF144551B3E10694BEB249E294783874D52F47C"
+    },
+    {
+      "bytes": 746818,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_actual_upstream_lineage.json",
+      "sha256": "362CB15CBE9A2DA5B160FA83737FD52E147D26F494CC6539E0405EE22367213A"
+    },
+    {
+      "bytes": 681810,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_crossfit_for_downstream.jsonl.gz",
+      "sha256": "03DF0C3C4E8313F5666DCCF0002A37EE112F7BBA84318FA18BA596161E51EB9A"
+    },
+    {
+      "bytes": 110952,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_feature_family_importance.json",
+      "sha256": "42C044010858F53FC480A6B9588C6FEAF540DD2F2B5413BC5382A673E4B5BB1B"
+    },
+    {
+      "bytes": 20872,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_metrics.json",
+      "sha256": "8F4B837D5E2EDE354987151B0EE9DE6BA276CEFE855EF10EFCB0A19E36B0DD0E"
+    },
+    {
+      "bytes": 202016,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q1_oof_predictions.jsonl.gz",
+      "sha256": "23B1FDF2CDBDD09374CC2CA873773F166CAAAD9EBC5EFD3F435069F4DBCB66CF"
+    },
+    {
+      "bytes": 19335,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q2_class_support.json",
+      "sha256": "2548FF53F0D81C79C8E0DB1273334A2C19E9B25F848D3BBCB1C2036B26F4EBAC"
+    },
+    {
+      "bytes": 124224,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q2_metrics.json",
+      "sha256": "8F0A3A313E59A9E6561C11858E50B339993B63B1BD752443798A2C9CF5B90F1E"
+    },
+    {
+      "bytes": 1997579,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q2_oof_predictions.jsonl.gz",
+      "sha256": "D88F5C8CED9DF55AE64BEE6F3B39FFE52E104DFFD14AA88C281A272378E25220"
+    },
+    {
+      "bytes": 623170,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q3_ap_oof_predictions.jsonl.gz",
+      "sha256": "03D37D5D793C6D7FF5FF78AE4CFC03BA7162823F1BDDB1260D76034D7529F2A8"
+    },
+    {
+      "bytes": 2222467,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q3_error_cdf.json",
+      "sha256": "A592EE1D6FBA970AFCCDE3A5E2853920D5190077873EF69327DBDD95B5A2251F"
+    },
+    {
+      "bytes": 85428,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q3_metrics.json",
+      "sha256": "A0AF876FA8E4CE3D0DB8E5277489610C3F87402BAE013FFC1EDF66097A0F5BE1"
+    },
+    {
+      "bytes": 175965,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/q3_system_oof_predictions.jsonl.gz",
+      "sha256": "CCF15670A41D22BEE1FD073FB6CBB34878570369F259B2829796EA1C2C23FFAE"
+    },
+    {
+      "bytes": 178107,
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/stratified_metrics.json",
+      "sha256": "E8A9D7030FAC36B7657B4AA555EAF142C30C0A209B26883E36573988892DC44C"
+    }
+  ],
+  "pandas": "3.0.2",
+  "phase_input_manifest": {
+    "canonical_input_records": [
+      {
+        "bytes": 245805,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc0_nav82.csv",
+        "name": "training_set_2ap_loc0_nav82.csv",
+        "role": "train",
+        "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E"
+      },
+      {
+        "bytes": 378917,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc0_nav86.csv",
+        "name": "training_set_2ap_loc0_nav86.csv",
+        "role": "train",
+        "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321"
+      },
+      {
+        "bytes": 409486,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc1_nav82.csv",
+        "name": "training_set_2ap_loc1_nav82.csv",
+        "role": "train",
+        "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4"
+      },
+      {
+        "bytes": 352700,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc1_nav86.csv",
+        "name": "training_set_2ap_loc1_nav86.csv",
+        "role": "train",
+        "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD"
+      },
+      {
+        "bytes": 345269,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc2_nav82.csv",
+        "name": "training_set_2ap_loc2_nav82.csv",
+        "role": "train",
+        "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F"
+      },
+      {
+        "bytes": 828587,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc30_nav82.csv",
+        "name": "training_set_3ap_loc30_nav82.csv",
+        "role": "train",
+        "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B"
+      },
+      {
+        "bytes": 761332,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc30_nav86.csv",
+        "name": "training_set_3ap_loc30_nav86.csv",
+        "role": "train",
+        "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8"
+      },
+      {
+        "bytes": 912194,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc31_nav82.csv",
+        "name": "training_set_3ap_loc31_nav82.csv",
+        "role": "train",
+        "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB"
+      },
+      {
+        "bytes": 783574,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc31_nav86.csv",
+        "name": "training_set_3ap_loc31_nav86.csv",
+        "role": "train",
+        "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC"
+      },
+      {
+        "bytes": 3691461,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc32_nav82.csv",
+        "name": "training_set_3ap_loc32_nav82.csv",
+        "role": "train",
+        "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112"
+      },
+      {
+        "bytes": 2023495,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc32_nav86.csv",
+        "name": "training_set_3ap_loc32_nav86.csv",
+        "role": "train",
+        "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA"
+      },
+      {
+        "bytes": 2720436,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc33_nav82.csv",
+        "name": "training_set_3ap_loc33_nav82.csv",
+        "role": "train",
+        "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26"
+      },
+      {
+        "bytes": 3251013,
+        "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc33_nav88.csv",
+        "name": "training_set_3ap_loc33_nav88.csv",
+        "role": "train",
+        "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E"
+      }
+    ],
+    "guard_result": {
+      "input_file_count": 13,
+      "mode": "PROTECTED_NO_OFFICIAL_TEST",
+      "official_test_file_count": 0,
+      "phase": "S3",
+      "status": "PASS"
+    },
+    "manifest": {
+      "config_sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A",
+      "guard_sha256": "24D5DA851151F41C8285691E563F063EF756A04C5699A5B2F9A6F715DECC8EE3",
+      "input_files": [
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc0_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc0_nav86.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc1_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc1_nav86.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc2_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc30_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc30_nav86.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc31_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc31_nav86.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc32_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc32_nav86.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc33_nav82.csv",
+        "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc33_nav88.csv"
+      ],
+      "input_kind": "training_csv",
+      "phase": "S3"
+    },
+    "numeric_read_count_at_guard_return": 0
+  },
+  "platform": "Windows-10-10.0.26200-SP0",
+  "preflight": {
+    "contract_artifacts": {
+      "files": [
+        {
+          "actual_sha256": "AF3C7444D8D5559548EECCDDB9B61D7625EA4FACBD4E67229259D9711438328D",
+          "exists": true,
+          "expected_sha256": "AF3C7444D8D5559548EECCDDB9B61D7625EA4FACBD4E67229259D9711438328D",
+          "match": true,
+          "path": "work/04_solution_plan.md"
+        },
+        {
+          "actual_sha256": "D17E56F943F71604DC0DD6AFAB8D4CBAA89ACF49BC0052C27C60BC6AFAA0A284",
+          "exists": true,
+          "expected_sha256": "D17E56F943F71604DC0DD6AFAB8D4CBAA89ACF49BC0052C27C60BC6AFAA0A284",
+          "match": true,
+          "path": "work/05_experiment_plan.md"
+        },
+        {
+          "actual_sha256": "C11029B60480EBDF9C11523531BBA7ACE7623AB7CA488CF9E9FD6FE81D320730",
+          "exists": true,
+          "expected_sha256": "C11029B60480EBDF9C11523531BBA7ACE7623AB7CA488CF9E9FD6FE81D320730",
+          "match": true,
+          "path": "work/models/q1_model_contract.md"
+        },
+        {
+          "actual_sha256": "4ADC5629DD9810C88F8CBCD33F1F8EE0851578D273B467BDACBC324341F04741",
+          "exists": true,
+          "expected_sha256": "4ADC5629DD9810C88F8CBCD33F1F8EE0851578D273B467BDACBC324341F04741",
+          "match": true,
+          "path": "work/models/q2_model_contract.md"
+        },
+        {
+          "actual_sha256": "5D950827880E1F094E2854C1204562B8E000B718E5B0551B99A6FE52C4A937DD",
+          "exists": true,
+          "expected_sha256": "5D950827880E1F094E2854C1204562B8E000B718E5B0551B99A6FE52C4A937DD",
+          "match": true,
+          "path": "work/models/q3_model_contract.md"
+        },
+        {
+          "actual_sha256": "694ABFF33CD2E8D22086A1F48170E587FB7A278303D17644670E11C98CACCD1E",
+          "exists": true,
+          "expected_sha256": "694ABFF33CD2E8D22086A1F48170E587FB7A278303D17644670E11C98CACCD1E",
+          "match": true,
+          "path": "work/optimization/o1_solution_optimization.md"
+        }
+      ],
+      "hash_algorithm": "SHA-256 of UTF-8 text after CRLF/CR to LF normalization",
+      "status": "PASS"
+    },
+    "csv_numeric_read_count": 0,
+    "entry": {
+      "canonical_input_records": [
+        {
+          "bytes": 245805,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc0_nav82.csv",
+          "name": "training_set_2ap_loc0_nav82.csv",
+          "role": "train",
+          "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E"
+        },
+        {
+          "bytes": 378917,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc0_nav86.csv",
+          "name": "training_set_2ap_loc0_nav86.csv",
+          "role": "train",
+          "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321"
+        },
+        {
+          "bytes": 409486,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc1_nav82.csv",
+          "name": "training_set_2ap_loc1_nav82.csv",
+          "role": "train",
+          "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4"
+        },
+        {
+          "bytes": 352700,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc1_nav86.csv",
+          "name": "training_set_2ap_loc1_nav86.csv",
+          "role": "train",
+          "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD"
+        },
+        {
+          "bytes": 345269,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_2ap_loc2_nav82.csv",
+          "name": "training_set_2ap_loc2_nav82.csv",
+          "role": "train",
+          "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F"
+        },
+        {
+          "bytes": 828587,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc30_nav82.csv",
+          "name": "training_set_3ap_loc30_nav82.csv",
+          "role": "train",
+          "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B"
+        },
+        {
+          "bytes": 761332,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc30_nav86.csv",
+          "name": "training_set_3ap_loc30_nav86.csv",
+          "role": "train",
+          "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8"
+        },
+        {
+          "bytes": 912194,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc31_nav82.csv",
+          "name": "training_set_3ap_loc31_nav82.csv",
+          "role": "train",
+          "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB"
+        },
+        {
+          "bytes": 783574,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc31_nav86.csv",
+          "name": "training_set_3ap_loc31_nav86.csv",
+          "role": "train",
+          "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC"
+        },
+        {
+          "bytes": 3691461,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc32_nav82.csv",
+          "name": "training_set_3ap_loc32_nav82.csv",
+          "role": "train",
+          "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112"
+        },
+        {
+          "bytes": 2023495,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc32_nav86.csv",
+          "name": "training_set_3ap_loc32_nav86.csv",
+          "role": "train",
+          "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA"
+        },
+        {
+          "bytes": 2720436,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc33_nav82.csv",
+          "name": "training_set_3ap_loc33_nav82.csv",
+          "role": "train",
+          "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26"
+        },
+        {
+          "bytes": 3251013,
+          "canonical_relative_path": "projects/rehearsal_2024_B/problem/data/training_set_3ap_loc33_nav88.csv",
+          "name": "training_set_3ap_loc33_nav88.csv",
+          "role": "train",
+          "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E"
+        }
+      ],
+      "guard_result": {
+        "input_file_count": 13,
+        "mode": "PROTECTED_NO_OFFICIAL_TEST",
+        "official_test_file_count": 0,
+        "phase": "S3",
+        "status": "PASS"
+      },
+      "manifest": {
+        "config_sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A",
+        "guard_sha256": "24D5DA851151F41C8285691E563F063EF756A04C5699A5B2F9A6F715DECC8EE3",
+        "input_files": [
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc0_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc0_nav86.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc1_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc1_nav86.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_2ap_loc2_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc30_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc30_nav86.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc31_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc31_nav86.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc32_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc32_nav86.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc33_nav82.csv",
+          "D:\\Coding_FILES\\MathModeling\\projects\\rehearsal_2024_B\\problem\\data\\training_set_3ap_loc33_nav88.csv"
+        ],
+        "input_kind": "training_csv",
+        "phase": "S3"
+      },
+      "numeric_read_count_at_guard_return": 0
+    },
+    "file_identity": {
+      "file_count": 17,
+      "files": [
+        {
+          "access": "byte_hash_only_no_numeric_parse",
+          "bytes": 229577,
+          "name": "test_set_1_2ap.csv",
+          "pass": true,
+          "role": "test_q1_q3",
+          "sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2"
+        },
+        {
+          "access": "byte_hash_only_no_numeric_parse",
+          "bytes": 3486596,
+          "name": "test_set_1_3ap.csv",
+          "pass": true,
+          "role": "test_q1_q3",
+          "sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3"
+        },
+        {
+          "access": "byte_hash_only_no_numeric_parse",
+          "bytes": 1265585,
+          "name": "test_set_2_2ap.csv",
+          "pass": true,
+          "role": "test_q2",
+          "sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B"
+        },
+        {
+          "access": "byte_hash_only_no_numeric_parse",
+          "bytes": 2795529,
+          "name": "test_set_2_3ap.csv",
+          "pass": true,
+          "role": "test_q2",
+          "sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 245805,
+          "name": "training_set_2ap_loc0_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 378917,
+          "name": "training_set_2ap_loc0_nav86.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 409486,
+          "name": "training_set_2ap_loc1_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 352700,
+          "name": "training_set_2ap_loc1_nav86.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 345269,
+          "name": "training_set_2ap_loc2_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 828587,
+          "name": "training_set_3ap_loc30_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 761332,
+          "name": "training_set_3ap_loc30_nav86.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 912194,
+          "name": "training_set_3ap_loc31_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 783574,
+          "name": "training_set_3ap_loc31_nav86.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 3691461,
+          "name": "training_set_3ap_loc32_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 2023495,
+          "name": "training_set_3ap_loc32_nav86.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 2720436,
+          "name": "training_set_3ap_loc33_nav82.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26"
+        },
+        {
+          "access": "identity_check_before_guarded_numeric_parse",
+          "bytes": 3251013,
+          "name": "training_set_3ap_loc33_nav88.csv",
+          "pass": true,
+          "role": "train",
+          "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E"
+        }
+      ],
+      "official_test_hash_only_count": 4,
+      "status": "PASS",
+      "training_file_count": 13
+    },
+    "gate_review": {
+      "checks": {
+        "reviewed_commit": true,
+        "transition_authorized": true,
+        "verdict_pass": true
+      },
+      "path": "projects/rehearsal_2024_B/reviews/gate_2_review_r2.md",
+      "sha256": "F27FA226020BB15B0BFE85E735A573B6AAEAAF99CB08B7C9BF000909F73654D0",
+      "status": "PASS"
+    },
+    "model_fit_count": 0,
+    "official_test_numeric_read_count": 0,
+    "official_test_prediction_count": 0,
+    "real_entry_guard_tests": {
+      "cases": [
+        {
+          "file": "test_set_1_2ap.csv",
+          "message": "official test input is forbidden before final release: test_set_1_2ap.csv",
+          "rejected": true
+        },
+        {
+          "file": "test_set_1_3ap.csv",
+          "message": "official test input is forbidden before final release: test_set_1_3ap.csv",
+          "rejected": true
+        },
+        {
+          "file": "test_set_2_2ap.csv",
+          "message": "official test input is forbidden before final release: test_set_2_2ap.csv",
+          "rejected": true
+        },
+        {
+          "file": "test_set_2_3ap.csv",
+          "message": "official test input is forbidden before final release: test_set_2_3ap.csv",
+          "rejected": true
+        }
+      ],
+      "checks": {
+        "all_official_injections_rejected": true,
+        "legal_training_manifest_passes": true,
+        "no_csv_numeric_parser_called": true
+      },
+      "status": "PASS"
+    },
+    "split_registry": {
+      "file_sha256": "B20D719E287D4F4D295D2EC497F13226C7A80C5986B70CA2269E1016BDAA3FF7",
+      "loso_split_count": 13,
+      "outer_fold_count": 15,
+      "path": "projects/rehearsal_2024_B/results/raw/s2/split_registry.json",
+      "recomputed_core_sha256": "88B108D181C2EA3A723303DED3D0E64BACEF7FA482F8322712ED97ED020A6C2D",
+      "recorded_core_sha256": "88B108D181C2EA3A723303DED3D0E64BACEF7FA482F8322712ED97ED020A6C2D"
+    },
+    "status": "PASS"
+  },
+  "primary_output_counts": {
+    "q1": {
+      "rows_per_model_repeat": {
+        "Q1-B0": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        },
+        "Q1-B1": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        }
+      }
+    },
+    "q2": {
+      "rows_per_model_repeat": {
+        "Q2-B0": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        },
+        "Q2-B1A": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        },
+        "Q2-B1B": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        }
+      }
+    },
+    "q3_ap": {
+      "rows_per_model_repeat": {
+        "Q3-B0": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        },
+        "Q3-B1": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        },
+        "Q3-B2": {
+          "0": 1250,
+          "1": 1250,
+          "2": 1250
+        }
+      }
+    },
+    "q3_system": {
+      "rows_per_model_repeat": {
+        "Q3-B0": {
+          "0": 482,
+          "1": 482,
+          "2": 482
+        },
+        "Q3-B1": {
+          "0": 482,
+          "1": 482,
+          "2": 482
+        },
+        "Q3-B2": {
+          "0": 482,
+          "1": 482,
+          "2": 482
+        }
+      }
+    }
+  },
+  "python": "3.11.11 | packaged by conda-forge | (main, Mar  3 2025, 20:29:43) [MSC v.1943 64 bit (AMD64)]",
+  "runtime_seconds": 265.16703670000425,
+  "s3_entry_sha256": "B288D9A0871FDED8CD66FBDD649026D5816C5B851580C1BBBB39AFDC2905DF2D",
+  "scikit_learn": "1.7.1",
+  "split_registry_core_sha256": "88B108D181C2EA3A723303DED3D0E64BACEF7FA482F8322712ED97ED020A6C2D",
+  "split_registry_sha256": "B20D719E287D4F4D295D2EC497F13226C7A80C5986B70CA2269E1016BDAA3FF7",
+  "started_at": "2026-09-09T16:17:38+08:00",
+  "status": "PASS",
+  "threads": 1,
+  "training_csv_numeric_read_count": 13,
+  "warning_count": 0,
+  "warnings": []
+}

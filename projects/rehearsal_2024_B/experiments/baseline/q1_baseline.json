@@ -1,0 +1,25 @@
+{
+  "command": "conda run -n math_modeling python projects/rehearsal_2024_B/src/s3_baseline.py",
+  "config_sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A",
+  "feature_schema_sha256": "DD9569F8F9707F2B951AD18F75CD109F0E4AC23AA2B7717FA0F98D8FDF669C59",
+  "git_head": "2222cf5f4e17a6dac832c4e65f9c5a60cd01060d",
+  "mandatory_stress": "13 source-blind LOSO folds",
+  "official_test_numeric_read_count": 0,
+  "primary_split": "3 repeats x 5 frozen grouped outer folds",
+  "runs": {
+    "EXP-S3-Q1-B0": {
+      "model": "DummyRegressor",
+      "strategy": "median"
+    },
+    "EXP-S3-Q1-B1": {
+      "alpha": 1.0,
+      "model": "Ridge",
+      "primary_prediction": "seq_time_bounded",
+      "solver": "lsqr"
+    }
+  },
+  "split_registry_core_sha256": "88B108D181C2EA3A723303DED3D0E64BACEF7FA482F8322712ED97ED020A6C2D",
+  "split_registry_sha256": "B20D719E287D4F4D295D2EC497F13226C7A80C5986B70CA2269E1016BDAA3FF7",
+  "stage": "S3",
+  "threads": 1
+}
