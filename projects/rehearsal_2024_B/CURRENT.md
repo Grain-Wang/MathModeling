@@ -18,7 +18,7 @@ ACTIVE_PROJECT：projects/rehearsal_2024_B
 
 ## Current Stage
 
-S1 — 题意拆解与数据审计（交付物完成，G1 本地审核包就绪）
+S1 — 题意拆解与数据审计（交付物完成，等待 G1 远程审核）
 
 ## Last Gate
 
@@ -42,18 +42,17 @@ Review Commit：0fac4e099cffdafab32af0aa9af9f8969f087dbe
 
 ## Current Goal
 
-将完整 S1 交付物固定到单一 Git commit，在获得明确远程推送授权后推送 origin/main，并以完整 SHA 请求 G1 Round 1 独立审核。
+等待 Reviewer 对已推送的 S1 固定快照执行 G1 Round 1 独立审核。
 
 ## Current Tasks
 
-1. 完成最终一致性检查并提交 S1 文档、脚本、结果、日志、CURRENT 和 G1 submission。
-2. 等待用户明确授权 git push origin main；此前不产生远程写入。
-3. 推送后向 Reviewer 提供固定完整 SHA，等待 reviews/gate_1_review.md。
-4. G1 PASS 前不进入 S2。
+1. 向 Reviewer 提供推送后由 git rev-parse HEAD 确认的远程完整 SHA。
+2. 等待 Reviewer 新增 reviews/gate_1_review.md。
+3. G1 PASS 前不进入 S2。
 
 ## Current Process Blockers
 
-- 远程 G1 审查尚未开始：当前会话的安全审批要求用户明确授权向 origin/main 推送；本地工作可继续且 S1 审核包已就绪。
+- None。用户已明确授权向 origin/main 推送；G1 审核包完整且验证通过。
 
 ## Known Limitations / Risks
 
@@ -79,16 +78,16 @@ Review Commit：0fac4e099cffdafab32af0aa9af9f8969f087dbe
 
 G1 — 题意拆解与数据审计审核
 
-Verdict：PENDING REVIEW（本地包完成；尚未推送远程）
+Verdict：PENDING REVIEW
 
 Submission：[reviews/gate_1_submission.md](reviews/gate_1_submission.md)
 
 待审核实现证据 commit：f4b8b9f70e049d497edf56a3bdac43669da932a6
 
-最终 Reviewed Commit：待包含全部 G1 交付物的本地 commit 创建并获准推送后，由调用 Reviewer 时传入
+最终 Reviewed Commit：由调用 Reviewer 时传入已推送的 git rev-parse HEAD 完整 SHA
 
 ## Last Updated
 
-时间：2026-09-08T23:13:34+08:00
+时间：2026-09-09T09:48:26+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充
