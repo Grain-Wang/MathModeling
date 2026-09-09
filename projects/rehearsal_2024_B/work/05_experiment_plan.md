@@ -17,7 +17,7 @@
 - Split registry：results/raw/s2/split_registry.json；
 - Contract validation：results/raw/s2/contract_validation.json；
 - Approved data evidence：results/raw/s1；
-- Formal contract-validation commit：CONTRACT_VALIDATION_COMMIT_TO_FILL。
+- Formal contract-validation commit：6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39。
 
 Markdown 与 JSON 冲突时停止执行并修正，不允许临时选择更有利口径。
 

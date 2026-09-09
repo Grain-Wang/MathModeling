@@ -1,0 +1,559 @@
+{
+  "checks": {
+    "eligible_groups": true,
+    "eligible_identity": true,
+    "eligible_rows": true,
+    "input_after": true,
+    "input_before": true,
+    "input_hashes_unchanged": true,
+    "loso_split_count": true,
+    "outer_assignment_count": true,
+    "outer_fold_count": true,
+    "q2_labels_match": true,
+    "q3_synthetic_metrics": true,
+    "stage_boundary": true
+  },
+  "eligible_identity": {
+    "composite_key": [
+      "source_file",
+      "test_id",
+      "ap_id"
+    ],
+    "composite_key_duplicate_examples": [],
+    "composite_key_duplicate_key_count": 0,
+    "composite_key_duplicate_row_count": 0,
+    "group_count": 482,
+    "illegal_ap_id_examples": [],
+    "illegal_ap_id_row_count": 0,
+    "invalid_group_count": 0,
+    "invalid_group_examples": [],
+    "null_ap_id_examples": [],
+    "null_ap_id_row_count": 0,
+    "null_source_file_examples": [],
+    "null_source_file_row_count": 0,
+    "null_test_id_examples": [],
+    "null_test_id_row_count": 0,
+    "row_count": 1250,
+    "scope": "S2 eligible training",
+    "strict_pass": true,
+    "strict_valid_group_count": 482
+  },
+  "input_hashes_unchanged_during_validation": true,
+  "input_verification_after": {
+    "actual_count": 17,
+    "expected_count": 17,
+    "extra": [],
+    "failures": [],
+    "files": [
+      {
+        "bytes": 229577,
+        "exists": true,
+        "expected_bytes": 229577,
+        "expected_sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2",
+        "file": "test_set_1_2ap.csv",
+        "hash_ok": true,
+        "sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2",
+        "size_ok": true
+      },
+      {
+        "bytes": 3486596,
+        "exists": true,
+        "expected_bytes": 3486596,
+        "expected_sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3",
+        "file": "test_set_1_3ap.csv",
+        "hash_ok": true,
+        "sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3",
+        "size_ok": true
+      },
+      {
+        "bytes": 1265585,
+        "exists": true,
+        "expected_bytes": 1265585,
+        "expected_sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B",
+        "file": "test_set_2_2ap.csv",
+        "hash_ok": true,
+        "sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B",
+        "size_ok": true
+      },
+      {
+        "bytes": 2795529,
+        "exists": true,
+        "expected_bytes": 2795529,
+        "expected_sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67",
+        "file": "test_set_2_3ap.csv",
+        "hash_ok": true,
+        "sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67",
+        "size_ok": true
+      },
+      {
+        "bytes": 245805,
+        "exists": true,
+        "expected_bytes": 245805,
+        "expected_sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E",
+        "file": "training_set_2ap_loc0_nav82.csv",
+        "hash_ok": true,
+        "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E",
+        "size_ok": true
+      },
+      {
+        "bytes": 378917,
+        "exists": true,
+        "expected_bytes": 378917,
+        "expected_sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321",
+        "file": "training_set_2ap_loc0_nav86.csv",
+        "hash_ok": true,
+        "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321",
+        "size_ok": true
+      },
+      {
+        "bytes": 409486,
+        "exists": true,
+        "expected_bytes": 409486,
+        "expected_sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4",
+        "file": "training_set_2ap_loc1_nav82.csv",
+        "hash_ok": true,
+        "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4",
+        "size_ok": true
+      },
+      {
+        "bytes": 352700,
+        "exists": true,
+        "expected_bytes": 352700,
+        "expected_sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD",
+        "file": "training_set_2ap_loc1_nav86.csv",
+        "hash_ok": true,
+        "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD",
+        "size_ok": true
+      },
+      {
+        "bytes": 345269,
+        "exists": true,
+        "expected_bytes": 345269,
+        "expected_sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F",
+        "file": "training_set_2ap_loc2_nav82.csv",
+        "hash_ok": true,
+        "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F",
+        "size_ok": true
+      },
+      {
+        "bytes": 828587,
+        "exists": true,
+        "expected_bytes": 828587,
+        "expected_sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B",
+        "file": "training_set_3ap_loc30_nav82.csv",
+        "hash_ok": true,
+        "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B",
+        "size_ok": true
+      },
+      {
+        "bytes": 761332,
+        "exists": true,
+        "expected_bytes": 761332,
+        "expected_sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8",
+        "file": "training_set_3ap_loc30_nav86.csv",
+        "hash_ok": true,
+        "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8",
+        "size_ok": true
+      },
+      {
+        "bytes": 912194,
+        "exists": true,
+        "expected_bytes": 912194,
+        "expected_sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB",
+        "file": "training_set_3ap_loc31_nav82.csv",
+        "hash_ok": true,
+        "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB",
+        "size_ok": true
+      },
+      {
+        "bytes": 783574,
+        "exists": true,
+        "expected_bytes": 783574,
+        "expected_sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC",
+        "file": "training_set_3ap_loc31_nav86.csv",
+        "hash_ok": true,
+        "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC",
+        "size_ok": true
+      },
+      {
+        "bytes": 3691461,
+        "exists": true,
+        "expected_bytes": 3691461,
+        "expected_sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112",
+        "file": "training_set_3ap_loc32_nav82.csv",
+        "hash_ok": true,
+        "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112",
+        "size_ok": true
+      },
+      {
+        "bytes": 2023495,
+        "exists": true,
+        "expected_bytes": 2023495,
+        "expected_sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA",
+        "file": "training_set_3ap_loc32_nav86.csv",
+        "hash_ok": true,
+        "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA",
+        "size_ok": true
+      },
+      {
+        "bytes": 2720436,
+        "exists": true,
+        "expected_bytes": 2720436,
+        "expected_sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26",
+        "file": "training_set_3ap_loc33_nav82.csv",
+        "hash_ok": true,
+        "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26",
+        "size_ok": true
+      },
+      {
+        "bytes": 3251013,
+        "exists": true,
+        "expected_bytes": 3251013,
+        "expected_sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E",
+        "file": "training_set_3ap_loc33_nav88.csv",
+        "hash_ok": true,
+        "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E",
+        "size_ok": true
+      }
+    ],
+    "missing": [],
+    "status": "PASS"
+  },
+  "input_verification_before": {
+    "actual_count": 17,
+    "expected_count": 17,
+    "extra": [],
+    "failures": [],
+    "files": [
+      {
+        "bytes": 229577,
+        "exists": true,
+        "expected_bytes": 229577,
+        "expected_sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2",
+        "file": "test_set_1_2ap.csv",
+        "hash_ok": true,
+        "sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2",
+        "size_ok": true
+      },
+      {
+        "bytes": 3486596,
+        "exists": true,
+        "expected_bytes": 3486596,
+        "expected_sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3",
+        "file": "test_set_1_3ap.csv",
+        "hash_ok": true,
+        "sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3",
+        "size_ok": true
+      },
+      {
+        "bytes": 1265585,
+        "exists": true,
+        "expected_bytes": 1265585,
+        "expected_sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B",
+        "file": "test_set_2_2ap.csv",
+        "hash_ok": true,
+        "sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B",
+        "size_ok": true
+      },
+      {
+        "bytes": 2795529,
+        "exists": true,
+        "expected_bytes": 2795529,
+        "expected_sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67",
+        "file": "test_set_2_3ap.csv",
+        "hash_ok": true,
+        "sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67",
+        "size_ok": true
+      },
+      {
+        "bytes": 245805,
+        "exists": true,
+        "expected_bytes": 245805,
+        "expected_sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E",
+        "file": "training_set_2ap_loc0_nav82.csv",
+        "hash_ok": true,
+        "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E",
+        "size_ok": true
+      },
+      {
+        "bytes": 378917,
+        "exists": true,
+        "expected_bytes": 378917,
+        "expected_sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321",
+        "file": "training_set_2ap_loc0_nav86.csv",
+        "hash_ok": true,
+        "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321",
+        "size_ok": true
+      },
+      {
+        "bytes": 409486,
+        "exists": true,
+        "expected_bytes": 409486,
+        "expected_sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4",
+        "file": "training_set_2ap_loc1_nav82.csv",
+        "hash_ok": true,
+        "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4",
+        "size_ok": true
+      },
+      {
+        "bytes": 352700,
+        "exists": true,
+        "expected_bytes": 352700,
+        "expected_sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD",
+        "file": "training_set_2ap_loc1_nav86.csv",
+        "hash_ok": true,
+        "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD",
+        "size_ok": true
+      },
+      {
+        "bytes": 345269,
+        "exists": true,
+        "expected_bytes": 345269,
+        "expected_sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F",
+        "file": "training_set_2ap_loc2_nav82.csv",
+        "hash_ok": true,
+        "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F",
+        "size_ok": true
+      },
+      {
+        "bytes": 828587,
+        "exists": true,
+        "expected_bytes": 828587,
+        "expected_sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B",
+        "file": "training_set_3ap_loc30_nav82.csv",
+        "hash_ok": true,
+        "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B",
+        "size_ok": true
+      },
+      {
+        "bytes": 761332,
+        "exists": true,
+        "expected_bytes": 761332,
+        "expected_sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8",
+        "file": "training_set_3ap_loc30_nav86.csv",
+        "hash_ok": true,
+        "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8",
+        "size_ok": true
+      },
+      {
+        "bytes": 912194,
+        "exists": true,
+        "expected_bytes": 912194,
+        "expected_sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB",
+        "file": "training_set_3ap_loc31_nav82.csv",
+        "hash_ok": true,
+        "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB",
+        "size_ok": true
+      },
+      {
+        "bytes": 783574,
+        "exists": true,
+        "expected_bytes": 783574,
+        "expected_sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC",
+        "file": "training_set_3ap_loc31_nav86.csv",
+        "hash_ok": true,
+        "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC",
+        "size_ok": true
+      },
+      {
+        "bytes": 3691461,
+        "exists": true,
+        "expected_bytes": 3691461,
+        "expected_sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112",
+        "file": "training_set_3ap_loc32_nav82.csv",
+        "hash_ok": true,
+        "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112",
+        "size_ok": true
+      },
+      {
+        "bytes": 2023495,
+        "exists": true,
+        "expected_bytes": 2023495,
+        "expected_sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA",
+        "file": "training_set_3ap_loc32_nav86.csv",
+        "hash_ok": true,
+        "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA",
+        "size_ok": true
+      },
+      {
+        "bytes": 2720436,
+        "exists": true,
+        "expected_bytes": 2720436,
+        "expected_sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26",
+        "file": "training_set_3ap_loc33_nav82.csv",
+        "hash_ok": true,
+        "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26",
+        "size_ok": true
+      },
+      {
+        "bytes": 3251013,
+        "exists": true,
+        "expected_bytes": 3251013,
+        "expected_sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E",
+        "file": "training_set_3ap_loc33_nav88.csv",
+        "hash_ok": true,
+        "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E",
+        "size_ok": true
+      }
+    ],
+    "missing": [],
+    "status": "PASS"
+  },
+  "metadata": {
+    "config": "configs/s2_experiment_plan.json",
+    "config_sha256": "5DB3A27DD10CA9C747B82FE3F4C5757CFE407E6BDBE88BAD65CDEAF057D91556",
+    "generated_at": "2026-09-09T11:50:06+08:00",
+    "git_head": "6b88cd1eb6a4776b12b77b859f01d7b8cfaf9a39",
+    "git_status_porcelain_before_outputs": "",
+    "model_fit_count": 0,
+    "official_test_numeric_read_count": 0,
+    "script": "src/s2_contract_validation.py",
+    "stage": "S2"
+  },
+  "model_fit_count": 0,
+  "nav_unit_resolution": {
+    "sample_levels_from_approved_training_audit": [
+      -88,
+      -86,
+      -82
+    ],
+    "statement_location": "Section 4.1.3 threshold information",
+    "unit": "dBm",
+    "value": "NAV threshold"
+  },
+  "official_test_numeric_read_count": 0,
+  "q2_label_contract": {
+    "encoding": "nss|mcs",
+    "global_label_count": 17,
+    "global_labels": [
+      "0|0",
+      "1|0",
+      "1|4",
+      "1|5",
+      "1|6",
+      "1|7",
+      "1|9",
+      "2|2",
+      "2|3",
+      "2|4",
+      "2|5",
+      "2|6",
+      "2|7",
+      "2|8",
+      "2|9",
+      "2|10",
+      "2|11"
+    ],
+    "macro_f1_policy": {
+      "disclose_support": true,
+      "macro_f1_labels": "all 17 global labels",
+      "zero_division": 0
+    },
+    "missing_training_class_policy": "reindex probabilities to all 17 labels; absent training labels receive probability zero and cannot be predicted in that fold; disclose them",
+    "observed_support": {
+      "0|0": 3,
+      "1|0": 3,
+      "1|4": 2,
+      "1|5": 17,
+      "1|6": 1,
+      "1|7": 1,
+      "1|9": 2,
+      "2|10": 62,
+      "2|11": 604,
+      "2|2": 1,
+      "2|3": 10,
+      "2|4": 153,
+      "2|5": 97,
+      "2|6": 45,
+      "2|7": 69,
+      "2|8": 90,
+      "2|9": 90
+    }
+  },
+  "q3_synthetic_metric_tests": {
+    "checks": {
+      "accuracy_not_clipped": true,
+      "signed_direction": true,
+      "strict_system_sum": true,
+      "ties_and_nearest_rank": true,
+      "zero_denominator": true
+    },
+    "examples": {
+      "accuracy_not_clipped": {
+        "absolute_relative_error_90": 0.5,
+        "accuracy_90": 1.5,
+        "defined_relative_count": 1,
+        "error_90": -0.5,
+        "excluded_zero_truth_count": 0,
+        "nearest_rank_one_indexed": 1,
+        "signed_errors": [
+          -0.5
+        ],
+        "zero_truth_absolute_errors": []
+      },
+      "signed_direction": {
+        "absolute_relative_error_90": 0.2,
+        "accuracy_90": 0.8,
+        "defined_relative_count": 2,
+        "error_90": 0.2,
+        "excluded_zero_truth_count": 0,
+        "nearest_rank_one_indexed": 2,
+        "signed_errors": [
+          -0.1,
+          0.2
+        ],
+        "zero_truth_absolute_errors": []
+      },
+      "system_sum": {
+        "absolute_relative_error_90": 0.1,
+        "accuracy_90": 0.9,
+        "defined_relative_count": 2,
+        "error_90": 0.1,
+        "excluded_zero_truth_count": 0,
+        "nearest_rank_one_indexed": 2,
+        "signed_errors": [
+          0.1,
+          -0.1
+        ],
+        "zero_truth_absolute_errors": []
+      },
+      "ties_and_nearest_rank": {
+        "absolute_relative_error_90": 0.4,
+        "accuracy_90": 0.6,
+        "defined_relative_count": 10,
+        "error_90": 0.4,
+        "excluded_zero_truth_count": 0,
+        "nearest_rank_one_indexed": 9,
+        "signed_errors": [
+          -0.2,
+          -0.1,
+          0.0,
+          0.1,
+          0.2,
+          0.2,
+          0.3,
+          0.4,
+          0.4,
+          0.5
+        ],
+        "zero_truth_absolute_errors": []
+      },
+      "zero_denominator": {
+        "absolute_relative_error_90": 0.1,
+        "accuracy_90": 1.1,
+        "defined_relative_count": 1,
+        "error_90": -0.1,
+        "excluded_zero_truth_count": 1,
+        "nearest_rank_one_indexed": 1,
+        "signed_errors": [
+          -0.1
+        ],
+        "zero_truth_absolute_errors": [
+          5.0
+        ]
+      }
+    },
+    "status": "PASS"
+  },
+  "status": "PASS"
+}
