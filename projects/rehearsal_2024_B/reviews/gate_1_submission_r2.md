@@ -8,7 +8,7 @@
 - Review Round：2
 - Prior Verdict：REVISE
 - Prior Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
-- Formal Audit Implementation Commit：03ac99d91004fca2123011a3db29043d5612568c
+- Formal Audit Implementation Commit：affff4fa6ef2d9a5431adac6e7341c993b946f4d
 - Response：[work/revisions/gate_1_response.md](../work/revisions/gate_1_response.md)
 - Expected Review：reviews/gate_1_review_r2.md
 - Review Target：推送完成后的 origin/main 完整 SHA，由交接消息提供
@@ -18,7 +18,7 @@
 1. M1-01：Q3 是否已完整覆盖 185 个 AP 吞吐量、75 个严格组系统吞吐量，以及 AP/系统两级 signed CDF、ERROR_90 和 accuracy_90。
 2. M1-02：身份审计是否证明 eligible 482/482、测试 136/136 组通过行数、精确 AP 集合/次数、复合键唯一三重检查。
 3. 重复审计是否清楚区分文件内全列完全重复和跨文件规范化 SHA-256 行/组指纹，并提供可执行的未来同簇同折策略。
-4. 正式审计是否来自干净 03ac99d 提交，17/17 输入哈希是否前后通过且不变。
+4. 正式审计是否来自干净 affff4f 提交，17/17 输入哈希是否前后通过且不变。
 5. 是否可授权 S1 → S2。
 
 ## Key Assertions

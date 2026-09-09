@@ -1,7 +1,7 @@
 # S1 Data Audit Summary
 
-- Generated: 2026-09-09T10:36:50+08:00
-- Git HEAD before outputs: 03ac99d91004fca2123011a3db29043d5612568c
+- Generated: 2026-09-09T10:48:56+08:00
+- Git HEAD before outputs: affff4fa6ef2d9a5431adac6e7341c993b946f4d
 - Verdict: PASS_WITH_WARNINGS
 - Input verification before/after: PASS / PASS
 - Raw/eligible training rows: 1252 / 1250

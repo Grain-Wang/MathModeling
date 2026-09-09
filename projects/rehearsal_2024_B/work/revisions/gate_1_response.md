@@ -7,8 +7,8 @@
 - Round 1 Reviewed Commit：512e461033c8378f1e591912b4992d8486bde396
 - Round 1 Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
 - Round 1 Verdict：REVISE
-- Formal Audit Implementation Commit：03ac99d91004fca2123011a3db29043d5612568c
-- Formal Audit Time：2026-09-09T10:36:50+08:00
+- Formal Audit Implementation Commit：affff4fa6ef2d9a5431adac6e7341c993b946f4d
+- Formal Audit Time：2026-09-09T10:48:56+08:00
 - Current Stage：S1
 - S1 → S2：NOT AUTHORIZED，等待 G1 Round 2 独立审核
 
@@ -58,7 +58,7 @@ Round 1 审核见 [gate_1_review.md](../../reviews/gate_1_review.md)。本轮只
 | 2. 精确 AP 集合 | 原始训练、A01 后 eligible 训练、官方测试合计、Q3 测试和每个测试文件均检查预期行数、精确 AP ID 集合及每个 ID 恰出现一次。 |
 | 3. 机器可读输出 | identity_checks.json 输出空/非法身份数、重复复合键数及示例、异常组数及示例、严格有效组数和 strict_pass。 |
 | 4. 重复范围 | 文件内对每个训练文件全部原始列做完全重复；跨文件在同 AP 数分层内，对共有语义字段做规范化 SHA-256 行指纹和按 ap_id 排序的组指纹。 |
-| 5. 重跑审计与哈希 | 从干净 03ac99d 提交正式运行；17/17 输入在运行前后均 PASS，input_hashes_unchanged_during_audit=true。 |
+| 5. 重跑审计与哈希 | 从干净 affff4f 提交正式运行；17/17 输入在运行前后均 PASS，input_hashes_unchanged_during_audit=true。 |
 
 ### 4.2 Strict identity results
 
@@ -69,7 +69,7 @@ Round 1 审核见 [gate_1_review.md](../../reviews/gate_1_review.md)。本轮只
 | 官方测试 | 336 | 136 | 136 | 0 | 0 | 0 |
 | Q3 测试 | 185 | 75 | 75 | 0 | 0 | 0 |
 
-四个测试文件分别为 40/40、35/35、32/32、29/29 组 strict pass。A01 的两个原始异常组仍按既定合同整组隔离，其他组没有 AP 身份缺失、替换或重复。
+source_file、test_id、ap_id 的空值计数均为 0；四个测试文件分别为 40/40、35/35、32/32、29/29 组 strict pass。A01 的两个原始异常组仍按既定合同整组隔离，其他组没有 AP 身份缺失、替换或重复。
 
 ### 4.3 Duplicate results and policy
 
@@ -117,7 +117,7 @@ strict_groups=482 train, 136 test
 cross_file_duplicate_clusters=0 row, 0 group
 ~~~
 
-机器元数据显示 git_head=03ac99d91004fca2123011a3db29043d5612568c，git_status_porcelain_before_outputs 为空。官方测试证据仍仅包含结构、非空计数和身份检查，没有数值分布摘要。
+机器元数据显示 git_head=affff4fa6ef2d9a5431adac6e7341c993b946f4d，git_status_porcelain_before_outputs 为空。官方测试证据仍仅包含结构、非空计数和身份检查，没有数值分布摘要。
 
 ## 7. Changed artifacts
 

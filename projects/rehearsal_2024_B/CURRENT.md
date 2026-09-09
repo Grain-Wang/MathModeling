@@ -45,7 +45,7 @@ Review Commit：e9253ce15a7b296298cf68c61b65357b55f1a1ed
 1. Q3 已覆盖 185 个 AP throughput、75 个严格系统组 throughput，以及 AP/系统两级 signed CDF、ERROR_90 和 accuracy_90。
 2. 完整组已采用预期行数、精确 AP ID 集合/次数、复合键唯一三重检查。
 3. 重复审计已区分文件内全列完全重复与跨文件规范化 SHA-256 行/组指纹。
-4. 正式审计基于干净 commit 03ac99d91004fca2123011a3db29043d5612568c：17/17 输入哈希前后 PASS 且不变；eligible 482/482、测试 136/136 严格组通过；跨文件重复行/组簇均为 0。
+4. 正式审计基于干净 commit affff4fa6ef2d9a5431adac6e7341c993b946f4d：17/17 输入哈希前后 PASS 且不变；eligible 482/482、测试 136/136 严格组通过；跨文件重复行/组簇均为 0。
 5. work/revisions/gate_1_response.md 与 reviews/gate_1_submission_r2.md 已完成。
 
 ## Current Goal
@@ -95,12 +95,12 @@ Submission：[reviews/gate_1_submission_r2.md](reviews/gate_1_submission_r2.md)
 
 Expected Review：reviews/gate_1_review_r2.md
 
-Formal Audit Implementation Commit：03ac99d91004fca2123011a3db29043d5612568c
+Formal Audit Implementation Commit：affff4fa6ef2d9a5431adac6e7341c993b946f4d
 
 Reviewed Commit：由 Reviewer 使用推送后的 origin/main 完整 SHA
 
 ## Last Updated
 
-时间：2026-09-09T10:39:37+08:00
+时间：2026-09-09T10:52:09+08:00
 
 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充
