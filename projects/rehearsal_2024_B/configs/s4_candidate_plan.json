@@ -1,0 +1,75 @@
+{
+  "stage": "S4",
+  "authorized_by_review_commit": "a5433257bf94ab651a53b86244d8a86edc72f9e4",
+  "authorized_directions": ["Q2", "Q3"],
+  "ap_count_representation": "numeric_binary_2_or_3_shared_by_all_s4_candidates",
+  "a03_sensitivity": "evaluation_exclusion_diagnostic_only_no_training_robustness_claim",
+  "hgb_common": {
+    "learning_rate": 0.05,
+    "max_iter": 200,
+    "min_samples_leaf": 20,
+    "early_stopping": false,
+    "random_state": 202409
+  },
+  "hgb_grid": [
+    {"learning_rate": 0.05, "max_leaf_nodes": 7, "l2_regularization": 0.0},
+    {"learning_rate": 0.05, "max_leaf_nodes": 7, "l2_regularization": 1.0},
+    {"learning_rate": 0.05, "max_leaf_nodes": 15, "l2_regularization": 0.0},
+    {"learning_rate": 0.05, "max_leaf_nodes": 15, "l2_regularization": 1.0}
+  ],
+  "q2": {
+    "baseline": "Q2-B1A",
+    "primary_candidate": "HGB without Q1",
+    "with_q1_role": "one dependency ablation using the no-Q1 selected configuration",
+    "conditional_weighting": {
+      "trigger": "any fixed-label true class has zero predictions in an unweighted primary repeat",
+      "formula": "sqrt(N/(K*n_k))",
+      "fixed_K": 17,
+      "cap": 5.0,
+      "maximum_formulas": 1
+    },
+    "selection": [
+      "maximize fixed-17 macro-F1",
+      "within 0.002 maximize joint accuracy",
+      "then minimize fixed-17 log loss",
+      "then smaller max_leaf_nodes and configuration index"
+    ],
+    "promotion": {
+      "macro_f1_absolute_gain": 0.02,
+      "minimum_improved_repeats": 2,
+      "maximum_accuracy_drop": 0.01
+    }
+  },
+  "q3": {
+    "baselines": ["Q3-B1", "Q3-B2"],
+    "architectures": ["direct", "physics_residual"],
+    "system_head": "sum_of_bounded_ap_only",
+    "conditional_ap_count_split": {
+      "authorized": true,
+      "one_comparison_on_selected_unified_structure": true,
+      "shared_physics_base": true
+    },
+    "selection": [
+      "minimize max(AP ARE90, system ARE90)",
+      "within 0.5 percent minimize mean normalized AP/system MAE",
+      "then minimize worst absolute median signed bias",
+      "then prefer direct, smaller max_leaf_nodes, and configuration index"
+    ],
+    "promotion": {
+      "relative_selection_score_gain": 0.05,
+      "minimum_improved_repeats": 2,
+      "maximum_absolute_bias_worsening": 0.02
+    }
+  },
+  "final_full_data_configuration_rule": {
+    "scope": "primary downstream-inner validation evidence only",
+    "q2": "apply the frozen Q2 lexicographic rule to all 45 primary inner-fold records for each grid configuration; weighting status is chosen only by outer promotion",
+    "q3": "apply the frozen Q3 lexicographic rule to all 45 primary inner-fold records for each architecture-grid candidate; AP-count split status is chosen only by outer promotion",
+    "fallback": "Q1-B1, Q2-B1A, Q3-B1 when no S4 candidate passes promotion",
+    "test_data_used": false
+  },
+  "bootstrap": {"replicates": 1000, "random_state": 202412},
+  "threads": 1,
+  "time_box_minutes_per_question": 120,
+  "official_test_numeric_access": "forbidden"
+}

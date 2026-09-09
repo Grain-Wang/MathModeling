@@ -1,0 +1,11 @@
+{
+  "stage": "S4",
+  "run_id": "EXP-S4-ROBUSTNESS-V1",
+  "held_out_unit": "source_file",
+  "split_count": 13,
+  "selection_scope": "remaining source files only",
+  "global_configuration_touching_held_out_source_forbidden": true,
+  "q1_upstream": "nested within every downstream selection boundary",
+  "selective_omission_forbidden": true,
+  "test_data_used": false
+}

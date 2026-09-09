@@ -46,3 +46,6 @@ X0001 只证明文件可打开、规模与基础结构可清点、当前环境�
 
 | 2026-09-09 | X0015 | S3 | 八个冻结 Baseline 正式运行 | 干净 commit 2222cf5；13 个训练 CSV；15 outer、13 LOSO；bootstrap=1,000 | `conda run -n math_modeling python projects/rehearsal_2024_B/src/s3_baseline.py`；真实入口 guard、312 特征、Q1/Q2/Q3 OOF 与实际上游 lineage | PASS；1,250 行/482 组、112 lineage batches、327 fits、warning=0、official-test numeric read/prediction=0/0；Q1-B1 MAE=5.5054，Q2-B1A macro-F1=0.3377，Q3-B1 S=0.8046 | PASS |
 | 2026-09-09 | X0016 | S3 | 正式 S3 产物独立重算和 G3 提交前验证 | gzip JSONL 逐行证据、metrics、run manifest、feature schema、合同哈希和 Git 边界 | `s3_validation.py` 从产物重算；py_compile；真实入口 `--verify-only`；CSV ignore/track、review/verified 边界、gzip 与 diff 检查 | 独立验证通过 21 项全局、12 项 Q1、19 项 Q2、31 项 Q3 检查；system=sum(AP) 误差为 0；official-test read/prediction=0/0；G3 审核包一致 | PASS |
+
+| 2026-09-09 | X0017 | S4 | G3 授权后的 S4 真实入口预检 | G3 review、13 个训练 allowlist、4 个官方测试注入、冻结合同/网格/split 与 Baseline 快照 | py_compile；`s4_main.py --verify-only`；guard 在任何 CSV 数值解析前执行 | PASS；G3 PASS 与两条授权方向匹配；4 个测试注入全部拒绝；model fit/CSV numeric read/official-test read=0/0/0 | PASS |
+| 2026-09-09 | X0018 | S4 | S4 开发态全链路与 LOSO 边界修复 | 训练侧 28 个 primary/LOSO 边界；Q2 四配置和条件权重；Q3 八候选与 AP-count 对照；bootstrap=10 | 全链路开发试跑完成 Q2 和 15 个 primary Q3 后，在首个单 AP-count LOSO 验证集触发过严断言；修正为空验证分层跳过并定点复测 | 初次开发运行不作为证据；首个 LOSO 定点复测 PASS：164 输出、16 lineage、47 fits、0 warnings；没有正式结果产物被保留 | DEVELOPMENT_ONLY |

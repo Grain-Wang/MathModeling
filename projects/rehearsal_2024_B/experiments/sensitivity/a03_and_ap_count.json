@@ -1,0 +1,12 @@
+{
+  "stage": "S4",
+  "run_id": "EXP-S4-SENSITIVITY-V1",
+  "a03": {
+    "type": "whole-group evaluation exclusion on frozen OOF predictions",
+    "model_fits_retain_a03": true,
+    "training_robustness_claim": false
+  },
+  "ap_count_representation": "numeric binary 2 or 3 for every S4 candidate",
+  "q3_ap_count_comparison": "one split-model comparison on each outer-selected unified structure",
+  "failure_action": "discard AP-count split and retain unified candidate"
+}

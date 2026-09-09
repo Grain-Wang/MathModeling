@@ -1,0 +1,11 @@
+{
+  "stage": "S4",
+  "run_id": "EXP-S4-MAIN-V1",
+  "entry": "projects/rehearsal_2024_B/src/s4_main.py",
+  "authorized_by": "G3 PASS a5433257bf94ab651a53b86244d8a86edc72f9e4",
+  "directions": ["Q2 finite HGB", "Q3 direct versus physics-residual HGB"],
+  "primary_validation": "3 repeats x 5 frozen grouped outer folds",
+  "mandatory_stress": "13 source-blind LOSO with selection inside remaining sources",
+  "official_test_numeric_access": false,
+  "threads": 1
+}

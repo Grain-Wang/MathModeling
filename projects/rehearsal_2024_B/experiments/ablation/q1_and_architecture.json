@@ -1,0 +1,9 @@
+{
+  "stage": "S4",
+  "run_id": "EXP-S4-ABLATION-V1",
+  "q2": "selected no-Q1 HGB configuration versus the same configuration with fixed Q1-B1 bounded cross-fit",
+  "q3": "direct versus physics-residual architectures share all four frozen HGB configurations",
+  "upstream_identity": "Q1-B1 / seq_time_bounded / q1_clip_0_test_dur_v1",
+  "q1_hgb_forbidden": true,
+  "new_algorithm_family_forbidden": true
+}

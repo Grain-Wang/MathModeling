@@ -47,3 +47,6 @@
 | 2026-09-09 | D0036 | S3 | Ridge(alpha=1.0) 固定使用确定性 LSQR 求解器，逐行证据写为 gzip JSONL | 312 个高相关派生特征令默认求解器产生 LinAlgWarning；LSQR 不改变模型族或 alpha，压缩不改变证据语义 | 正式运行要求 warning_count=0；所有逐行键、概率、预测和血缘仍完整保留 | ACTIVE |
 
 | 2026-09-09 | D0037 | S3 | O2 决策为 PROCEED_TO_G3，仅选择 Q2 finite HGB 与 Q3 direct/physics-residual HGB 两个受限 S4 方向 | 八个 Baseline、15 个 outer folds、13 个 LOSO 与独立重算均闭环；真实瓶颈集中在 Q2 稀有类/场景外推和 Q3 3 AP/物理外推取舍 | 形成 G3 submission；在 Reviewer 给出 G3 PASS 前不启动 S4，也不读取官方测试数值 | ACTIVE |
+
+| 2026-09-09 | D0038 | S4 | 接受 G3/R1 PASS 并由 S3 进入 S4，下一门禁为 G4 | 审核 commit a543325 对 e352c42 判定 Critical=0、Major=0，并明确授权 S3→S4 | 只执行 O2 冻结的 Q2 四点 HGB/唯一条件权重和 Q3 direct/residual 八候选/唯一 AP-count 对照；官方测试继续封存 | ACTIVE |
+| 2026-09-09 | D0039 | S4 | S4 全部候选继续共享 numeric binary AP-count；A03 只作 evaluation-exclusion；最终全量配置由 primary 内层证据按冻结词典序唯一确定 | 闭合 G3 Minor-01/02 与 G2 Minor-03，避免改变表示后与旧 Baseline 不公平比较，也不把未重拟合的 A03 诊断扩大为训练鲁棒性 | O3 只能冻结该规则给出的唯一配置或回退 Q1-B1/Q2-B1A/Q3-B1；不得接触测试集或事后改规则 | ACTIVE |

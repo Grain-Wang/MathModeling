@@ -1,0 +1,12 @@
+{
+  "stage": "S4",
+  "run_id": "EXP-S4-COMPARISON-V1",
+  "same_population": "1250 eligible AP rows / 482 groups",
+  "same_outer_registry": true,
+  "q2_reference": "Q2-B1A",
+  "q2_thresholds": {"macro_f1_gain": 0.02, "improved_repeats": 2, "max_accuracy_drop": 0.01},
+  "q3_reference_rule": "better primary selection score of Q3-B1 and Q3-B2",
+  "q3_thresholds": {"relative_score_gain": 0.05, "improved_repeats": 2, "max_absolute_bias_worsening": 0.02},
+  "repeat_aggregation": "metric within repeat then arithmetic mean",
+  "test_data_used": false
+}
