@@ -37,7 +37,7 @@ OUTPUT = PROJECT / "results" / "raw" / "s2"
 
 def dump(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True, default=native) + "\n",
         encoding="utf-8",
     )
 
