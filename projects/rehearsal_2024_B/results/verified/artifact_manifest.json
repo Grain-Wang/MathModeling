@@ -1,0 +1,68 @@
+{
+  "artifacts": [
+    {
+      "bytes": 26328,
+      "path": "projects/rehearsal_2024_B/results/verified/failure_cases.json",
+      "sha256": "22284A8BBB1DEAC366CCD6E5C8DD7436B2F9E4C45FE5D0FF6C0F98ABCC3E38FB"
+    },
+    {
+      "bytes": 11303,
+      "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.json",
+      "sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
+    },
+    {
+      "bytes": 88,
+      "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.sha256",
+      "sha256": "DD336393EC4CD7D79B3A6B9ACA979CE8280C1C7A7E621A524028B00024B64D6B"
+    },
+    {
+      "bytes": 2932,
+      "path": "projects/rehearsal_2024_B/results/verified/group_bootstrap_intervals.json",
+      "sha256": "CD4E2AB250834397A6880FD98C2815A27EBC6785BB570C07DF695A17F92EE672"
+    },
+    {
+      "bytes": 20872,
+      "path": "projects/rehearsal_2024_B/results/verified/q1_metrics.json",
+      "sha256": "8F4B837D5E2EDE354987151B0EE9DE6BA276CEFE855EF10EFCB0A19E36B0DD0E"
+    },
+    {
+      "bytes": 124224,
+      "path": "projects/rehearsal_2024_B/results/verified/q2_baseline_metrics.json",
+      "sha256": "8F0A3A313E59A9E6561C11858E50B339993B63B1BD752443798A2C9CF5B90F1E"
+    },
+    {
+      "bytes": 123544,
+      "path": "projects/rehearsal_2024_B/results/verified/q2_candidate_metrics.json",
+      "sha256": "13C8FDC80AB9C88DBCA287EB4D64096229AD4A479A0BC7CDFACCB65DC9B1581B"
+    },
+    {
+      "bytes": 85428,
+      "path": "projects/rehearsal_2024_B/results/verified/q3_baseline_metrics.json",
+      "sha256": "A0AF876FA8E4CE3D0DB8E5277489610C3F87402BAE013FFC1EDF66097A0F5BE1"
+    },
+    {
+      "bytes": 57541,
+      "path": "projects/rehearsal_2024_B/results/verified/q3_candidate_metrics.json",
+      "sha256": "6505C07D0248FB75E42C5AB76FB4E7D30DAEA2F31B6F8B7F6998AA807F688BD8"
+    },
+    {
+      "bytes": 15755,
+      "path": "projects/rehearsal_2024_B/results/verified/selection_reconstruction.json",
+      "sha256": "DB5228EE89403B641F833244E3F8EA21BBCC5DBE648A3B10960821CF7FCFD7E6"
+    },
+    {
+      "bytes": 224786,
+      "path": "projects/rehearsal_2024_B/results/verified/stratified_metrics.json",
+      "sha256": "91606BEF29291B80BED8775B1D4BF840EF602104C66CA497491B33DD6AF1B1D1"
+    },
+    {
+      "bytes": 1412,
+      "path": "projects/rehearsal_2024_B/results/verified/verified_metrics.json",
+      "sha256": "EF6613E25EFD2D6D7DB6FF1A7682EDF1537DE7CD2197B33A4248282ED6576C88"
+    }
+  ],
+  "created_at": "2026-09-11T11:00:06+08:00",
+  "official_test_numeric_read_count": 0,
+  "phase": "PRE_RELEASE_FREEZE",
+  "status": "PASS"
+}

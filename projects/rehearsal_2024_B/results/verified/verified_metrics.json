@@ -1,0 +1,40 @@
+{
+  "claims": {
+    "Q1_FINAL_MODEL": {
+      "model_id": "Q1-B1",
+      "postprocess": "q1_clip_0_test_dur_v1"
+    },
+    "Q2_FINAL_ROLLBACK": {
+      "baseline_macro_f1_fixed_17": 0.33765386497521593,
+      "model_id": "Q2-B1A",
+      "promotion_threshold": 0.02,
+      "weighted_gain": 0.019001737503400118
+    },
+    "Q3_FINAL_FULL_DATA_CONFIGURATION": {
+      "configuration_id": "Q3-physics_residual-C3",
+      "inner_record_count": 45,
+      "interpretation": "deployment configuration, not an outer OOF score"
+    },
+    "Q3_NESTED_SELECTION_PIPELINE_PERFORMANCE": {
+      "interpretation": "nested unified selection pipeline, not fixed residual-C3 alone",
+      "model_id": "Q3-M1-HGB-UNIFIED",
+      "primary_selection_score": 0.5503296083233881,
+      "relative_gain_vs_Q3_B1": 0.3160283396420369
+    }
+  },
+  "g4_review": {
+    "checks": {
+      "review_commit_is_ancestor": true,
+      "reviewed_commit": true,
+      "transition_authorized": true,
+      "verdict_pass": true
+    },
+    "path": "projects/rehearsal_2024_B/reviews/gate_4_review.md",
+    "review_commit": "70d6a1436192339c61c749188e104b15cf4bbbb7",
+    "reviewed_commit": "b9922fd7752af80fb9ffa1d3ae7118192e0abd20",
+    "sha256": "5006D70C2D3DEBF6C582B076D2C1D6556D276FB90251E2AA4E656F2150A02A2F",
+    "status": "PASS"
+  },
+  "status": "VERIFIED",
+  "verified_at": "2026-09-11T11:00:06+08:00"
+}
