@@ -6,6 +6,11 @@
       "sha256": "22284A8BBB1DEAC366CCD6E5C8DD7436B2F9E4C45FE5D0FF6C0F98ABCC3E38FB"
     },
     {
+      "bytes": 2963,
+      "path": "projects/rehearsal_2024_B/results/verified/final_release_verification.json",
+      "sha256": "901CFED4CE6D3CC7D3D0DA8830603C7C971395DE123005A8565A915A5632CBA9"
+    },
+    {
       "bytes": 11303,
       "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.json",
       "sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
@@ -19,6 +24,26 @@
       "bytes": 2932,
       "path": "projects/rehearsal_2024_B/results/verified/group_bootstrap_intervals.json",
       "sha256": "CD4E2AB250834397A6880FD98C2815A27EBC6785BB570C07DF695A17F92EE672"
+    },
+    {
+      "bytes": 84156,
+      "path": "projects/rehearsal_2024_B/results/verified/official_q1_ap_predictions.jsonl",
+      "sha256": "61C83B6593260BCDD4D57CBEC9D73F860BADCA0B40D4D50226DB1226CC1D2F48"
+    },
+    {
+      "bytes": 146758,
+      "path": "projects/rehearsal_2024_B/results/verified/official_q2_ap_predictions.jsonl",
+      "sha256": "0A93720E67E422938427ED853372BF190861AF708DE065DEC070AE9EB328B190"
+    },
+    {
+      "bytes": 125474,
+      "path": "projects/rehearsal_2024_B/results/verified/official_q3_ap_predictions.jsonl",
+      "sha256": "5556582824AB1EFE5543E9427866DE2C34489C7CDC1272303030979741F1A6AD"
+    },
+    {
+      "bytes": 31341,
+      "path": "projects/rehearsal_2024_B/results/verified/official_q3_system_predictions.jsonl",
+      "sha256": "121FAA26F24C675D7CDA902A23B92BED6CF52EB1F5FF8692EB707E4EFC8B4823"
     },
     {
       "bytes": 20872,
@@ -61,8 +86,8 @@
       "sha256": "EF6613E25EFD2D6D7DB6FF1A7682EDF1537DE7CD2197B33A4248282ED6576C88"
     }
   ],
-  "created_at": "2026-09-11T11:00:06+08:00",
-  "official_test_numeric_read_count": 0,
-  "phase": "PRE_RELEASE_FREEZE",
-  "status": "PASS"
+  "created_at": "2026-09-11T11:10:09+08:00",
+  "phase": "POST_RELEASE_FINALIZATION",
+  "status": "PASS",
+  "successful_release_count": 1
 }

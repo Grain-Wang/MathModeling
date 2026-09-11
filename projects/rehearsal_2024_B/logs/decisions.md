@@ -52,3 +52,7 @@
 | 2026-09-09 | D0039 | S4 | S4 全部候选继续共享 numeric binary AP-count；A03 只作 evaluation-exclusion；最终全量配置由 primary 内层证据按冻结词典序唯一确定 | 闭合 G3 Minor-01/02 与 G2 Minor-03，避免改变表示后与旧 Baseline 不公平比较，也不把未重拟合的 A03 诊断扩大为训练鲁棒性 | O3 只能冻结该规则给出的唯一配置或回退 Q1-B1/Q2-B1A/Q3-B1；不得接触测试集或事后改规则 | ACTIVE |
 
 | 2026-09-09 | D0040 | S4 | O3 决定 FREEZE_CANDIDATE：冻结 Q1-B1 + Q2-B1A + Q3-M1-HGB-UNIFIED，并关闭 S4 选择 | Q2 unweighted/weighted macro-F1 增益 +0.013736/+0.019002，均未达 +0.02；Q3 unified primary S=0.550330，相对 Q3-B1 改善 31.60%，3/3 repeats 改善且 bias guards 通过；独立验证 74/74 PASS | 形成 G4 submission 并停在 G4；不得新增候选或读取测试数值，S5 仅可由未来 G4 PASS 授权 | ACTIVE |
+
+| 2026-09-11 | D0041 | S5 | 接受 G4/R1 PASS，按授权从 S4 进入 S5，下一门禁为 G5 | review commit 70d6a14 对 b9922fd 判定 Critical=0、Major=0，并明确授权 S4→S5 | 停止性能扩张；S5 只执行结果独立核验、完整冻结、真实 exactly-once 释放和交接 | ACTIVE |
+| 2026-09-11 | D0042 | S5 | 将 Q3 嵌套选择管线表现与最终 full-data residual-C3 配置登记为两个 Evidence ID，并按真实代码记录 HGB scaling | 闭合 G4 Minor-01/03，避免把管线 OOF=0.550330误写成固定 C3 分数或让论文规格偏离实现 | `E-Q3-PIPE-001` 与 `E-Q3-CONFIG-001` 不得互换；不重开模型选择 | ACTIVE |
+| 2026-09-11 | D0043 | S5 | freeze A4AA45A0 后执行唯一正式 release `S5-A4AA45A0491C-20260911T110151+0800`，成功后永久禁止第二次释放和预测反馈调模 | 真实磁盘 ledger 在解析前推导 prior success=0；G4、freeze、输入身份和输出冲突全通过 | ledger success=1；第二次 guard 硬失败；官方无标签预测只作部署输出，不作性能证据 | ACTIVE |

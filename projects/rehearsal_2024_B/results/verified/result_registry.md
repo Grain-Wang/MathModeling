@@ -12,12 +12,16 @@ Only evidence listed as `YES` may be used for formal figures or writing. Officia
 | `E-Q3-LOSO-001` | Q3 unified aggregate source-blind LOSO `S=0.729921`; worst held-out source remains `S=2.159764`. | `q3_candidate_metrics.json`, `stratified_metrics.json` | S4 LOSO + S5 hash verification | YES | Supports aggregate improvement only, not every-source robustness. |
 | `E-Q3-TRADE-001` | AP-count split has primary `S=0.573131` and LOSO `S=0.685496`; frozen primary rule therefore retains unified. | `q3_candidate_metrics.json`, `selection_reconstruction.json` | `s5_validation.py --phase prepare-freeze` | YES | Controlled comparison, not an independent confirmatory test. |
 | `E-FREEZE-001` | Q1/Q2/Q3 IDs, parameters, schemas, labels, postprocessing, inputs and output order are frozen with `selection_closed=true`. | `freeze_manifest.json`, `freeze_manifest.sha256` | `s5_validation.py --phase prepare-freeze` | YES | Freeze SHA-256 is the release prerequisite. |
+| `E-RELEASE-001` | Exactly one official-test release succeeded under release ID `S5-A4AA45A0491C-20260911T110151+0800`. | `final_release_verification.json`, raw final ledger and release manifest | `s5_release.py`; `s5_validation.py --phase finalize-release` | YES | Four unlabeled prediction artifacts; not performance evidence and no feedback to model selection. |
+| `E-RELEASE-SUM-001` | Q3 system predictions are strict sums of bounded AP predictions; Q2 probabilities close over the frozen 17-label order. | `official_q2_ap_predictions.jsonl`, `official_q3_ap_predictions.jsonl`, `official_q3_system_predictions.jsonl` | `s5_validation.py --phase finalize-release` | YES | 10 cross-artifact checks plus 12 per-file schema/order checks passed. |
 
 ## Reproduction commands
 
+Current post-release verification:
+
 ~~~powershell
-conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/src/s5_validation.py --phase prepare-freeze
+conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/src/s5_validation.py --phase finalize-release
 conda run --no-capture-output -n math_modeling python projects/rehearsal_2024_B/src/s5_release.py --preflight-only
 ~~~
 
-The second command is a no-parse guard check before release. After one successful release it must fail by design.
+The first command must pass. The second is an exactly-once negative test and must fail because one release already succeeded. The fresh pre-release sequence is archived in `work/10_result_freeze.md`; do not rerun its prepare/release steps on the current snapshot.

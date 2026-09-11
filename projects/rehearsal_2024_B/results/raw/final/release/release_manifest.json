@@ -1,0 +1,94 @@
+{
+  "artifacts": [
+    {
+      "bytes": 61420,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/models/q1_model.joblib",
+      "sha256": "C7AAD23C587E89B6AEEBAEB2CD228B8AECB1E4A19E90B61E94DAF2FF432AD6AB"
+    },
+    {
+      "bytes": 109595,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/models/q2_model.joblib",
+      "sha256": "2B62C12D561E7F2F1B21B3F65946B1CE5CCBB442DDE5029140F64E63F5A85577"
+    },
+    {
+      "bytes": 630656,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/models/q3_model_bundle.joblib",
+      "sha256": "701723735A31D8311E5AA54CC4D8BB988DEC717F53492CCCE928DC5EE2C1D4E7"
+    },
+    {
+      "bytes": 84156,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/q1_ap_predictions.jsonl",
+      "sha256": "61C83B6593260BCDD4D57CBEC9D73F860BADCA0B40D4D50226DB1226CC1D2F48"
+    },
+    {
+      "bytes": 146758,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/q2_ap_predictions.jsonl",
+      "sha256": "0A93720E67E422938427ED853372BF190861AF708DE065DEC070AE9EB328B190"
+    },
+    {
+      "bytes": 125474,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/q3_ap_predictions.jsonl",
+      "sha256": "5556582824AB1EFE5543E9427866DE2C34489C7CDC1272303030979741F1A6AD"
+    },
+    {
+      "bytes": 31341,
+      "path": "projects/rehearsal_2024_B/results/raw/final/release/q3_system_predictions.jsonl",
+      "sha256": "121FAA26F24C675D7CDA902A23B92BED6CF52EB1F5FF8692EB707E4EFC8B4823"
+    }
+  ],
+  "audit": {
+    "q1_training_oof_feature_count": 1250,
+    "q2_missing_training_labels": [],
+    "q3_eta": 0.8350763337681507,
+    "q3_test_rate_missing_count": 1,
+    "q3_training_rate_missing_count": 3,
+    "test_q1_q3_rows": 185,
+    "test_q2_rows": 151,
+    "test_q3_system_rows": 75,
+    "training_rows": 1250
+  },
+  "created_at": "2026-09-11T11:02:20+08:00",
+  "execution_head": "473a8ad8bf04cfa7d62511dadbe620f3a6ba8570",
+  "feedback_targets": [],
+  "freeze_manifest_sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D",
+  "guard": {
+    "derived_prior_successful_release_count": 0,
+    "freeze_manifest_sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D",
+    "input_file_count": 4,
+    "mode": "ONE_TIME_FINAL_RELEASE_AUTHORIZED",
+    "official_test_file_count": 4,
+    "official_test_numeric_read_count_at_guard_return": 0,
+    "output_conflict_count": 0,
+    "phase": "S5_FINAL_INFERENCE",
+    "prior_attempt_count": 0,
+    "prior_failed_attempt_count": 0,
+    "prior_release_count": 0,
+    "release_state_source": "disk_ledger_and_artifact_state",
+    "selection_closed": true,
+    "status": "PASS"
+  },
+  "model_fit_count": 4,
+  "official_test_numeric_read_count": 4,
+  "official_test_prediction_artifact_count": 4,
+  "output_schema_sha256": "2323103155E11F1261FDB03A21FC22CB3B74D974310F49E8577034ED3E3EE769",
+  "release_id": "S5-A4AA45A0491C-20260911T110151+0800",
+  "runtime_seconds": 29.32000359997619,
+  "source_commit": "474acb71dfc0bcaa27e6cca908c2243efa65660f",
+  "status": "PASS",
+  "test_predictions_used_for_model_feedback": false,
+  "training_csv_numeric_read_count": 13,
+  "validation": {
+    "checks": {
+      "q1_finite_bounded": true,
+      "q1_unique_keys": true,
+      "q2_probability_closure": true,
+      "q2_unique_keys": true,
+      "q3_nonnegative": true,
+      "q3_system_count": true,
+      "q3_system_sum_equality": true,
+      "q3_unique_keys": true
+    },
+    "status": "PASS"
+  },
+  "warnings": []
+}

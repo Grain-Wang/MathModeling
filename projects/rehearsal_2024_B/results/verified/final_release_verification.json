@@ -1,0 +1,83 @@
+{
+  "freeze_manifest_sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D",
+  "ledger_sha256": "F5E7B76A5F0004CDDC446C7FDC342F0669115E62AC8AC65720A8A4B2E9BFC589",
+  "official_test_numeric_read_count": 4,
+  "official_test_prediction_artifact_count": 4,
+  "phase": "POST_RELEASE_FINALIZATION",
+  "release_manifest_sha256": "BEBD02ADC389A8B2C1B10B60653DC811008A773EAE1E666CA30C2BD854A2B07D",
+  "row_checks": {
+    "artifacts": {
+      "q1_ap_predictions.jsonl": {
+        "checks": {
+          "field_order": true,
+          "row_count": true,
+          "row_order": true
+        },
+        "row_count": 185,
+        "sha256": "61C83B6593260BCDD4D57CBEC9D73F860BADCA0B40D4D50226DB1226CC1D2F48"
+      },
+      "q2_ap_predictions.jsonl": {
+        "checks": {
+          "field_order": true,
+          "row_count": true,
+          "row_order": true
+        },
+        "row_count": 151,
+        "sha256": "0A93720E67E422938427ED853372BF190861AF708DE065DEC070AE9EB328B190"
+      },
+      "q3_ap_predictions.jsonl": {
+        "checks": {
+          "field_order": true,
+          "row_count": true,
+          "row_order": true
+        },
+        "row_count": 185,
+        "sha256": "5556582824AB1EFE5543E9427866DE2C34489C7CDC1272303030979741F1A6AD"
+      },
+      "q3_system_predictions.jsonl": {
+        "checks": {
+          "field_order": true,
+          "row_count": true,
+          "row_order": true
+        },
+        "row_count": 75,
+        "sha256": "121FAA26F24C675D7CDA902A23B92BED6CF52EB1F5FF8692EB707E4EFC8B4823"
+      }
+    },
+    "checks": {
+      "q1_finite_and_bounded": true,
+      "q1_unique_keys": true,
+      "q2_labels_fixed": true,
+      "q2_probability_closure": true,
+      "q2_probability_order": true,
+      "q2_unique_keys": true,
+      "q3_finite_nonnegative": true,
+      "q3_system_count": true,
+      "q3_system_sum_equality": true,
+      "q3_unique_keys": true
+    },
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "successful_release_count": 1,
+  "test_predictions_used_for_model_feedback": false,
+  "validated_at": "2026-09-11T11:10:09+08:00",
+  "verified_copies": [
+    {
+      "path": "projects/rehearsal_2024_B/results/verified/official_q1_ap_predictions.jsonl",
+      "sha256": "61C83B6593260BCDD4D57CBEC9D73F860BADCA0B40D4D50226DB1226CC1D2F48"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/results/verified/official_q2_ap_predictions.jsonl",
+      "sha256": "0A93720E67E422938427ED853372BF190861AF708DE065DEC070AE9EB328B190"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/results/verified/official_q3_ap_predictions.jsonl",
+      "sha256": "5556582824AB1EFE5543E9427866DE2C34489C7CDC1272303030979741F1A6AD"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/results/verified/official_q3_system_predictions.jsonl",
+      "sha256": "121FAA26F24C675D7CDA902A23B92BED6CF52EB1F5FF8692EB707E4EFC8B4823"
+    }
+  ]
+}

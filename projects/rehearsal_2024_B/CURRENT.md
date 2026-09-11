@@ -11,16 +11,16 @@
 
 ## Current Stage
 
-S4 — 主模型改进与证据构建已完成。O3=`FREEZE_CANDIDATE`，G4 submission 已形成；当前停在 G4 等待 Reviewer，不得自行进入 S5。
+S5 — 结果核验、冻结与交接已完成。G4=`PASS`；完整 freeze manifest、独立结果重算、exactly-once 最终释放、verified evidence 与图文交接均已形成。当前停在 G5 等待 Reviewer，不得自行进入 S6。
 
 ## Last Gate
 
-- Gate：G3 / Review Round 1
+- Gate：G4 / Review Round 1
 - Verdict：PASS
-- Review File：[reviews/gate_3_review.md](reviews/gate_3_review.md)
-- Reviewed Commit：`e352c4233bb6a974e974ab697481b712a9c83d0b`
-- Review Commit：`a5433257bf94ab651a53b86244d8a86edc72f9e4`
-- Authorization：S3→S4；Next Gate=G4
+- Review File：[reviews/gate_4_review.md](reviews/gate_4_review.md)
+- Reviewed Commit：`b9922fd7752af80fb9ffa1d3ae7118192e0abd20`
+- Review Commit：`70d6a1436192339c61c749188e104b15cf4bbbb7`
+- Authorization：S4→S5；Next Gate=G5
 - Findings：Critical=0，Major=0，Minor=3，Advisory=2
 
 ## S4 Formal Snapshot
@@ -33,6 +33,18 @@ S4 — 主模型改进与证据构建已完成。O3=`FREEZE_CANDIDATE`，G4 subm
 - Actual Q1 lineage：448 batches；两个 overlap total 均为 0
 - Independent validation：74/74 checks PASS
 - Official-test numeric read / prediction：0 / 0
+
+## S5 Formal Snapshot
+
+- S5 implementation commit：`474acb71dfc0bcaa27e6cca908c2243efa65660f`
+- Pre-release freeze commit：`473a8ad`
+- Freeze manifest SHA-256：`A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D`
+- Independent selection/promotion reconstruction：6/6 PASS
+- Release ID：`S5-A4AA45A0491C-20260911T110151+0800`
+- Runtime / full-data fits / warnings：29.320 s / 4 / 0
+- Training / official-test numeric reads：13 / 4
+- Exactly-once successful release count：1；第二次 release guard 硬失败
+- Post-release validation：10 项跨产物检查 + 12 项逐文件 schema/order 检查 PASS
 
 ## Frozen Final Candidate
 
@@ -54,13 +66,16 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 
 ## Completed Deliverables
 
-- `work/07_failure_analysis.md`
-- `work/08_main_model_report.md`
-- `work/09_evidence_report.md`
-- `work/optimization/o3_freeze_decision.md`
-- `experiments/main/`, `comparison/`, `ablation/`, `sensitivity/`, `robustness/`
-- `results/raw/main/`
-- `reviews/gate_4_submission.md`
+- S4：`work/07_failure_analysis.md`、`08_main_model_report.md`、`09_evidence_report.md`、`work/optimization/o3_freeze_decision.md`
+- `results/verified/freeze_manifest.json` 与 SHA-256 sidecar
+- `results/verified/selection_reconstruction.json`、`verified_metrics.json`、`result_registry.md`
+- `results/verified/final_release_verification.json` 与四个 `official_*.jsonl`
+- `results/raw/final/test_release_ledger.json`、release manifest、3 个模型文件与 4 个输出文件
+- `work/10_result_freeze.md`
+- `work/handoff/figure_handoff.md`
+- `work/handoff/writing_handoff.md`
+- `src/s5_validation.py`、`src/s5_release.py`、`configs/s5_output_schema.json`
+- `reviews/gate_5_submission.md`
 
 ## Known Limitations / Risks
 
@@ -69,26 +84,26 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 - AP-count split 的 LOSO aggregate 优于 unified，但冻结 primary 指标选择 unified；该取舍已披露。
 - A03 只是 whole-group evaluation-exclusion diagnostic，不是删组重拟合鲁棒性。
 - `basic__ap_count` 继续使用所有 S4 候选一致的 numeric binary 2/3。
-- G2 遗留的 exactly-once release ledger 必须在 G4 PASS 后、S5 正式测试入口前完成。
+- 官方测试输出无标签，只能作为部署结果，不能作为性能证据。
+- 本地 CSV 只能声明与 S0 manifest 一致，尚无官方压缩包 URL 与 archive hash。
 
 ## Forbidden Now
 
-- 在 Reviewer 给出 G4 PASS 前进入 S5 或执行官方测试推理。
-- 在 G4 PASS 和 S5 freeze manifest 完整前解析、推理或人工查看官方测试 CSV 数值/预测。
+- 在 Reviewer 给出 G5 PASS 或用户明确批准前进入 S6。
+- 再次执行官方测试释放；真实 ledger 已有一次成功记录，机器门禁必须继续硬拒绝。
 - 修改唯一冻结候选、全量配置规则、17 类标签、split registry、Q3 指标、bounded 口径或 AP→system 求和规则。
 - 新增 Q1-HGB、第二种类别权重、更多 HGB 网格、AP-count 分模或独立 system head。
-- 将任何结果写入 `results/verified/`，或覆盖 `results/raw/baseline/`。
-- 修改 Reviewer 文件来迎合结果。
+- 根据官方无标签预测的范围、比例或人工观感返回 O2/O3/S4 调模；或修改 Reviewer 文件迎合结果。
 
 ## Next Gate
 
-- Gate：G4
+- Gate：G5
 - Status：READY FOR REVIEW / PENDING REVIEWER
-- Submission：[reviews/gate_4_submission.md](reviews/gate_4_submission.md)
-- Requested transition：S4→S5
-- S5 entry condition：未来 G4 review 明确 PASS
+- Submission：[reviews/gate_5_submission.md](reviews/gate_5_submission.md)
+- Requested transition：S5→S6
+- S6 entry condition：未来 G5 review 明确 PASS，或用户书面批准
 
 ## Last Updated
 
-- 时间：2026-09-09
+- 时间：2026-09-11
 - 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充
