@@ -11,16 +11,16 @@
 
 ## Current Stage
 
-S5 — 结果核验、冻结与交接已完成。G4=`PASS`；完整 freeze manifest、独立结果重算、exactly-once 最终释放、verified evidence 与图文交接均已形成。当前停在 G5 等待 Reviewer，不得自行进入 S6。
+S6 — 技术一致性审计、论文工程与最终提交准备进行中。G5=`PASS`，已授权 S5→S6；G5 的发布后绑定/语义补强已 29/29 PASS，verified-only 配图交接包已经形成。当前可移交配图与论文队友，但正式图、论文源文件、匿名/格式核验和最终 PDF 尚未完成，因此 G6=`NOT READY`。
 
 ## Last Gate
 
-- Gate：G4 / Review Round 1
+- Gate：G5 / Review Round 1
 - Verdict：PASS
-- Review File：[reviews/gate_4_review.md](reviews/gate_4_review.md)
-- Reviewed Commit：`b9922fd7752af80fb9ffa1d3ae7118192e0abd20`
-- Review Commit：`70d6a1436192339c61c749188e104b15cf4bbbb7`
-- Authorization：S4→S5；Next Gate=G5
+- Review File：[reviews/gate_5_review.md](reviews/gate_5_review.md)
+- Reviewed Commit：`cb1e9276fc5054e7f912b00e54ab0b4292f3d464`
+- Review Commit：`3862fee66a3c1ca362202b8d5d9e8b5d7eb2137b`
+- Authorization：S5→S6；Next Gate=G6
 - Findings：Critical=0，Major=0，Minor=3，Advisory=2
 
 ## S4 Formal Snapshot
@@ -37,7 +37,7 @@ S5 — 结果核验、冻结与交接已完成。G4=`PASS`；完整 freeze manif
 ## S5 Formal Snapshot
 
 - S5 implementation commit：`474acb71dfc0bcaa27e6cca908c2243efa65660f`
-- Pre-release freeze commit：`473a8ad`
+- Pre-release freeze commit：`473a8ad8bf04cfa7d62511dadbe620f3a6ba8570`
 - Freeze manifest SHA-256：`A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D`
 - Independent selection/promotion reconstruction：6/6 PASS
 - Release ID：`S5-A4AA45A0491C-20260911T110151+0800`
@@ -45,6 +45,15 @@ S5 — 结果核验、冻结与交接已完成。G4=`PASS`；完整 freeze manif
 - Training / official-test numeric reads：13 / 4
 - Exactly-once successful release count：1；第二次 release guard 硬失败
 - Post-release validation：10 项跨产物检查 + 12 项逐文件 schema/order 检查 PASS
+
+## S6 Current Snapshot
+
+- G5 findings：Critical=0，Major=0，Minor=3，Advisory=2。
+- Post-release binding/semantic attestation：29/29 PASS；official-test CSV numeric reads=0；model inference=0。
+- Figure input snapshot SHA-256：`BE2A9AFEAA836000ACAFCA897B516C8DCFB621CA5B006DFD9008C9D14E44CFA5`。
+- Figure handoff ZIP SHA-256：`DAA0F01BDC26722275941E865222EB48481E6B8F9E7E7D70D676004A1F5E411B`。
+- Handoff manifest：registry、figure/writing handoff、result freeze、attestation 与配图包均已登记；正式图数据、论文源文件和 PDF 仍为 PENDING。
+- Overall：`S6_HANDOFF_READY_G6_NOT_READY`。
 
 ## Frozen Final Candidate
 
@@ -76,6 +85,11 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 - `work/handoff/writing_handoff.md`
 - `src/s5_validation.py`、`src/s5_release.py`、`configs/s5_output_schema.json`
 - `reviews/gate_5_submission.md`
+- `results/verified/post_release_binding_attestation.json`、`s6_handoff_manifest.json`
+- `work/11_technical_consistency_audit.md`、`work/revisions/gate_5_followup.md`、`final_fix_log.md`
+- `package_for_deliver/figure_handoff_2024_B/`
+- `package_for_deliver/rehearsal_2024_B_figure_handoff.zip`
+- `src/s6_post_release_attestation.py`、`src/s6_figure_package.py`
 
 ## Known Limitations / Risks
 
@@ -89,7 +103,8 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 
 ## Forbidden Now
 
-- 在 Reviewer 给出 G5 PASS 或用户明确批准前进入 S6。
+- 未确认具体 plotting skill 前生成正式图，或让配图/论文引用未登记 Evidence ID 的 raw 数值。
+- 正式图、论文源文件和 PDF 尚未回传前提交 G6 或宣称最终交付完成。
 - 再次执行官方测试释放；真实 ledger 已有一次成功记录，机器门禁必须继续硬拒绝。
 - 修改唯一冻结候选、全量配置规则、17 类标签、split registry、Q3 指标、bounded 口径或 AP→system 求和规则。
 - 新增 Q1-HGB、第二种类别权重、更多 HGB 网格、AP-count 分模或独立 system head。
@@ -97,11 +112,11 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 
 ## Next Gate
 
-- Gate：G5
-- Status：READY FOR REVIEW / PENDING REVIEWER
-- Submission：[reviews/gate_5_submission.md](reviews/gate_5_submission.md)
-- Requested transition：S5→S6
-- S6 entry condition：未来 G5 review 明确 PASS，或用户书面批准
+- Gate：G6
+- Status：NOT READY / PENDING FIGURE AND PAPER OUTPUTS
+- Submission：尚未创建
+- Requested transition：S6→FINAL SUBMISSION
+- G6 entry condition：正式图与图数据快照、论文源文件、匿名/格式/PDF 检查全部完成，并写入 final-delivery manifest
 
 ## Last Updated
 

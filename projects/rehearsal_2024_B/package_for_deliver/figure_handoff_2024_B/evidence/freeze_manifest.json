@@ -1,0 +1,308 @@
+{
+  "configs": [
+    {
+      "path": "projects/rehearsal_2024_B/configs/s2_experiment_plan.json",
+      "sha256": "5C2AD614190F64AA67D699F2925808434BED4B8CF8B24B036ABD9AF0B352683A"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/configs/s4_candidate_plan.json",
+      "sha256": "C1C35E93AF0196B1F04E6F3F65E39997FA829164FC588296E96592219274C811"
+    }
+  ],
+  "created_at": "2026-09-11T11:00:06+08:00",
+  "evidence_identity_boundary": {
+    "Q3_FINAL_FULL_DATA_CONFIGURATION": {
+      "configuration_id": "Q3-physics_residual-C3",
+      "inner_record_count": 45,
+      "meaning": "final deployment configuration selected from 45 primary inner records",
+      "not_an_outer_OOF_score": true
+    },
+    "Q3_NESTED_SELECTION_PIPELINE_PERFORMANCE": {
+      "meaning": "outer OOF performance of the frozen nested unified selection pipeline",
+      "not_a_fixed_C3_score": true,
+      "selection_score": 0.5503296083233881
+    }
+  },
+  "feature_schema_sha256": "918E78AA18D5EB148F985F8BFE5550671CFED7474CF2B6709E850DBD6ED0BC31",
+  "feature_schemas": [
+    {
+      "path": "projects/rehearsal_2024_B/results/raw/baseline/feature_schema.json",
+      "sha256": "DD9569F8F9707F2B951AD18F75CD109F0E4AC23AA2B7717FA0F98D8FDF669C59"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/results/raw/main/s4_feature_schema.json",
+      "sha256": "E3B998D7231B3CFF6BA8C644E21931F40C82ED2AFAA27A037A3BB922D8CCFF73"
+    }
+  ],
+  "g4_review": {
+    "checks": {
+      "review_commit_is_ancestor": true,
+      "reviewed_commit": true,
+      "transition_authorized": true,
+      "verdict_pass": true
+    },
+    "path": "projects/rehearsal_2024_B/reviews/gate_4_review.md",
+    "review_commit": "70d6a1436192339c61c749188e104b15cf4bbbb7",
+    "reviewed_commit": "b9922fd7752af80fb9ffa1d3ae7118192e0abd20",
+    "sha256": "5006D70C2D3DEBF6C582B076D2C1D6556D276FB90251E2AA4E656F2150A02A2F",
+    "status": "PASS"
+  },
+  "model_ids_and_parameters_sha256": "9DB6F6342C515365318E96A5F70197D9788E06950396118C6FDA625CE9728018",
+  "models": {
+    "q1": {
+      "estimator": "Ridge",
+      "model_id": "Q1-B1",
+      "parameters": {
+        "alpha": 1.0,
+        "max_iter": 10000,
+        "solver": "lsqr",
+        "tol": 1e-08
+      },
+      "postprocess_version": "q1_clip_0_test_dur_v1",
+      "prediction_variant": "seq_time_bounded",
+      "preprocess": "fold/full-training-side median imputation with indicators, StandardScaler, protocol one-hot"
+    },
+    "q2": {
+      "estimator": "LogisticRegression",
+      "model_id": "Q2-B1A",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "max_iter": 2000,
+        "solver": "lbfgs"
+      },
+      "preprocess": "full-training-side median imputation with indicators, StandardScaler, protocol one-hot",
+      "uses_q1": false
+    },
+    "q3": {
+      "ap_count_split": false,
+      "architecture": "physics_residual",
+      "configuration_evidence_id": "Q3_FINAL_FULL_DATA_CONFIGURATION",
+      "configuration_id": "Q3-physics_residual-C3",
+      "model_id": "Q3-M1-HGB-UNIFIED",
+      "parameters": {
+        "early_stopping": false,
+        "l2_regularization": 1.0,
+        "learning_rate": 0.05,
+        "loss": "squared_error",
+        "max_iter": 200,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 20,
+        "random_state": 202409
+      },
+      "physical_base": {
+        "eta": "full-training least squares on Q1 OOF physical proxy, clipped to [0,1]",
+        "missing_rate_fallback": "Q3-B1 Ridge fit on all eligible training rows"
+      },
+      "pipeline_evidence_id": "Q3_NESTED_SELECTION_PIPELINE_PERFORMANCE",
+      "postprocess_version": "q3_nonnegative_v1",
+      "preprocess": "actual code-faithful full-training-side median imputation with indicators, StandardScaler (including HGB numeric inputs), and protocol one-hot",
+      "q1_deployment_feature": "Q1-B1 fitted on all eligible training rows",
+      "q1_training_feature": "mean of three registered primary Q1-B1 bounded outer-OOF predictions per row",
+      "system_head": "strict sum of bounded AP predictions"
+    }
+  },
+  "official_test_inputs": [
+    {
+      "access": "byte_identity_only_no_numeric_parse",
+      "ap_count": 2,
+      "bytes": 229577,
+      "name": "test_set_1_2ap.csv",
+      "role": "test_q1_q3",
+      "rows": 80,
+      "sha256": "A797C24918C7549AE2BE2A5B13D1059B4803C944BF17D41E314C2DD9D72223B2"
+    },
+    {
+      "access": "byte_identity_only_no_numeric_parse",
+      "ap_count": 3,
+      "bytes": 3486596,
+      "name": "test_set_1_3ap.csv",
+      "role": "test_q1_q3",
+      "rows": 105,
+      "sha256": "774B0E8FFCA2CED5B2849DA4719D2D9A7E0CF969753C8740F2FB1E36511F12B3"
+    },
+    {
+      "access": "byte_identity_only_no_numeric_parse",
+      "ap_count": 2,
+      "bytes": 1265585,
+      "name": "test_set_2_2ap.csv",
+      "role": "test_q2",
+      "rows": 64,
+      "sha256": "1020D75AB0EA6369E243B87100A2B2E6BFDCFCC2C5E7BCCAC356FD07F099925B"
+    },
+    {
+      "access": "byte_identity_only_no_numeric_parse",
+      "ap_count": 3,
+      "bytes": 2795529,
+      "name": "test_set_2_3ap.csv",
+      "role": "test_q2",
+      "rows": 87,
+      "sha256": "8312A393D3957BE1AF2BD333BBB3158F2FA5753378CEC1B81A151E7F21CFAB67"
+    }
+  ],
+  "official_test_numeric_read_count_at_freeze": 0,
+  "official_test_prediction_count_at_freeze": 0,
+  "output_schema": {
+    "path": "projects/rehearsal_2024_B/configs/s5_output_schema.json",
+    "sha256": "2323103155E11F1261FDB03A21FC22CB3B74D974310F49E8577034ED3E3EE769"
+  },
+  "output_schema_sha256": "2323103155E11F1261FDB03A21FC22CB3B74D974310F49E8577034ED3E3EE769",
+  "prior_validation": {
+    "g4_validated_artifact_manifest_sha256": "CE9442A1D755196D2A6C595156813C5470E77C49DF54E76D867B8EAAB0F30826",
+    "independent_selection_reconstruction_sha256": "DB5228EE89403B641F833244E3F8EA21BBCC5DBE648A3B10960821CF7FCFD7E6"
+  },
+  "q1_postprocess_version": "q1_clip_0_test_dur_v1",
+  "q2_label_order": [
+    "0|0",
+    "1|0",
+    "1|4",
+    "1|5",
+    "1|6",
+    "1|7",
+    "1|9",
+    "2|2",
+    "2|3",
+    "2|4",
+    "2|5",
+    "2|6",
+    "2|7",
+    "2|8",
+    "2|9",
+    "2|10",
+    "2|11"
+  ],
+  "q2_label_order_sha256": "81FE68496C48E65FE63D002B1EC61C94637A5CDD9403C8A4CD47BC46086859A9",
+  "q3_postprocess_version": "q3_nonnegative_v1",
+  "release_contract": {
+    "exactly_once": true,
+    "feedback_targets": [],
+    "ledger_path": "projects/rehearsal_2024_B/results/raw/final/test_release_ledger.json",
+    "phase": "S5_FINAL_INFERENCE",
+    "post_release_feedback_forbidden": [
+      "O2",
+      "O3",
+      "S4"
+    ],
+    "release_directory": "projects/rehearsal_2024_B/results/raw/final/release"
+  },
+  "selection_closed": true,
+  "source_commit": "474acb71dfc0bcaa27e6cca908c2243efa65660f",
+  "source_files": [
+    {
+      "path": "projects/rehearsal_2024_B/src/contract_guard.py",
+      "sha256": "09673767033CCE47278BE99E4F4169A0B2AAD57520EE20750C7DC8F3F5D24110"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s1_data_audit.py",
+      "sha256": "E3915869C5DFCC504C82C2CED619CEF8AC0CB13DB886CCE3FA7BFF26B8596A99"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s2_contract_validation.py",
+      "sha256": "11CA2427734045D63027DD47054662059ECC0F23E56CA96305A750EC20366411"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s3_features.py",
+      "sha256": "79ABE68B3DAFCB9E37CF36E56E229696F4D3E179FDB7E1A60275ED81DE28C858"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s3_io.py",
+      "sha256": "4FCDCC243797C811C4F654473BCC1CDED3E76502F04437A8CEF4522F0C1E6FC6"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s3_lineage.py",
+      "sha256": "C96367DCB84191938E8DBBAEA7307C5964CAB8F83287E25814993DD3A6D99927"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s3_models.py",
+      "sha256": "E8638C5ADA71DB8BB168E697D418737889ED686403D5A91392715CB4E474C077"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s4_selection.py",
+      "sha256": "BCC9B6AC3EC4A2AA7915FCCA8B317CF103E2AE90746B7E7A44C4236D07F143AC"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s5_release.py",
+      "sha256": "FA87236326128DD10E31D315DADAF1BF761DF1CDB0A47C37060F25A6C0CC3E41"
+    },
+    {
+      "path": "projects/rehearsal_2024_B/src/s5_validation.py",
+      "sha256": "2EB6BD07C25A3185CEA8B830AB8981AFC77D1C11D5193E33231AD8875AFC0A2F"
+    }
+  ],
+  "source_files_sha256": "1B01F71323AD51445D73AB53203D742AA98A8CB69525DF17089B53A712092097",
+  "split_registry": {
+    "path": "projects/rehearsal_2024_B/results/raw/s2/split_registry.json",
+    "sha256": "B20D719E287D4F4D295D2EC497F13226C7A80C5986B70CA2269E1016BDAA3FF7"
+  },
+  "stage": "S5",
+  "status": "FROZEN",
+  "test_data_used_for_selection": false,
+  "training_inputs": [
+    {
+      "bytes": 245805,
+      "name": "training_set_2ap_loc0_nav82.csv",
+      "sha256": "9F255CA192FDF1F99CC441E6321DA0EF7D4D1B2FFE9B58870533B74AE34D068E"
+    },
+    {
+      "bytes": 378917,
+      "name": "training_set_2ap_loc0_nav86.csv",
+      "sha256": "4FB41351844354FC92483496B1CAAC9F95BA1E93E0C1276DE8232AB429250321"
+    },
+    {
+      "bytes": 409486,
+      "name": "training_set_2ap_loc1_nav82.csv",
+      "sha256": "7F2E41CFACDE6BECFD0BF6E5F66DE9E39EB5FF1199FF664A1180882E9FA404B4"
+    },
+    {
+      "bytes": 352700,
+      "name": "training_set_2ap_loc1_nav86.csv",
+      "sha256": "07831A66D218EF6BB23D2504CE2CC382104F9E48CDCC716A37D30D412B99D8AD"
+    },
+    {
+      "bytes": 345269,
+      "name": "training_set_2ap_loc2_nav82.csv",
+      "sha256": "3C9F76FC140D6DDF900F515D16FBABEDE182152DBC09919CE29CA0103624A08F"
+    },
+    {
+      "bytes": 828587,
+      "name": "training_set_3ap_loc30_nav82.csv",
+      "sha256": "A539D3C29A80DA3CA002B6A9C0E49B7D7BC501A17C965192309C0229E2A0035B"
+    },
+    {
+      "bytes": 761332,
+      "name": "training_set_3ap_loc30_nav86.csv",
+      "sha256": "8DA8932B49FDFEA4E5521B045F0D407F74721E7401CC4156EA8AA6B5BE8FBCC8"
+    },
+    {
+      "bytes": 912194,
+      "name": "training_set_3ap_loc31_nav82.csv",
+      "sha256": "ADCD55978E14288539FE239AEBF7292D1AD961CD82813B4493E00934CCCB6FFB"
+    },
+    {
+      "bytes": 783574,
+      "name": "training_set_3ap_loc31_nav86.csv",
+      "sha256": "1E44346B859058B9E7B0C59026E9E06F9F44CE093952ACE88F787807644A44EC"
+    },
+    {
+      "bytes": 3691461,
+      "name": "training_set_3ap_loc32_nav82.csv",
+      "sha256": "B07ABD7E401090F5B6667A61708FDE75D48FF0BD0158AB9E4D31565CBC369112"
+    },
+    {
+      "bytes": 2023495,
+      "name": "training_set_3ap_loc32_nav86.csv",
+      "sha256": "EF0C5478D00BEB47C04332A84569CD54F34CA2A047A722E97F27CB8E47B716DA"
+    },
+    {
+      "bytes": 2720436,
+      "name": "training_set_3ap_loc33_nav82.csv",
+      "sha256": "BEAB6D49A62A089F5A0996C572E98DA3D50560B0F9F1F7D12284BF41353C1D26"
+    },
+    {
+      "bytes": 3251013,
+      "name": "training_set_3ap_loc33_nav88.csv",
+      "sha256": "4DCE45EC10ED08DB154C979CD122CEAFC428E0B772D1A33E2D2AC6E1D3B9174E"
+    }
+  ],
+  "training_inputs_sha256": "C2E84BCFB168FA54BA983E01040250F370F3E9B603FD233FC12BE325F90F2860"
+}

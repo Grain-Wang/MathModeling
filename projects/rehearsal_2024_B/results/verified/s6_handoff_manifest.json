@@ -1,0 +1,55 @@
+{
+  "created_at": "2026-09-11T12:03:52+08:00",
+  "figure_input_snapshot_sha256": "BE2A9AFEAA836000ACAFCA897B516C8DCFB621CA5B006DFD9008C9D14E44CFA5",
+  "final_figure_data_snapshot": {
+    "status": "PENDING_FIGURE_TEAM_OUTPUT"
+  },
+  "final_pdf": {
+    "status": "PENDING_WRITING_TEAM_OUTPUT"
+  },
+  "g5_review_commit": "3862fee66a3c1ca362202b8d5d9e8b5d7eb2137b",
+  "g6_ready": false,
+  "model_inference_count": 0,
+  "official_test_csv_numeric_read_count": 0,
+  "paper_source": {
+    "status": "PENDING_WRITING_TEAM_OUTPUT"
+  },
+  "records": {
+    "figure_handoff": {
+      "bytes": 3955,
+      "path": "projects/rehearsal_2024_B/work/handoff/figure_handoff.md",
+      "sha256": "1F5E59C23130C5A73BF3AE4C0916AB7640FA567B3BA82C32778FE47790606595"
+    },
+    "figure_handoff_zip": {
+      "bytes": 105498,
+      "path": "projects/rehearsal_2024_B/package_for_deliver/rehearsal_2024_B_figure_handoff.zip",
+      "sha256": "DAA0F01BDC26722275941E865222EB48481E6B8F9E7E7D70D676004A1F5E411B"
+    },
+    "figure_package_manifest": {
+      "bytes": 8487,
+      "path": "projects/rehearsal_2024_B/package_for_deliver/figure_handoff_2024_B/PACKAGE_MANIFEST.json",
+      "sha256": "DA4455C9ABDFB91A2BEDFBBF86E5BB31A407A46C77467DD940265997210CA6BA"
+    },
+    "post_release_binding_attestation": {
+      "bytes": 11077,
+      "path": "projects/rehearsal_2024_B/results/verified/post_release_binding_attestation.json",
+      "sha256": "06430C8CBF15B8D1713506B12F9B47AD42DB785D6074C6538CA9E7DDD4350685"
+    },
+    "result_freeze": {
+      "bytes": 7206,
+      "path": "projects/rehearsal_2024_B/work/10_result_freeze.md",
+      "sha256": "BDE8CAD2F8D7092B305D1A88D3D1F9557E1D0E4A66B3E5B46D8F3D3EB9D81DA9"
+    },
+    "result_registry": {
+      "bytes": 3920,
+      "path": "projects/rehearsal_2024_B/results/verified/result_registry.md",
+      "sha256": "8455EF9AA40A96AA23765F735A9F08BB40F0E2236914EA773650DF1FD3BCF49A"
+    },
+    "writing_handoff": {
+      "bytes": 6365,
+      "path": "projects/rehearsal_2024_B/work/handoff/writing_handoff.md",
+      "sha256": "978FC8D1907D8925B95DB87B3CB07D4D0FD66345FE4609A3A64C26FD514F1B45"
+    }
+  },
+  "status": "S6_HANDOFF_READY_G6_NOT_READY"
+}

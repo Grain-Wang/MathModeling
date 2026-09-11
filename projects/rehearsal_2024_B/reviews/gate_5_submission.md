@@ -8,7 +8,7 @@ S5 — 结果核验、冻结与交接
 
 - G4 authorization review commit: `70d6a1436192339c61c749188e104b15cf4bbbb7`
 - S5 implementation commit: `474acb71dfc0bcaa27e6cca908c2243efa65660f`
-- Pre-release verified freeze commit: `473a8ad`
+- Pre-release verified freeze commit: `473a8ad8bf04cfa7d62511dadbe620f3a6ba8570`
 - Freeze manifest SHA-256: `A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D`
 - Final release ID: `S5-A4AA45A0491C-20260911T110151+0800`
 - Exactly-once successful release count: `1`

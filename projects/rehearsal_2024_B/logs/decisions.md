@@ -56,3 +56,6 @@
 | 2026-09-11 | D0041 | S5 | 接受 G4/R1 PASS，按授权从 S4 进入 S5，下一门禁为 G5 | review commit 70d6a14 对 b9922fd 判定 Critical=0、Major=0，并明确授权 S4→S5 | 停止性能扩张；S5 只执行结果独立核验、完整冻结、真实 exactly-once 释放和交接 | ACTIVE |
 | 2026-09-11 | D0042 | S5 | 将 Q3 嵌套选择管线表现与最终 full-data residual-C3 配置登记为两个 Evidence ID，并按真实代码记录 HGB scaling | 闭合 G4 Minor-01/03，避免把管线 OOF=0.550330误写成固定 C3 分数或让论文规格偏离实现 | `E-Q3-PIPE-001` 与 `E-Q3-CONFIG-001` 不得互换；不重开模型选择 | ACTIVE |
 | 2026-09-11 | D0043 | S5 | freeze A4AA45A0 后执行唯一正式 release `S5-A4AA45A0491C-20260911T110151+0800`，成功后永久禁止第二次释放和预测反馈调模 | 真实磁盘 ledger 在解析前推导 prior success=0；G4、freeze、输入身份和输出冲突全通过 | ledger success=1；第二次 guard 硬失败；官方无标签预测只作部署输出，不作性能证据 | ACTIVE |
+
+| 2026-09-11 | D0044 | S6 | 接受 G5/R1 PASS 并由 S5 进入 S6，下一门禁为 G6 | review commit 3862fee 对 cb1e927 判定 Critical=0、Major=0，并明确授权 S5→S6 | 性能与 release 继续冻结；只开展技术一致性、配图/论文协作和最终合规 | ACTIVE |
+| 2026-09-11 | D0045 | S6 | 以 post-release attestation 关闭 G5 Minor-01/02，并建立 verified-only 配图包和阶段性 handoff manifest | 审核要求不得重跑官方 release；配图/论文只能使用登记 Evidence ID | 29/29 检查 PASS、test CSV read/inference=0/0；Minor-03 待正式图数据、论文源文件和 PDF 回传后最终关闭 | ACTIVE |
