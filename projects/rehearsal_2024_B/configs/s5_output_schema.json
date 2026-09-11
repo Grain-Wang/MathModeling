@@ -1,0 +1,45 @@
+{
+  "schema_version": "s5_final_output_v1",
+  "row_order_rule": "official_test_denylist file order, then zero-based source_row_index; system rows follow first component occurrence",
+  "float_serialization": "finite JSON number; no NaN or Infinity",
+  "artifacts": {
+    "q1_ap_predictions.jsonl": {
+      "row_count": 185,
+      "fields": [
+        "release_id", "scope", "row_order", "row_key", "source_file",
+        "source_row_index", "test_id", "ap_id", "ap_count", "model_id",
+        "feature_schema_sha256", "test_dur", "seq_time_raw",
+        "seq_time_bounded", "clipped"
+      ]
+    },
+    "q2_ap_predictions.jsonl": {
+      "row_count": 151,
+      "fields": [
+        "release_id", "scope", "row_order", "row_key", "source_file",
+        "source_row_index", "test_id", "ap_id", "ap_count", "model_id",
+        "feature_schema_sha256", "predicted_joint_label", "predict_nss",
+        "predict_mcs", "probability_label_order", "probability_fixed_17",
+        "missing_train_labels"
+      ]
+    },
+    "q3_ap_predictions.jsonl": {
+      "row_count": 185,
+      "fields": [
+        "release_id", "scope", "row_order", "row_key", "source_file",
+        "source_row_index", "test_id", "ap_id", "ap_count", "model_id",
+        "configuration_id", "feature_schema_sha256", "q1_model_id",
+        "q1_seq_time_bounded", "throughput_raw", "throughput_bounded",
+        "negative_clipped", "phy_rate_mbps", "physical_proxy_mbps", "eta",
+        "rate_missing"
+      ]
+    },
+    "q3_system_predictions.jsonl": {
+      "row_count": 75,
+      "fields": [
+        "release_id", "scope", "row_order", "group_id", "source_file",
+        "test_id", "ap_count", "model_id", "system_throughput_bounded",
+        "component_row_keys", "bounded_sum_equality_absolute_error"
+      ]
+    }
+  }
+}
