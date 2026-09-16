@@ -1,0 +1,11 @@
+# Keep byte-hashed 2024_B figure resources unchanged across Git checkouts.
+/guide/09_plotting_protocol.md -text
+/guide/figures_guide.md -text
+/projects/rehearsal_2024_B/work/10_result_freeze.md -text
+/projects/rehearsal_2024_B/work/handoff/figure_handoff.md -text
+/projects/rehearsal_2024_B/work/handoff/eight_figure_resources.md -text
+/projects/rehearsal_2024_B/results/verified/result_registry.md -text
+/projects/rehearsal_2024_B/results/verified/figure_data/** -text
+/projects/rehearsal_2024_B/package_for_deliver/figure_handoff_2024_B/** -text whitespace=cr-at-eol
+/projects/rehearsal_2024_B/src/s6_figure_package.py -text
+/projects/rehearsal_2024_B/src/s6_eight_figure_resources.py -text

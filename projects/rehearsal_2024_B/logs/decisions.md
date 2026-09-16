@@ -59,3 +59,5 @@
 
 | 2026-09-11 | D0044 | S6 | 接受 G5/R1 PASS 并由 S5 进入 S6，下一门禁为 G6 | review commit 3862fee 对 cb1e927 判定 Critical=0、Major=0，并明确授权 S5→S6 | 性能与 release 继续冻结；只开展技术一致性、配图/论文协作和最终合规 | ACTIVE |
 | 2026-09-11 | D0045 | S6 | 以 post-release attestation 关闭 G5 Minor-01/02，并建立 verified-only 配图包和阶段性 handoff manifest | 审核要求不得重跑官方 release；配图/论文只能使用登记 Evidence ID | 29/29 检查 PASS、test CSV read/inference=0/0；Minor-03 待正式图数据、论文源文件和 PDF 回传后最终关闭 | ACTIVE |
+
+| 2026-09-16 | D0046 | S6 | 以仓库八图证据链作为论文图 1–8 主编号，原 F1–F5 仅为统计候选图 | 用户要求补齐完整八图资源；八图规范区分路线、数据质量、结构、核心结果、误差、比较、稳健性和场景决策 | 只迁入已审计训练侧证据；提供八份机器规格和可追溯快照，不提前生成正式图或宣称 G6 ready | ACTIVE |

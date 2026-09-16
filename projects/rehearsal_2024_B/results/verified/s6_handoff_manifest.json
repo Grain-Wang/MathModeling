@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-09-11T12:03:52+08:00",
-  "figure_input_snapshot_sha256": "BE2A9AFEAA836000ACAFCA897B516C8DCFB621CA5B006DFD9008C9D14E44CFA5",
+  "created_at": "2026-09-16T22:12:00+08:00",
+  "figure_input_snapshot_sha256": "F80B49D47FAF7D8671EFBF633996D5717B07669A70BDBFD8F26FB3940D22FA6E",
   "final_figure_data_snapshot": {
     "status": "PENDING_FIGURE_TEAM_OUTPUT"
   },
@@ -15,25 +15,35 @@
     "status": "PENDING_WRITING_TEAM_OUTPUT"
   },
   "records": {
+    "eight_figure_resource_manifest": {
+      "bytes": 3494,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/figure_resource_manifest.json",
+      "sha256": "A375FB67BCED49E91B66025F3CDC1FFC906435E1A3D13925477258132CBAE179"
+    },
     "figure_handoff": {
-      "bytes": 3955,
+      "bytes": 4269,
       "path": "projects/rehearsal_2024_B/work/handoff/figure_handoff.md",
-      "sha256": "1F5E59C23130C5A73BF3AE4C0916AB7640FA567B3BA82C32778FE47790606595"
+      "sha256": "7171735F922FC071792BDA8F3487C4635858A271B4EF8668C9D2E874C05FC441"
     },
     "figure_handoff_zip": {
-      "bytes": 105498,
+      "bytes": 182276,
       "path": "projects/rehearsal_2024_B/package_for_deliver/rehearsal_2024_B_figure_handoff.zip",
-      "sha256": "DAA0F01BDC26722275941E865222EB48481E6B8F9E7E7D70D676004A1F5E411B"
+      "sha256": "AECC468B914AD8325D2662F66D73843ED8D23D5017CC3474D2727F6BC688DE3F"
     },
     "figure_package_manifest": {
-      "bytes": 8487,
+      "bytes": 12973,
       "path": "projects/rehearsal_2024_B/package_for_deliver/figure_handoff_2024_B/PACKAGE_MANIFEST.json",
-      "sha256": "DA4455C9ABDFB91A2BEDFBBF86E5BB31A407A46C77467DD940265997210CA6BA"
+      "sha256": "8DD3FC0A8F6C89AB2A2AD88F11E3126C6A0C429F3387DE6C3344B49E5DACB5AD"
     },
     "post_release_binding_attestation": {
       "bytes": 11077,
       "path": "projects/rehearsal_2024_B/results/verified/post_release_binding_attestation.json",
       "sha256": "06430C8CBF15B8D1713506B12F9B47AD42DB785D6074C6538CA9E7DDD4350685"
+    },
+    "q1_feature_family_importance": {
+      "bytes": 110952,
+      "path": "projects/rehearsal_2024_B/results/verified/q1_feature_family_importance.json",
+      "sha256": "42C044010858F53FC480A6B9588C6FEAF540DD2F2B5413BC5382A673E4B5BB1B"
     },
     "result_freeze": {
       "bytes": 7206,
@@ -41,9 +51,9 @@
       "sha256": "BDE8CAD2F8D7092B305D1A88D3D1F9557E1D0E4A66B3E5B46D8F3D3EB9D81DA9"
     },
     "result_registry": {
-      "bytes": 3920,
+      "bytes": 5810,
       "path": "projects/rehearsal_2024_B/results/verified/result_registry.md",
-      "sha256": "8455EF9AA40A96AA23765F735A9F08BB40F0E2236914EA773650DF1FD3BCF49A"
+      "sha256": "A19935E3087A884C6B020FAD57E5C398629D01435C330972CC8070580604777C"
     },
     "writing_handoff": {
       "bytes": 6365,

@@ -1,0 +1,3420 @@
+{
+  "caption_rule": "训练侧第 0 次 primary grouped OOF：482 个真实系统吞吐与预测吞吐，非官方测试集性能。",
+  "data": {
+    "n_groups": 482,
+    "pipeline_primary_selection_score_repeat_mean": 0.5503296083233881,
+    "points": [
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::1",
+        "prediction_mbps": 430.91668645383703,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 433.33
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::10",
+        "prediction_mbps": 456.1244352718313,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 459.06
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::11",
+        "prediction_mbps": 432.68750768262004,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 414.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::12",
+        "prediction_mbps": 459.45390038710144,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 472.14
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::13",
+        "prediction_mbps": 438.97303285648366,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 409.33
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::14",
+        "prediction_mbps": 466.5985254367762,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 456.3
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::15",
+        "prediction_mbps": 436.74017051487886,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 422.67
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::16",
+        "prediction_mbps": 456.275398677917,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 464.83000000000004
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::17",
+        "prediction_mbps": 426.12182901920414,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 430.69
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::18",
+        "prediction_mbps": 469.9431085192652,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 468.65
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::19",
+        "prediction_mbps": 441.8929472725349,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 433.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::2",
+        "prediction_mbps": 449.0962327572766,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 471.28999999999996
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::20",
+        "prediction_mbps": 470.9622878865681,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 469.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::21",
+        "prediction_mbps": 423.634219061359,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 430.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::22",
+        "prediction_mbps": 458.439869796904,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 474.79999999999995
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::23",
+        "prediction_mbps": 417.8634800451465,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 419.99
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::24",
+        "prediction_mbps": 452.15812118080163,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 477.61
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::25",
+        "prediction_mbps": 439.31750870839414,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 411.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::26",
+        "prediction_mbps": 454.0306850770919,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 476.56
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::27",
+        "prediction_mbps": 369.8974341641192,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 373.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::28",
+        "prediction_mbps": 353.219192267924,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 417.28999999999996
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::29",
+        "prediction_mbps": 280.88837649906634,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 309.33
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::3",
+        "prediction_mbps": 452.35398692716024,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 448.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::30",
+        "prediction_mbps": 266.7880545608115,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 293.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::31",
+        "prediction_mbps": 297.4069954753897,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 285.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::32",
+        "prediction_mbps": 268.1791294848591,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 269.34
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::33",
+        "prediction_mbps": 303.04027688773726,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 269.38
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::34",
+        "prediction_mbps": 256.7725824853967,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 250.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::35",
+        "prediction_mbps": 302.53356485305915,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 274.2
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::36",
+        "prediction_mbps": 243.98297471600813,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 249.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::37",
+        "prediction_mbps": 271.3837796177694,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 276.63
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::38",
+        "prediction_mbps": 261.72345535776344,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 236.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::39",
+        "prediction_mbps": 279.34865282769476,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 268.92
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::4",
+        "prediction_mbps": 478.8364587408151,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 458.92
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::40",
+        "prediction_mbps": 229.5497214038926,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 242.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::41",
+        "prediction_mbps": 246.40800874853826,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 272.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::5",
+        "prediction_mbps": 422.4132472351125,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 423.99
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::6",
+        "prediction_mbps": 466.12693221583186,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 466.47
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::7",
+        "prediction_mbps": 429.2381768843313,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 421.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::8",
+        "prediction_mbps": 459.9358708814011,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 472.11
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav82.csv::9",
+        "prediction_mbps": 423.82141736932937,
+        "source_file": "training_set_2ap_loc0_nav82.csv",
+        "truth_mbps": 428.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::1",
+        "prediction_mbps": 415.42587880405347,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 433.33
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::10",
+        "prediction_mbps": 460.750239399832,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 468.88
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::11",
+        "prediction_mbps": 415.93467284223726,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 419.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::12",
+        "prediction_mbps": 445.8438967371453,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 465.31
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::13",
+        "prediction_mbps": 411.26891259920114,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 420.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::14",
+        "prediction_mbps": 453.76264917813216,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 462.88
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::15",
+        "prediction_mbps": 380.5774208065636,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 397.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::16",
+        "prediction_mbps": 405.62362539908804,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 444.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::17",
+        "prediction_mbps": 301.46680010837395,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 290.64
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::18",
+        "prediction_mbps": 342.35095626343883,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 306.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::19",
+        "prediction_mbps": 291.14574759196046,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 270.67
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::2",
+        "prediction_mbps": 458.6799513456134,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 458.94
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::20",
+        "prediction_mbps": 337.1847680898171,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 298.26
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::21",
+        "prediction_mbps": 272.1655957795041,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 257.33000000000004
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::22",
+        "prediction_mbps": 292.6022224766307,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 300.92
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::23",
+        "prediction_mbps": 264.6987689174099,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 253.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::24",
+        "prediction_mbps": 293.9908971688685,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 294.31
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::25",
+        "prediction_mbps": 261.43557020738496,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 254.67000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::26",
+        "prediction_mbps": 285.9592059084414,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 308.35
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::27",
+        "prediction_mbps": 251.9174050645858,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 266.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::28",
+        "prediction_mbps": 287.72333771037074,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 297.49
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::29",
+        "prediction_mbps": 264.1687001482457,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 271.15999999999997
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::3",
+        "prediction_mbps": 422.73144758794047,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 415.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::30",
+        "prediction_mbps": 298.3785409488098,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 295.57
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::31",
+        "prediction_mbps": 283.7120895669251,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 253.32999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::32",
+        "prediction_mbps": 290.87991872758596,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 311.99
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::33",
+        "prediction_mbps": 257.5236676437468,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 269.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::34",
+        "prediction_mbps": 281.69765889766563,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 294.03999999999996
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::35",
+        "prediction_mbps": 259.9359560893265,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 264.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::36",
+        "prediction_mbps": 287.7643371743505,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 291.48
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::37",
+        "prediction_mbps": 246.30004425532323,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 242.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::38",
+        "prediction_mbps": 265.82417083131674,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 304.76
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::39",
+        "prediction_mbps": 252.91759606542377,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 249.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::4",
+        "prediction_mbps": 457.51014213111193,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 467.16999999999996
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::40",
+        "prediction_mbps": 272.06643712024044,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 293.9
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::5",
+        "prediction_mbps": 419.663462963671,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 418.65
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::6",
+        "prediction_mbps": 454.15090706279943,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 465.42999999999995
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::7",
+        "prediction_mbps": 423.95822766461424,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 422.65
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::8",
+        "prediction_mbps": 444.05511571936836,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 457.78
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc0_nav86.csv::9",
+        "prediction_mbps": 418.11326588831776,
+        "source_file": "training_set_2ap_loc0_nav86.csv",
+        "truth_mbps": 413.32000000000005
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::1",
+        "prediction_mbps": 88.2884164317793,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 90.88
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::10",
+        "prediction_mbps": 134.6237242375933,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 124.86
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::11",
+        "prediction_mbps": 123.66261692578342,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 116.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::12",
+        "prediction_mbps": 143.2226298087341,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 135.47
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::13",
+        "prediction_mbps": 109.15114869026894,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 120.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::14",
+        "prediction_mbps": 149.97880248926447,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 143.08
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::15",
+        "prediction_mbps": 130.39982315146852,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 120.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::16",
+        "prediction_mbps": 148.11313308190842,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 162.05
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::17",
+        "prediction_mbps": 146.24276564768067,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 130.16
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::18",
+        "prediction_mbps": 155.24582888513638,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 159.48000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::19",
+        "prediction_mbps": 141.94371239933707,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 134.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::2",
+        "prediction_mbps": 113.3099278815202,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 113.88
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::20",
+        "prediction_mbps": 158.3251392575127,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 157.36
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::21",
+        "prediction_mbps": 106.15548040294522,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 114.67
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::22",
+        "prediction_mbps": 126.51432866875099,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 139.72
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::23",
+        "prediction_mbps": 128.63505674278105,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 106.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::24",
+        "prediction_mbps": 125.17743977920972,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 152.23000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::25",
+        "prediction_mbps": 170.1021292942004,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 146.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::26",
+        "prediction_mbps": 205.69559343577225,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 179.7
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::27",
+        "prediction_mbps": 189.2047526360476,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 136.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::28",
+        "prediction_mbps": 98.76497413206067,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 129.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::29",
+        "prediction_mbps": 162.23469664614433,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 165.32999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::3",
+        "prediction_mbps": 120.55243995365645,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 116.02000000000001
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::30",
+        "prediction_mbps": 172.91191566231834,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 181.45999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::31",
+        "prediction_mbps": 161.06287392051553,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 162.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::32",
+        "prediction_mbps": 174.17953878327216,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 189.3
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::33",
+        "prediction_mbps": 164.6077319431021,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 174.67000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::34",
+        "prediction_mbps": 166.46441847909492,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 194.92000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::35",
+        "prediction_mbps": 164.72903204547157,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 169.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::36",
+        "prediction_mbps": 176.06769675420915,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 178.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::37",
+        "prediction_mbps": 163.05358580395944,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 169.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::38",
+        "prediction_mbps": 176.68155269642952,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 170.64999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::39",
+        "prediction_mbps": 189.0897780297874,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 185.91
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::4",
+        "prediction_mbps": 111.46743813968197,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 121.08000000000001
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::5",
+        "prediction_mbps": 117.78215030012089,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 116.62
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::6",
+        "prediction_mbps": 132.55202167600004,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 132.51
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::7",
+        "prediction_mbps": 89.23319866841604,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 116.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::8",
+        "prediction_mbps": 131.50398328471616,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 140.57
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav82.csv::9",
+        "prediction_mbps": 94.82745656175973,
+        "source_file": "training_set_2ap_loc1_nav82.csv",
+        "truth_mbps": 116.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::1",
+        "prediction_mbps": 113.72598724788114,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 106.67
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::10",
+        "prediction_mbps": 95.74409556266978,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 126.71000000000001
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::11",
+        "prediction_mbps": 130.03663629499735,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 117.32
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::12",
+        "prediction_mbps": 122.95614799904581,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 142.89
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::13",
+        "prediction_mbps": 119.65824620051525,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 94.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::14",
+        "prediction_mbps": 114.6228890015898,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 162.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::15",
+        "prediction_mbps": 123.05426219519117,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 112.53999999999999
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::16",
+        "prediction_mbps": 129.56057023576878,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 133.91
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::17",
+        "prediction_mbps": 168.45299085280973,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 170.65
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::18",
+        "prediction_mbps": 179.56992366746113,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 170.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::19",
+        "prediction_mbps": 187.811357294019,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 190.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::2",
+        "prediction_mbps": 114.73047958688815,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 126.22999999999999
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::20",
+        "prediction_mbps": 206.18503002197235,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 185.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::21",
+        "prediction_mbps": 159.74475767761194,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 189.32999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::22",
+        "prediction_mbps": 183.2380064380152,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 196.75
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::23",
+        "prediction_mbps": 177.88626355766974,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 196.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::24",
+        "prediction_mbps": 184.107930412523,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 192.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::25",
+        "prediction_mbps": 190.41145859756466,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 182.66000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::26",
+        "prediction_mbps": 185.13291452188687,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 196.76
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::27",
+        "prediction_mbps": 183.44342142720484,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 194.68
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::28",
+        "prediction_mbps": 195.43147815405666,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 193.24
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::29",
+        "prediction_mbps": 177.92418210661256,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 194.67000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::3",
+        "prediction_mbps": 111.18958159398987,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 104.4
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::30",
+        "prediction_mbps": 205.64124767083723,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 198.71
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::31",
+        "prediction_mbps": 201.64880105963505,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 199.99
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::32",
+        "prediction_mbps": 208.1033798224317,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 197.63
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::33",
+        "prediction_mbps": 186.10172124458364,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 201.34
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::34",
+        "prediction_mbps": 189.60231345067743,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 193.34
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::35",
+        "prediction_mbps": 200.96485558135987,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 194.48000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::36",
+        "prediction_mbps": 186.36786672052654,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 196.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::37",
+        "prediction_mbps": 197.52822330115822,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 197.06
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::4",
+        "prediction_mbps": 128.5832445104478,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 134.49
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::5",
+        "prediction_mbps": 93.55134914372175,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 103.99000000000001
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::6",
+        "prediction_mbps": 115.3435049020514,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 114.47
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::7",
+        "prediction_mbps": 138.91684832493274,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 77.33
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::8",
+        "prediction_mbps": 125.58235786629515,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 146.79000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc1_nav86.csv::9",
+        "prediction_mbps": 124.22408328811002,
+        "source_file": "training_set_2ap_loc1_nav86.csv",
+        "truth_mbps": 85.33000000000001
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::1",
+        "prediction_mbps": 246.00339509672236,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 250.65999999999997
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::10",
+        "prediction_mbps": 345.86880524850915,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 343.24
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::11",
+        "prediction_mbps": 311.323608393063,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 291.99
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::12",
+        "prediction_mbps": 346.53776200065465,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 356.9
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::13",
+        "prediction_mbps": 310.27631076372177,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 309.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::14",
+        "prediction_mbps": 351.1391600784411,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 359.52
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::15",
+        "prediction_mbps": 308.1032820052478,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 293.35
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::16",
+        "prediction_mbps": 334.3965677361875,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 356.95
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::17",
+        "prediction_mbps": 315.44132096997504,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 306.65999999999997
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::18",
+        "prediction_mbps": 335.04882022040204,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 360.02
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::19",
+        "prediction_mbps": 316.6440078690662,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 310.65999999999997
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::2",
+        "prediction_mbps": 281.95445870790655,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 287.17
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::20",
+        "prediction_mbps": 371.15896840787707,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 370.94
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::21",
+        "prediction_mbps": 349.2669501412252,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 337.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::22",
+        "prediction_mbps": 398.698138631878,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 385.44
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::23",
+        "prediction_mbps": 336.0582429973588,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 337.34000000000003
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::24",
+        "prediction_mbps": 356.9650039521874,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 384.27
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::25",
+        "prediction_mbps": 313.5727435685238,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 338.66999999999996
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::26",
+        "prediction_mbps": 331.27460909227113,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 373.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::27",
+        "prediction_mbps": 308.5921900644021,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 312.01
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::28",
+        "prediction_mbps": 327.20855528949096,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 346.44
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::29",
+        "prediction_mbps": 206.09427174328434,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 245.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::3",
+        "prediction_mbps": 244.89635697343647,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 250.66
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::30",
+        "prediction_mbps": 232.5517795342594,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 265.46000000000004
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::31",
+        "prediction_mbps": 232.5072421571321,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 236.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::32",
+        "prediction_mbps": 282.44614917770014,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 255.36
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::33",
+        "prediction_mbps": 237.52867527059414,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 225.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::34",
+        "prediction_mbps": 267.49351228382704,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 261.73
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::35",
+        "prediction_mbps": 214.93110011854907,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 217.32999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::36",
+        "prediction_mbps": 246.00538511448724,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 251.76999999999998
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::37",
+        "prediction_mbps": 214.33519180448542,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 229.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::38",
+        "prediction_mbps": 278.461977879637,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 225.35000000000002
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::39",
+        "prediction_mbps": 175.86632236950504,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 220.03
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::4",
+        "prediction_mbps": 278.5406016397549,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 281.74
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::5",
+        "prediction_mbps": 275.70494467181754,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 260.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::6",
+        "prediction_mbps": 298.3478526507921,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 316.98
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::7",
+        "prediction_mbps": 300.0542908220696,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 276.0
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::8",
+        "prediction_mbps": 329.8659004738774,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 334.75
+      },
+      {
+        "ap_count": 2,
+        "group_id": "training_set_2ap_loc2_nav82.csv::9",
+        "prediction_mbps": 299.89600902249197,
+        "source_file": "training_set_2ap_loc2_nav82.csv",
+        "truth_mbps": 284.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::1",
+        "prediction_mbps": 573.1155797030933,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 555.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::10",
+        "prediction_mbps": 539.5875104300748,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 501.15999999999997
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::11",
+        "prediction_mbps": 553.7945749554701,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 592.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::12",
+        "prediction_mbps": 541.206546562846,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 518.4
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::13",
+        "prediction_mbps": 614.0495093280904,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 611.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::14",
+        "prediction_mbps": 516.8068922496985,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 555.48
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::15",
+        "prediction_mbps": 524.4152484197568,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 618.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::16",
+        "prediction_mbps": 547.6367859684792,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 511.71000000000004
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::17",
+        "prediction_mbps": 449.4160043853445,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 547.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::18",
+        "prediction_mbps": 459.08041625656153,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 375.19
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::19",
+        "prediction_mbps": 454.93752093113903,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 462.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::2",
+        "prediction_mbps": 518.6109542502697,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 524.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::20",
+        "prediction_mbps": 405.9464156371496,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 425.37
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::21",
+        "prediction_mbps": 452.5537922462526,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 447.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::22",
+        "prediction_mbps": 374.8497718780457,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 427.38
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::23",
+        "prediction_mbps": 414.26257330475306,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 400.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::24",
+        "prediction_mbps": 356.33211019375403,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 374.26
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::25",
+        "prediction_mbps": 394.73335596753253,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 409.33
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::26",
+        "prediction_mbps": 360.75369413175713,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 331.81
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::27",
+        "prediction_mbps": 355.8171431836941,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 385.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::28",
+        "prediction_mbps": 344.3690227184328,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 329.79
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::29",
+        "prediction_mbps": 364.6522691507386,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 375.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::3",
+        "prediction_mbps": 541.5496185278494,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 577.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::30",
+        "prediction_mbps": 337.47700573626565,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 327.72
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::31",
+        "prediction_mbps": 348.31148726593034,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 287.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::32",
+        "prediction_mbps": 269.26904579492214,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 340.06
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::33",
+        "prediction_mbps": 232.4826991326005,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 313.3
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::34",
+        "prediction_mbps": 285.01376413254354,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 279.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::35",
+        "prediction_mbps": 291.8881372257603,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 305.6
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::36",
+        "prediction_mbps": 251.11582822548849,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 261.33
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::37",
+        "prediction_mbps": 287.7799802684375,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 285.35
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::38",
+        "prediction_mbps": 255.7252752976022,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 254.64999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::39",
+        "prediction_mbps": 276.1646570577138,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 290.01
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::4",
+        "prediction_mbps": 554.0269916305313,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 500.25
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::40",
+        "prediction_mbps": 283.0158231897496,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 256.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::41",
+        "prediction_mbps": 296.1900962739713,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 280.85
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::5",
+        "prediction_mbps": 543.6857100966287,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 560.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::6",
+        "prediction_mbps": 495.55469934612677,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 519.57
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::7",
+        "prediction_mbps": 567.1836821966225,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 565.3399999999999
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::8",
+        "prediction_mbps": 529.8569365761364,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 532.8299999999999
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav82.csv::9",
+        "prediction_mbps": 533.7341742467464,
+        "source_file": "training_set_3ap_loc30_nav82.csv",
+        "truth_mbps": 584.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::1",
+        "prediction_mbps": 459.76801419667777,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 489.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::10",
+        "prediction_mbps": 438.01017571382204,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 424.28999999999996
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::11",
+        "prediction_mbps": 504.47676497202633,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 458.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::12",
+        "prediction_mbps": 477.6377751061169,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 438.69
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::13",
+        "prediction_mbps": 387.76647893645156,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 418.44
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::14",
+        "prediction_mbps": 376.6898169964417,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 425.34000000000003
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::15",
+        "prediction_mbps": 379.8310016695193,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 299.13
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::16",
+        "prediction_mbps": 401.61652420705104,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 424.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::17",
+        "prediction_mbps": 398.00310962728366,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 355.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::18",
+        "prediction_mbps": 405.26333979133676,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 405.34999999999997
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::19",
+        "prediction_mbps": 345.4334354771436,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 329.62
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::2",
+        "prediction_mbps": 450.16233356914853,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 475.87
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::20",
+        "prediction_mbps": 416.4183680531236,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 362.69
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::21",
+        "prediction_mbps": 353.40647254676185,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 299.16999999999996
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::22",
+        "prediction_mbps": 308.80450635938666,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 351.49
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::23",
+        "prediction_mbps": 301.4795875093786,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 332.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::24",
+        "prediction_mbps": 301.34153546786155,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 320.77
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::25",
+        "prediction_mbps": 323.52503650250185,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 261.33
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::26",
+        "prediction_mbps": 303.37643643644276,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 275.48
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::27",
+        "prediction_mbps": 309.3361709682246,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 246.64999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::28",
+        "prediction_mbps": 244.1091341991676,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 269.1
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::29",
+        "prediction_mbps": 304.37068117052723,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 247.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::3",
+        "prediction_mbps": 466.658388787551,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 530.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::30",
+        "prediction_mbps": 271.4149885517818,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 286.38
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::31",
+        "prediction_mbps": 294.54485301359153,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 257.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::32",
+        "prediction_mbps": 285.0612628027253,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 289.33
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::33",
+        "prediction_mbps": 290.9559183656876,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 245.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::34",
+        "prediction_mbps": 252.9392387283706,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 319.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::35",
+        "prediction_mbps": 286.1363094566598,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 242.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::36",
+        "prediction_mbps": 255.84019088000468,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 287.77
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::37",
+        "prediction_mbps": 285.38705620600814,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 246.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::38",
+        "prediction_mbps": 281.74899977819103,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 281.48
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::39",
+        "prediction_mbps": 248.84333002385586,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 241.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::4",
+        "prediction_mbps": 477.39857149064346,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 401.78
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::40",
+        "prediction_mbps": 257.36524627108724,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 283.39
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::5",
+        "prediction_mbps": 528.8399506977469,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 549.35
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::6",
+        "prediction_mbps": 481.68399436751895,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 504.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::7",
+        "prediction_mbps": 513.7844130264275,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 510.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::8",
+        "prediction_mbps": 476.2941434809647,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 476.53
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc30_nav86.csv::9",
+        "prediction_mbps": 509.2131237866296,
+        "source_file": "training_set_3ap_loc30_nav86.csv",
+        "truth_mbps": 484.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::1",
+        "prediction_mbps": 122.35674337474475,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 118.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::10",
+        "prediction_mbps": 188.51283170788582,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 166.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::11",
+        "prediction_mbps": 173.15277666260232,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 173.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::12",
+        "prediction_mbps": 199.36326179970837,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 187.43
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::13",
+        "prediction_mbps": 190.9261333182311,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 177.35
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::14",
+        "prediction_mbps": 189.3769254204748,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 199.8
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::15",
+        "prediction_mbps": 181.44726630031855,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 187.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::16",
+        "prediction_mbps": 188.94172082267136,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 207.06
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::17",
+        "prediction_mbps": 198.95237347253965,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 199.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::18",
+        "prediction_mbps": 223.75902276075072,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 195.42000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::19",
+        "prediction_mbps": 194.81381048097094,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 201.33
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::2",
+        "prediction_mbps": 129.19556357342566,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 139.72
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::20",
+        "prediction_mbps": 198.70906149015278,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 200.3
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::21",
+        "prediction_mbps": 183.11425211169305,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 198.69
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::22",
+        "prediction_mbps": 217.93159921122015,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 176.56
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::23",
+        "prediction_mbps": 208.8018157099081,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 217.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::24",
+        "prediction_mbps": 207.8190204738849,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 194.22
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::25",
+        "prediction_mbps": 191.53509601179965,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 242.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::26",
+        "prediction_mbps": 208.32944112913907,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 155.15
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::27",
+        "prediction_mbps": 215.3853631338133,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 279.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::28",
+        "prediction_mbps": 193.99375060732305,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 139.21
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::29",
+        "prediction_mbps": 187.41382415445602,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 239.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::3",
+        "prediction_mbps": 172.13479511899288,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 145.35000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::30",
+        "prediction_mbps": 208.8934175573692,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 159.56
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::31",
+        "prediction_mbps": 205.15893395819023,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 173.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::32",
+        "prediction_mbps": 195.16215075971922,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 177.9
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::33",
+        "prediction_mbps": 175.5707485289843,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 229.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::34",
+        "prediction_mbps": 157.49109972670004,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 241.53
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::35",
+        "prediction_mbps": 195.2837029916384,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 172.41
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::36",
+        "prediction_mbps": 151.18827916567028,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 164.55
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::37",
+        "prediction_mbps": 169.43759708823882,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 156.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::38",
+        "prediction_mbps": 154.50792147163196,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 145.63
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::39",
+        "prediction_mbps": 166.78718664280376,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 157.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::4",
+        "prediction_mbps": 176.16024352916992,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 154.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::40",
+        "prediction_mbps": 153.06984684702917,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 143.63
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::41",
+        "prediction_mbps": 156.1102367454195,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 153.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::42",
+        "prediction_mbps": 180.20271509731688,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 152.57
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::5",
+        "prediction_mbps": 141.00155927708093,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 149.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::6",
+        "prediction_mbps": 182.8125356092083,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 155.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::7",
+        "prediction_mbps": 146.17708010662048,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 145.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::8",
+        "prediction_mbps": 170.62973822125292,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 134.82
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav82.csv::9",
+        "prediction_mbps": 155.58801258680498,
+        "source_file": "training_set_3ap_loc31_nav82.csv",
+        "truth_mbps": 168.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::1",
+        "prediction_mbps": 117.50933501795302,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 128.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::10",
+        "prediction_mbps": 145.47813934979317,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 145.29999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::11",
+        "prediction_mbps": 155.77560002764682,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 150.53
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::12",
+        "prediction_mbps": 182.4184429739348,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 145.4
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::13",
+        "prediction_mbps": 154.76394981497353,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 168.14
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::14",
+        "prediction_mbps": 174.41137466303655,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 143.84
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::15",
+        "prediction_mbps": 149.1760697689149,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 165.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::16",
+        "prediction_mbps": 155.1582994715231,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 148.74
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::17",
+        "prediction_mbps": 175.62264532249856,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 235.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::18",
+        "prediction_mbps": 168.76590299978608,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 228.45
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::19",
+        "prediction_mbps": 202.8178947601435,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 171.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::2",
+        "prediction_mbps": 139.03775878050914,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 139.27
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::20",
+        "prediction_mbps": 176.4718045466576,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 149.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::21",
+        "prediction_mbps": 153.68772226220028,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 138.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::22",
+        "prediction_mbps": 127.2884791928475,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 160.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::23",
+        "prediction_mbps": 119.76290199706578,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 125.77
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::24",
+        "prediction_mbps": 140.70392106699052,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 158.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::25",
+        "prediction_mbps": 142.1765766454436,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 125.25
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::26",
+        "prediction_mbps": 166.38405312323914,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 161.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::27",
+        "prediction_mbps": 136.7228821517652,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 166.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::28",
+        "prediction_mbps": 142.65201795833823,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 132.89
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::29",
+        "prediction_mbps": 146.70342977730948,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 170.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::3",
+        "prediction_mbps": 157.48279568252656,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 143.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::30",
+        "prediction_mbps": 172.78991976588063,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 159.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::31",
+        "prediction_mbps": 149.76002277237868,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 135.37
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::32",
+        "prediction_mbps": 153.69113800859589,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 169.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::33",
+        "prediction_mbps": 120.30041626018662,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 131.87
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::34",
+        "prediction_mbps": 146.07442608126314,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 168.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::35",
+        "prediction_mbps": 139.05267116320175,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 131.7
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::36",
+        "prediction_mbps": 140.3407952539572,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 164.01
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::4",
+        "prediction_mbps": 162.8561976517561,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 149.24
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::5",
+        "prediction_mbps": 168.6523500778742,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 142.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::6",
+        "prediction_mbps": 133.34685887268165,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 128.01
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::7",
+        "prediction_mbps": 137.5043901619997,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 142.97
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::8",
+        "prediction_mbps": 164.59810133178678,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 144.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc31_nav86.csv::9",
+        "prediction_mbps": 149.2670103636413,
+        "source_file": "training_set_3ap_loc31_nav86.csv",
+        "truth_mbps": 150.23000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::1",
+        "prediction_mbps": 189.78608388046777,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 227.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::10",
+        "prediction_mbps": 314.52192891030427,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 329.08
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::11",
+        "prediction_mbps": 302.5757201294715,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 318.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::12",
+        "prediction_mbps": 315.7343041532894,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 316.05
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::13",
+        "prediction_mbps": 304.37716630943777,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 320.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::14",
+        "prediction_mbps": 304.74170643462463,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 330.88
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::15",
+        "prediction_mbps": 298.8299397883785,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 334.65
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::16",
+        "prediction_mbps": 306.96633086385407,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 301.90999999999997
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::17",
+        "prediction_mbps": 251.518213605689,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 245.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::18",
+        "prediction_mbps": 284.1580537622665,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 230.69
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::19",
+        "prediction_mbps": 241.46901251667543,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 233.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::2",
+        "prediction_mbps": 248.4282328776261,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 256.79
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::20",
+        "prediction_mbps": 221.61607349900925,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 246.01999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::21",
+        "prediction_mbps": 230.2939151111822,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 238.64
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::22",
+        "prediction_mbps": 180.1530332543677,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 223.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::23",
+        "prediction_mbps": 212.32082378393298,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 211.37
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::24",
+        "prediction_mbps": 174.06107609802675,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 190.64999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::25",
+        "prediction_mbps": 171.66756208833021,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 193.89
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::26",
+        "prediction_mbps": 177.6066140826709,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 157.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::27",
+        "prediction_mbps": 190.7211942785372,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 167.04
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::28",
+        "prediction_mbps": 155.53909294049652,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 174.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::29",
+        "prediction_mbps": 158.06532152276435,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 175.21
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::3",
+        "prediction_mbps": 249.16687954585024,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 274.64
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::30",
+        "prediction_mbps": 186.41082538148476,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 177.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::31",
+        "prediction_mbps": 219.62115121179576,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 174.53
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::32",
+        "prediction_mbps": 174.85549743406887,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 177.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::33",
+        "prediction_mbps": 192.44553606678642,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 163.98000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::34",
+        "prediction_mbps": 171.56744943994357,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 159.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::35",
+        "prediction_mbps": 168.2069764675235,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 173.29
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::36",
+        "prediction_mbps": 180.12350029388375,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 166.79
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::37",
+        "prediction_mbps": 206.32284508909493,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 169.08
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::4",
+        "prediction_mbps": 253.30688440391526,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 273.6
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::5",
+        "prediction_mbps": 286.60710195516646,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 290.65999999999997
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::6",
+        "prediction_mbps": 292.13296264367364,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 276.49
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::7",
+        "prediction_mbps": 331.9154079993126,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 305.33000000000004
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::8",
+        "prediction_mbps": 305.52179098256727,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 292.34000000000003
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav82.csv::9",
+        "prediction_mbps": 321.2817546219994,
+        "source_file": "training_set_3ap_loc32_nav82.csv",
+        "truth_mbps": 322.65999999999997
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::1",
+        "prediction_mbps": 260.7598878946831,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 212.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::10",
+        "prediction_mbps": 193.01060767417118,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 206.64999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::11",
+        "prediction_mbps": 241.57427805261852,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 215.37
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::12",
+        "prediction_mbps": 193.12307238274653,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 216.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::13",
+        "prediction_mbps": 193.64436853926844,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 210.18
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::14",
+        "prediction_mbps": 220.6308228475465,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 224.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::15",
+        "prediction_mbps": 208.7830485024113,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 241.38
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::16",
+        "prediction_mbps": 215.2945796169929,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 181.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::17",
+        "prediction_mbps": 173.3767109887093,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 157.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::18",
+        "prediction_mbps": 186.38141201912055,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 173.3
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::19",
+        "prediction_mbps": 169.05789511713508,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 162.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::2",
+        "prediction_mbps": 251.70504848692306,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 208.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::20",
+        "prediction_mbps": 174.3420014507569,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 188.39
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::3",
+        "prediction_mbps": 262.0121104684912,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 264.24
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::4",
+        "prediction_mbps": 254.0048640775687,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 218.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::5",
+        "prediction_mbps": 227.62260097615058,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 241.52
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::6",
+        "prediction_mbps": 243.74777162581665,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 198.69
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::7",
+        "prediction_mbps": 257.8472481012604,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 226.4
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::8",
+        "prediction_mbps": 204.6038624866132,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 198.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc32_nav86.csv::9",
+        "prediction_mbps": 212.96328079661802,
+        "source_file": "training_set_3ap_loc32_nav86.csv",
+        "truth_mbps": 211.43
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::1",
+        "prediction_mbps": 122.37758093109653,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 130.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::10",
+        "prediction_mbps": 148.5594062829408,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 144.54
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::11",
+        "prediction_mbps": 135.3900473158631,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 141.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::12",
+        "prediction_mbps": 106.72098591126993,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 126.17
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::13",
+        "prediction_mbps": 191.71162438986482,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 151.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::14",
+        "prediction_mbps": 102.76257795879276,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 111.14999999999999
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::15",
+        "prediction_mbps": 174.92386889202953,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 161.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::16",
+        "prediction_mbps": 186.87543393558337,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 169.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::17",
+        "prediction_mbps": 189.77789599028512,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 189.19
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::18",
+        "prediction_mbps": 171.35690568750294,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 185.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::19",
+        "prediction_mbps": 184.15354642517872,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 150.23000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::2",
+        "prediction_mbps": 116.64816550491673,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 146.22
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::20",
+        "prediction_mbps": 137.09809081866356,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 167.98999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::21",
+        "prediction_mbps": 164.3715152951028,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 110.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::22",
+        "prediction_mbps": 132.0247773704278,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 148.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::23",
+        "prediction_mbps": 147.08404631449707,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 145.54
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::24",
+        "prediction_mbps": 116.71369108579748,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 130.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::25",
+        "prediction_mbps": 132.9612073937725,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 141.47
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::26",
+        "prediction_mbps": 130.17529589041942,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 125.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::27",
+        "prediction_mbps": 146.90324510049356,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 159.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::28",
+        "prediction_mbps": 152.17851555420566,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 111.98
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::29",
+        "prediction_mbps": 158.52757307554205,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 117.52
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::3",
+        "prediction_mbps": 115.09851883993151,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 132.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::30",
+        "prediction_mbps": 134.30625519621293,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 129.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::31",
+        "prediction_mbps": 145.31996456422883,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 113.39
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::32",
+        "prediction_mbps": 141.57595373123107,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 148.01
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::33",
+        "prediction_mbps": 141.55347933185936,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 120.05000000000001
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::34",
+        "prediction_mbps": 168.3546334551704,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 180.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::35",
+        "prediction_mbps": 167.50044776935874,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 177.35
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::36",
+        "prediction_mbps": 205.21778258905624,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 167.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::37",
+        "prediction_mbps": 159.93929425871144,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 174.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::4",
+        "prediction_mbps": 137.92385312349447,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 126.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::5",
+        "prediction_mbps": 130.53090768093756,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 161.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::6",
+        "prediction_mbps": 147.1515375112916,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 133.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::7",
+        "prediction_mbps": 178.7955778543809,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 136.29000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::8",
+        "prediction_mbps": 132.32344940235282,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 142.64999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav82.csv::9",
+        "prediction_mbps": 143.57164529582857,
+        "source_file": "training_set_3ap_loc33_nav82.csv",
+        "truth_mbps": 130.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::1",
+        "prediction_mbps": 143.75994943741978,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 126.67
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::10",
+        "prediction_mbps": 191.49884629915582,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 180.93
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::11",
+        "prediction_mbps": 175.6899989912599,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 169.32999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::12",
+        "prediction_mbps": 199.38306110561564,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 186.26999999999998
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::13",
+        "prediction_mbps": 167.73077542112975,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 154.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::14",
+        "prediction_mbps": 165.72240083111495,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 152.62
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::15",
+        "prediction_mbps": 174.41817782674832,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 146.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::16",
+        "prediction_mbps": 180.1870106885541,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 169.91
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::17",
+        "prediction_mbps": 167.00722245451462,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 154.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::18",
+        "prediction_mbps": 153.60245524219312,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 172.01
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::19",
+        "prediction_mbps": 153.9872742735851,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 174.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::2",
+        "prediction_mbps": 146.4543142042006,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 139.75
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::20",
+        "prediction_mbps": 154.42948537089487,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 146.43
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::21",
+        "prediction_mbps": 142.43456460160897,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 141.35
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::22",
+        "prediction_mbps": 149.22016553901307,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 149.32
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::23",
+        "prediction_mbps": 174.87784746020208,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 172.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::24",
+        "prediction_mbps": 150.70754998617963,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 148.29
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::25",
+        "prediction_mbps": 163.4876348958026,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 174.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::26",
+        "prediction_mbps": 172.01152883992788,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 151.28
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::27",
+        "prediction_mbps": 176.0196805348419,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 176.0
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::28",
+        "prediction_mbps": 187.73219502552132,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 165.48
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::29",
+        "prediction_mbps": 195.38120908960573,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 186.66
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::3",
+        "prediction_mbps": 132.58736936303336,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 141.02
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::30",
+        "prediction_mbps": 173.16436845883027,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 186.67000000000002
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::31",
+        "prediction_mbps": 157.9895274561568,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 193.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::32",
+        "prediction_mbps": 196.74445826491717,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 187.99
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::33",
+        "prediction_mbps": 124.74767542713349,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 175.08
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::4",
+        "prediction_mbps": 172.1151628043732,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 165.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::5",
+        "prediction_mbps": 149.76133096751437,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 119.34
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::6",
+        "prediction_mbps": 194.37615210968255,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 202.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::7",
+        "prediction_mbps": 187.52661837397454,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 218.68
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::8",
+        "prediction_mbps": 177.89916795525494,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 185.55
+      },
+      {
+        "ap_count": 3,
+        "group_id": "training_set_3ap_loc33_nav88.csv::9",
+        "prediction_mbps": 188.39567234164787,
+        "source_file": "training_set_3ap_loc33_nav88.csv",
+        "truth_mbps": 206.67
+      }
+    ],
+    "system_mae_mbps": 18.93073424543669,
+    "validation_scope": "PRIMARY_GROUPED_OOF_REPEAT_0"
+  },
+  "evidence_ids": [
+    "E-Q3-OOF-001",
+    "E-Q3-PIPE-001"
+  ],
+  "figure_number": 4,
+  "filename_stem": "fig04_q3_core_result",
+  "kind": "numeric_scatter",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "绘制 y=x 参考线",
+    "轴单位 Mbps",
+    "第 0 次重复不是唯一验证轮次；总指标采用三次重复均值"
+  ],
+  "sources": [
+    {
+      "bytes": 135512,
+      "path": "projects/rehearsal_2024_B/results/raw/main/q3_system_oof_predictions.jsonl.gz",
+      "sha256": "D8C09DEFC59EE60B8F46D6B84C6CF04CDFAE4570411D6EA075A01D7DCB1FF53B"
+    },
+    {
+      "bytes": 57541,
+      "path": "projects/rehearsal_2024_B/results/verified/q3_candidate_metrics.json",
+      "sha256": "6505C07D0248FB75E42C5AB76FB4E7D30DAEA2F31B6F8B7F6998AA807F688BD8"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "Q3 系统吞吐核心验证结果"
+}

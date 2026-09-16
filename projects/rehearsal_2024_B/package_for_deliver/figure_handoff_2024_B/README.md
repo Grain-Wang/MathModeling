@@ -11,7 +11,7 @@
 - F2：Q3 分组 bootstrap 不确定性，来源 `group_bootstrap_intervals.json`。
 - F3：Q3 primary 与 source-blind LOSO 对比，来源 `q3_candidate_metrics.json`、`stratified_metrics.json`。
 - F4：Q2 晋级阈值与回退，来源 `verified_metrics.json`、Q2 baseline/candidate metrics。
-- F5：当前只可绘制 Q1 已验证的准确性部分，来源 `q1_metrics.json`；特征重要性文件尚未迁入 verified，不得自行从 raw 取用。
+- F5：Q1 已验证准确性和特征组预测贡献，来源 `q1_metrics.json`、已迁入 verified 的 `q1_feature_family_importance.json`；禁止作因果解释。
 
 ## 边界
 
@@ -22,3 +22,7 @@
 - 图注必须写明 Evidence ID 和源文件；bootstrap 只能称为 OOF group-resampling uncertainty。
 
 `PACKAGE_MANIFEST.json` 记录每个输入文件的仓库来源与 SHA-256，可用于收包验真。
+
+## 论文八图资源（2026-09-16）
+
+先读 `handoff/eight_figure_resources.md` 和 `figure_data/figure_resource_manifest.json`；`figure_data/fig01_*.json` 至 `fig08_*.json` 是八张论文图的绘图输入与结构规格。旧 F1–F5 只是统计图候选编号。Q1 特征组贡献已核验迁入 verified。本包未生成正式图，绘制前仍须确认具体 skill。

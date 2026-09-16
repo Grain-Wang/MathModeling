@@ -1,0 +1,233 @@
+{
+  "caption_rule": "Q1 特征组差异仅是 held-out predictive contribution；Q2 weighted 增益低于精确 +0.02 门槛；Q3 比较的是 nested pipeline，不是固定 C3 分数。",
+  "data": {
+    "q1_bounded_primary_mae_s": 5.505415795553913,
+    "q1_feature_families": {
+      "basic": {
+        "ablation_positive_repeat_count": 0,
+        "fold_count": 15,
+        "mean_ablation_delta_mae": -0.0007642509670654126,
+        "mean_permutation_delta_mae": 0.12087461063326206,
+        "permutation_positive_repeat_count": 3,
+        "repeat_means": [
+          {
+            "ablation_delta_mae": -0.0006210846302986184,
+            "permutation_delta_mae": 0.12180632756978191,
+            "repeat": 0
+          },
+          {
+            "ablation_delta_mae": -0.0004409373125140448,
+            "permutation_delta_mae": 0.10698709636499029,
+            "repeat": 1
+          },
+          {
+            "ablation_delta_mae": -0.0012307309583835745,
+            "permutation_delta_mae": 0.13383040796501397,
+            "repeat": 2
+          }
+        ]
+      },
+      "desired_rssi": {
+        "ablation_positive_repeat_count": 3,
+        "fold_count": 15,
+        "mean_ablation_delta_mae": 0.1109244094915289,
+        "mean_permutation_delta_mae": 9.342269557814113,
+        "permutation_positive_repeat_count": 3,
+        "repeat_means": [
+          {
+            "ablation_delta_mae": 0.07872329489089455,
+            "permutation_delta_mae": 9.299511314045747,
+            "repeat": 0
+          },
+          {
+            "ablation_delta_mae": 0.13439889409026176,
+            "permutation_delta_mae": 9.49712721903685,
+            "repeat": 1
+          },
+          {
+            "ablation_delta_mae": 0.1196510394934304,
+            "permutation_delta_mae": 9.230170140359736,
+            "repeat": 2
+          }
+        ]
+      },
+      "group_context": {
+        "ablation_positive_repeat_count": 1,
+        "fold_count": 15,
+        "mean_ablation_delta_mae": -0.001715462745133678,
+        "mean_permutation_delta_mae": 0.054861599213947385,
+        "permutation_positive_repeat_count": 3,
+        "repeat_means": [
+          {
+            "ablation_delta_mae": 0.002586051695025837,
+            "permutation_delta_mae": 0.07965069365054127,
+            "repeat": 0
+          },
+          {
+            "ablation_delta_mae": -0.003291588114078259,
+            "permutation_delta_mae": 0.018173416962313737,
+            "repeat": 1
+          },
+          {
+            "ablation_delta_mae": -0.004440851816348612,
+            "permutation_delta_mae": 0.06676068702898715,
+            "repeat": 2
+          }
+        ]
+      },
+      "mechanism": {
+        "ablation_positive_repeat_count": 3,
+        "fold_count": 15,
+        "mean_ablation_delta_mae": 0.7479542325244437,
+        "mean_permutation_delta_mae": 6.040281175768419,
+        "permutation_positive_repeat_count": 3,
+        "repeat_means": [
+          {
+            "ablation_delta_mae": 0.7520434271030222,
+            "permutation_delta_mae": 5.46449671023274,
+            "repeat": 0
+          },
+          {
+            "ablation_delta_mae": 0.7786969763630905,
+            "permutation_delta_mae": 6.512279349517696,
+            "repeat": 1
+          },
+          {
+            "ablation_delta_mae": 0.7131222941072182,
+            "permutation_delta_mae": 6.144067467554825,
+            "repeat": 2
+          }
+        ]
+      },
+      "peer_rssi": {
+        "ablation_positive_repeat_count": 3,
+        "fold_count": 15,
+        "mean_ablation_delta_mae": 0.16957725365954393,
+        "mean_permutation_delta_mae": 6.774318597412995,
+        "permutation_positive_repeat_count": 3,
+        "repeat_means": [
+          {
+            "ablation_delta_mae": 0.12113534868120954,
+            "permutation_delta_mae": 6.673319096314188,
+            "repeat": 0
+          },
+          {
+            "ablation_delta_mae": 0.20153082460197053,
+            "permutation_delta_mae": 6.5021245211785565,
+            "repeat": 1
+          },
+          {
+            "ablation_delta_mae": 0.18606558769545173,
+            "permutation_delta_mae": 7.14751217474624,
+            "repeat": 2
+          }
+        ]
+      }
+    },
+    "q2_baseline_macro_f1_fixed_17": 0.33765386497521593,
+    "q2_candidate_primary_metrics": {
+      "Q2-M1-HGB": {
+        "balanced_accuracy": 0.3417371902715967,
+        "joint_accuracy": 0.7861333333333334,
+        "macro_f1_fixed_17": 0.3513897091602904,
+        "mcs_accuracy": 0.7866666666666666,
+        "multiclass_log_loss": 1.108861811862294,
+        "nss_accuracy": 0.9738666666666668
+      },
+      "Q2-M1-Q1-ABLATION": {
+        "balanced_accuracy": 0.3403029768925438,
+        "joint_accuracy": 0.7896000000000001,
+        "macro_f1_fixed_17": 0.35002563405202114,
+        "mcs_accuracy": 0.7901333333333334,
+        "multiclass_log_loss": 1.1041683661805386,
+        "nss_accuracy": 0.9717333333333333
+      },
+      "Q2-M1W-HGB-WEIGHTED": {
+        "balanced_accuracy": 0.35007013617086336,
+        "joint_accuracy": 0.7850666666666667,
+        "macro_f1_fixed_17": 0.35665560247861605,
+        "mcs_accuracy": 0.7850666666666667,
+        "multiclass_log_loss": 1.0951280066338631,
+        "nss_accuracy": 0.9728
+      }
+    },
+    "q2_promotion_threshold": 0.02,
+    "q2_weighted_gain": 0.019001737503400118,
+    "q3_comparison": [
+      {
+        "loso_score": 1.3233340441765427,
+        "model_id": "Q3-B1",
+        "primary_score": 0.8046087874976688
+      },
+      {
+        "loso_score": 0.7299206146942866,
+        "model_id": "Q3-M1-HGB-UNIFIED",
+        "primary_score": 0.5503296083233881
+      },
+      {
+        "loso_score": 0.6854962537852168,
+        "model_id": "Q3-M1-HGB-APCOUNT",
+        "primary_score": 0.5731306463465881
+      }
+    ],
+    "q3_relative_gain_vs_Q3_B1": 0.3160283396420369
+  },
+  "evidence_ids": [
+    "E-Q1-001",
+    "E-Q1-IMP-001",
+    "E-Q2-001",
+    "E-Q3-PIPE-001",
+    "E-Q3-TRADE-001"
+  ],
+  "figure_number": 6,
+  "filename_stem": "fig06_model_selection",
+  "kind": "numeric_panels",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "不同量纲分面展示，勿用双纵轴混排",
+    "Q2 阈值标注精确数值",
+    "Q3 低分更优；不暗示显著性检验"
+  ],
+  "sources": [
+    {
+      "bytes": 20872,
+      "path": "projects/rehearsal_2024_B/results/verified/q1_metrics.json",
+      "sha256": "8F4B837D5E2EDE354987151B0EE9DE6BA276CEFE855EF10EFCB0A19E36B0DD0E"
+    },
+    {
+      "bytes": 110952,
+      "path": "projects/rehearsal_2024_B/results/verified/q1_feature_family_importance.json",
+      "sha256": "42C044010858F53FC480A6B9588C6FEAF540DD2F2B5413BC5382A673E4B5BB1B"
+    },
+    {
+      "bytes": 1412,
+      "path": "projects/rehearsal_2024_B/results/verified/verified_metrics.json",
+      "sha256": "EF6613E25EFD2D6D7DB6FF1A7682EDF1537DE7CD2197B33A4248282ED6576C88"
+    },
+    {
+      "bytes": 123544,
+      "path": "projects/rehearsal_2024_B/results/verified/q2_candidate_metrics.json",
+      "sha256": "13C8FDC80AB9C88DBCA287EB4D64096229AD4A479A0BC7CDFACCB65DC9B1581B"
+    },
+    {
+      "bytes": 85428,
+      "path": "projects/rehearsal_2024_B/results/verified/q3_baseline_metrics.json",
+      "sha256": "A0AF876FA8E4CE3D0DB8E5277489610C3F87402BAE013FFC1EDF66097A0F5BE1"
+    },
+    {
+      "bytes": 57541,
+      "path": "projects/rehearsal_2024_B/results/verified/q3_candidate_metrics.json",
+      "sha256": "6505C07D0248FB75E42C5AB76FB4E7D30DAEA2F31B6F8B7F6998AA807F688BD8"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "三问冻结选择与对照"
+}

@@ -58,3 +58,5 @@ X0001 只证明文件可打开、规模与基础结构可清点、当前环境�
 | 2026-09-11 | X0023 | S5 | 正式释放后独立核验与 exactly-once 负例 | ledger、release manifest、模型/输出哈希、四类 JSONL、冻结 output schema | `s5_validation.py --phase finalize-release`；再运行 `s5_release.py --preflight-only` | 10 项跨产物 + 12 项逐文件 schema/order 检查 PASS；verified copies=4；success count=1；第二次 guard 以 ContractBoundaryError 硬失败 | PASS |
 
 | 2026-09-11 | X0024 | S6 | G5 发布后绑定/语义补强与配图交接包构建 | freeze/prior manifests、13 个训练文件字节、ledger/release、已提交 JSONL/joblib metadata、verified metrics/docs；不打开官方测试 CSV | `s6_post_release_attestation.py`；`s6_figure_package.py`；独立 ZIP/manifest/hash 检查 | attestation 29/29 PASS；test CSV numeric read=0、inference=0；20 个交接内容文件；figure snapshot BE2A9AFE…；ZIP DAA0F01B…；attestation/ZIP 双重建字节一致 | PASS |
+
+| 2026-09-16 | X0025 | S6 | 补全八图的可复现绘图资源 | G1/R2 S1 审计、S3 Q1 重要性、G4 验证清单中的 Q3 OOF、S5 verified 指标和冻结清单 | `s6_eight_figure_resources.py` 校验 upstream SHA、1250 AP/482 system OOF、Q2 三次 17×17 混淆矩阵及 AP→system 求和；`s6_figure_package.py --replace` | 8/8 JSON 规格/数据就绪；31 个包内容文件，32 个 ZIP 条目；双重建哈希一致；official test CSV read/inference/images=0/0/0；G6 未就绪 | PASS |

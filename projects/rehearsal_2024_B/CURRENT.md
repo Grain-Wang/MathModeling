@@ -11,7 +11,7 @@
 
 ## Current Stage
 
-S6 — 技术一致性审计、论文工程与最终提交准备进行中。G5=`PASS`，已授权 S5→S6；G5 的发布后绑定/语义补强已 29/29 PASS，verified-only 配图交接包已经形成。当前可移交配图与论文队友，但正式图、论文源文件、匿名/格式核验和最终 PDF 尚未完成，因此 G6=`NOT READY`。
+S6 — 技术一致性审计、论文工程与最终提交准备进行中。G5=`PASS`，已授权 S5→S6；G5 的发布后绑定/语义补强已 29/29 PASS。论文八图的 verified 数据与结构规格已 8/8 补全并打包，正式图片尚未绘制；论文源文件、匿名/格式核验和最终 PDF 也未完成，因此 G6=`NOT READY`。
 
 ## Last Gate
 
@@ -50,8 +50,9 @@ S6 — 技术一致性审计、论文工程与最终提交准备进行中。G5=`
 
 - G5 findings：Critical=0，Major=0，Minor=3，Advisory=2。
 - Post-release binding/semantic attestation：29/29 PASS；official-test CSV numeric reads=0；model inference=0。
-- Figure input snapshot SHA-256：`BE2A9AFEAA836000ACAFCA897B516C8DCFB621CA5B006DFD9008C9D14E44CFA5`。
-- Figure handoff ZIP SHA-256：`DAA0F01BDC26722275941E865222EB48481E6B8F9E7E7D70D676004A1F5E411B`。
+- Eight-figure resources：`results/verified/figure_data/` 的 8 份规格/数据与 manifest 均通过；images rendered=0；正式作图前须确认具体 skill。
+- Figure input snapshot SHA-256：`F80B49D47FAF7D8671EFBF633996D5717B07669A70BDBFD8F26FB3940D22FA6E`。
+- Figure handoff ZIP SHA-256：`AECC468B914AD8325D2662F66D73843ED8D23D5017CC3474D2727F6BC688DE3F`。
 - Handoff manifest：registry、figure/writing handoff、result freeze、attestation 与配图包均已登记；正式图数据、论文源文件和 PDF 仍为 PENDING。
 - Overall：`S6_HANDOFF_READY_G6_NOT_READY`。
 
@@ -87,6 +88,9 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 - `reviews/gate_5_submission.md`
 - `results/verified/post_release_binding_attestation.json`、`s6_handoff_manifest.json`
 - `work/11_technical_consistency_audit.md`、`work/revisions/gate_5_followup.md`、`final_fix_log.md`
+- `results/verified/figure_data/fig01_*.json`–`fig08_*.json`、`figure_resource_manifest.json`
+- `results/verified/q1_feature_family_importance.json`（与 S3 run manifest 哈希一致）
+- `work/handoff/eight_figure_resources.md`、`src/s6_eight_figure_resources.py`
 - `package_for_deliver/figure_handoff_2024_B/`
 - `package_for_deliver/rehearsal_2024_B_figure_handoff.zip`
 - `src/s6_post_release_attestation.py`、`src/s6_figure_package.py`
@@ -120,5 +124,5 @@ Q3-C3 参数：learning_rate=0.05，max_leaf_nodes=15，l2_regularization=1.0，
 
 ## Last Updated
 
-- 时间：2026-09-11
+- 时间：2026-09-16
 - 负责人：Main Agent（当前会话由 Codex 执行）；参赛团队具体责任人待补充

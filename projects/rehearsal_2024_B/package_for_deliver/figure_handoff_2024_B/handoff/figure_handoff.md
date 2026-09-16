@@ -53,11 +53,15 @@ All formal figure data must come from `results/verified/` and carry the Evidence
 ### F5 — Q1 predictive contribution, not causality
 
 - Purpose: summarize the frozen Q1 bounded predictive accuracy and feature-family stability.
-- Evidence: `E-Q1-001` plus the G4-validated Q1 importance evidence recorded in S3.
-- Data: `q1_metrics.json`; if importance is plotted, first migrate the required S3 importance file through the same verified registry procedure.
+- Evidence: `E-Q1-001`, `E-Q1-IMP-001`.
+- Data: `q1_metrics.json`, `q1_feature_family_importance.json`; the latter has now been copied into verified after matching the S3 run-manifest SHA and S3 validation PASS.
 - Y axes: MAE in seconds for accuracy; permutation/ablation delta MAE in seconds for contribution.
 - Recommended title: “Grouped validation accuracy and predictive feature contribution for Q1”.
 - Captions must use “predictive contribution” or “conditional association”, never “causal effect”.
+
+## Paper's eight-figure sequence
+
+The full paper-figure 1–8 resource map, chart-ready snapshots, diagram nodes/edges, captions and restrictions are in `work/handoff/eight_figure_resources.md` and `results/verified/figure_data/`. F1–F5 above remain statistical-figure candidates and are not the paper's figure 1–8 numbering.
 
 ## Style and export requirements
 

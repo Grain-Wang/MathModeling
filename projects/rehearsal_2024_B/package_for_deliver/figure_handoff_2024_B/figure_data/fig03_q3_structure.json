@@ -1,0 +1,124 @@
+{
+  "caption_rule": "Q3 部署配置结构图；C3 是全量部署配置，不应把 nested pipeline OOF 分数标成 C3 固定分数。",
+  "data": {
+    "configuration_id": "Q3-physics_residual-C3",
+    "edges": [
+      [
+        "q1",
+        "proxy"
+      ],
+      [
+        "phy",
+        "proxy"
+      ],
+      [
+        "proxy",
+        "base"
+      ],
+      [
+        "eta",
+        "base"
+      ],
+      [
+        "fallback",
+        "base"
+      ],
+      [
+        "base",
+        "ap"
+      ],
+      [
+        "hgb",
+        "ap"
+      ],
+      [
+        "ap",
+        "system"
+      ]
+    ],
+    "frozen_parameters": {
+      "early_stopping": false,
+      "l2_regularization": 1.0,
+      "learning_rate": 0.05,
+      "loss": "squared_error",
+      "max_iter": 200,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "random_state": 202409
+    },
+    "model_id": "Q3-M1-HGB-UNIFIED",
+    "nodes": [
+      {
+        "id": "q1",
+        "label": "Q1-B1 bounded seq_time"
+      },
+      {
+        "id": "phy",
+        "label": "PHY rate(MCS,NSS)"
+      },
+      {
+        "id": "proxy",
+        "label": "physical proxy = bounded seq_time / test_dur × PHY rate"
+      },
+      {
+        "id": "eta",
+        "label": "训练侧最小二乘 η ∈ [0,1]"
+      },
+      {
+        "id": "fallback",
+        "label": "PHY 缺失 → Q3-B1 fallback"
+      },
+      {
+        "id": "base",
+        "label": "physical base"
+      },
+      {
+        "id": "hgb",
+        "label": "统一残差 HGB C3"
+      },
+      {
+        "id": "ap",
+        "label": "max(0, base + residual) → AP Mbps"
+      },
+      {
+        "id": "system",
+        "label": "Σ 同组 bounded AP → system Mbps"
+      }
+    ]
+  },
+  "evidence_ids": [
+    "E-Q3-CONFIG-001",
+    "E-FREEZE-001"
+  ],
+  "figure_number": 3,
+  "filename_stem": "fig03_q3_structure",
+  "kind": "editable_diagram",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "fallback 只在物理 rate 不可用时启用",
+    "AP 非负后再求和",
+    "所有形状和箭头可编辑"
+  ],
+  "sources": [
+    {
+      "bytes": 11303,
+      "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.json",
+      "sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
+    },
+    {
+      "bytes": 26509,
+      "path": "projects/rehearsal_2024_B/src/s5_release.py",
+      "sha256": "FA87236326128DD10E31D315DADAF1BF761DF1CDB0A47C37060F25A6C0CC3E41"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "Q3 物理残差与 AP→系统结构"
+}

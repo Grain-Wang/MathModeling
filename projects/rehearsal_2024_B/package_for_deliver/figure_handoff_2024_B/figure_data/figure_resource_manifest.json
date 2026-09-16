@@ -1,0 +1,105 @@
+{
+  "figure_count": 8,
+  "figures": [
+    {
+      "bytes": 2671,
+      "evidence_ids": [
+        "E-FREEZE-001",
+        "E-Q3-CONFIG-001"
+      ],
+      "figure_number": 1,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig01_overall_workflow.json",
+      "sha256": "5E04850566066E178402F2F22C55210CB673D114F321D365A617168C948BF688"
+    },
+    {
+      "bytes": 1589,
+      "evidence_ids": [
+        "E-DATA-001"
+      ],
+      "figure_number": 2,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig02_data_quality.json",
+      "sha256": "5B228C3D38C07EED614182C250AC62836CFB27FD7B7AE9887F0271F2AC799798"
+    },
+    {
+      "bytes": 2785,
+      "evidence_ids": [
+        "E-Q3-CONFIG-001",
+        "E-FREEZE-001"
+      ],
+      "figure_number": 3,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig03_q3_structure.json",
+      "sha256": "F85BB19F5787963F19B8D1F0F8AC70C77EC5221DB0555E89BE65D9D2FAD7AA07"
+    },
+    {
+      "bytes": 115181,
+      "evidence_ids": [
+        "E-Q3-OOF-001",
+        "E-Q3-PIPE-001"
+      ],
+      "figure_number": 4,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig04_q3_core_result.json",
+      "sha256": "E60EC7DA364C01C6D117DED19E993DA91C7D22772D398D9DAA1D5E6032B3495E"
+    },
+    {
+      "bytes": 444849,
+      "evidence_ids": [
+        "E-Q3-OOF-001",
+        "E-Q2-CONF-001"
+      ],
+      "figure_number": 5,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig05_prediction_diagnostics.json",
+      "sha256": "82A62BE87A06958D4DD3F44DEF370A8947117EA2E7EF0B07EE2C1B43C4AEDACF"
+    },
+    {
+      "bytes": 7803,
+      "evidence_ids": [
+        "E-Q1-001",
+        "E-Q1-IMP-001",
+        "E-Q2-001",
+        "E-Q3-PIPE-001",
+        "E-Q3-TRADE-001"
+      ],
+      "figure_number": 6,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig06_model_selection.json",
+      "sha256": "A0F9FA98E5C89D907408B6E309E03E988E5A48E50937BDBE4F9CB2F193DF7461"
+    },
+    {
+      "bytes": 19172,
+      "evidence_ids": [
+        "E-Q3-UNC-001",
+        "E-Q3-LOSO-001",
+        "E-Q3-TRADE-001"
+      ],
+      "figure_number": 7,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig07_robustness_uncertainty.json",
+      "sha256": "3A7623406E56FAA5B6895080CDD7A8FDB921E8A11D6793CCF4E8B43D51FF8170"
+    },
+    {
+      "bytes": 2630,
+      "evidence_ids": [
+        "E-FREEZE-001",
+        "E-Q2-001",
+        "E-Q3-CONFIG-001",
+        "E-RELEASE-001"
+      ],
+      "figure_number": 8,
+      "path": "projects/rehearsal_2024_B/results/verified/figure_data/fig08_deployment_decision.json",
+      "sha256": "2FD4D5597FEA4E764372885C8F0350876F22916FFFBB188A69A4988F686B2D03"
+    }
+  ],
+  "images_rendered": 0,
+  "model_inference_count": 0,
+  "new_verified_q1_importance": {
+    "bytes": 110952,
+    "path": "projects/rehearsal_2024_B/results/verified/q1_feature_family_importance.json",
+    "sha256": "42C044010858F53FC480A6B9588C6FEAF540DD2F2B5413BC5382A673E4B5BB1B"
+  },
+  "official_test_csv_numeric_read_count": 0,
+  "official_test_prediction_artifacts_read": 0,
+  "source_gates": {
+    "G1_reviewed_commit": "9f0a209f55351aff306aa7ecd6d38486fcf43352",
+    "G4_validation_manifest_sha256": "CE9442A1D755196D2A6C595156813C5470E77C49DF54E76D867B8EAAB0F30826",
+    "freeze_manifest_sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
+  },
+  "status": "EIGHT_FIGURE_RESOURCES_READY_NOT_RENDERED"
+}

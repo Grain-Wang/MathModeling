@@ -38,7 +38,7 @@ G5 review commit `3862fee66a3c1ca362202b8d5d9e8b5d7eb2137b` 对
 ## 4. Evidence-to-figure handoff
 
 `package_for_deliver/figure_handoff_2024_B/` 与对应 ZIP 已形成 verified-only 输入快照。
-当前可交付 F1–F4 以及 F5 的 Q1 准确性部分。F5 特征重要性仍未迁入 verified，配图同学不得直接从 raw 取数。
+论文八图的未绘制资源已补全至 `results/verified/figure_data/`，对应说明见 `work/handoff/eight_figure_resources.md`。旧 F1–F5 的证据也已纳入；Q1 特征组贡献经 S3 manifest 哈希与验证状态复核后迁入 verified，配图同学仍不得直接从 raw 取数。
 
 禁止事项保持不变：官方测试预测无标签，不得作为性能证据；不得手抄数值；不得把 Q3 pipeline OOF 分数写成固定 C3 分数；不得声称所有 source 一致鲁棒；bootstrap 只能解释为 OOF group-resampling uncertainty。
 

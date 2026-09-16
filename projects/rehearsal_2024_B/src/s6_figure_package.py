@@ -46,6 +46,20 @@ COPY_MAP = {
     REPO / "guide" / "figure_color1_guide.md": "guides/figure_color1_guide.md",
     REPO / "guide" / "figure_color2_guide.md": "guides/figure_color2_guide.md",
 }
+COPY_MAP[PROJECT / "work" / "handoff" / "eight_figure_resources.md"] = "handoff/eight_figure_resources.md"
+COPY_MAP[VERIFIED / "q1_feature_family_importance.json"] = "data/q1_feature_family_importance.json"
+COPY_MAP[VERIFIED / "figure_data" / "figure_resource_manifest.json"] = "figure_data/figure_resource_manifest.json"
+for number, slug in (
+    (1, "overall_workflow"),
+    (2, "data_quality"),
+    (3, "q3_structure"),
+    (4, "q3_core_result"),
+    (5, "prediction_diagnostics"),
+    (6, "model_selection"),
+    (7, "robustness_uncertainty"),
+    (8, "deployment_decision"),
+):
+    COPY_MAP[VERIFIED / "figure_data" / f"fig{number:02d}_{slug}.json"] = f"figure_data/fig{number:02d}_{slug}.json"
 
 README = """# 2024_B 配图交接包
 
@@ -60,7 +74,7 @@ README = """# 2024_B 配图交接包
 - F2：Q3 分组 bootstrap 不确定性，来源 `group_bootstrap_intervals.json`。
 - F3：Q3 primary 与 source-blind LOSO 对比，来源 `q3_candidate_metrics.json`、`stratified_metrics.json`。
 - F4：Q2 晋级阈值与回退，来源 `verified_metrics.json`、Q2 baseline/candidate metrics。
-- F5：当前只可绘制 Q1 已验证的准确性部分，来源 `q1_metrics.json`；特征重要性文件尚未迁入 verified，不得自行从 raw 取用。
+- F5：Q1 已验证准确性和特征组预测贡献，来源 `q1_metrics.json`、已迁入 verified 的 `q1_feature_family_importance.json`；禁止作因果解释。
 
 ## 边界
 
@@ -72,6 +86,7 @@ README = """# 2024_B 配图交接包
 
 `PACKAGE_MANIFEST.json` 记录每个输入文件的仓库来源与 SHA-256，可用于收包验真。
 """
+README += "\n## 论文八图资源（2026-09-16）\n\n先读 `handoff/eight_figure_resources.md` 和 `figure_data/figure_resource_manifest.json`；`figure_data/fig01_*.json` 至 `fig08_*.json` 是八张论文图的绘图输入与结构规格。旧 F1–F5 只是统计图候选编号。Q1 特征组贡献已核验迁入 verified。本包未生成正式图，绘制前仍须确认具体 skill。\n"
 
 
 def now() -> str:
@@ -145,14 +160,13 @@ def build_tree(staging: Path) -> tuple[Path, dict[str, Any]]:
         "bytes": readme_path.stat().st_size,
     })
     records.sort(key=lambda row: row["archive_path"])
-    data_records = [row for row in records if "/data/" in row["archive_path"]]
+    data_records = [row for row in records if "/data/" in row["archive_path"] or "/figure_data/" in row["archive_path"]]
     manifest = {
         "status": "PASS",
         "package_role": "S6_VERIFIED_FIGURE_INPUT_HANDOFF",
-        "created_at": "2026-09-11T00:00:00+08:00",
+        "created_at": "2026-09-16T00:00:00+08:00",
         "project": "rehearsal_2024_B",
         "g5_review_commit": G5_REVIEW_COMMIT,
-        "build_head_before_packaging": git_head(),
         "build_script": relative(Path(__file__)),
         "build_script_sha256": sha256(Path(__file__)),
         "content_file_count": len(records),
@@ -175,7 +189,7 @@ def deterministic_zip(source_root: Path, destination: Path) -> None:
             if not path.is_file():
                 continue
             arcname = path.relative_to(source_root.parent).as_posix()
-            info = zipfile.ZipInfo(arcname, date_time=(2026, 9, 11, 0, 0, 0))
+            info = zipfile.ZipInfo(arcname, date_time=(2026, 9, 16, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             info.create_system = 3
@@ -189,6 +203,8 @@ def write_s6_manifest(package_manifest: dict[str, Any]) -> None:
         "writing_handoff": PROJECT / "work" / "handoff" / "writing_handoff.md",
         "result_freeze": PROJECT / "work" / "10_result_freeze.md",
         "post_release_binding_attestation": VERIFIED / "post_release_binding_attestation.json",
+        "eight_figure_resource_manifest": VERIFIED / "figure_data" / "figure_resource_manifest.json",
+        "q1_feature_family_importance": VERIFIED / "q1_feature_family_importance.json",
         "figure_package_manifest": PACKAGE_DIR / "PACKAGE_MANIFEST.json",
         "figure_handoff_zip": ZIP_PATH,
     }
@@ -219,6 +235,10 @@ def main() -> int:
     )
     args = parser.parse_args()
     PACKAGE_ROOT.mkdir(parents=True, exist_ok=True)
+    if PACKAGE_ROOT.resolve().parent != PROJECT.resolve():
+        raise AssertionError("package root is outside the project")
+    if PACKAGE_DIR.resolve().parent != PACKAGE_ROOT.resolve() or ZIP_PATH.resolve().parent != PACKAGE_ROOT.resolve():
+        raise AssertionError("generated package target is outside package_for_deliver")
     if PACKAGE_DIR.exists() or ZIP_PATH.exists():
         if not args.replace:
             raise FileExistsError("package already exists; use --replace for this generated target")

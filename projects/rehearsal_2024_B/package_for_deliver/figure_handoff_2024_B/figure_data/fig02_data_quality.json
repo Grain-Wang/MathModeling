@@ -1,0 +1,49 @@
+{
+  "caption_rule": "训练侧数据审计；A01 隔离 2 行，其他异常按冻结规则保留或置无效，不表示全部异常均被删除。",
+  "data": {
+    "A02_missing_RSSI_columns_rows_each": {
+      "ap_from_ap_0_max_ant_rssi": 120,
+      "ap_from_ap_0_mean_ant_rssi": 120,
+      "ap_from_ap_0_sum_ant_rssi": 120
+    },
+    "A03_retained_joint_0_0_rows": 3,
+    "A05_other_air_time_exceeds_test_dur": 2,
+    "A06_filename_content_mismatch_files": 1,
+    "cross_file_duplicate_group_fingerprints": 0,
+    "cross_file_duplicate_row_fingerprints": 0,
+    "eligible_complete_groups": 482,
+    "eligible_training_ap_rows": 1250,
+    "isolated_A01_rows": 2,
+    "raw_training_ap_rows": 1252,
+    "within_file_exact_duplicate_rows": 0
+  },
+  "evidence_ids": [
+    "E-DATA-001"
+  ],
+  "figure_number": 2,
+  "filename_stem": "fig02_data_quality",
+  "kind": "numeric_panels",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "原始与 eligible 规模同轴展示",
+    "明确 A01 是整组隔离",
+    "不绘制官方测试数值分布"
+  ],
+  "sources": [
+    {
+      "bytes": 52603,
+      "path": "projects/rehearsal_2024_B/results/raw/s1/quality_checks.json",
+      "sha256": "A0B8BA7BE9D207138828F8DCF1A0F4D49CEE7DBEC7A8F4DBEC99BF70E5F56115"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "数据质量与处理边界"
+}

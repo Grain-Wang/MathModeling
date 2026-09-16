@@ -1,0 +1,120 @@
+{
+  "caption_rule": "方法路线示意图，不代表因果发现；测试集仅在冻结后作一次无标签部署推理。",
+  "data": {
+    "edge_note": "Q1→Q3 的训练侧连接仅使用注册的 Q1 OOF；Q2 不使用 Q1。",
+    "edges": [
+      [
+        "input",
+        "audit"
+      ],
+      [
+        "audit",
+        "feature"
+      ],
+      [
+        "feature",
+        "split"
+      ],
+      [
+        "split",
+        "q1"
+      ],
+      [
+        "split",
+        "q2"
+      ],
+      [
+        "split",
+        "q3"
+      ],
+      [
+        "q1",
+        "q3"
+      ],
+      [
+        "q3",
+        "sum"
+      ],
+      [
+        "q1",
+        "release"
+      ],
+      [
+        "q2",
+        "release"
+      ],
+      [
+        "sum",
+        "release"
+      ]
+    ],
+    "nodes": [
+      {
+        "id": "input",
+        "label": "13 个训练文件；4 个官方测试文件封存"
+      },
+      {
+        "id": "audit",
+        "label": "S1 严格身份 / A01 整组隔离：1250 AP / 482 组"
+      },
+      {
+        "id": "feature",
+        "label": "共享机制与 RSSI 特征，折内拟合预处理"
+      },
+      {
+        "id": "split",
+        "label": "按 source_file + test_id 分组；primary 3×5 + 13 LOSO"
+      },
+      {
+        "id": "q1",
+        "label": "Q1-B1 Ridge → bounded 时长"
+      },
+      {
+        "id": "q2",
+        "label": "Q2-B1A Logistic → 固定 17 类概率"
+      },
+      {
+        "id": "q3",
+        "label": "Q3 物理基准 + 残差 HGB → 非负 AP 吞吐"
+      },
+      {
+        "id": "sum",
+        "label": "同组 bounded AP 严格求和 → 系统吞吐"
+      },
+      {
+        "id": "release",
+        "label": "G4 冻结后唯一 S5 release；无标签，不评性能"
+      }
+    ]
+  },
+  "evidence_ids": [
+    "E-FREEZE-001",
+    "E-Q3-CONFIG-001"
+  ],
+  "figure_number": 1,
+  "filename_stem": "fig01_overall_workflow",
+  "kind": "editable_diagram",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "所有箭头必须对应真实数据依赖",
+    "以可编辑矢量源文件交付",
+    "不得把测试集连到模型选择"
+  ],
+  "sources": [
+    {
+      "bytes": 11303,
+      "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.json",
+      "sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "WLAN 三问总体技术路线"
+}

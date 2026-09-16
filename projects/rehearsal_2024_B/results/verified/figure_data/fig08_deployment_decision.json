@@ -1,0 +1,109 @@
+{
+  "caption_rule": "部署解释流程图，不是网络配置优化方案；官方无标签测试输出只证明单次部署产物，不证明精度或收益。",
+  "data": {
+    "edges": [
+      [
+        "scenario",
+        "q1"
+      ],
+      [
+        "scenario",
+        "q2"
+      ],
+      [
+        "scenario",
+        "q3"
+      ],
+      [
+        "q1",
+        "q3"
+      ],
+      [
+        "q3",
+        "system"
+      ],
+      [
+        "q2",
+        "risk"
+      ],
+      [
+        "system",
+        "risk"
+      ]
+    ],
+    "nodes": [
+      {
+        "id": "scenario",
+        "label": "已授权的 WLAN 场景输入"
+      },
+      {
+        "id": "q1",
+        "label": "Q1 bounded 时长"
+      },
+      {
+        "id": "q2",
+        "label": "Q2 固定 17 类 NSS/MCS 概率；保留 Logistic"
+      },
+      {
+        "id": "q3",
+        "label": "Q3 unified residual-C3 AP 吞吐"
+      },
+      {
+        "id": "system",
+        "label": "系统吞吐=同组 bounded AP 求和"
+      },
+      {
+        "id": "risk",
+        "label": "低支持类别/场景外推风险；人工核查，不反向调模"
+      }
+    ],
+    "release_status": "PASS",
+    "selected_stack": {
+      "q1": "Q1-B1",
+      "q2": "Q2-B1A",
+      "q3": "Q3-M1-HGB-UNIFIED"
+    }
+  },
+  "evidence_ids": [
+    "E-FREEZE-001",
+    "E-Q2-001",
+    "E-Q3-CONFIG-001",
+    "E-RELEASE-001"
+  ],
+  "figure_number": 8,
+  "filename_stem": "fig08_deployment_decision",
+  "kind": "editable_diagram",
+  "output_contract": {
+    "exports": [
+      "PDF",
+      "SVG",
+      "PNG"
+    ],
+    "numeric_plotting_skill_or_diagram_skill": "confirm with project owner before drawing",
+    "source": "editable source for diagrams; generation script for numeric plots"
+  },
+  "requirements": [
+    "节点与条件可编辑",
+    "保留稀有类及最差 source 风险提示",
+    "不得增加未求解的网络调参建议"
+  ],
+  "sources": [
+    {
+      "bytes": 11303,
+      "path": "projects/rehearsal_2024_B/results/verified/freeze_manifest.json",
+      "sha256": "A4AA45A0491C35C1D816164AADABB20998E9984D7521AFDE55D01A8B027E5E6D"
+    },
+    {
+      "bytes": 1412,
+      "path": "projects/rehearsal_2024_B/results/verified/verified_metrics.json",
+      "sha256": "EF6613E25EFD2D6D7DB6FF1A7682EDF1537DE7CD2197B33A4248282ED6576C88"
+    },
+    {
+      "bytes": 2963,
+      "path": "projects/rehearsal_2024_B/results/verified/final_release_verification.json",
+      "sha256": "901CFED4CE6D3CC7D3D0DA8830603C7C971395DE123005A8565A915A5632CBA9"
+    }
+  ],
+  "status": "RESOURCE_READY_NOT_RENDERED",
+  "title": "冻结模型的部署与风险处置"
+}
