@@ -33,11 +33,7 @@ results/verified/
 
 ## 文件建议
 
-```text
-figures/scripts/
-figures/data/
-figures/final/
-```
+正式论文图统一放在 `projects/<project_name>/figures/figureN/`；提取脚本、绘图源、`data/` 快照和最终导出保存在同一单图目录。具体文件清单以 [八图总指南](figures_guide.md) 和各图指南为准。
 
 最终优先导出：
 
@@ -54,6 +50,7 @@ work/handoff/figure_handoff.md
 ```
 
 ## 注意事项
-1. 所有的图片绘制都需要具体到使用哪一个skill,不可以不使用skill直接画图，画图前要和我确实一下，具体使用哪种skill，一句话给出原因
-2. 具体的图片类型要求见同目录下面的guide\figures_guide.md
-3. 配色参考guide\figure_color_guide.md
+
+1. 绘图前明确本次使用的工具工作流并用一句话说明理由；存在适用的绘图 skill 时选用并记录。用户已明确指定工具或 skill 的，不重复请求确认。
+2. 具体图型、证据边界和交付要求见 [八图总指南](figures_guide.md) 及对应的单图指南。
+3. 配色按语义和可读性选择：1–5 种独立语义色参考 [简洁六色指南](figure_color2_guide.md)，确需至少 6 种时参考 [扩展配色指南](figure_color1_guide.md)；用户另有明确配色要求时记录选择依据。

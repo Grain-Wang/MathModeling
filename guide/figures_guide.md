@@ -2,16 +2,16 @@
 
 本指南给出一套适用于“华为杯”等研究生数学建模竞赛的八图证据链。八张图不是机械凑数要求；应根据赛题类型删减、替换或合并，但整篇论文至少要形成：
 
-> 建模路线 → 数据可信度 → 变量与机制 → 核心结果 → 误差验证 → 方法比较 → 稳健性 → 场景决策
+> 建模路线 → 数据结构与可信度 → 变量与机制 → 核心结果 → 误差验证 → 方法比较 → 稳健性 → 场景决策
 
-其中，**图 1、图 3、图 8 固定优先使用新版 [Scientific Illustrator](https://github.com/icebird1998/scientific-illustrator)** 制作，保留可编辑源文件；涉及真实数值、统计误差和高密度数据的图，优先由 Python/MATLAB/R 生成，再用 OriginPro 或矢量软件做有限精修。
+其中，**图 1 先用 Scientific Illustrator 在 Draw.io 绘制，再用 Penpot 美化并交付**；图 3、图 8 继续优先使用 [Scientific Illustrator](https://github.com/icebird1998/scientific-illustrator)。图 2 优先采用脚本核验/提取数据，再用 LaTeX/PGFPlots 绘制；按赛题也可选择 Python/MATLAB/R 等脚本后端。其他数值图由可重建程序生成，必要时再做有限的矢量排版精修。
 
 ## 一、八张推荐图总览
 
 | 编号 | 推荐图 | 主要回答的问题 | 主绘图工具 | 建议文件名 |
 |---|---|---|---|---|
-| 1 | 专业总体技术路线图 | 全文如何从数据走到结论，各子问题如何衔接？ | **新版 Scientific Illustrator** | `fig1_overall_workflow.pdf` |
-| 2 | 数据质量与预处理前后对照图 | 原始数据有什么问题，处理是否合理且可追溯？ | Python/MATLAB/R，必要时 OriginPro 精修 | `fig2_data_quality.pdf` |
+| 1 | 专业总体技术路线图 | 全文如何从数据走到结论，各子问题如何衔接？ | **Scientific Illustrator / Draw.io → Penpot** | `fig1_overall_workflow_penpot.pdf` |
+| 2 | 数据结构与关键分布图组 | 训练样本、目标和标签呈现哪些影响建模的分布特征？ | 脚本核验/提取 → PGFPlots 优先；可选其他脚本后端 | `fig2_data_structure.pdf` |
 | 3 | 关键变量关系或结构图 | 变量、模块、机制和约束之间是什么关系？ | **新版 Scientific Illustrator** | `fig3_variable_structure.pdf` |
 | 4 | 直接回答赛题的核心结果图 | 题目最终要求的数值、方案、路径或布局是什么？ | 建模代码、GIS 或专业求解软件 | `fig4_primary_result.pdf` |
 | 5 | 预测—真实值与残差联合图 | 模型是否准确，误差是否存在系统性结构？ | Python/MATLAB/R | `fig5_prediction_residuals.pdf` |
@@ -19,14 +19,21 @@
 | 7 | 灵敏度或鲁棒性图 | 参数、噪声、约束和场景变化后，结论是否仍成立？ | Python/MATLAB/R | `fig7_sensitivity_robustness.pdf` |
 | 8 | 与实际场景对应的最终决策图 | 模型结论如何转化为可执行的现实方案？ | **新版 Scientific Illustrator**；地图底图可由 GIS/Python 生成 | `fig8_decision_scenario.pdf` |
 
-最终编号可以随论文结构调整，但源文件和导出文件应使用同一基础文件名。建议统一保存到：
+最终编号按论文实际使用的图号确定。每张保留的图放在项目 figures/ 下对应的 figureN/ 目录，N 为 1–8；删减或合并时不创建空目录。源文件、模板比较记录、阶段预览和最终导出都归入对应的单图目录：
 
-```text
-projects/<contest_id>/03_visualization/
-├── final/        # 插入论文的 PDF/SVG/PNG，唯一权威版本
-├── sources/      # .drawio、.pptx、.ai、.opju 等可编辑源文件
-└── data/         # 每张图对应的最终绘图数据，不存手工编造点
-```
+~~~text
+projects/<project_name>/figures/
+├── figure1/
+├── figure2/
+├── figure3/
+├── figure4/
+├── figure5/
+├── figure6/
+├── figure7/
+└── figure8/
+~~~
+
+这里的 figureN/ 是正式交付目录；[绘图规范](09_plotting_protocol.md)也使用这一目录约定。
 
 ---
 
@@ -42,72 +49,79 @@ projects/<contest_id>/03_visualization/
 
 - 原始数据、题目附件或业务输入；
 - 数据检查、清洗和特征构造；
-- 问题一、问题二、问题三之间的依赖关系；
+- 各子问题之间的真实依赖关系；
 - 每个子问题的主模型或算法，不只写“建立模型”；
 - 关键中间产物及其流向；
-- 验证、灵敏度分析或失败回退路径；
+- 与本题实际执行相符的验证、灵敏度分析或回退节点（如适用）；
 - 最终交付结果，如预测、评价、优化方案或决策建议。
 
 ### 版式建议
 
-- 优先使用从左到右的单一阅读路径；复杂题可使用“上层总流程 + 下层子问题模块”；
+- 绘制前先搜罗和比较模板，再依据本题节点与依赖决定横向、纵向或分区阅读路径；
 - 层级不超过三级，避免把论文目录直接画成流程图；
-- 数据、模型、验证、结果使用固定语义配色；
+- 同类对象保持一致的语义颜色与线型，具体调色在本题中决定；
 - 箭头表示真实的数据或逻辑依赖，不用装饰性箭头；
 - 在框内写“方法 + 产物”，如“孤立森林检测异常值 → 清洗数据集”，不要只写“数据预处理”。
 
 ### 工具与交付
 
-使用新版 Scientific Illustrator 在 draw.io 中制作，至少交付：
+完整步骤见 [图 1 Draw.io → Penpot 工作流](figure1_guide.md)。先核对事实与依赖，**在创建 Draw.io 对象前搜罗并比较模板**；完成可编辑 Draw.io 初稿及 Gate A 后，再用 Penpot 原生对象美化，完成两轮 Gate B 检查。指南不预设具体模板或版式。Penpot 是图 1 的必经交付阶段。
 
-```text
-projects/<contest_id>/03_visualization/sources/fig1_overall_workflow.drawio
-projects/<contest_id>/03_visualization/final/fig1_overall_workflow.pdf
-projects/<contest_id>/03_visualization/final/fig1_overall_workflow.png
-```
+文件统一放在 projects/<project_name>/figures/figure1/，至少包括：
 
-可复制给 Codex 的提示词：
+~~~text
+template_review.md
+fig1_overall_workflow.drawio
+fig1_overall_workflow_drawio.svg
+fig1_overall_workflow_drawio.png
+fig1_overall_workflow_penpot.svg
+fig1_overall_workflow_penpot.pdf
+fig1_overall_workflow_penpot.png
+delivery.md                 # 事实源、Penpot 文件/Board 链接和验收记录
+~~~
 
-```text
+可复制给 Codex 的任务说明：
+
+~~~text
 [@scientific-illustrator](plugin://scientific-illustrator@scientific-illustrator-tools)
-使用新版 Scientific Illustrator，在实时 draw.io 画布中设计一张数学建模论文总体技术路线图。
-根据我提供的题目分析和模型方案，先提炼“数据输入—预处理—各子问题模型—验证—最终输出”的唯一主阅读路径，
-再规划分区、节点、连接线和语义配色。所有文字、形状、箭头、图例和分区必须可编辑；
-不得把整图做成位图，不得先生成 XML。逐区域绘制并检查是否存在重叠、裁切、错误连线或阅读顺序歧义。
-完成后保存为 fig1_overall_workflow.drawio，并导出矢量 PDF 和宽度 2000 px 的 PNG。
-```
+先读取本题题目、figure_handoff.md 与 results/verified/，列出图 1 的事实和真实依赖。
+在创建任何 Draw.io 对象前，搜罗和比较至少三个相关模板，
+将来源、适配性、可编辑性和选择理由写入 figures/figure1/template_review.md；
+不足三个时记录检索过程，比较后可以选择空白画布，不预设模板和版式。
+再用 Scientific Illustrator 在 Draw.io 绘制可编辑初稿，重新打开并通过 Gate A。
+随后在 Penpot 以原生对象美化，核对事实、数字与箭头，完成两轮 Gate B 检查。
+按 figure1_guide.md 交付 Draw.io 源文件、Penpot Board 链接及最终 SVG/PDF/2× PNG。
+~~~
 
 ---
 
-## 图 2：数据质量与预处理前后对照图
+## 图 2：数据结构与关键分布图组
 
 ### 目的
 
-证明数据处理有明确依据，并让评委看到处理前后的变化，而不是只看到“清洗后的漂亮数据”。
+用不超过三张数据图说明合格训练样本的结构、任务目标或类别标签的分布，以及由此产生的建模难点。图 2 展示数据事实，不提前展示模型成绩；数据质量、处理规则及处理前后的样本数量和关键质量指标，另用可追溯对照表呈现。
 
-### 推荐组成
+### 推荐内容
 
-根据数据类型选择二至四个面板：
+按赛题选择最能解释建模选择的一至三个主题，不机械凑满三张：
 
-- `(a)` 缺失值数量、缺失比例或缺失位置；
-- `(b)` 异常点、离群点或重复样本；
-- `(c)` 原始数据与清洗后数据的同尺度对照；
-- `(d)` 处理前后分布、样本量或关键统计量变化。
+- 关键连续目标的分布、取值范围和分层差异；
+- 分类目标的类别支持数、稀有类和不平衡程度；
+- 场景覆盖、分组结构或不同观测粒度下的真实目标分布。
 
-时间序列可使用“原始曲线 + 异常点标记 + 清洗后曲线”；表格数据可使用缺失矩阵、箱线图和分布图；空间数据可使用清洗前后轨迹或地图对照。
+对于同时包含多个子问题的赛题，可让各子图分别解释一个子问题所面对的数据特征。直方图、箱线图、频数图或热力图等形式应由数据类型决定；不同单位和不同观测粒度应明确分开，不用一条共用轴强行比较。
 
 ### 必须标注
 
-- 原始样本数、删除或修复数量、最终样本数；
-- 缺失率、异常率或重复率；
-- 横纵轴名称和单位；
-- 异常判定或插值方法；
-- 处理前后使用相同坐标范围，避免视觉夸大；
-- 被删除、插值或修复的区域。
+- 训练、验证或测试数据的准确范围；无真实标签的官方测试不能用于目标分布或性能图；
+- 样本量、独立分组数、观测粒度、坐标轴和单位；
+- 类别全集、稀有类、分箱或密度估计口径，以及零值或缺失值的处理；
+- 直接比较的子图采用可比尺度；分层差异只作描述，不暗示因果效应；
+- 图注中的数据文件与 Evidence ID，并与数据质量表格的处理口径一致。
 
 ### 工具要求
 
-真实数据图由 Python/MATLAB/R 直接读取最终数据文件生成，禁止在 draw.io 中手工摆放数据点。Scientific Illustrator 只可用于最后的面板组织、箭头和解释框，不能代替数据绘图程序。
+完整步骤见 [图 2 数据图工作流](figure2_guide.md)。绘图前比较至少两个相关图表示例并记录取舍；先用脚本核验已核实的数据、单位、类别及分组，再由 PGFPlots 或选定的其他脚本后端生成图。不得在 draw.io 中手工摆放数据点，也不得把逐行数据手抄进 TeX。保留提取脚本、生成数据和绘图源文件，完成至少两轮视觉检查，导出矢量 PDF/SVG 与至少 300 DPI 的 PNG。所有文件放在 `projects/<project_name>/figures/figure2/`。
 
 ---
 
@@ -322,11 +336,11 @@ projects/<contest_id>/03_visualization/final/fig1_overall_workflow.png
 
 ## 三、新版 Scientific Illustrator 的固定使用规范
 
-图 1、图 3、图 8 使用以下新项目，不再使用停止维护的旧版 `drawio-scientific-illustrator`：
+图 1 的 Draw.io 阶段以及图 3、图 8 使用以下新项目；图 1 通过初稿验收后继续在 Penpot 中美化：
 
 - 项目地址：<https://github.com/icebird1998/scientific-illustrator>
 - Codex 插件名：`scientific-illustrator@scientific-illustrator-tools`
-- 推荐后端：draw.io Desktop；需要在 PowerPoint/WPS 继续编辑时，也可选择相应后端。
+- 图 1 的初稿固定使用 draw.io Desktop；图 3、图 8 若需在 PowerPoint/WPS 继续编辑，可选择相应后端。
 
 安装提示词：
 
@@ -336,6 +350,8 @@ projects/<contest_id>/03_visualization/final/fig1_overall_workflow.png
 scientific-illustrator@scientific-illustrator-tools。完成后提醒我重启 Codex。
 ```
 
+凡使用 Draw.io 绘制的图，在创建对象前都须搜罗并比较至少三个相关模板，记录在各自 figureN/template_review.md；确实不足三个时记录检索过程。比较后可以选择空白画布，不能预先指定模板。图 1 的完整门槛见 figure1_guide.md。
+
 三张图共同遵守：
 
 1. 先根据题目、变量表、公式和最终结果生成设计规格，再开始绘制；
@@ -343,7 +359,7 @@ scientific-illustrator@scientific-illustrator-tools。完成后提醒我重启 C
 3. 禁止把整张参考图直接嵌入后宣称已经复刻；
 4. 禁止凭视觉猜测数值、变量方向、因果关系或路线位置；
 5. 每完成一个区域就截图检查，并修复重叠、裁切、交叉连线和错误标注；
-6. 保存 `.drawio` 源文件，最终导出 PDF/SVG 矢量图和 2000 px PNG 预览；
+6. 保存原生可编辑源；图 1 同时保留 Draw.io 文件和 Penpot Board 链接，导出矢量 PDF/SVG 与清晰的 PNG 预览；
 7. 若使用不可重建的底图或科学影像，应记录其来源、生成脚本和对应数据版本。
 
 ---
@@ -374,15 +390,16 @@ scientific-illustrator@scientific-illustrator-tools。完成后提醒我重启 C
 
 ## 五、提交前检查清单
 
-- [ ] 图 1 能在一分钟内讲清全文路线及子问题依赖。
-- [ ] 图 2 同时展示了数据问题、处理规则和处理前后变化。
+- [ ] 图 1 在绘制 Draw.io 前已记录模板搜集、比较和选择理由，成图能在一分钟内讲清全文路线及子问题依赖。
+- [ ] 图 2 绘图前已比较至少两个相关示例；一至三个子图展示关键训练分布、样本/分组口径和建模难点，且通过两轮视觉检查与矢量/300 DPI 导出检查；数据处理前后对比另有可追溯对照表。
 - [ ] 图 3 中的变量、箭头和符号与正文公式完全一致。
 - [ ] 图 4 直接给出了赛题要求的最终答案或方案。
 - [ ] 图 5 使用独立验证/测试数据，并给出残差诊断；不适用时已替换为等价验证图。
 - [ ] 图 6 含合理基线、关键消融、重复实验和明确误差棒。
 - [ ] 图 7 覆盖了合理扰动范围，并标出稳定边界或失败条件。
 - [ ] 图 8 把模型输出映射为现实可执行决策，而非重复技术路线图。
-- [ ] 图 1、图 3、图 8 已使用新版 Scientific Illustrator，并保存可编辑源文件。
+- [ ] 所有采用 Draw.io 的图在动笔前已完成对应 figureN/ 下的模板比较记录。
+- [ ] 图 1 的 Draw.io 初稿通过 Gate A，Penpot 原生美化图通过两轮 Gate B，两个可编辑源及最终导出均保存在 figure1/；图 3、图 8 保存各自可编辑源文件。
 - [ ] 所有数值图均能追溯到数据文件和绘图脚本。
 - [ ] 所有图包含单位、图例、样本量/时间范围和必要的统计口径。
 - [ ] 所有图在最终 PDF 中无裁切、重叠、乱码或字体过小问题。
