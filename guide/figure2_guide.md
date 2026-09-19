@@ -12,29 +12,42 @@
 
 ## 1. 绘图前比较至少两个相关示例
 
-先根据本题的观测粒度与证据缺口确定检索方向，再选与当前统计任务直接相关的仓库；不要求逐一使用下列来源，也不一次性克隆全部仓库。实际查看至少两个相关示例或官方技术文档，核对示例源码而不只看预览。PGFPlots 可继续参考其 Gallery 与官方手册。
+### 1.1 适用模板库网址
 
-### 综合科研图来源
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
 
-| 来源 | 图 2 的优先检索方向 |
-|---|---|
-| [academic-figure](https://github.com/SciToolsmith/academic-figure) | 多面板、处理前后、配对比较、不确定性和分布变化；区分可检索图鉴案例与确有开放源码的模板，先核对开放状态及源路径。 |
-| [cnsplots](https://github.com/faridrashidi/cnsplots) | Violin、ridge、slope、heatmap、UpSet 和 multipanel；raincloud 只在找到对应可运行源码时采用，不按名称推断已有实现。 |
-| [The Python Graph Gallery](https://github.com/holtzy/The-Python-Graph-Gallery) | 优先找能直接修改的 src/notebooks/ 下的 Python Notebook，核对输入数据与依赖。 |
-| [R Graph Gallery](https://github.com/holtzy/R-graph-gallery) | 只在 Python 来源没有合适视觉结构时寻找 R 示例；迁移到 Python 时重新核验统计计算与轴语义。 |
-| [RAWGraphs Charts](https://github.com/rawgraphs/rawgraphs-charts) | 样本流向或高维结构确有需要时，检索 Alluvial、Sankey、Parallel Coordinates、Ridgeline 等具体 chart 源码，并核对所需数据格式。 |
+#### 综合科研图来源
 
-### 数据质量与分布专用来源
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| academic-figure | [https://github.com/SciToolsmith/academic-figure](https://github.com/SciToolsmith/academic-figure) | 多面板、处理前后、配对比较、不确定性和分布变化 | 区分可检索图鉴案例与确有开放源码的模板，先核对开放状态及源路径 |
+| cnsplots | [https://github.com/faridrashidi/cnsplots](https://github.com/faridrashidi/cnsplots) | Violin、ridge、slope、heatmap、UpSet 和 multipanel | raincloud 只在找到对应可运行源码时采用，不按名称推断已有实现 |
+| The Python Graph Gallery | [https://github.com/holtzy/The-Python-Graph-Gallery](https://github.com/holtzy/The-Python-Graph-Gallery) | Python 数据分布、分组比较及多面板示例 | 优先查看 `src/notebooks/` 下可修改的 Notebook，并核对输入数据与依赖 |
+| R Graph Gallery | [https://github.com/holtzy/R-graph-gallery](https://github.com/holtzy/R-graph-gallery) | R 数据分布、质量比较和组合图示例 | 只在 Python 来源没有合适结构时使用；迁移时重新核验统计计算与轴语义 |
+| RAWGraphs Charts | [https://github.com/rawgraphs/rawgraphs-charts](https://github.com/rawgraphs/rawgraphs-charts) | 样本流向、高维结构、Alluvial、Sankey、Parallel Coordinates 和 Ridgeline | 只有数据结构确有需要时使用，并核对具体 chart 源码及输入格式 |
 
-| 来源 | 适用问题及检查重点 |
-|---|---|
-| [missingno](https://github.com/ResidentMario/missingno) | 缺失矩阵、完整率柱状图、缺失相关热力图和缺失模式树状图；其 heatmap 表达的是缺失指示之间的相关性，不是变量值相关性。 |
-| [UpSetPlot](https://github.com/jnothman/UpSetPlot) | 多字段共同缺失、异常规则重叠或删除原因组合；需要逐行集合归属，不能从边际计数臆造交集。 |
-| [PyComplexHeatmap](https://github.com/DingWB/PyComplexHeatmap) | 多指标质量热力图、聚类树和多层注释；先确认指标方向、样本顺序和注释数据。 |
-| [ggdist](https://github.com/mjskay/ggdist) | R 端 raincloud、half-eye、区间及分布不确定性；密度形状需要相应的逐点或抽样数据。 |
-| [ggalluvial](https://github.com/corybrunson/ggalluvial) | 原始数据到保留、修复、插值、去重、删除的样本流向；需要可追溯阶段归属及流量守恒。 |
-| [joypy](https://github.com/leotac/joypy) | 多组、多阶段或多时点的 ridgeline 分布；标注组别及各组样本数，避免密度面积造成规模误读。 |
-| [sweetviz](https://github.com/fbdesignpro/sweetviz) | 只用于内部探索和定位值得核验的变量，不直接截图作论文最终图。 |
+#### 数据质量与分布专用来源
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| missingno | [https://github.com/ResidentMario/missingno](https://github.com/ResidentMario/missingno) | 缺失矩阵、完整率柱状图、缺失相关热力图和缺失模式树状图 | heatmap 表达缺失指示之间的相关性，不是变量值相关性 |
+| UpSetPlot | [https://github.com/jnothman/UpSetPlot](https://github.com/jnothman/UpSetPlot) | 多字段共同缺失、异常规则重叠或删除原因组合 | 需要逐行集合归属，不能从边际计数臆造交集 |
+| PyComplexHeatmap | [https://github.com/DingWB/PyComplexHeatmap](https://github.com/DingWB/PyComplexHeatmap) | 多指标质量热力图、聚类树和多层注释 | 先确认指标方向、样本顺序和注释数据 |
+| ggdist | [https://github.com/mjskay/ggdist](https://github.com/mjskay/ggdist) | R 端 raincloud、half-eye、区间及分布不确定性 | 密度形状需要相应的逐点或抽样数据 |
+| ggalluvial | [https://github.com/corybrunson/ggalluvial](https://github.com/corybrunson/ggalluvial) | 原始数据到保留、修复、插值、去重或删除的样本流向 | 需要可追溯阶段归属及流量守恒 |
+| joypy | [https://github.com/leotac/joypy](https://github.com/leotac/joypy) | 多组、多阶段或多时点的 ridgeline 分布 | 标注组别和各组样本数，避免密度面积造成规模误读 |
+| sweetviz | [https://github.com/fbdesignpro/sweetviz](https://github.com/fbdesignpro/sweetviz) | 内部探索和定位值得进一步核验的变量 | 不直接截取自动报告作为论文最终图 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功运行或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
+先根据本题的观测粒度与证据缺口确定检索方向，再选与当前统计任务直接相关的仓库；不要求逐一使用上述来源，也不一次性克隆全部仓库。实际查看至少两个相关示例或官方技术文档，核对示例源码而不只看预览。PGFPlots 可继续参考其 Gallery 与官方手册。
 
 必要时使用以下搜索词，并按题目字段补充限定词：
 

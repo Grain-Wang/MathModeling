@@ -10,6 +10,28 @@
 
 ## 1. 绘图前阅读并比较模板
 
+### 1.1 适用模板库网址
+
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| Matplotlib Gallery | [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html) | 散点、排序、时序、布局及通用结果图 | 进入具体示例并核对源码、坐标和输入数据，不能只看缩略图 |
+| scikit-learn PredictionErrorDisplay | [https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PredictionErrorDisplay.html](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PredictionErrorDisplay.html) | 有标签回归任务的真实值—预测值和残差结果 | 只适用于确有逐点真值与预测值的范围，不能用于无标签官方测试 |
+| Seaborn JointGrid | [https://seaborn.pydata.org/generated/seaborn.JointGrid.html](https://seaborn.pydata.org/generated/seaborn.JointGrid.html) | 主关系与边际分布的组合结果 | 需要逐点数据；边际分布不能替代对样本范围和单位的说明 |
+| Seaborn jointplot | [https://seaborn.pydata.org/generated/seaborn.jointplot.html](https://seaborn.pydata.org/generated/seaborn.jointplot.html) | 快速比较散点、回归、密度或六边形关系结构 | 仅把具体示例作为结构候选，统计设定须按当前数据重新核验 |
+| PGFPlots Gallery | [https://pgfplots.sourceforge.net/gallery.html](https://pgfplots.sourceforge.net/gallery.html) | 适合论文 LaTeX 工作流的二维结果图与多面板布局 | 打开具体示例源码后再计入候选，保留数据驱动和可重建性 |
+| PGFPlots 2D Plots Reference | [https://tikz.dev/pgfplots/reference-2dplots](https://tikz.dev/pgfplots/reference-2dplots) | 折线、散点、误差表示和坐标轴控制 | 属于实现参考；只有形成适配当前结果的具体结构时才算候选模板 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功运行或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
 围绕本题的结果形式，实际查阅至少三个相关模板、官方图库示例或带源代码的科研图；打开示例代码，核查其数据输入、坐标、图例、标注和导出方式。优先找能准确承载本题答案的模板，不能仅凭外观选图。可从绘图库官方 Gallery、PGFPlots、GIS/专业求解软件示例等检索；scikit-learn、Matplotlib、Seaborn、SciencePlots 是预测图的可选参考，不是所有赛题的固定清单。确实没有三个适用的现成模板时，记录检索过程，并将自行设计的结构作为候选之一。
 
 在创建图形前完成 `projects/<project_name>/figures/figure4/template_review.md`：记录来源链接、具体示例与代码位置、可复用设计、所需改造、局限、数据适配性、复现方法和论文正文适用性。选出最适配的三个不同方案；配色样式只作辅助，不能单独算一个结果模板。

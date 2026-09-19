@@ -12,20 +12,29 @@
 
 ## 1. 绘制前比较模板，并由用户选择结构
 
-创建图形对象前，实际查阅至少三个与本题拓扑相关的可编辑模板或有源码的结构图示例，查看节点、连线、分组或源代码，而非只看预览。模板库网址只是检索入口，不等于已为当前赛题选定模板；必须进入仓库查看具体源文件、示例和许可说明。若不足三个，记录检索范围、关键词和原因。
+### 1.1 适用模板库网址
 
-### 1.1 已核验的模板库入口
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
 
-| 模板库与网址 | 适合的图 3 结构 | 可编辑源与优势 | 使用边界与许可注意 |
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
 |---|---|---|---|
-| [diagrams.net 官方示例库](https://github.com/jgraph/drawio-diagrams) | 一般节点—边关系、实体关系、顺序关系、分区结构和带公式的框图 | 提供可直接打开的 Draw.io XML/`.drawio` 示例，适合作为空白画布前的基础拓扑参考 | Apache-2.0；示例偏通用软件图，必须改写成当前模型的变量、公式和真实依赖，不能照搬箭头语义 |
-| [OpenTikZ](https://github.com/opentikz/opentikz) | 公式密集的系统框图、模型模块、神经网络结构、流水线和论文概念图 | 提供可复制的 `.tex` 图标、模板和示例，字体、公式和最终论文 LaTeX 一致；图形内容为 CC0 1.0，工具代码为 MIT | 适合紧凑、规则的学术结构；复杂自由布局或频繁人工拖拽修改时，Draw.io/Penpot 可能更高效 |
-| [sci-box：scibox-diagram](https://github.com/jihe520/sci-box) | 三栏研究框架、阶段流程、横向任务流水线和多带结构图 | 内置可编辑 Draw.io 模板，可参考分栏、阶段条带、标题层级和留白组织 | 当前仓库顶层未展示清晰 LICENSE；正式交付前应再次核验授权。未确认授权时只借鉴结构，不直接复制模板资产或图标 |
-| [ggdag](https://github.com/r-causal/ggdag) | 有理论与证据支持的因果 DAG、混杂关系、调整集和偏差结构 | R/ggplot2 脚本可重建，能同时检查 DAG 的统计含义；MIT | 仅用于真正的因果模型；普通数据流、计算依赖和相关关系不得套成因果箭头 |
-| [tikz-network](https://github.com/hackl/tikz-network) 与 [network2tikz](https://github.com/hackl/network2tikz) | 交通、通信、供应链、能源、社交或多层节点—边网络 | 可由节点表、边表、NetworkX/igraph 等生成可编辑 TikZ/PDF，适合真实网络拓扑和数学符号 | GPL-3.0；仅在节点和边来自模型或数据时使用，不为了“复杂感”虚构连接。大网络应先筛选主结构，保证论文缩小后可读 |
-| [C4 Draw.io 模板库](https://github.com/kaminzo/c4-draw.io) | 模型模块、子系统、外部参与者、容器边界和层级化架构 | 提供可导入 Draw.io 的 C4 形状库和嵌入 XML 的可编辑模板 | 适合“系统—模块—接口”层级，不适合把普通变量硬套成软件容器；README 对 C4 素材注明 CC BY 4.0 署名要求，使用时保留必要归属 |
+| diagrams.net 官方示例库 | [https://github.com/jgraph/drawio-diagrams](https://github.com/jgraph/drawio-diagrams) | 一般节点—边、实体关系、顺序关系、分区结构和公式框图 | 提供可编辑 Draw.io XML/`.drawio`；Apache-2.0。必须改写为当前模型变量和真实依赖，不照搬箭头语义 |
+| OpenTikZ | [https://github.com/opentikz/opentikz](https://github.com/opentikz/opentikz) | 公式密集的系统框图、模型模块、神经网络、流水线和论文概念图 | 提供 `.tex` 模板和示例；适合规则结构，复杂自由布局可改用其他可编辑后端 |
+| sci-box：scibox-diagram | [https://github.com/jihe520/sci-box](https://github.com/jihe520/sci-box) | 三栏研究框架、阶段流程、横向任务流水线和多带结构图 | 提供 Draw.io 模板；授权未确认时只借鉴分栏与层级，不直接复制资产或图标 |
+| ggdag | [https://github.com/r-causal/ggdag](https://github.com/r-causal/ggdag) | 有理论和证据支持的因果 DAG、混杂关系、调整集与偏差结构 | R/ggplot2 脚本可重建；仅用于真实因果模型，普通数据流或相关关系不得套成因果箭头 |
+| tikz-network 与 network2tikz | [tikz-network](https://github.com/hackl/tikz-network)、[network2tikz](https://github.com/hackl/network2tikz) | 交通、通信、供应链、能源、社交或多层节点—边网络 | 由真实节点表和边表生成；不得虚构连接，大网络应筛选主结构并核对 GPL-3.0 要求 |
+| C4 Draw.io 模板库 | [https://github.com/kaminzo/c4-draw.io](https://github.com/kaminzo/c4-draw.io) | 模型模块、子系统、外部参与者、容器边界和层级架构 | 提供可编辑 C4 形状和模板；不把普通变量套成软件容器，使用时核对 CC BY 4.0 署名 |
 
-### 1.2 按真实拓扑选择入口
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功打开或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 按真实拓扑选择并比较
+
+创建图形对象前，实际查阅至少三个与本题拓扑相关的可编辑模板或有源码的结构图示例，查看节点、连线、分组或源代码，而非只看预览。必须进入仓库查看具体源文件、示例和许可说明；若不足三个，记录检索范围、关键词和原因。
 
 - **输入变量—状态变量—输出变量、公式模块或算法阶段：**优先查看 OpenTikZ、diagrams.net 和 sci-box 的框架模板。
 - **因果假设、混杂、调整集或结构因果模型：**优先查看 ggdag；在 `template_review.md` 中写明每条因果边的理论、文献或实验依据。
@@ -35,7 +44,7 @@
 
 以下内容不能作为图 3 的结构模板：只有配色截图而无源文件的图片、无法识别节点与连接的宣传图、与本题拓扑不同但视觉华丽的架构图，以及把相关性或特征重要性伪装成因果关系的示意图。
 
-### 1.3 模板比较记录要求
+### 1.4 模板比较记录要求
 
 在 `projects/<project_name>/figures/figure3/template_review.md` 中，针对每个具体候选至少记录：
 

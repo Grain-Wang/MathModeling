@@ -10,6 +10,27 @@
 
 ## 1. 搜集并比较模板
 
+### 1.1 适用模板库网址
+
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| Matplotlib Gallery | [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html) | 区间、灵敏度曲线、来源排序和分面稳健性图 | 进入具体示例核对源码、区间定义和坐标方向 |
+| Matplotlib subplot mosaic | [https://matplotlib.org/stable/users/explain/axes/mosaic.html](https://matplotlib.org/stable/users/explain/axes/mosaic.html) | 将整体区间、来源外推和场景检验组织为不等宽面板 | 只解决版面组织，不能替代具体统计图模板或新增未执行检验 |
+| forestplot | [https://github.com/LSYS/forestplot](https://github.com/LSYS/forestplot) | 点估计、区间、基准线和来源排序 | 必须有真实上下界；只有点估计时不得补造置信区间 |
+| Python Graph Gallery | [https://python-graph-gallery.com/](https://python-graph-gallery.com/) | 森林图、区间点图、灵敏度曲线和分组比较 | 选择有完整代码并与当前统计量匹配的具体示例 |
+| figures4papers | [https://github.com/ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) | 多面板论文图、长标签和叙事层级参考 | 仅作布局参考；具体统计结构必须来自可重建模板与已核验结果 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功运行或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
 制作图形前实际查看至少三个对应检验类型的官方图库示例、科研图模板或有源码的案例，核对其区间含义、排序、来源标签、基准线和指标方向。可选森林图、区间点图、来源排序图或分面比较；样式表不能单独算完整模板。确实不足三个时记录检索来源、关键词和原因。
 
 在 `projects/<project_name>/figures/figure7/template_review.md` 记录来源、可借鉴结构、适用的数据层级、改造量、误读风险、可复现方法和缩小后的可读性，选出三种表达差异明确的候选方案。

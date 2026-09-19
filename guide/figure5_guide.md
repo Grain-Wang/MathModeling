@@ -12,6 +12,27 @@
 
 ## 1. 搜集并比较模板
 
+### 1.1 适用模板库网址
+
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| Matplotlib Gallery | [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html) | 残差、误差分布、分类矩阵和诊断面板的通用实现 | 必须进入具体示例并核对源码、轴定义与数据需求 |
+| scikit-learn PredictionErrorDisplay | [https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PredictionErrorDisplay.html](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PredictionErrorDisplay.html) | 回归任务的真实值—预测值及残差诊断 | 只使用有标签且逐点配对的数据，明确残差方向和验证范围 |
+| scikit-learn ConfusionMatrixDisplay | [https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html) | 分类混淆矩阵、类别顺序和标签展示 | 核对行列含义、支持数及是否归一化，不跨重复错误合并 |
+| Seaborn heatmap | [https://seaborn.pydata.org/generated/seaborn.heatmap.html](https://seaborn.pydata.org/generated/seaborn.heatmap.html) | 混淆矩阵或有明确定义二维数值的热力图 | 色阶、标注和矩阵方向必须有数据依据，不能用色差夸大微小差异 |
+| Yellowbrick Regression Visualizers | [https://www.scikit-yb.org/en/latest/api/regressor/index.html](https://www.scikit-yb.org/en/latest/api/regressor/index.html) | 残差、预测误差和回归诊断结构 | 借鉴前核对其拟合接口和数据拆分，避免把训练诊断写成独立验证结果 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功运行或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
 创建候选前实际查看至少三个适配的官方图库示例、科研图模板或有源码的案例，检查数据输入、轴定义、图例、标签密度、面板布局和论文缩小后的可读性。可检索 Matplotlib、Seaborn、scikit-learn、PGFPlots 等对应图型的原始示例；配色样式不能单独算一个模板。确实不足三个时记录关键词、来源和原因。
 
 在 `projects/<project_name>/figures/figure5/template_review.md` 记录来源、适用数据、可借鉴结构、需修改之处、复现方法和误导风险，再选出三个不同的表达方案；回归与分类任务可采用不同图型，不固定三面板结构。

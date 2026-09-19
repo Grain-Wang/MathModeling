@@ -10,6 +10,28 @@
 
 ## 1. 搜集并比较模板
 
+### 1.1 适用模板库网址
+
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| Matplotlib Gallery | [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html) | 点图、条形图、误差表示、阈值线和分面比较 | 进入具体示例核对源码与尺度，样式变化不能单独算模板 |
+| Python Graph Gallery | [https://python-graph-gallery.com/](https://python-graph-gallery.com/) | 哑铃、棒棒糖、排序条形、分组点图和多面板比较 | 选择有完整代码且能承载相同指标口径的具体示例 |
+| forestplot | [https://github.com/LSYS/forestplot](https://github.com/LSYS/forestplot) | 带区间的模型、消融或特征组横向比较 | 只有真实区间数据时才使用区间；均值或范围不得冒充置信区间 |
+| Seaborn stripplot | [https://seaborn.pydata.org/generated/seaborn.stripplot.html](https://seaborn.pydata.org/generated/seaborn.stripplot.html) | 展示少量重复、折或实验点及其离散程度 | 需要原始重复记录，避免重叠、抖动和样本量造成误读 |
+| Seaborn pointplot | [https://seaborn.pydata.org/generated/seaborn.pointplot.html](https://seaborn.pydata.org/generated/seaborn.pointplot.html) | 分组点估计、基线和区间比较 | 必须明确估计量与区间算法；没有区间数据时关闭推断性区间 |
+| figures4papers | [https://github.com/ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) | 论文多面板组织、标注层级和结果叙事参考 | 仅作布局参考；具体图型仍须有可运行源码和当前数据支持 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功运行或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
 在制作图形前实际查看至少三个相关官方图库示例、科研图模板或有源码的案例，比较点图、区间图、哑铃图、条形图或分面布局如何表达本题的指标方向、基线、重复值及阈值。来源可按图型从 Matplotlib、Seaborn、PGFPlots 或专业绘图工具中选择；样式表不单独算完整模板。确实不足三个时记录检索范围和原因。
 
 在 `projects/<project_name>/figures/figure6/template_review.md` 记录来源、结构适配性、可复现方法、需改造之处、坐标风险和论文可读性，并选出三种有实质结构差异的方案。

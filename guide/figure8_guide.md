@@ -10,34 +10,45 @@
 
 ## 1. 搜集模板并选择绘制工具
 
-创建对象前实际查看至少三个可编辑模板或有源码的场景图示例，比较节点组织、泳道/分组、路径、图例、语义风险和缩小后的可读性。模板库网址只是检索入口，不等于已为当前赛题选定模板；必须进入仓库查看具体源文件、示例、版本和许可。若不足三个，记录检索范围、关键词和原因。
+### 1.1 适用模板库网址
 
-### 1.1 已核验的通用流程与决策模板库
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
 
-| 模板库与网址 | 适合的图 8 场景 | 可编辑源与优势 | 使用边界与许可注意 |
+#### 通用流程与决策模板库
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
 |---|---|---|---|
-| [diagrams.net 官方示例库](https://github.com/jgraph/drawio-diagrams) | 线性执行流程、简单分支、顺序交付、角色较少的场景图 | 提供可直接打开的 Draw.io XML/`.drawio` 示例，便于快速重建为可编辑对象 | Apache-2.0；只借鉴拓扑与排版，不照搬模板箭头、角色、数字和业务语义 |
-| [bpmn-js Examples](https://github.com/bpmn-io/bpmn-js-examples) | 多角色泳道、人工审批、并行任务、消息流、异常事件、补偿和风险处置 | 提供 BPMN 2.0 XML、可运行示例与建模 API；适合严格区分参与者、任务、网关和事件 | MIT（除仓库另有说明的部分）；只有真实存在角色、事件和流程规则时才使用 BPMN，简单流程不要过度建模 |
-| [dmn-js Examples](https://github.com/bpmn-io/dmn-js-examples) | 阈值驱动的规则决策、决策需求图和可核对的决策表 | 提供 DMN 模型、决策表和编辑器示例，可把规则来源与输出动作分开 | MIT（除仓库另有说明的部分）；仅当判定规则、输入条件和输出动作已由题目或模型明确给出时使用，不补造阈值 |
+| diagrams.net 官方示例库 | [https://github.com/jgraph/drawio-diagrams](https://github.com/jgraph/drawio-diagrams) | 线性执行流程、简单分支、顺序交付和少角色场景图 | 提供可编辑 Draw.io XML/`.drawio`；只借鉴拓扑与排版，不照搬箭头、角色、数字或业务语义 |
+| bpmn-js Examples | [https://github.com/bpmn-io/bpmn-js-examples](https://github.com/bpmn-io/bpmn-js-examples) | 多角色泳道、人工审批、并行任务、消息流、异常事件和风险处置 | 提供 BPMN 2.0 XML 和可运行示例；只有真实存在角色、事件及流程规则时才使用 BPMN |
+| dmn-js Examples | [https://github.com/bpmn-io/dmn-js-examples](https://github.com/bpmn-io/dmn-js-examples) | 阈值规则、决策需求图和可核对决策表 | 仅当输入条件、判定规则和输出动作已有事实依据时使用，不补造阈值 |
 
-### 1.2 部署、交付与系统集成模板库
+#### 部署、交付与系统集成模板库
 
-| 模板库与网址 | 适合的图 8 场景 | 可编辑源与优势 | 使用边界与许可注意 |
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
 |---|---|---|---|
-| [mingrammer/diagrams](https://github.com/mingrammer/diagrams) | 模型服务、数据库、边缘设备、云端、本地系统、调度器和人工端之间的部署关系 | 通过 Python + Graphviz 生成“架构即代码”，适合版本控制和从配置重建；MIT | 只画实际存在的部署节点和通信关系；云厂商图标不能代替真实证据，且不要把原型架构写成已经部署完成 |
-| [PlantUML Standard Library](https://github.com/plantuml/plantuml-stdlib) | C4 系统边界、容器、组件、参与者和部署层级 | 代码化、可复现，内置 C4 等标准库，适合边界清楚的系统交付图 | 不同子库及图标可能采用不同许可，复用前逐项查看来源；图 8 不是软件部署题时不要强行使用 C4 层级 |
-| [SAP ISA-M Draw.io 模板](https://github.com/stn1slv/isa-m-diagrams) | 跨系统集成、接口、消息流、集成模式和技术映射 | 提供按 Integration Domains、Styles、Use Case Patterns 和 Technology Mapping 分类的可编辑 Draw.io 模板 | 当前仓库页面未清晰展示顶层许可证；未确认授权时只借鉴分区和连线结构，不直接复制模板资产、品牌图标或文字 |
+| mingrammer/diagrams | [https://github.com/mingrammer/diagrams](https://github.com/mingrammer/diagrams) | 模型服务、数据库、设备、云端、本地系统和人工端之间的部署关系 | 通过 Python + Graphviz 重建；只画真实部署节点与通信关系，不把原型写成已部署系统 |
+| PlantUML Standard Library | [https://github.com/plantuml/plantuml-stdlib](https://github.com/plantuml/plantuml-stdlib) | C4 系统边界、容器、组件、参与者和部署层级 | 逐项核对所用子库许可；非软件部署题不强行使用 C4 层级 |
+| SAP ISA-M Draw.io 模板 | [https://github.com/stn1slv/isa-m-diagrams](https://github.com/stn1slv/isa-m-diagrams) | 跨系统集成、接口、消息流、集成模式和技术映射 | 授权未确认时只借鉴分区与连线，不直接复制模板资产、品牌图标或文字 |
 
-### 1.3 地图、路线、选址与区域部署模板库
+#### 地图、路线、选址与区域部署模板库
 
-| 模板库与网址 | 适合的图 8 场景 | 可编辑源与优势 | 使用边界与许可注意 |
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
 |---|---|---|---|
-| [MapAction QGIS Templates](https://github.com/mapaction/maptemplates-qgis) | 路线、区域风险、设施分布、选址覆盖和专题地图版式 | 提供 `.qpt` 模板、主模板、元素位置表和生成脚本，适合标准化地图标题、图例、比例尺和数据来源区 | 只在有可靠坐标、边界和空间数据时使用；模板许可及底图、行政边界、图标的授权应分别核验 |
-| [NPS QGIS Map Templates](https://github.com/nationalparkservice/nps-qgis-map-templates) | 横版/竖版地图布局、地图主体与图例/比例尺/数据来源区的组织参考 | 提供可编辑 `.qpt` 模板；项目声明为美国公共领域并使用 CC0 1.0 | 只借鉴版式，删除或替换 NPS 品牌元素；真实路线、服务半径和区域结果必须由 GIS/Python 根据数据生成 |
+| MapAction QGIS Templates | [https://github.com/mapaction/maptemplates-qgis](https://github.com/mapaction/maptemplates-qgis) | 路线、区域风险、设施分布、选址覆盖和专题地图版式 | 提供 `.qpt` 与生成脚本；仅在有可靠坐标、边界和空间数据时使用，并分别核验底图等授权 |
+| NPS QGIS Map Templates | [https://github.com/nationalparkservice/nps-qgis-map-templates](https://github.com/nationalparkservice/nps-qgis-map-templates) | 横版或竖版地图，以及图例、比例尺和数据来源区布局 | 提供可编辑 `.qpt`；只借鉴版式并移除品牌元素，真实空间结果必须由数据生成 |
 
 地图类图 8 必须保留坐标系、数据来源、时间范围和空间处理脚本。后续可用合适的可编辑工具覆盖路线编号、决策说明和图例，但不能用手绘位置替代真实地理计算。
 
-### 1.4 按场景性质选择入口
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功打开或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 按场景性质选择并比较
+
+创建对象前实际查看至少三个可编辑模板或有源码的场景图示例，比较节点组织、泳道/分组、路径、图例、语义风险和缩小后的可读性。必须进入仓库查看具体源文件、示例、版本和许可；若不足三个，记录检索范围、关键词和原因。
 
 - **少量节点、单一阅读路径、主要目的是解释执行顺序：**优先查看 diagrams.net 官方示例。
 - **多个执行者、人工审核、并行任务、异常事件或回退：**优先查看 BPMN 示例，并明确泳道责任和网关条件。
@@ -48,7 +59,7 @@
 
 以下情况不能直接套用模板：没有真实执行者却使用泳道、没有规则阈值却使用 DMN、没有空间坐标却绘制精确地图、没有部署证据却使用云服务图标，以及把模型训练流程再次包装成图 8。图 8 必须解释结果如何进入场景，而不是重复图 1。
 
-### 1.5 模板比较记录要求
+### 1.4 模板比较记录要求
 
 在 `projects/<project_name>/figures/figure8/template_review.md` 中，针对每个具体候选至少记录：
 
@@ -62,7 +73,7 @@
 
 配色灵感不能单独算一个结构模板。同一个仓库中的三个近似配色版本也不能冒充三个独立候选。
 
-### 1.6 可选绘制后端
+### 1.5 可选绘制后端
 
 根据图形需要选 Draw.io、Penpot、PowerPoint/WPS、OpenTikZ、GIS/Python 或其他合适后端，并记录理由。地图或科学影像由可靠数据与专业工具生成，保留坐标与来源；能用原生对象绘制的文字、路线、箭头、边框和图例保持可编辑，不把整图压成位图。
 

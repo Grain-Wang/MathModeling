@@ -12,6 +12,25 @@
 
 ## 1. 搜罗和比较模板：Draw.io 开始前的必经步骤
 
+### 1.1 适用模板库网址
+
+以下网址只作为模板发现入口，不代表其中任何具体模板已经通过用户验证。
+
+| 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
+|---|---|---|---|
+| diagrams.net 官方示例库 | [https://github.com/jgraph/drawio-diagrams](https://github.com/jgraph/drawio-diagrams) | 通用流程、分区、节点—边关系和顺序结构 | 优先查看可编辑 `.drawio`/XML；只借鉴拓扑与排版，节点和箭头必须按当前赛题重建 |
+| sci-box：scibox-diagram | [https://github.com/jihe520/sci-box](https://github.com/jihe520/sci-box) | 三栏研究框架、阶段条带和横向任务流水线 | 授权未确认时只借鉴结构，不直接复制模板资产或图标 |
+| C4 Draw.io 模板库 | [https://github.com/kaminzo/c4-draw.io](https://github.com/kaminzo/c4-draw.io) | 存在真实系统、模块、参与者和接口时的层级结构 | 不把普通变量硬套成软件容器；采用素材时核对署名要求 |
+
+### 1.2 已验证好用的模板
+
+暂无已确认模板。只有用户明确确认某个具体模板好用后，才能在下表添加记录；代理自行筛选、成功打开或完成试绘均不算用户确认。
+
+| 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
+|---|---|---|---|
+
+### 1.3 模板检索与比较要求
+
 在创建 Draw.io 节点、连线或画布之前，先检查 Draw.io 内置模板、公开的可编辑 .drawio / .xml 模板库及项目已有参考图。按本题的内容结构搜集至少三个相关候选；若确实不足三个，记录检索来源、关键词和未找到更多适用模板的原因。可以借鉴模板的分组或连线方式，也可以在比较后选择空白画布。
 
 在 projects/<project_name>/figures/figure1/template_review.md 留下比较表：
