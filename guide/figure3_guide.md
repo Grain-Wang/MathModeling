@@ -1,12 +1,12 @@
 # 图 3 关键变量关系或模型结构图：模板比较与可编辑候选工作流
 
-本指南供正式比赛复用，顺序为**核对事实与连接 → 比较模板 → 用户选择结构 → 选择工具并制作可编辑候选 → PNG 视觉验收 → 用户确认最终版 → SVG/PDF 正式导出**。不预设 Draw.io、Penpot 或 Scientific Illustrator；模板、版式、配色和后端由赛题关系与可编辑交付需求决定。内容边界见[八图总指南](figures_guide.md)，证据与导出阶段遵守[绘图规范](09_plotting_protocol.md)。
+本指南供正式比赛复用，顺序为**核对事实与连接 → 比较模板 → 用户选择结构 → 选择工具并制作可编辑候选 → PNG 视觉验收 → 用户确认最终版 → SVG/PDF 正式导出**。不预设 Draw.io、Penpot、PowerPoint/WPS、OpenTikZ 或其他具体绘图工具；模板、版式、配色和后端由赛题关系与可编辑交付需求决定。内容边界见[八图总指南](figures_guide.md)，证据与导出阶段遵守[绘图规范](09_plotting_protocol.md)。
 
 ## 0. 整理可核对的结构规格
 
 读取题目、项目交接资料、模型公式与接口、实现代码、`results/verified/` 和结果登记表。写明图要解释的关系及证据，列出节点、公式、约束、分支条件、连接方向、箭头含义和禁止关系；区分数据流、计算依赖、选择条件与尚待验证的假设。信息流箭头不自动代表因果作用。
 
-绘图前记录工具及选择理由。Draw.io、Penpot、PowerPoint/WPS、OpenTikZ 或其他可编辑后端均可按任务选用；Scientific Illustrator 仅在适合时作为可选绘制能力。相关系数、散点、SHAP 等数值图由数据脚本生成，不手工摆点。
+绘图前记录工具及选择理由。Draw.io、Penpot、PowerPoint/WPS、OpenTikZ 或其他可编辑后端均可按任务选用。相关系数、散点、SHAP 等数值图由数据脚本生成，不手工摆点。
 
 **进入下一步的条件：**每个节点、公式和连接都能回指事实源；不清楚的关系先核对模型资料，不靠模板补全。
 
@@ -48,10 +48,6 @@
 7. 选择该模板、选择其他模板或改用空白画布的理由。
 
 结构借鉴与配色灵感分别记录，配色截图不能单独计作一个结构模板。给用户一至两个建议结构供选择；用户确定试绘结构后再绘制。
-
-### 1.4 可选绘制后端
-
-[Scientific Illustrator](https://github.com/icebird1998/scientific-illustrator) 可以在 Draw.io、PowerPoint 或 WPS 中把选定结构绘制为可编辑对象，并执行 Designer—Drawer—Reviewer—Corrector 检查；它是绘制与审查工具，不是模板库，不能代替前述模板比较和事实核对。若采用它，应在 `template_review.md` 和 `delivery.md` 中分别记录“模板来源”和“绘制后端”。
 
 ## 2. 制作可编辑候选并用 PNG 验收
 
