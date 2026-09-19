@@ -18,9 +18,12 @@
 
 | 模板库 | 网址 | 与本图的匹配点 | 使用说明 |
 |---|---|---|---|
-| diagrams.net 官方示例库 | [https://github.com/jgraph/drawio-diagrams](https://github.com/jgraph/drawio-diagrams) | 通用流程、分区、节点—边关系和顺序结构 | 优先查看可编辑 `.drawio`/XML；只借鉴拓扑与排版，节点和箭头必须按当前赛题重建 |
-| sci-box：scibox-diagram | [https://github.com/jihe520/sci-box](https://github.com/jihe520/sci-box) | 三栏研究框架、阶段条带和横向任务流水线 | 授权未确认时只借鉴结构，不直接复制模板资产或图标 |
-| C4 Draw.io 模板库 | [https://github.com/kaminzo/c4-draw.io](https://github.com/kaminzo/c4-draw.io) | 存在真实系统、模块、参与者和接口时的层级结构 | 不把普通变量硬套成软件容器；采用素材时核对署名要求 |
+| diagrams.net 官方示例库 | [https://github.com/jgraph/drawio-diagrams](https://github.com/jgraph/drawio-diagrams) | 通用流程、分区、节点—边关系、顺序结构和泳道初稿 | 优先查看可编辑 `.drawio`/XML；只借鉴拓扑与排版，节点和箭头必须按当前赛题重建 |
+| tech-route-maker | [https://github.com/Stephen-studying/tech-route-maker](https://github.com/Stephen-studying/tech-route-maker) | 论文方法框架、中文技术路线、研究阶段和证据驱动工作流 | 可从结构化 JSON 渲染 Draw.io、PPTX、SVG 等可编辑初稿；自动结果仍须逐项核对事实、依赖和证据，不能直接视为最终图 |
+| OpenTikZ | [https://github.com/opentikz/opentikz](https://github.com/opentikz/opentikz) | 公式密集、模块规整、论文 LaTeX 字体一致的技术路线和方法框图 | 提供可编辑 `.tex` 模板与示例；适合紧凑规则结构，复杂自由布局或频繁拖拽修改时可改用 Draw.io |
+| sci-box：scibox-diagram | [https://github.com/jihe520/sci-box](https://github.com/jihe520/sci-box) | 三栏研究框架、阶段条带、横向任务流水线和多带式路线图 | 提供 Draw.io 科研图模板；授权未确认时只借鉴分栏、层级和留白，不直接复制模板资产或图标 |
+| Graphviz Gallery | [https://graphviz.org/gallery/](https://graphviz.org/gallery/) | 分支多、依赖复杂、需要自动减少交叉线的有向流程和层级结构 | 使用 `.dot` 源码可重建；自动布局只解决几何问题，不得把依赖边改写成因果、反馈或时间顺序 |
+| C4 Draw.io 模板库 | [https://github.com/kaminzo/c4-draw.io](https://github.com/kaminzo/c4-draw.io) | 题目确有系统、模块、外部参与者、接口和层级边界时的路线总览 | 不把普通变量或论文子问题硬套成软件容器；采用素材时核对 CC BY 4.0 署名要求 |
 
 ### 1.2 已验证好用的模板
 
@@ -29,16 +32,29 @@
 | 模板名称 | 具体模板链接或路径 | 适用场景 | 确认记录 |
 |---|---|---|---|
 
-### 1.3 模板检索与比较要求
+### 1.3 按路线拓扑选择模板类型
 
-在创建 Draw.io 节点、连线或画布之前，先检查 Draw.io 内置模板、公开的可编辑 .drawio / .xml 模板库及项目已有参考图。按本题的内容结构搜集至少三个相关候选；若确实不足三个，记录检索来源、关键词和未找到更多适用模板的原因。可以借鉴模板的分组或连线方式，也可以在比较后选择空白画布。
+在创建 Draw.io 节点、连线或画布之前，先根据事实清单判断路线图的真实拓扑，再从相应入口查找具体示例：
+
+- **线性或分阶段研究路线：**优先查看 diagrams.net、tech-route-maker 和 sci-box，比较横向阶段、纵向层级与上下双带布局。
+- **公式、数学模块和算法接口较多：**优先查看 OpenTikZ；需要后续拖拽美化时，可先用其结构作为参考，再在 Draw.io 中重建。
+- **分支、汇合和依赖边很多：**优先查看 Graphviz Gallery，用自动布局测试可读性，再决定是否转为 Draw.io 原生对象。
+- **真实存在系统、平台、设备、外部参与者和接口：**可查看 C4 Draw.io；先证明这些边界属于赛题事实，再采用对应层级。
+- **需要证据定位和多格式初稿：**可用 tech-route-maker 生成可审查草案，但必须完成本指南的模板比较、Gate A 和 Penpot Gate B。
+- **节点很少或没有合适模板：**比较后使用空白画布通常优于强行套用复杂框架。
+
+图 1 是“整篇论文如何从输入走到结论”的总路线，不应画成图 3 的变量关系图、图 8 的部署执行图，也不应把论文目录机械排列成若干框。只有配色截图、不可编辑宣传图或与本题依赖不同的华丽流程图，不能计作结构模板。
+
+### 1.4 模板检索与比较要求
+
+按本题的内容结构实际打开至少三个相关候选，查看源文件、节点、连线、分组和许可说明，而非只看预览。若确实不足三个，记录检索来源、关键词和未找到更多适用模板的原因。可以借鉴模板的分组或连线方式，也可以在比较后选择空白画布。
 
 在 projects/<project_name>/figures/figure1/template_review.md 留下比较表：
 
 | 候选及来源链接 | 与本题节点和依赖的匹配程度 | 可编辑性、连线和缩小后的可读性 | 需要改动的部分 | 采用或放弃的理由 |
 | --- | --- | --- | --- | --- |
 
-选择适合本题的**结构参考**，说明哪些部分可借鉴、哪些必须重画。配色灵感与结构模板分开记录；不因为模板好看就改变事实、箭头方向或增加无关节点。模板比较记录完成后，才进入 Draw.io 绘制。
+每个候选至少记录具体示例链接或文件路径、源文件类型、许可与署名要求、计划借鉴和明确不借鉴的元素、可能造成的错误语义以及改造量。选择适合本题的**结构参考**，说明哪些部分可借鉴、哪些必须重画。配色灵感与结构模板分开记录；不因为模板好看就改变事实、箭头方向或增加无关节点。模板比较记录完成后，才进入 Draw.io 绘制。
 
 ## 2. 在 Draw.io 绘制可编辑初稿
 
@@ -84,4 +100,4 @@ delivery.md 记录事实源和版本、模板比较结论、两次验收结果�
 
 ## 可复用的任务说明
 
-> 根据本项目的题目、figure_handoff.md 和 results/verified/，先整理图 1 的事实与依赖清单。创建任何 Draw.io 对象前，搜集并比较至少三个相关模板，在 figures/figure1/template_review.md 写出选择或不用模板的理由。随后在 Draw.io 绘制可编辑初稿，完成 Gate A 后，在 Penpot 用原生对象美化并完成两轮 Gate B 检查；Scientific Illustrator 可按需选用。候选阶段只保留源文件、Board 链接及 PNG，交给我确认最终版本后再为选定版导出 SVG/PDF。不要预设模板、画面结构、颜色或赛题事实。
+> 根据本项目的题目、figure_handoff.md 和 results/verified/，先整理图 1 的事实与依赖清单。按路线拓扑从本指南列出的模板库中实际打开至少三个具体模板或源码示例，把网址、源文件、许可、适配性、错误语义风险和借鉴边界写入 figures/figure1/template_review.md；比较后可以选择空白画布。随后在 Draw.io 绘制可编辑初稿，完成 Gate A 后，在 Penpot 用原生对象美化并完成两轮 Gate B 检查；Scientific Illustrator 可按需选用。候选阶段只保留源文件、Board 链接及 PNG，交给我确认最终版本后再为选定版导出 SVG/PDF。不要预设模板、画面结构、颜色或赛题事实。
